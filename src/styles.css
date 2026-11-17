@@ -246,3 +246,13 @@
 .express-result {
   font-size: 13px;
 }
+
+/* Keep the concept-art disclosure legible; this is not a real business photo. */
+.art-stamp {
+  font-size: 11px;
+}
+
+.art-caption {
+  color: #53615B;
+  font-size: 11px;
+}
