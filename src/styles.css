@@ -256,3 +256,107 @@
   color: #53615B;
   font-size: 11px;
 }
+
+
+/* Experiment 06 — align legibility with the approved Stage 3 type scale. */
+.eyebrow,
+.section-topline,
+.wordmark-tag,
+.timing-card-top,
+.timing-value,
+.note-label,
+.radius-display small,
+.radius-display div > span,
+.pickup-rule > p,
+.rule-meta,
+.info-card-head,
+.card-corner,
+.fictional-label,
+.hours-row,
+.contact-card-top,
+.status-pill,
+.hero-bottom,
+.footer-bottom,
+.art-caption,
+.art-stamp {
+  font-size: 12px;
+}
+
+.hero-lead {
+  font-size: 19px;
+}
+
+.section-description,
+.turnaround-intro > p:not(.eyebrow),
+.pickup-copy > p:not(.eyebrow) {
+  font-size: 16px;
+}
+
+.hero-footnote,
+.pricing-note p,
+.timing-detail,
+.timing-rule,
+.express-foot,
+.process-aside p,
+.process-bottom-note p,
+.pickup-footnote,
+.card-footnote,
+.address-card > p,
+.contact-card > p,
+.footer-main p {
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.process-item p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.price-card-head p {
+  font-size: 14px;
+}
+
+.price-row small,
+.price-card-foot {
+  font-size: 12px;
+}
+
+.timing-value,
+.express-intro,
+.express-result {
+  font-size: 14px;
+}
+
+.button {
+  font-size: 16px;
+}
+
+.text-link,
+.contact-card-bottom a,
+.disabled-action {
+  font-size: 14px;
+}
+
+.art-stamp,
+.art-caption {
+  font-size: 12px;
+}
+
+@media (max-width: 1023px) {
+  .hero-lead {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-lead {
+    font-size: 18px;
+  }
+
+  .section-description,
+  .turnaround-intro > p:not(.eyebrow),
+  .pickup-copy > p:not(.eyebrow) {
+    font-size: 16px;
+  }
+}
