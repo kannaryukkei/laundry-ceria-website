@@ -1,0 +1,54 @@
+name: Shared Website Quality Gate
+description: Framework-agnostic responsive, typography, contrast, and content-evidence checks for a rendered website.
+inputs:
+  working-directory:
+    description: Path to the website root being tested. Used as the preview command working directory and shared quality runner website root. Shared runner dependencies are installed separately from the action directory.
+    required: false
+    default: .
+  preview-command:
+    description: Command that starts the already-built preview server.
+    required: true
+  url:
+    description: Rendered website URL to inspect.
+    required: true
+  evidence-manifest:
+    description: Evidence manifest path, relative to working-directory.
+    required: false
+    default: .website-quality/evidence-manifest.json
+  artifacts-directory:
+    description: Directory for screenshots, JSON report, and diagnostics.
+    required: false
+    default: .website-quality-artifacts
+runs:
+  using: composite
+  steps:
+    - name: Set up Node 22
+      uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+      with:
+        node-version: 22
+    - name: Install pinned shared runner dependencies
+      shell: bash
+      run: npm ci --no-audit --no-fund
+      working-directory: ${{ github.action_path }}
+    - name: Install Chromium
+      shell: bash
+      run: npx playwright install chromium --with-deps
+      working-directory: ${{ github.action_path }}
+    - name: Run shared website quality gate
+      shell: bash
+      env:
+        SWQG_WORKING_DIRECTORY: ${{ inputs.working-directory }}
+        SWQG_PREVIEW_COMMAND: ${{ inputs.preview-command }}
+        SWQG_URL: ${{ inputs.url }}
+        SWQG_EVIDENCE_MANIFEST: ${{ inputs.evidence-manifest }}
+        SWQG_ARTIFACTS_DIRECTORY: ${{ inputs.artifacts-directory }}
+      run: node "${{ github.action_path }}/runner.mjs"
+      working-directory: ${{ github.workspace }}
+    - name: Upload shared quality evidence
+      if: always()
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      with:
+        name: shared-website-quality-gate
+        path: ${{ inputs.working-directory }}/${{ inputs.artifacts-directory }}/
+        include-hidden-files: true
+        if-no-files-found: warn
