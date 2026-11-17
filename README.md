@@ -33,7 +33,12 @@ The approved stage handoffs are stored in [docs/](./docs/). Stage 0 is the sourc
 
 ## Development
 
-Stage 4 implementation instructions and commands will be added with the application scaffold. Do not assume a deployment target or public release is authorized.
+- `npm install`
+- `npm run dev`
+- `npm run typecheck`
+- `npm run build`
+
+Do not assume a deployment target or public release is authorized.
 
 ## Git workflow
 
