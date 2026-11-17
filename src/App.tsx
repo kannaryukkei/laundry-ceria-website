@@ -31,7 +31,6 @@ function Header() {
     <header className="site-header" id="site-header">
       <div className="container header-inner">
         <a className="wordmark" href="#hero" aria-label="Laundry Ceria, kembali ke awal">
-          <span className="wordmark-icon" aria-hidden="true"><span /><span /><span /></span>
           <span>Laundry<span className="wordmark-light">Ceria</span></span>
           <span className="wordmark-tag">DEMO</span>
         </a>
@@ -82,7 +81,7 @@ function Hero() {
       <div className="container hero-grid">
         <div className="hero-copy">
           <p className="eyebrow"><span />LAYANAN LAUNDRY KILOAN</p>
-          <h1>Urusan pakaian,<br /><em>lebih tertata.</em></h1>
+          <h1>Kenali layanan,<br /><em>harga, dan prosesnya.</em></h1>
           <p className="hero-lead">Pilihan layanan laundry untuk kebutuhan harian. Kenali layanan, harga, dan alur pengerjaannya dalam satu tempat.</p>
           <div className="hero-actions">
             <a className="button button-primary" href="#services-pricing">Lihat layanan & harga <ArrowUpRight /></a>
