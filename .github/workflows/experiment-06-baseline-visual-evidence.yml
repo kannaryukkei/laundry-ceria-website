@@ -100,3 +100,15 @@ jobs:
             process.exitCode = 1;
           }
           NODE
+
+      - name: Run Stage 6 responsive and interaction smoke tests
+        if: always()
+        run: node tests/stage-6-interactions.mjs
+
+      - name: Upload interaction-state evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: experiment-06-interaction-evidence
+          path: .website-quality-artifacts/interactions/
+          if-no-files-found: warn
