@@ -64,13 +64,13 @@ function HeroIllustration() {
     <div className="hero-art" aria-label="Ilustrasi dekoratif bentuk kain terlipat" role="img">
       <div className="art-orbit orbit-one" />
       <div className="art-orbit orbit-two" />
-      <div className="art-spark spark-one">✳</div>
-      <div className="art-spark spark-two">✳</div>
+      <div className="art-spark spark-one" aria-hidden="true">✳</div>
+      <div className="art-spark spark-two" aria-hidden="true">✳</div>
       <div className="fabric fabric-back" />
       <div className="fabric fabric-mid" />
       <div className="fabric fabric-front"><span /></div>
-      <div className="art-stamp"><span className="stamp-mark">✳</span><span>RAPI<br />TERATUR</span></div>
-      <span className="art-caption">ILUSTRASI DEKORATIF</span>
+      <div className="art-stamp"><span className="stamp-mark" aria-hidden="true">✳</span><span data-qa-role="metadata">RAPI<br />TERATUR</span></div>
+      <span className="art-caption" data-qa-role="metadata">ILUSTRASI DEKORATIF</span>
     </div>
   );
 }
