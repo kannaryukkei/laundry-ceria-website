@@ -19,7 +19,7 @@
 - Typecheck: PASS
 - Shared Website Quality Gate: FAIL (visual evidence capture completed and artifact uploaded)
 - Full action run: https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44187475050
-- Screenshot/report artifact: https://github.com/github...? (artifact id 14375291852; download URL is in the run)
+- Screenshot/report artifact: https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44187475050/artifacts/14375291852
 - Harness: copied from AI Operated Web Studio main at the time of run; it is test-only and is not part of the website's delivery code.
 
 ## Evidence register
