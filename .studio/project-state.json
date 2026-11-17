@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.0.0",
+  "workflow_id": "ai-operated-web-studio",
+  "project_id": "LAUNDRY-CERIA-E2E",
+  "delivery_mode": "preview_only",
+  "artifacts": [
+    {
+      "artifact_id": "asset-permission-register",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/asset-permission-register/v1.0/asset-permission-register.md",
+      "sha256": "8fe037b0f8bd11d0d9419253a4333dd58cc1d4ed6252e80180062f4fde52ada0",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-17T23:55:15.459Z"
+    },
+    {
+      "artifact_id": "clarification-and-conflict-register",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/clarification-and-conflict-register/v1.0/clarification-and-conflict-register.md",
+      "sha256": "223e9fd1eb392a5f5fab8759adc9f58f15be9864d6d33f02babe9b3dc20d2a10",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-17T23:55:15.465Z"
+    },
+    {
+      "artifact_id": "client-brief",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/client-brief/v1.0/client-brief.md",
+      "sha256": "c5268912a708665bc29511a077a605020a16844a23ca68e63a2fdf5ffc5dbd4c",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-17T23:55:15.469Z"
+    },
+    {
+      "artifact_id": "fact-register",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/fact-register/v1.0/fact-register.md",
+      "sha256": "e6bc1626f484ebcc9317172cd0384db90dcbe72a875715d6332dc1fe5e75c66d",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-17T23:55:15.474Z"
+    },
+    {
+      "artifact_id": "interview-summary",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/interview-summary/v1.0/interview-summary.md",
+      "sha256": "5fcca1254d6a7bd65babdbee36864b23b9ae8c645ebb77638f471f7594df74f5",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-17T23:55:15.478Z"
+    },
+    {
+      "artifact_id": "raw-material-index",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/raw-material-index/v1.0/raw-material-index.md",
+      "sha256": "4ab460f40a3a5aac99c6ecb9f836d2b5b13b1e0c3547de82b9fa00023e756098",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-17T23:55:15.484Z"
+    },
+    {
+      "artifact_id": "source-coverage-matrix",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/source-coverage-matrix/v1.0/source-coverage-matrix.md",
+      "sha256": "b80a32571a714070feaad8be09d8e0bc7694dc34a5f5770a88655a89d1521ea9",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-17T23:55:15.490Z"
+    },
+    {
+      "artifact_id": "source-register",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/source-register/v1.0/source-register.md",
+      "sha256": "593b93cb646a0e99a98ddb5cf32a5f1a389aff164b49d2af0cbdc1cf344de103",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-17T23:55:15.496Z"
+    }
+  ],
+  "approvals": [
+    {
+      "approval_id": "APR-G0-000010",
+      "gate_id": "G0",
+      "decision": "CONDITIONAL_PREVIEW",
+      "subject": "G0 conditional preview approval — Stage 0 sources, facts and asset permissions",
+      "artifact_bindings": [
+        {
+          "artifact_id": "source-register",
+          "version": "1.0",
+          "sha256": "593b93cb646a0e99a98ddb5cf32a5f1a389aff164b49d2af0cbdc1cf344de103"
+        },
+        {
+          "artifact_id": "fact-register",
+          "version": "1.0",
+          "sha256": "e6bc1626f484ebcc9317172cd0384db90dcbe72a875715d6332dc1fe5e75c66d"
+        },
+        {
+          "artifact_id": "asset-permission-register",
+          "version": "1.0",
+          "sha256": "8fe037b0f8bd11d0d9419253a4333dd58cc1d4ed6252e80180062f4fde52ada0"
+        }
+      ],
+      "approvers": [
+        {
+          "role": "studio_owner",
+          "person": "kannaryukkei",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-17T23:55:15.503Z",
+          "evidence_reference": "docs/stage-0-source-fixture.md@006916d4afe240d954a41d1b127948db9f8fe0be",
+          "identity_source": "github_actor",
+          "github_actor": "kannaryukkei"
+        }
+      ],
+      "recorded_at": "2026-11-17T23:55:15.503Z"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "EVT-000001",
+      "event_type": "PROJECT_INITIALIZED",
+      "occurred_at": "2026-11-17T23:55:15.439Z",
+      "actor": "kannaryukkei",
+      "project_id": "LAUNDRY-CERIA-E2E",
+      "delivery_mode": "preview_only"
+    },
+    {
+      "event_id": "EVT-000002",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-17T23:55:15.459Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "asset-permission-register",
+      "artifact_version": "1.0",
+      "artifact_sha256": "8fe037b0f8bd11d0d9419253a4333dd58cc1d4ed6252e80180062f4fde52ada0"
+    },
+    {
+      "event_id": "EVT-000003",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-17T23:55:15.465Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "clarification-and-conflict-register",
+      "artifact_version": "1.0",
+      "artifact_sha256": "223e9fd1eb392a5f5fab8759adc9f58f15be9864d6d33f02babe9b3dc20d2a10"
+    },
+    {
+      "event_id": "EVT-000004",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-17T23:55:15.469Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "client-brief",
+      "artifact_version": "1.0",
+      "artifact_sha256": "c5268912a708665bc29511a077a605020a16844a23ca68e63a2fdf5ffc5dbd4c"
+    },
+    {
+      "event_id": "EVT-000005",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-17T23:55:15.474Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "fact-register",
+      "artifact_version": "1.0",
+      "artifact_sha256": "e6bc1626f484ebcc9317172cd0384db90dcbe72a875715d6332dc1fe5e75c66d"
+    },
+    {
+      "event_id": "EVT-000006",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-17T23:55:15.478Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "interview-summary",
+      "artifact_version": "1.0",
+      "artifact_sha256": "5fcca1254d6a7bd65babdbee36864b23b9ae8c645ebb77638f471f7594df74f5"
+    },
+    {
+      "event_id": "EVT-000007",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-17T23:55:15.484Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "raw-material-index",
+      "artifact_version": "1.0",
+      "artifact_sha256": "4ab460f40a3a5aac99c6ecb9f836d2b5b13b1e0c3547de82b9fa00023e756098"
+    },
+    {
+      "event_id": "EVT-000008",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-17T23:55:15.490Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "source-coverage-matrix",
+      "artifact_version": "1.0",
+      "artifact_sha256": "b80a32571a714070feaad8be09d8e0bc7694dc34a5f5770a88655a89d1521ea9"
+    },
+    {
+      "event_id": "EVT-000009",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-17T23:55:15.496Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "source-register",
+      "artifact_version": "1.0",
+      "artifact_sha256": "593b93cb646a0e99a98ddb5cf32a5f1a389aff164b49d2af0cbdc1cf344de103"
+    },
+    {
+      "event_id": "EVT-000010",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-17T23:55:15.503Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G0-000010",
+      "gate_id": "G0",
+      "gate_decision": "CONDITIONAL_PREVIEW",
+      "approver_role": "studio_owner",
+      "approver_person": "kannaryukkei",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "docs/stage-0-source-fixture.md@006916d4afe240d954a41d1b127948db9f8fe0be",
+      "identity_source": "github_actor",
+      "github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "source-register",
+          "version": "1.0",
+          "sha256": "593b93cb646a0e99a98ddb5cf32a5f1a389aff164b49d2af0cbdc1cf344de103"
+        },
+        {
+          "artifact_id": "fact-register",
+          "version": "1.0",
+          "sha256": "e6bc1626f484ebcc9317172cd0384db90dcbe72a875715d6332dc1fe5e75c66d"
+        },
+        {
+          "artifact_id": "asset-permission-register",
+          "version": "1.0",
+          "sha256": "8fe037b0f8bd11d0d9419253a4333dd58cc1d4ed6252e80180062f4fde52ada0"
+        }
+      ]
+    }
+  ]
+}
