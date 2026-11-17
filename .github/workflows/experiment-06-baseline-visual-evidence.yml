@@ -1,0 +1,102 @@
+name: Experiment 06 — Baseline Visual Evidence
+
+on:
+  push:
+    branches:
+      - test/experiment-06-baseline-visual-evidence
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    name: Build and shared visual evidence
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout experiment baseline
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install website dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Production build
+        run: npm run build
+
+      - name: Prepare demo-only evidence manifest
+        shell: bash
+        run: |
+          mkdir -p .website-quality
+          cat > .website-quality/evidence-manifest.json <<'JSON'
+          {
+            "version": 1,
+            "humanReviewRequired": true,
+            "items": []
+          }
+          JSON
+
+      - name: Run shared website quality gate
+        id: shared_gate
+        continue-on-error: true
+        uses: ./.github/actions/shared-website-quality-gate
+        with:
+          working-directory: .
+          preview-command: npm run preview -- --host 127.0.0.1 --port 4174
+          url: http://127.0.0.1:4174
+          evidence-manifest: .website-quality/evidence-manifest.json
+          artifacts-directory: .website-quality-artifacts
+
+      - name: Summarize baseline quality and visual evidence
+        if: always()
+        env:
+          SHARED_GATE_OUTCOME: ${{ steps.shared_gate.outcome }}
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
+          const root = path.resolve('.website-quality-artifacts');
+          const reportPath = path.join(root, 'report.json');
+          if (!fs.existsSync(reportPath)) {
+            coreError('Shared gate did not produce report.json.');
+            process.exit(1);
+          }
+          const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+          const evidence = report.visualEvidence ?? {};
+          const captures = [
+            ...(evidence.viewportScreenshots ?? []),
+            ...(evidence.sectionScreenshots ?? []),
+          ];
+          const missing = captures.filter(item => !item.relativePath || !fs.existsSync(path.join(root, item.relativePath)));
+          const lines = [
+            '## Experiment 06 — Baseline evidence',
+            '',
+            `- Commit: ${process.env.GITHUB_SHA}`,
+            `- URL: ${report.url ?? 'unknown'}`,
+            `- Shared action outcome: ${process.env.SHARED_GATE_OUTCOME ?? 'unknown'}`,
+            `- Website quality status: ${report.status ?? 'UNKNOWN'}`,
+            `- Responsive widths checked: ${(report.viewports ?? []).map(item => item.width).join(', ') || 'none'}`,
+            `- Viewport screenshots: ${(evidence.viewportScreenshots ?? []).length}`,
+            `- Section screenshots: ${(evidence.sectionScreenshots ?? []).length}`,
+            `- Missing visual evidence files: ${missing.length}`,
+            `- Contrast surfaces requiring manual review: ${(report.contrast?.excludedSurfaces ?? []).length}`,
+            '',
+          ];
+          if (missing.length) lines.push('Missing screenshots:', ...missing.map(item => `- ${item.relativePath ?? 'unknown'}`), '');
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join('\n'));
+          console.log(lines.join('\n'));
+          function coreError(message) {
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Baseline capture error\n\n${message}\n`);
+            console.error(message);
+          }
+          if (process.env.SHARED_GATE_OUTCOME !== 'success' || report.status === 'FAIL' || missing.length) {
+            process.exitCode = 1;
+          }
+          NODE
