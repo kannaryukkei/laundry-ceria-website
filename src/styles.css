@@ -184,3 +184,34 @@
     white-space: nowrap;
   }
 }
+
+
+/* Experiment 06 — correct surface-specific contrast and remaining metadata floors. */
+.timing-rule {
+  color: #53615B;
+}
+
+.pickup-free > p,
+.pickup-free .rule-bottom span,
+.pickup-free .rule-meta {
+  color: #D6E9E0;
+}
+
+.pickup-paid > p,
+.pickup-paid .rule-bottom span,
+.pickup-paid .rule-meta {
+  color: #53615B;
+}
+
+.disabled-action span {
+  color: #53615B;
+}
+
+.side-index i {
+  color: #B8C8D0;
+}
+
+.express-intro,
+.express-result {
+  font-size: 13px;
+}
