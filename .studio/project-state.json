@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "workflow_id": "ai-operated-web-studio",
+  "project_id": "LAUNDRY-CERIA-FULL-E2E-DEV",
+  "operating_mode": "studio_development",
+  "delivery_mode": "production",
+  "artifacts": [],
+  "approvals": [],
+  "events": [
+    {
+      "event_id": "EVT-000001",
+      "event_type": "PROJECT_INITIALIZED",
+      "occurred_at": "2026-11-18T06:10:28.258Z",
+      "actor": "kannaryukkei",
+      "project_id": "LAUNDRY-CERIA-FULL-E2E-DEV",
+      "operating_mode": "studio_development",
+      "delivery_mode": "production"
+    }
+  ]
+}
