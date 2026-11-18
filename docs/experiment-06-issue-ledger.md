@@ -39,7 +39,7 @@ Diagnostic widths: 320, 360, 390, 640, 768, 900, 1024, 1280 and 1440 px. The rec
 | VIS-003 | MEDIUM | IMPLEMENTATION_QA | The earlier six-width archive showed overlap at 640px but was not SHA-bound. Current PR #3 head `bba7c70e8523c0b0e43e4f13ad00eb9e853274a4` was captured and visually reviewed at 640px and 720px with an exact-head manifest; the disclosure/artwork gap is clear at both. | Keep the breakpoint-specific orbit bounds and `.hero-art` sizing at 600–767px. CI now provides exact-head screenshot evidence at 640px and 720px; manually inspect the artifacts. Do not use blanket overflow suppression or remove `.sr-only`. | FIXED — current-head capture verified; see Section 13 |
 | A11Y-001 | HIGH | IMPLEMENTATION_QA | PR #3 run #44337513640 on head `840229a` passed skip-link first Tab/focus transfer, visible focus, mobile keyboard order, Escape close/focus return, collapsed-nav exclusion, desktop navigation reachability, reduced motion and 640 CSS-pixel zoom-equivalent reflow. This is not a literal browser-zoom test or full WCAG claim. | Preserve A11Y-001 regression; separately complete A11Y-002 full-page link traversal, literal browser zoom at 200%, and assistive-technology review. | AUTOMATED SUBSET PASS — remaining manual checks open |
 | A11Y-002 | HIGH | IMPLEMENTATION_QA | New `tests/a11y-002-full-keyboard.mjs` traverses all 16 desktop links in expected Tab order, checks each link's accessible name and in-page target, verifies visible focus treatment on every link, tests Shift+Tab reverse order, and confirms collapsed mobile navigation is skipped. Committed on head `e5a6aa4a8aeae1ea5102796971a92213cc705800`; CI execution is pending. | Require the exact-head CI regression to pass; retain manual assistive-technology and literal 200% browser zoom checks as separate review. | AUTOMATION IMPLEMENTED — CI PENDING |
-| COPY-001 | LOW | MASTER_SKILL_REASONING | Contact heading “Pilih cara yang ingin dikenali.” is awkward and may not clearly communicate contact options. | Make a bounded Bahasa Indonesia copy correction only after the relevant WRP/scope gate is resolved; verify no conversion behavior is implied. | OPEN |
+| COPY-001 | LOW | MASTER_SKILL_REASONING | The former heading “Pilih cara yang ingin dikenali.” was unnatural and unclear for the two visit/contact options. | Replaced with “Pilihan kunjungan dan kontak.” and clarified that both the displayed visit address and WhatsApp contact are synthetic preview data. No channel or real-world action was activated. | FIXED — source commit `25c6f8666083`; latest-head CI verification pending |
 | DES-001 | MEDIUM | MASTER_SKILL_REASONING | Preliminary aesthetic verdict: COMPETENT BUT GENERIC. Required comparison against at least two recent relevant Studio projects was not completed. | Compare design fingerprints and rendered references of two projects; document reused/new patterns and whether direction needs redesign. | DEFERRED |
 | GATE-003 | MEDIUM | IMPLEMENTATION_QA | `.eyebrow` paragraphs and other role-specific elements now have explicit `data-qa-role` assignments. After report records zero typography failures across all nine sampled widths; BODY / CONTROL / METADATA / DISCLOSURE are present. | Keep roles tied to semantics; do not lower global thresholds. Any future Studio-wide regression test remains separate from this client patch. | FIXED — verified in Laundry Ceria rendered report |
 | VIS-004 | MEDIUM | MASTER_SKILL_REASONING | Static `.process-item` arrow implied navigation although each row is informational. | Arrow markup and CSS removed at App commit `ab3a32fe9b24547c543cb0336f66916e7da7b1f2` / CSS commit `c1c6e94d6a1b0002886682485720e948684da9d1`. Slice B mobile 390 and desktop 1440 screenshots show six ordered, non-interactive steps remain clear; process-arrow contrast signature disappeared from report. | FIXED — after-render screenshot and report verified |
@@ -251,3 +251,24 @@ A targeted CSS patch has now been committed:
 The first run of the canonical AWOS shared gate on the revised candidate, [run #44342879459](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44342879459), confirmed zero typography failures, zero responsive failures and valid evidence, while both A11Y-001 and A11Y-002 browser tests passed. It isolated 37 remaining contrast observations to the low-contrast decorative suffix `/ 06` in the turnaround section's non-semantic `02 / 06` index (12px, 3.38:1 against the dark section; required 4.5:1).
 
 The suffix is not meaningful content, so it was removed rather than changing global thresholds or recoloring meaningful text. The higher-contrast decorative `02` remains. Its unused suffix CSS was removed. The latest candidate must pass the canonical gate before VIS-002 can be marked resolved.
+
+
+## 17. Final canonical quality-gate and keyboard verification — 2026-11-18
+
+The exact-head candidate `49b4a8e2b5ab6fb260e9c62573b9121d5c68e12a` passed [Website CI run #44343672779](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44343672779), including:
+- dependency installation, TypeScript check and Vite production build;
+- fresh 640px/720px Hero captures;
+- A11Y-001 automated regression;
+- **A11Y-002 PASS**: all 16 visible desktop links in expected Tab order, discernible accessible names and in-page targets, visible focus on every link, Shift+Tab reversal, and mobile collapsed-nav tab order;
+- canonical AWOS Shared Website Quality Gate result **PASS_WITH_MANUAL_REVIEW_REQUIRED**.
+
+The exact-head report records:
+- typography failures: 0 across all nine diagnostic widths (320–1440px);
+- contrast failures: 0 across 53 sampled viewport/state combinations;
+- responsive failures: 0;
+- evidence manifest: valid, 0 detected proof candidates, 0 evidence failures;
+- 205 contrast observations excluded because the renderer cannot reliably calculate text against generated Hero illustration backgrounds. These observations reduce to decorative marks and illustration-only labels, not business facts, prices, contact actions or required disclosure copy. The 390px/768px/1440px shared-gate screenshots and the 640px/720px Hero captures were visually inspected; the illustration remains contained and does not obstruct content.
+
+The report remains `PASS_WITH_MANUAL_REVIEW_REQUIRED` by design: manual image-surface review is still required by the shared gate. Do not convert this to a full PASS by weakening thresholds or mislabelling text. No WCAG certification is claimed.
+
+Literal browser zoom at 200%, assistive-technology/screen-reader testing, dependency lockfile/advisory review and independent Stage 7 acceptance remain separate follow-ups.
