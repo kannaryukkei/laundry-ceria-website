@@ -194,3 +194,15 @@ A targeted CSS patch has now been committed:
 - Existing 320–599px and 768px+ layouts are not changed by this rule.
 
 **Pending verification:** run the local build and capture Hero at 640px plus a width between 700 and 767px on the current branch head. Confirm disclosure and illustration have visible separation. Until that capture is inspected, VIS-003 remains OPEN. Earlier Section 10 text saying no substantive overlap and VIS-003 FIXED is superseded by this correction.
+
+## 12. A11Y-001 source implementation checkpoint — 2026-11-18
+
+**Status: IMPLEMENTED IN SOURCE; MANUAL VERIFICATION PENDING.**
+
+- src/App.tsx adds a keyboard-reachable “Lewati ke konten utama” skip link before the site notice. Its destination is the primary main landmark, #main-content, with tabIndex={-1}.
+- The mobile navigation now listens for Escape while open, closes the menu, and returns focus to the menu toggle button. The existing aria-expanded and aria-controls relationship is retained.
+- src/styles.css styles the skip link off-screen by default and reveals it when focused. Existing global :focus-visible treatment and prefers-reduced-motion: reduce override remain in place.
+- App source commit: d757f14e9f18584f18190ab3ef704f74c5cc7033. The latest CSS also retains the independent VIS-003 orbit-containment patch.
+- No claim of A11Y-001 closure is made. Still required: verify the skip link is the first Tab stop and moves focus/viewport to main; keyboard navigation through the full page; open the mobile menu, Tab into it, press Escape and verify the menu closes and focus returns to its toggle; verify collapsed links are absent from the tab sequence; inspect visible focus indicators; emulate reduced motion; and manually test browser zoom at 200%.
+- A browser run/build has not yet been supplied for the A11Y source commits. No GitHub Actions workflow run or combined status has been reported for the latest PR head.
+- PR #3 remains open, draft and unmerged. Stage 7 independent QA, contrast gate disposition, reproducibility/advisory review and release approvals remain separate. No deployment/public release is authorized.
