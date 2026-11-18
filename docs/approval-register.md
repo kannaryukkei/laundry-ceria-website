@@ -47,6 +47,8 @@ A gate is passed only within the scope stated in its decision record. Training-o
 | Web Preview CI run #94 at ff29c739ed23441ed76a3b781d784d66552e6ea0 | Dependency install, typecheck and Vite production build passed on the documentation-only decision head | Browser visual QA, keyboard operation, full responsive/accessibility acceptance or production readiness |
 | Web Preview CI run #99 at 9cc398f4b179e81de78e19148fb5fa9725f79e64 | Dependency install, typecheck and Vite production build passed on the latest documentation-only PR head | Browser visual QA, keyboard operation, full responsive/accessibility acceptance or production readiness |
 | Web Preview CI run #101 at 9bb9c055a0276acec34fae85e272cf062c62792b | Dependency install, typecheck and Vite production build passed on the current documentation-only PR head | Browser visual QA, keyboard operation, full responsive/accessibility acceptance or production readiness |
+| Web Preview CI run #103 at fef4a8461e2998ed622db99311d2e75095fd8f6e | Dependency install, typecheck and Vite production build passed on the current documentation-only PR head | Browser visual QA, keyboard operation, full responsive/accessibility acceptance or production readiness |
+| Experiment 06 SHA-labelled baseline archive | 20 PNG screenshots plus report.json, diagnostics.log and companion manifest for target ff29c739ed23441ed76a3b781d784d66552e6ea0; archive SHA-256 fa74efef3cf0b6035f24891e7210bd17286ffcaadf921de7aee34453100b0dd7 | User supplied a dirty pre-checkout status and did not capture post-checkout cleanliness; visual review is possible, exact source-to-SHA binding remains conditional |
 | PR #1 | Candidate implementation and training decision docs exist in a draft/open PR targeting main; the website source/CSS was not changed by the seven decision-record commits | Merge, client acceptance, G4/G5/G6/G7 or publication authorization |
 
 ## 4. Canonical workflow reconciliation
@@ -89,3 +91,8 @@ The repository's Stage 0–6 labels are historical project-local labels. Use the
 |---|---|---|
 | 2026-11-18 | Register reconstructed from repository evidence, v0.1 | No approvals granted |
 | 2026-11-18 | User accepted proposed defaults as simulated G1/G2/G3 decisions for this training experiment; TDR-LC-2026-11-18-01 and WRP-LC-001 v0.2 recorded | Training-only progression decision recorded; no client, publication, asset, production or release approval |
+
+
+### Baseline capture integrity note — 2026-11-18
+
+The user supplied `experiment-06-sha-pinned-baseline.zip`, whose companion manifest records target `ff29c739ed23441ed76a3b781d784d66552e6ea0`. The archive passed ZIP CRC validation and contains 20 PNGs, `report.json` and `diagnostics.log`. The report quality status is FAIL; typography and contrast failures are retained. The user's pre-checkout working tree was non-empty and no post-checkout cleanliness output was supplied, so the manifest/HEAD match is recorded but a clean source-tree-to-SHA binding is still pending. Do not alter or delete local work to manufacture a clean state.
