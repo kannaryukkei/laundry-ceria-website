@@ -22,6 +22,7 @@ Current retrospective records:
 - [Website Requirements Pack WRP-LC-001 v0.1 — DRAFT](./docs/website-requirements-pack-v0.1-draft.md)
 - [Canonical discovery snapshot SNAP-LC-0001 — draft](./docs/canonical-discovery-snapshot-v0.1.json)
 - [Approval register and G0–G7 status](./docs/approval-register.md)
+- [Experiment 06 issue ledger](./docs/experiment-06-issue-ledger.md)
 
 These records do not grant approval: G1/G2 remain unrecorded/not passed, all fixture facts remain DEMO-ONLY / NOT_APPROVED, and the project remains preview-only. Do not infer that the existing implementation was retroactively authorized.
 
