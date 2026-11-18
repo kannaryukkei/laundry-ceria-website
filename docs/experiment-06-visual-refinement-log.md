@@ -270,3 +270,13 @@ The initial final-spot-check conclusion in Section 9 that VIS-003 was fixed was 
 - No page-wide overflow suppression, content changes, or accessibility-label removal.
 
 **VIS-003 remains OPEN until re-rendered evidence confirms disclosure/artwork separation at 640px and a second width between 700–767px.** This correction supersedes the earlier Section 9 disposition.
+
+## 11. A11Y-001 keyboard accessibility implementation checkpoint — 2026-11-18
+
+**Status: source patch committed; browser verification pending.**
+
+- Added the “Lewati ke konten utama” skip link before the preview notice and a focusable main-landmark target (#main-content).
+- Added Escape handling for the open mobile navigation. Escape closes the menu and restores focus to the menu toggle. Existing aria-expanded / aria-controls semantics are preserved.
+- Added focused-state presentation for the skip link. Existing :focus-visible styles and reduced-motion media override remain unchanged.
+- App commit: d757f14e9f18584f18190ab3ef704f74c5cc7033.
+- This is an implementation checkpoint only, not an accessibility pass. Local build and browser evidence are still required for the first-Tab skip-link journey, complete keyboard path, Escape/focus restoration, hidden-menu tab order, focus visibility, reduced-motion behavior and manual 200% zoom review.
