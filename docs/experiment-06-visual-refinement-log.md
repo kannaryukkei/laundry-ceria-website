@@ -2,7 +2,7 @@
 
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
-**Status:** VIS-001/VIS-003 fixed; measured contrast failures are 0 on canonical run #44343672779 with 205 generated Hero-art surfaces requiring manual review. A11Y-001 and A11Y-002 pass on that exact head. COPY-001 wording is corrected on the current source head; exact-head CI rerun pending. Literal browser zoom at 200%, assistive-tech review and Stage 7 remain open  
+**Status:** VIS-001/VIS-003 fixed; exact-head canonical run #44345244180 reports 0 typography/contrast/responsive failures and valid evidence, with 208 generated Hero-art surfaces retained for manual review. A11Y-001/A11Y-002 and COPY-001 pass on PR #3 head `901fe98`. Literal 200% browser zoom, assistive-tech review and Stage 7 remain open  
 **Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
 **Stage 6 branch:** fix/experiment-06-stage6-remediation  
 **Slice A implementation checkpoint:** ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc  
@@ -363,3 +363,21 @@ A11Y-002 confirms every visible desktop link (16 total) is in the expected Tab o
 COPY-001 was subsequently corrected to “Pilihan kunjungan dan kontak.” with explicit demo-only supporting copy; that copy-only follow-up requires the next exact-head run before closing the latest source candidate.
 
 Literal browser zoom at 200%, assistive-technology/screen-reader review, lockfile/advisory review and independent Stage 7 acceptance remain open. This is not WCAG certification or release approval.
+
+
+## 18. Exact-head final verification after copy refinement — 2026-11-18
+
+PR #3 head `901fe9800d3209b213786b8443a4b47934c8b3ed` passed [Website CI run #44345244180](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44345244180). This run executed the A11Y-001 and A11Y-002 regressions and invoked the canonical Shared Website Quality Gate from AWOS.
+
+The report is **PASS_WITH_MANUAL_REVIEW_REQUIRED**:
+- 0 typography failures across nine widths (320–1440px).
+- 0 measurable contrast failures.
+- 0 page-level responsive failures; viewport/document widths match across all nine widths.
+- valid evidence manifest; zero proof candidates and zero evidence failures.
+- 208 text/surface samples excluded because generated Hero-art backgrounds cannot be resolved reliably. These are decorative spark marks and illustration-only badge/caption surfaces, not required business content or actionable controls. They remain a manual image-surface review item and are not silently counted as passes.
+
+A11Y-001 passes the skip-link, navigation, reduced-motion and zoom-equivalent reflow checks. A11Y-002 passes the full 16-link desktop keyboard sequence, accessible name/target checks, focus visibility, reverse traversal and collapsed mobile-nav tab path.
+
+COPY-001 now reads “Pilihan kunjungan dan kontak.” and clarifies that the displayed visit address and WhatsApp contact are simulated data. The channel remains non-interactive and NOT_CONFIGURED.
+
+The 390px, 768px and 1440px shared-gate full-page screenshots and 640px/720px Hero captures were visually inspected. Diagnostic measurement also covers 320/360/900/1024/1280px, but full human visual inspection at each of those widths is still outstanding. Literal browser zoom at 200%, screen-reader/assistive technology and independent Stage 7 acceptance remain manual. No WCAG certification or public release is implied.
