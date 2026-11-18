@@ -418,6 +418,42 @@
       "sha256": "b75453bd7f2eb65a160fda16d08f71c02d265675e6e6163656108a110a8f9802",
       "status": "SUBMITTED",
       "produced_at": "2026-11-18T07:31:31.170Z"
+    },
+    {
+      "artifact_id": "handover-pack",
+      "stage_id": "stage-08",
+      "version": "1.0",
+      "path": "project-artifacts/stage-08/handover-pack/v1.0/handover-pack.md",
+      "sha256": "d4ffc81cfbe52bd8701b22d40c3640b4e3c1673ecd353f7c06031f91a689aede",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:38:58.032Z"
+    },
+    {
+      "artifact_id": "ownership-cost-register",
+      "stage_id": "stage-08",
+      "version": "1.0",
+      "path": "project-artifacts/stage-08/ownership-cost-register/v1.0/ownership-cost-register.md",
+      "sha256": "94f9749da7369d14d62cb83e1c5886ffac5caf323d53e992c3822859582f240e",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:38:58.058Z"
+    },
+    {
+      "artifact_id": "production-verification",
+      "stage_id": "stage-08",
+      "version": "1.0",
+      "path": "project-artifacts/stage-08/production-verification/v1.0/production-verification.md",
+      "sha256": "5ddcfe5638f1e5502ee35273169faf46419e2e093ac6a36db7ea1946ec0cd509",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:38:58.086Z"
+    },
+    {
+      "artifact_id": "release-and-rollback-note",
+      "stage_id": "stage-08",
+      "version": "1.0",
+      "path": "project-artifacts/stage-08/release-and-rollback-note/v1.0/release-and-rollback-note.md",
+      "sha256": "4aace98169215f3f57a66df740b32df2b1ce935dd42ebe62f0a3a08d8036dd9f",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:38:58.108Z"
     }
   ],
   "approvals": [
@@ -1592,6 +1628,46 @@
           "sha256": "322b270b986af21a1096efe387a2cc23d8e6adf2b33486b3f5e825317e82f468"
         }
       ]
+    },
+    {
+      "event_id": "EVT-000062",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:38:58.032Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-08",
+      "artifact_id": "handover-pack",
+      "artifact_version": "1.0",
+      "artifact_sha256": "d4ffc81cfbe52bd8701b22d40c3640b4e3c1673ecd353f7c06031f91a689aede"
+    },
+    {
+      "event_id": "EVT-000063",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:38:58.058Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-08",
+      "artifact_id": "ownership-cost-register",
+      "artifact_version": "1.0",
+      "artifact_sha256": "94f9749da7369d14d62cb83e1c5886ffac5caf323d53e992c3822859582f240e"
+    },
+    {
+      "event_id": "EVT-000064",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:38:58.086Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-08",
+      "artifact_id": "production-verification",
+      "artifact_version": "1.0",
+      "artifact_sha256": "5ddcfe5638f1e5502ee35273169faf46419e2e093ac6a36db7ea1946ec0cd509"
+    },
+    {
+      "event_id": "EVT-000065",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:38:58.108Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-08",
+      "artifact_id": "release-and-rollback-note",
+      "artifact_version": "1.0",
+      "artifact_sha256": "4aace98169215f3f57a66df740b32df2b1ce935dd42ebe62f0a3a08d8036dd9f"
     }
   ]
 }
