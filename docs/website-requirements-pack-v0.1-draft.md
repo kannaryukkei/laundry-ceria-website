@@ -56,6 +56,25 @@ Accordingly:
 - The missing canonical records are an explicit completion item before this pack can be treated as a complete canonical WRP.
 - A future operator may create those canonical records from the source fixture, preserving exact locators and the DEMO-ONLY / NOT_APPROVED statuses.
 
+### 2.3 Canonical record map
+
+The WRP uses the project-scoped records in SNAP-LC-0001. Stable IDs are created in the draft canonical packet; they are not platform IDs or approvals.
+
+| WRP area | Canonical records |
+|---|---|
+| Business and source facts | SRC-0001–SRC-0005; FACT-0001–FACT-0035 |
+| Audience and journey questions | Q-0001–Q-0008; BJ-0001–BJ-0004 |
+| Service offers and prices | OFFER-0001–OFFER-0005; FACT-0006–FACT-0007 and FACT-0017–FACT-0021 |
+| Process and turnaround | FACT-0008–FACT-0014 and FACT-0026; Q-0003, Q-0004 and Q-0007 |
+| Pickup/delivery | FACT-0022–FACT-0024; Q-0005 |
+| Hours and fictional address | FACT-0015, FACT-0016 and FACT-0025; Q-0006; GAP-0002 |
+| Contact and conversion | CTA-0001–CTA-0004; FACT-0011 and FACT-0028; Q-0008; GAP-0001 and GAP-0003 |
+| Image and identity constraints | ASSET-0001–ASSET-0003; FACT-0031–FACT-0033; GAP-0004 and GAP-0005 |
+| Trust / proof boundary | TRUST-0001; FACT-0029 and FACT-0030 |
+| Open decisions and unavailable information | GAP-0001–GAP-0008; FACT-0035 |
+
+The Stage 2 requirement IDs REQ-001–REQ-015 remain the implementation acceptance references. They are not substitutes for canonical facts, offers, questions or CTAs. Page coverage is not yet registered: SNAP-LC-0001 intentionally contains an empty page_coverage collection until each visitor question is mapped to exact rendered evidence and reviewed.
+
 ## 3. Project and business context
 
 ### 3.1 Business context — fictional fixture only
