@@ -3,7 +3,7 @@ name: Web Studio Repository Operations
 on:
   push:
     paths:
-      - ".studio/inbox/**"
+      - ".studio/inbox/project-init.json"
 
 permissions:
   contents: write
