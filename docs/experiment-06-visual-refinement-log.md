@@ -279,6 +279,7 @@ The initial final-spot-check conclusion in Section 9 that VIS-003 was fixed was 
 - Direct review of `hero-640.png` confirms the illustration overlaps the disclosure text area. The 900px Hero image is clear. The metrics report no page-level horizontal overflow at any of the six recorded widths; this does not negate the visual overlap.
 - Because the archive is not bound to a website commit, it cannot establish whether it was captured before or after CSS patch `472fdc4c94d8abd9fd033be1294a204a4265bb36`. It therefore cannot validate or invalidate that patch on current PR head `61e005daea25e54be87f24a10c73053ec4fd35fa`.
 - There is no screenshot at 700–767px. A screenshot at 900px is outside the requested breakpoint and cannot substitute for one.
+- The standalone Website CI workflow now captures 640px and 720px screenshots from the exact pull-request head and uploads them with a commit-bound manifest. This provides reproducible review evidence; it does not perform visual assertions or replace manual inspection. The capture for this documentation update is still pending.
 
 **Disposition:** VIS-003 remains OPEN. The evidence archive confirms the problem is real at 640px but is not post-patch evidence. Capture the exact current PR head after build at 640px and at one width between 700–767px (for example 720px), with a manifest recording repo, branch, exact commit SHA, preview URL and capture time. Keep the disclosure and decorative artwork visibly separated. Do not claim VIS-003 is fixed until those images are inspected.
 
