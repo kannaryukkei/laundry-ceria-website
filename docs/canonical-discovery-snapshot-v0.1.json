@@ -24,7 +24,7 @@
       "Canonical WRP/G2 approval was not recorded before the existing implementation began.",
       "LC-TRAINING-001 and SNAP-LC-0001 are newly assigned workspace-scoped identifiers; mapping to a Laravel platform project record has not been verified.",
       "Post-QA-001 shared quality report status is FAIL for unresolved typography and contrast issues. Page coverage records indicate rendered preview presence only, not quality acceptance.",
-      "The after-QA-001 screenshot archive is owner-supplied and not committed to Git; report.json does not embed the website Git SHA, so exact screenshot-to-commit binding remains NOT_VERIFIED."
+      "The after-QA-001 screenshot archive is registered as SRC-0006 but not committed to Git; report.json does not embed the website Git SHA, so exact screenshot-to-commit binding remains NOT_VERIFIED."
     ],
     "next_step": "Operator review of the canonical snapshot and evidence references; secure the screenshot archive in the controlled project workspace if durable evidence retention is required; then obtain explicit Studio-owner G1/G2 decisions. Do not treat preview coverage as a quality pass or publication authorization."
   },
@@ -88,6 +88,17 @@
         "confidentiality": "PROJECT_RESTRICTED",
         "parent_source_id": "SRC-0004",
         "notes": "Records implementation safeguards and remaining validation checks. In the inspected version, typecheck/build, visual/responsive QA and keyboard/focus/reduced-motion/200% zoom checks remain unchecked."
+      },
+      {
+        "source_id": "SRC-0006",
+        "source_type": "OTHER",
+        "name": "Experiment 06 after-QA-001 Shared Website Quality Gate evidence archive",
+        "original_ref": "conversation upload: experiment-06-after-qa001.zip (owner-supplied); archive is not currently stored in the project Git tree",
+        "received_at": "2026-11-18T12:38:00+07:00",
+        "source_owner_or_provider": "Shared Website Quality Gate runner output; supplied by the project operator",
+        "processing_status": "REVIEWED",
+        "confidentiality": "PROJECT_RESTRICTED",
+        "notes": "Contains report.json, diagnostics.log, full-page screenshots, viewportScreenshots at 390/768/1440px and sectionScreenshots for seven sections at mobile 390px and desktop 1440px. report.json url is http://127.0.0.1:4174; generatedAt is 2026-11-17T23:39:49.068Z; overall gate status is FAIL. The report does not embed the website Git SHA."
       }
     ],
     "source_coverage": [
@@ -392,6 +403,25 @@
           "GAP-0008"
         ],
         "reason_or_next_action": "Treat checklist state as recorded evidence only; do not mark unchecked validation as complete based on separate unrecorded recollection."
+      },
+      {
+        "coverage_id": "COV-0022",
+        "source_id": "SRC-0006",
+        "locator": "report.json / visualEvidence.viewportScreenshots and visualEvidence.sectionScreenshots",
+        "topic": "Rendered preview screenshots and after-QA-001 quality gate report",
+        "disposition": "NORMALIZED",
+        "target_record_ids": [
+          "PAGE-0001",
+          "PAGE-0002",
+          "PAGE-0003",
+          "PAGE-0004",
+          "PAGE-0005",
+          "PAGE-0006",
+          "PAGE-0007",
+          "PAGE-0008",
+          "GAP-0008"
+        ],
+        "reason_or_next_action": "Evidence reviewed and mapped to preview-only page coverage. Archive is not committed to Git; report has no website commit SHA; quality gate status remains FAIL."
       }
     ],
     "facts": [
@@ -1584,7 +1614,7 @@
         "target_page_or_url": "http://127.0.0.1:4174",
         "target_section_key": "services-pricing",
         "coverage_status": "PREVIEW_ONLY",
-        "rendered_locator_or_evidence": "experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/02-services-pricing.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/02-services-pricing.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
+        "rendered_locator_or_evidence": "SRC-0006 — experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/02-services-pricing.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/02-services-pricing.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
         "fact_ids": [
           "FACT-0006",
           "FACT-0007"
@@ -1597,7 +1627,7 @@
         "target_page_or_url": "http://127.0.0.1:4174",
         "target_section_key": "services-pricing",
         "coverage_status": "PREVIEW_ONLY",
-        "rendered_locator_or_evidence": "experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/02-services-pricing.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/02-services-pricing.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
+        "rendered_locator_or_evidence": "SRC-0006 — experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/02-services-pricing.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/02-services-pricing.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
         "fact_ids": [
           "FACT-0017",
           "FACT-0018",
@@ -1613,7 +1643,7 @@
         "target_page_or_url": "http://127.0.0.1:4174",
         "target_section_key": "turnaround",
         "coverage_status": "PREVIEW_ONLY",
-        "rendered_locator_or_evidence": "experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/03-turnaround.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/03-turnaround.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
+        "rendered_locator_or_evidence": "SRC-0006 — experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/03-turnaround.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/03-turnaround.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
         "fact_ids": [
           "FACT-0012"
         ],
@@ -1625,7 +1655,7 @@
         "target_page_or_url": "http://127.0.0.1:4174",
         "target_section_key": "turnaround",
         "coverage_status": "PREVIEW_ONLY",
-        "rendered_locator_or_evidence": "experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/03-turnaround.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/03-turnaround.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
+        "rendered_locator_or_evidence": "SRC-0006 — experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/03-turnaround.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/03-turnaround.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
         "fact_ids": [
           "FACT-0013",
           "FACT-0014"
@@ -1638,7 +1668,7 @@
         "target_page_or_url": "http://127.0.0.1:4174",
         "target_section_key": "pickup-delivery",
         "coverage_status": "PREVIEW_ONLY",
-        "rendered_locator_or_evidence": "experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/05-pickup-delivery.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/05-pickup-delivery.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
+        "rendered_locator_or_evidence": "SRC-0006 — experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/05-pickup-delivery.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/05-pickup-delivery.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
         "fact_ids": [
           "FACT-0022",
           "FACT-0023",
@@ -1652,7 +1682,7 @@
         "target_page_or_url": "http://127.0.0.1:4174",
         "target_section_key": "hours-location",
         "coverage_status": "PREVIEW_ONLY",
-        "rendered_locator_or_evidence": "experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/06-hours-location.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/06-hours-location.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
+        "rendered_locator_or_evidence": "SRC-0006 — experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/06-hours-location.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/06-hours-location.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
         "fact_ids": [
           "FACT-0015",
           "FACT-0016",
@@ -1666,7 +1696,7 @@
         "target_page_or_url": "http://127.0.0.1:4174",
         "target_section_key": "how-it-works",
         "coverage_status": "PREVIEW_ONLY",
-        "rendered_locator_or_evidence": "experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/04-how-it-works.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/04-how-it-works.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
+        "rendered_locator_or_evidence": "SRC-0006 — experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/04-how-it-works.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/04-how-it-works.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
         "fact_ids": [
           "FACT-0008",
           "FACT-0009",
@@ -1681,7 +1711,7 @@
         "target_page_or_url": "http://127.0.0.1:4174",
         "target_section_key": "contact",
         "coverage_status": "PREVIEW_ONLY",
-        "rendered_locator_or_evidence": "experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/07-contact.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/07-contact.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
+        "rendered_locator_or_evidence": "SRC-0006 — experiment-06-after-qa001.zip (owner-supplied evidence archive; not stored in Git history); report.json visualEvidence.sectionScreenshots; generatedAt=2026-11-17T23:39:49.068Z; preview URL=http://127.0.0.1:4174; mobile 390px=.website-quality-artifacts-after-qa001/screenshots/sections/mobile-390/07-contact.png; desktop 1440px=.website-quality-artifacts-after-qa001/screenshots/sections/desktop-1440/07-contact.png. The report does not embed the website Git SHA; screenshot-to-commit binding is therefore not independently verified by this report.",
         "fact_ids": [
           "FACT-0011",
           "FACT-0025",
