@@ -17,3 +17,13 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
 @media(min-width:768px) and (max-width:1023px){.hero-actions{flex-wrap:wrap;gap:14px 20px}.hero-actions .button,.hero-actions .text-link{flex:0 0 auto;white-space:nowrap}}
+
+
+/* EXPERIMENT-06 VIS-003 600-767 ORBIT CONTAINMENT
+   Keep the rotated decorative orbit geometry within the stacked mobile hero art
+   so it cannot paint over the disclosure immediately above it. */
+@media (min-width:600px) and (max-width:767px){
+  .hero-art{min-height:340px}
+  .orbit-one{width:min(58%,340px);height:58%}
+  .orbit-two{width:min(50%,300px);height:58%}
+}
