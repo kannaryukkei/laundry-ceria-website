@@ -29,8 +29,10 @@ jobs:
         run: npm run typecheck
       - name: Production build
         run: npm run build
-      - name: Install Chromium for breakpoint evidence
-        run: npx --yes playwright install --with-deps chromium
+      - name: Install Playwright and Chromium for breakpoint evidence
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
       - name: Capture Hero at 640px and 720px
         shell: bash
         run: |
