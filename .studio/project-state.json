@@ -310,6 +310,51 @@
       "sha256": "1284761b4cc09f8750b2f73865857eb60d6e78c3e6e5e4891ef79734496ac13c",
       "status": "SUBMITTED",
       "produced_at": "2026-11-18T06:32:32.563Z"
+    },
+    {
+      "artifact_id": "distinctiveness-verdict",
+      "stage_id": "stage-06",
+      "version": "1.0",
+      "path": "project-artifacts/stage-06/distinctiveness-verdict/v1.0/distinctiveness-verdict.md",
+      "sha256": "fa6e512eac460d2c7a1c6230f562aefd5c54b0a224229e6a74cd0e29e5893179",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:25:36.374Z"
+    },
+    {
+      "artifact_id": "issue-fix-mapping",
+      "stage_id": "stage-06",
+      "version": "1.0",
+      "path": "project-artifacts/stage-06/issue-fix-mapping/v1.0/issue-fix-mapping.md",
+      "sha256": "04175ee21edc22ec5014db519c0f37bbcc0970eba45cf8ba70c629f574637fed",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:25:36.405Z"
+    },
+    {
+      "artifact_id": "refreshed-build-evidence",
+      "stage_id": "stage-06",
+      "version": "1.0",
+      "path": "project-artifacts/stage-06/refreshed-build-evidence/v1.0/refreshed-build-evidence.md",
+      "sha256": "c63960a775dce0227109511151a45efed84ce756398d691dc770ba7b55c35a0d",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:25:36.440Z"
+    },
+    {
+      "artifact_id": "visual-baseline-and-after-evidence",
+      "stage_id": "stage-06",
+      "version": "1.0",
+      "path": "project-artifacts/stage-06/visual-baseline-and-after-evidence/v1.0/visual-baseline-and-after-evidence.md",
+      "sha256": "6fa5aa47aa798d5a72c03d3c2aca33648d84918e717648e5a88577d0965221fd",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:25:36.474Z"
+    },
+    {
+      "artifact_id": "visual-refinement-log",
+      "stage_id": "stage-06",
+      "version": "1.0",
+      "path": "project-artifacts/stage-06/visual-refinement-log/v1.0/visual-refinement-log.md",
+      "sha256": "0ebb2629e8d41d15dc5e332db8df5cd434e1cfa857d4beea5b7fd2f8311f07b1",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:25:36.511Z"
     }
   ],
   "approvals": [
@@ -1065,6 +1110,56 @@
           "sha256": "34af7938253920a9306a4698a8bc5d261df1a54ac29f677a47ebc851b58ee9f7"
         }
       ]
+    },
+    {
+      "event_id": "EVT-000044",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:25:36.374Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-06",
+      "artifact_id": "distinctiveness-verdict",
+      "artifact_version": "1.0",
+      "artifact_sha256": "fa6e512eac460d2c7a1c6230f562aefd5c54b0a224229e6a74cd0e29e5893179"
+    },
+    {
+      "event_id": "EVT-000045",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:25:36.405Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-06",
+      "artifact_id": "issue-fix-mapping",
+      "artifact_version": "1.0",
+      "artifact_sha256": "04175ee21edc22ec5014db519c0f37bbcc0970eba45cf8ba70c629f574637fed"
+    },
+    {
+      "event_id": "EVT-000046",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:25:36.440Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-06",
+      "artifact_id": "refreshed-build-evidence",
+      "artifact_version": "1.0",
+      "artifact_sha256": "c63960a775dce0227109511151a45efed84ce756398d691dc770ba7b55c35a0d"
+    },
+    {
+      "event_id": "EVT-000047",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:25:36.474Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-06",
+      "artifact_id": "visual-baseline-and-after-evidence",
+      "artifact_version": "1.0",
+      "artifact_sha256": "6fa5aa47aa798d5a72c03d3c2aca33648d84918e717648e5a88577d0965221fd"
+    },
+    {
+      "event_id": "EVT-000048",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:25:36.511Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-06",
+      "artifact_id": "visual-refinement-log",
+      "artifact_version": "1.0",
+      "artifact_sha256": "0ebb2629e8d41d15dc5e332db8df5cd434e1cfa857d4beea5b7fd2f8311f07b1"
     }
   ]
 }
