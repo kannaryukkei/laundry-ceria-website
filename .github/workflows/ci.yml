@@ -31,7 +31,7 @@ jobs:
         run: npm run build
       - name: Install Playwright and Chromium for breakpoint evidence
         run: |
-          npm install --save-dev playwright
+          npm install --save-exact --save-dev playwright@1.65.1
           npx playwright install --with-deps chromium
       - name: Collect dependency reproducibility and advisory evidence
         shell: bash
