@@ -242,7 +242,7 @@ A genuine issue was found at 640px: the decorative Hero circles exceed the mobil
 ## 9. VIS-003 final visual spot-check — 2026-11-18
 
 **Archive:** `experiment-06-vis003-spotcheck.zip`  
-**Archive SHA-256:** `e6c2f2c46f8df6d76b11ce4f9f8f994a67a55d39e40e1e9acbd0a03a3a6d22f1`  
+**Archive SHA-256:** `f9d9bfe5b867296a17280a34718d4cfc514d153bfc44d6a3919e4db32da862ca`  
 **Contents:** 18 section screenshots and `metrics.json`; ZIP CRC valid.
 
 The supplied spot-check contains Hero, Turnaround and Location screenshots at 320, 360, 640, 900, 1024 and 1280px. Combined with prior captures at 390, 768 and 1440px, all nine diagnostic widths have direct visual evidence.
