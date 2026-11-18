@@ -121,6 +121,42 @@
       "sha256": "e4cda1d24b27a53fab90e9a227db4ed250902a8e1cb80f9c555fc53ab21ab511",
       "status": "SUBMITTED",
       "produced_at": "2026-11-18T06:21:59.461Z"
+    },
+    {
+      "artifact_id": "approved-scope-and-exclusions",
+      "stage_id": "stage-02",
+      "version": "1.0",
+      "path": "project-artifacts/stage-02/approved-scope-and-exclusions/v1.0/approved-scope-and-exclusions.md",
+      "sha256": "472bcbc379385b81ea53db2f99626615e1028e5fec0f4891722ce1bb3a58af3c",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:24:28.036Z"
+    },
+    {
+      "artifact_id": "commercial-decision-record",
+      "stage_id": "stage-02",
+      "version": "1.0",
+      "path": "project-artifacts/stage-02/commercial-decision-record/v1.0/commercial-decision-record.md",
+      "sha256": "08f54c5b0e83c6acf6563f5b50a511cbd985a09a34eb6b10bb2b86906ff7fed2",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:24:28.049Z"
+    },
+    {
+      "artifact_id": "tier-recommendation",
+      "stage_id": "stage-02",
+      "version": "1.0",
+      "path": "project-artifacts/stage-02/tier-recommendation/v1.0/tier-recommendation.md",
+      "sha256": "0f4cfba18152584c0b79528574273a2b0d4d057a7400a0b22dbfa73aa6de0e52",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:24:28.062Z"
+    },
+    {
+      "artifact_id": "timeline-and-dependencies",
+      "stage_id": "stage-02",
+      "version": "1.0",
+      "path": "project-artifacts/stage-02/timeline-and-dependencies/v1.0/timeline-and-dependencies.md",
+      "sha256": "b26bef346e1fcdccec076114103134c3e1cbd4db15b1acbb70471b24fe4c5753",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:24:28.074Z"
     }
   ],
   "approvals": [
@@ -372,6 +408,46 @@
       "artifact_id": "trust-evidence-register",
       "artifact_version": "1.0",
       "artifact_sha256": "e4cda1d24b27a53fab90e9a227db4ed250902a8e1cb80f9c555fc53ab21ab511"
+    },
+    {
+      "event_id": "EVT-000017",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:24:28.036Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-02",
+      "artifact_id": "approved-scope-and-exclusions",
+      "artifact_version": "1.0",
+      "artifact_sha256": "472bcbc379385b81ea53db2f99626615e1028e5fec0f4891722ce1bb3a58af3c"
+    },
+    {
+      "event_id": "EVT-000018",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:24:28.049Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-02",
+      "artifact_id": "commercial-decision-record",
+      "artifact_version": "1.0",
+      "artifact_sha256": "08f54c5b0e83c6acf6563f5b50a511cbd985a09a34eb6b10bb2b86906ff7fed2"
+    },
+    {
+      "event_id": "EVT-000019",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:24:28.062Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-02",
+      "artifact_id": "tier-recommendation",
+      "artifact_version": "1.0",
+      "artifact_sha256": "0f4cfba18152584c0b79528574273a2b0d4d057a7400a0b22dbfa73aa6de0e52"
+    },
+    {
+      "event_id": "EVT-000020",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:24:28.074Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-02",
+      "artifact_id": "timeline-and-dependencies",
+      "artifact_version": "1.0",
+      "artifact_sha256": "b26bef346e1fcdccec076114103134c3e1cbd4db15b1acbb70471b24fe4c5753"
     }
   ]
 }
