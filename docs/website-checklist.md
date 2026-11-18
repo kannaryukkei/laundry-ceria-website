@@ -33,7 +33,7 @@ This is a human-readable manual checklist. It is not an automated test suite, ap
 ## Current known follow-up items
 
 - **VIS-003:** FIXED. Current-head CI captures at 640 px and 720 px show the disclosure/artwork gap is clear.
-- **VIS-002:** canonical gate has 0 measurable contrast failures. It reports `PASS_WITH_MANUAL_REVIEW_REQUIRED` because 207 generated/image-backed Hero illustration observations use generated/image-backed surfaces that the automated renderer excludes; manual image-surface review remains required. Preserve thresholds; manual visual review remains required.
+- **VIS-002:** canonical gate has 0 measurable contrast failures. It reports `PASS_WITH_MANUAL_REVIEW_REQUIRED` because 207 generated/image-backed Hero observations are excluded because the automated renderer cannot resolve those surfaces reliably; manual image-surface review remains required. Preserve thresholds; manual visual review remains required.
 - **A11Y-001 / A11Y-002:** both automated browser regressions PASS in [run #44353365204](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44353365204). Literal 200% browser zoom and assistive-technology review remain open; no WCAG certification is claimed.
 - **COPY-001:** FIXED. The contact heading is “Pilihan kunjungan dan kontak.” with explicit synthetic-preview disclosure.
 - **Shared evidence manifest:** restored at `.website-quality/evidence-manifest.json`; empty `items` is valid because the site makes no detected proof claims. This is a quality-gate input, not project workflow state.
