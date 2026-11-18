@@ -44,7 +44,7 @@ npm run typecheck
 npm run build
 ```
 
-The GitHub Actions workflow runs dependency installation, TypeScript checking, and a Vite production build. It does **not** run browser-based visual, responsive, keyboard, accessibility, or human acceptance testing. A passing build is not a QA or release approval.
+The GitHub Actions workflow runs dependency installation, TypeScript checking, and a Vite production build. It also captures the built Hero at 640px and 720px and uploads those screenshots with a manifest tied to the exact PR head SHA. These captures are review evidence, not automated visual assertions; manual visual inspection, keyboard, accessibility, and human acceptance checks remain required. A passing build is not a QA or release approval.
 
 A committed dependency lockfile is not present in this repository snapshot; CI currently uses `npm install`.
 
