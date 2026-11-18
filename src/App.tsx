@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { hours, processSteps, services } from './data';
 
 const navItems = [
@@ -109,7 +109,7 @@ function Hero() {
   );
 }
 
-function SectionIntro({ label, title, description }: { label: string; title: string; description: string }) {
+function SectionIntro({ label, title, description }: { label: string; title: ReactNode; description: string }) {
   return (
     <div className="section-intro">
       <p className="section-label">{label}</p>
@@ -144,7 +144,7 @@ function ServicesPricing() {
       <div className="container">
         <div className="section-topline"><span>LAYANAN & HARGA</span><span>SEMUA ANGKA ADALAH DATA DEMO</span></div>
         <div className="pricing-layout">
-          <SectionIntro label="PILIH SESUAI KEBUTUHAN" title="Harga terlihat.<br />Pilihan lebih mudah." description="Layanan kiloan dihitung berdasarkan berat pakaian. Layanan satuan dihitung per potong." />
+          <SectionIntro label="PILIH SESUAI KEBUTUHAN" title={<>Harga terlihat.<br />Pilihan lebih mudah.</>} description="Layanan kiloan dihitung berdasarkan berat pakaian. Layanan satuan dihitung per potong." />
           <div className="price-board">
             <div className="price-board-head"><span>DAFTAR HARGA</span><span>RUPIAH · DATA LATIHAN</span></div>
             <div className="price-groups">
@@ -195,7 +195,7 @@ function HowItWorks() {
       <div className="container">
         <div className="section-topline"><span>PROSES LAYANAN</span><span>DARI TERIMA HINGGA SELESAI</span></div>
         <div className="process-heading">
-          <SectionIntro label="ALUR PENGERJAAN" title="Enam langkah,<br />dari awal sampai selesai." description="Ini adalah urutan proses yang tercantum dalam bahan latihan." />
+          <SectionIntro label="ALUR PENGERJAAN" title={<>Enam langkah,<br />dari awal sampai selesai.</>} description="Ini adalah urutan proses yang tercantum dalam bahan latihan." />
           <p className="process-side-note">Pakaian ditimbang di depan pelanggan dan dicatat untuk setiap pelanggan sebelum dicuci.</p>
         </div>
         <ol className="process-list">
@@ -264,7 +264,7 @@ function HoursLocation() {
               </div>
             </article>
             <article className="address-panel">
-              <div className="panel-heading"><h3>Alamat dalam contoh</h3><span>FAKTIF</span></div>
+              <div className="panel-heading"><h3>Alamat dalam contoh</h3><span>DATA FIKTIF</span></div>
               <p className="fictional-label" data-qa-role="disclosure">ALAMAT FIKTIF — DATA DEMO</p>
               <h4>Jl. Melati No. 12,<br />Jakarta</h4>
               <p>Alamat ini bukan lokasi usaha sungguhan dan tidak dapat digunakan untuk petunjuk arah.</p>
@@ -282,7 +282,7 @@ function Contact() {
       <div className="container">
         <div className="section-topline"><span>LANGKAH SELANJUTNYA</span><span>PREVIEW ONLY</span></div>
         <div className="contact-heading">
-          <SectionIntro label="INFORMASI KONTAK" title="Sudah tahu<br />pilihannya?" description="Dua jalur ini adalah gambaran cara pelanggan ingin bertindak. Keduanya belum dapat digunakan pada website latihan." />
+          <SectionIntro label="INFORMASI KONTAK" title={<>Sudah tahu<br />pilihannya?</>} description="Dua jalur ini adalah gambaran cara pelanggan ingin bertindak. Keduanya belum dapat digunakan pada website latihan." />
         </div>
         <div className="contact-grid">
           <article className="contact-card walkin-card">
