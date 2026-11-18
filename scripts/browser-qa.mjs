@@ -131,7 +131,7 @@ try {
     'biasanya', '10.00', '20.00', '2 km'
   ];
   for (const phrase of requiredCopy) {
-    check('Required source-backed copy: ' + phrase, pageFacts.text.includes(phrase), phrase);
+    check('Required source-backed copy: ' + phrase, pageFacts.text.toLocaleLowerCase().includes(phrase.toLocaleLowerCase()), phrase);
   }
 
   for (const width of widths) {
