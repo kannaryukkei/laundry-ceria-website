@@ -2,7 +2,7 @@
 
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
-**Status:** VIS-001/VIS-003 fixed; exact-head canonical run #44345244180 reports 0 typography/contrast/responsive failures and valid evidence, with 208 generated Hero-art surfaces retained for manual review. A11Y-001/A11Y-002 and COPY-001 pass on PR #3 head `901fe98`. Literal 200% browser zoom, assistive-tech review and Stage 7 remain open  
+**Status:** VIS-001/VIS-003 fixed; exact-head canonical run #44345925226 reports 0 typography/contrast/responsive failures and valid evidence, with 205 generated Hero-art surfaces retained for manual review. A11Y-001/A11Y-002 and COPY-001 pass on PR #3 head `43072ca`. Literal 200% browser zoom, assistive-tech review and Stage 7 remain open  
 **Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
 **Stage 6 branch:** fix/experiment-06-stage6-remediation  
 **Slice A implementation checkpoint:** ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc  
@@ -42,7 +42,7 @@
 - Report timestamp: `2026-11-18T08:51:05.818Z`
 - Archive SHA-256: `fa74efef3cf0b6035f24891e7210bd17286ffcaadf921de7aee34453100b0dd7`
 - report.json SHA-256: `e609df8d49e91f9bd306f242a0880bb265db5e80bc98d03e53d776058348850a`
-- diagnostics.log SHA-256: `b35208967715db4daff62a9d3fd3c52de62e322beb4e03cb27389d4ef404f27a`
+- diagnostics.log SHA-256: `b35205967715db4daff62a9d3fd3c52de62e322beb4e03cb27389d4ef404f27a`
 
 The website `npm ci` and `npm run build` completed successfully on the checked-out HEAD. npm reported four high-severity dependency advisories during installation; no automatic dependency changes were made. This is a separate dependency-security item for review, not a reason to modify the pinned baseline.
 
@@ -367,17 +367,24 @@ Literal browser zoom at 200%, assistive-technology/screen-reader review, lockfil
 
 ## 18. Exact-head final verification after copy refinement — 2026-11-18
 
-PR #3 head `901fe9800d3209b213786b8443a4b47934c8b3ed` passed [Website CI run #44345244180](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44345244180). This run executed the A11Y-001 and A11Y-002 regressions and invoked the canonical Shared Website Quality Gate from AWOS.
+PR #3 head `901fe9800d3209b213786b8443a4b47934c8b3ed` passed [Website CI run #44345925226](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44345925226). This run executed the A11Y-001 and A11Y-002 regressions and invoked the canonical Shared Website Quality Gate from AWOS.
 
 The report is **PASS_WITH_MANUAL_REVIEW_REQUIRED**:
 - 0 typography failures across nine widths (320–1440px).
 - 0 measurable contrast failures.
 - 0 page-level responsive failures; viewport/document widths match across all nine widths.
 - valid evidence manifest; zero proof candidates and zero evidence failures.
-- 208 text/surface samples excluded because generated Hero-art backgrounds cannot be resolved reliably. These are decorative spark marks and illustration-only badge/caption surfaces, not required business content or actionable controls. They remain a manual image-surface review item and are not silently counted as passes.
+- 205 text/surface samples excluded because generated Hero-art backgrounds cannot be resolved reliably. These are decorative spark marks and illustration-only badge/caption surfaces, not required business content or actionable controls. They remain a manual image-surface review item and are not silently counted as passes.
 
 A11Y-001 passes the skip-link, navigation, reduced-motion and zoom-equivalent reflow checks. A11Y-002 passes the full 16-link desktop keyboard sequence, accessible name/target checks, focus visibility, reverse traversal and collapsed mobile-nav tab path.
 
 COPY-001 now reads “Pilihan kunjungan dan kontak.” and clarifies that the displayed visit address and WhatsApp contact are simulated data. The channel remains non-interactive and NOT_CONFIGURED.
 
 The 390px, 768px and 1440px shared-gate full-page screenshots and 640px/720px Hero captures were visually inspected. Diagnostic measurement also covers 320/360/900/1024/1280px, but full human visual inspection at each of those widths is still outstanding. Literal browser zoom at 200%, screen-reader/assistive technology and independent Stage 7 acceptance remain manual. No WCAG certification or public release is implied.
+
+
+## 19. Final branch relationship — 2026-11-18
+
+The latest tested PR #3 candidate is head `43072ca0c9d46a88d3b9df06052eb684a3a7f08c`, targeting PR #1 feature branch head `6d9f21d57e65227894ad70005998b1a242757c3e`. It passes exact-head [run #44345925226](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44345925226), including the canonical Shared Website Quality Gate (`PASS_WITH_MANUAL_REVIEW_REQUIRED`), A11Y-001 and A11Y-002.
+
+The PR #1 baseline head `6d9f21d57e65227894ad70005998b1a242757c3e` has its own [run #44345945442](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44345945442), where the build and screenshots pass but the canonical gate fails because the child refinement has not yet been integrated. Keep the child-before-parent merge order; do not merge PR #1 to main from this baseline.
