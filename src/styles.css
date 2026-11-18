@@ -86,3 +86,11 @@
   .pickup-rule>p,.rule-bottom span,.express-foot{font-size:12px}
   .footer-bottom{font-size:11px}
 }
+
+
+/* Final mobile overrides: these must follow legacy media-query declarations. */
+@media(max-width:767px){
+  .notice-inner{font-size:13px}
+  .notice-inner strong{font-size:12px}
+  .footer-bottom{font-size:12px}
+}
