@@ -355,6 +355,69 @@
       "sha256": "0ebb2629e8d41d15dc5e332db8df5cd434e1cfa857d4beea5b7fd2f8311f07b1",
       "status": "SUBMITTED",
       "produced_at": "2026-11-18T07:25:36.511Z"
+    },
+    {
+      "artifact_id": "ci-test-evidence",
+      "stage_id": "stage-07",
+      "version": "1.0",
+      "path": "project-artifacts/stage-07/ci-test-evidence/v1.0/ci-test-evidence.md",
+      "sha256": "6fd423dbe354e6a591b1a5833bb48ab58a7f1259b65f79747e26622d1662dfad",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:31:30.962Z"
+    },
+    {
+      "artifact_id": "independent-qa-report",
+      "stage_id": "stage-07",
+      "version": "1.0",
+      "path": "project-artifacts/stage-07/independent-qa-report/v1.0/independent-qa-report.md",
+      "sha256": "256fc420efb093b3ecb843e4087f145efc0c02a7c2fc3c4566a082e9d7bbb85e",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:31:30.991Z"
+    },
+    {
+      "artifact_id": "page-coverage",
+      "stage_id": "stage-07",
+      "version": "1.0",
+      "path": "project-artifacts/stage-07/page-coverage/v1.0/page-coverage.md",
+      "sha256": "26913c87933d423f94dabd13bfbaa3be129b0bb9972f80b9f8fb76b173f1e34b",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:31:31.026Z"
+    },
+    {
+      "artifact_id": "release-plan",
+      "stage_id": "stage-07",
+      "version": "1.0",
+      "path": "project-artifacts/stage-07/release-plan/v1.0/release-plan.md",
+      "sha256": "5f770f254ebcca8c0b638e676987b93f85d5378f6eab8338e1850179a386ee40",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:31:31.061Z"
+    },
+    {
+      "artifact_id": "responsive-visual-evidence",
+      "stage_id": "stage-07",
+      "version": "1.0",
+      "path": "project-artifacts/stage-07/responsive-visual-evidence/v1.0/responsive-visual-evidence.md",
+      "sha256": "3ca6b6d802ce3493a608a75c83f3c8de9bee04c832e1a2331e35588fcca30841",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:31:31.096Z"
+    },
+    {
+      "artifact_id": "tested-commit-reference",
+      "stage_id": "stage-07",
+      "version": "1.0",
+      "path": "project-artifacts/stage-07/tested-commit-reference/v1.0/tested-commit-reference.md",
+      "sha256": "322b270b986af21a1096efe387a2cc23d8e6adf2b33486b3f5e825317e82f468",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:31:31.132Z"
+    },
+    {
+      "artifact_id": "unresolved-gate-list",
+      "stage_id": "stage-07",
+      "version": "1.0",
+      "path": "project-artifacts/stage-07/unresolved-gate-list/v1.0/unresolved-gate-list.md",
+      "sha256": "b75453bd7f2eb65a160fda16d08f71c02d265675e6e6163656108a110a8f9802",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:31:31.170Z"
     }
   ],
   "approvals": [
@@ -1160,6 +1223,76 @@
       "artifact_id": "visual-refinement-log",
       "artifact_version": "1.0",
       "artifact_sha256": "0ebb2629e8d41d15dc5e332db8df5cd434e1cfa857d4beea5b7fd2f8311f07b1"
+    },
+    {
+      "event_id": "EVT-000049",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:31:30.962Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-07",
+      "artifact_id": "ci-test-evidence",
+      "artifact_version": "1.0",
+      "artifact_sha256": "6fd423dbe354e6a591b1a5833bb48ab58a7f1259b65f79747e26622d1662dfad"
+    },
+    {
+      "event_id": "EVT-000050",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:31:30.991Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-07",
+      "artifact_id": "independent-qa-report",
+      "artifact_version": "1.0",
+      "artifact_sha256": "256fc420efb093b3ecb843e4087f145efc0c02a7c2fc3c4566a082e9d7bbb85e"
+    },
+    {
+      "event_id": "EVT-000051",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:31:31.026Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-07",
+      "artifact_id": "page-coverage",
+      "artifact_version": "1.0",
+      "artifact_sha256": "26913c87933d423f94dabd13bfbaa3be129b0bb9972f80b9f8fb76b173f1e34b"
+    },
+    {
+      "event_id": "EVT-000052",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:31:31.061Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-07",
+      "artifact_id": "release-plan",
+      "artifact_version": "1.0",
+      "artifact_sha256": "5f770f254ebcca8c0b638e676987b93f85d5378f6eab8338e1850179a386ee40"
+    },
+    {
+      "event_id": "EVT-000053",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:31:31.096Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-07",
+      "artifact_id": "responsive-visual-evidence",
+      "artifact_version": "1.0",
+      "artifact_sha256": "3ca6b6d802ce3493a608a75c83f3c8de9bee04c832e1a2331e35588fcca30841"
+    },
+    {
+      "event_id": "EVT-000054",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:31:31.132Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-07",
+      "artifact_id": "tested-commit-reference",
+      "artifact_version": "1.0",
+      "artifact_sha256": "322b270b986af21a1096efe387a2cc23d8e6adf2b33486b3f5e825317e82f468"
+    },
+    {
+      "event_id": "EVT-000055",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:31:31.170Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-07",
+      "artifact_id": "unresolved-gate-list",
+      "artifact_version": "1.0",
+      "artifact_sha256": "b75453bd7f2eb65a160fda16d08f71c02d265675e6e6163656108a110a8f9802"
     }
   ]
 }
