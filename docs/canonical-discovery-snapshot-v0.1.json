@@ -338,7 +338,8 @@
           "Q-0008",
           "GAP-0001",
           "GAP-0002",
-          "GAP-0003"
+          "GAP-0003",
+          "FACT-0035"
         ],
         "reason_or_next_action": "Derived strategy; hypotheses are not client research."
       },
