@@ -33,7 +33,9 @@ async function main() {
   if (g7) {
     assert.equal(g7.decision, 'HANDED_OVER');
     assert.equal(stage8?.status, 'PASSED', 'Stage 8 must be completed after G7 handover');
-    assert.ok(stage9?.can_start || stage9?.status === 'PASSED', 'Stage 9 must be startable or already completed after simulated G7');
+    assert.equal(stage9?.status, 'PASSED', 'Stage 9 must be completed after calibration artifacts are recorded');
+    assert.equal(evaluation.current_stage, null, 'No current stage may remain after Stage 0-9 completion');
+    assert.ok(evaluation.stages.every((stage) => ['PASSED', 'NOT_APPLICABLE'].includes(stage.status)), 'Every canonical stage must be terminal');
   } else {
     assert.ok(stage8?.can_start, 'Stage 8 must be startable after simulated G4-G6');
   }
@@ -54,7 +56,10 @@ async function main() {
     current_stage: evaluation.current_stage,
     stage_08_status: stage8?.status ?? 'UNKNOWN',
     stage_08_can_start: Boolean(stage8?.can_start),
+    stage_09_status: stage9?.status ?? 'UNKNOWN',
     stage_09_can_start: Boolean(stage9?.can_start),
+    all_stages_terminal: evaluation.stages.every((stage) => ['PASSED', 'NOT_APPLICABLE'].includes(stage.status)),
+    stage_statuses: evaluation.stages.map((stage) => ({ stage_id: stage.stage_id, status: stage.status })),
     g7_recorded: Boolean(g7),
     simulated_gate_decisions: expectedDecisions,
     note: 'This proves repository workflow isolation in studio_development. It does not authorize any external deployment, public release, DNS change or client communication.'
