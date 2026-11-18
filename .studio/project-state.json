@@ -202,6 +202,51 @@
       "sha256": "e215dd9f5a7ad82fbfcc5c3c3939c471bb6be4011a6abbee12aa9433f014322e",
       "status": "SUBMITTED",
       "produced_at": "2026-11-18T06:26:54.794Z"
+    },
+    {
+      "artifact_id": "claim-evidence-list",
+      "stage_id": "stage-04",
+      "version": "1.0",
+      "path": "project-artifacts/stage-04/claim-evidence-list/v1.0/claim-evidence-list.md",
+      "sha256": "45302e0bd7cb8a260feac88dc8f685c71b0f843add9ee0497cdd349f33729855",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:29:26.782Z"
+    },
+    {
+      "artifact_id": "content-copy-pack",
+      "stage_id": "stage-04",
+      "version": "1.0",
+      "path": "project-artifacts/stage-04/content-copy-pack/v1.0/content-copy-pack.md",
+      "sha256": "0dabad1b9c203645809d61f59395337c92cb9c2e7e64c8f36a5f5b7ee18afad8",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:29:26.793Z"
+    },
+    {
+      "artifact_id": "content-coverage",
+      "stage_id": "stage-04",
+      "version": "1.0",
+      "path": "project-artifacts/stage-04/content-coverage/v1.0/content-coverage.md",
+      "sha256": "e4ba62567ae423a5e15575e5ae1512ca4a049401d017751b169ce81a54d6fb98",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:29:26.803Z"
+    },
+    {
+      "artifact_id": "cta-register",
+      "stage_id": "stage-04",
+      "version": "1.0",
+      "path": "project-artifacts/stage-04/cta-register/v1.0/cta-register.md",
+      "sha256": "5ef77798f928a81c2c8d17abf34063543141c289720f60952f6c3e51a577e1a2",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:29:26.812Z"
+    },
+    {
+      "artifact_id": "website-requirements-pack",
+      "stage_id": "stage-04",
+      "version": "1.0",
+      "path": "project-artifacts/stage-04/website-requirements-pack/v1.0/website-requirements-pack.md",
+      "sha256": "b71ba56859071a7c661718a8f00e1ffd4f0ceb65171734dc3a48ec9b35c627a2",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:29:26.824Z"
     }
   ],
   "approvals": [
@@ -651,6 +696,56 @@
       "artifact_id": "source-to-page-plan",
       "artifact_version": "1.0",
       "artifact_sha256": "e215dd9f5a7ad82fbfcc5c3c3939c471bb6be4011a6abbee12aa9433f014322e"
+    },
+    {
+      "event_id": "EVT-000028",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:29:26.782Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-04",
+      "artifact_id": "claim-evidence-list",
+      "artifact_version": "1.0",
+      "artifact_sha256": "45302e0bd7cb8a260feac88dc8f685c71b0f843add9ee0497cdd349f33729855"
+    },
+    {
+      "event_id": "EVT-000029",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:29:26.793Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-04",
+      "artifact_id": "content-copy-pack",
+      "artifact_version": "1.0",
+      "artifact_sha256": "0dabad1b9c203645809d61f59395337c92cb9c2e7e64c8f36a5f5b7ee18afad8"
+    },
+    {
+      "event_id": "EVT-000030",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:29:26.803Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-04",
+      "artifact_id": "content-coverage",
+      "artifact_version": "1.0",
+      "artifact_sha256": "e4ba62567ae423a5e15575e5ae1512ca4a049401d017751b169ce81a54d6fb98"
+    },
+    {
+      "event_id": "EVT-000031",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:29:26.812Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-04",
+      "artifact_id": "cta-register",
+      "artifact_version": "1.0",
+      "artifact_sha256": "5ef77798f928a81c2c8d17abf34063543141c289720f60952f6c3e51a577e1a2"
+    },
+    {
+      "event_id": "EVT-000032",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:29:26.824Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-04",
+      "artifact_id": "website-requirements-pack",
+      "artifact_version": "1.0",
+      "artifact_sha256": "b71ba56859071a7c661718a8f00e1ffd4f0ceb65171734dc3a48ec9b35c627a2"
     }
   ]
 }
