@@ -44,7 +44,8 @@ A gate is passed only within the scope stated in its decision record. Training-o
 | docs/experiment-06-selector-remediation-map.md | Bounded remediation plan tied to audited source and rendered evidence | Implemented changes or a passing quality gate |
 | SRC-0006 — after-QA-001 archive | Existing report and PNGs; page coverage was recorded as PREVIEW_ONLY | The report does not include website Git SHA; exact screenshot-to-commit binding remains NOT_VERIFIED |
 | Web Preview CI run #74 at 9d4a5ef7049f781e5c0ec434658cd0c8c21b9bf7 | Dependency install, typecheck and Vite production build passed on that commit | Browser visual QA, keyboard operation, full responsive/accessibility acceptance or production readiness |
-| PR #1 | Candidate implementation exists in a draft/open PR targeting main | Merge, client acceptance, G4/G5/G6/G7 or publication authorization |
+| Web Preview CI run #94 at ff29c739ed23441ed76a3b781d784d66552e6ea0 | Dependency install, typecheck and Vite production build passed on the documentation-only decision head | Browser visual QA, keyboard operation, full responsive/accessibility acceptance or production readiness |
+| PR #1 | Candidate implementation and training decision docs exist in a draft/open PR targeting main; the website source/CSS was not changed by the seven decision-record commits | Merge, client acceptance, G4/G5/G6/G7 or publication authorization |
 
 ## 4. Canonical workflow reconciliation
 
