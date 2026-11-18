@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "github_users": {
+    "kannaryukkei": [
+      "studio_owner"
+    ]
+  },
+  "development_simulation": {
+    "enabled": true,
+    "github_actors": {
+      "kannaryukkei": [
+        "client_business_owner",
+        "independent_reviewer"
+      ]
+    }
+  }
+}
