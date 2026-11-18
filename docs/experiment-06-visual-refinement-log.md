@@ -232,3 +232,9 @@ The four remaining contrast signatures are JAKARTA, DEMO / 001, the disabled Wha
 The 58 nested-overflow candidates map to intentional clipped decorative rings/illustration, a rotated aria-hidden watermark within the clipped address card, and the visually hidden accessible navigation name. `documentWidth` equals `viewportWidth` at all nine tested widths, and inspected screenshots at 390, 768 and 1440 show no substantive content clipping.
 
 Do not use blanket horizontal overflow suppression or remove the `.sr-only` label. Direct visual spot checks are still required at 320, 360, 640, 900, 1024 and 1280 before VIS-003 can be closed.
+
+## 9. VIS-003 six-width visual spot-check — 2026-11-18
+
+The supplied spot-check archive was CRC-valid and contained section screenshots for Hero, Turnaround and Location at 320, 360, 640, 900, 1024 and 1280px, plus DOM metrics. At all six widths, document width matched viewport width. The 320/360/640 mobile and 900/1024/1280 desktop/tablet section screenshots were inspected.
+
+A genuine issue was found at 640px: the decorative Hero circles exceed the mobile illustration frame and overlap the disclosure text. The circles are decorative, but the disclosure is meaningful content, so this is not an acceptable intentional clip. CSS commit `9276e1446118af6b0aa5c0bfd22d0ee104216218` caps the mobile circle sizes at 300px and 280px. Rebuild and recapture before calling this resolved. Address-card watermark and `.sr-only` nav label clipping remain intentional; no blanket overflow suppression is warranted.
