@@ -176,7 +176,7 @@ function HowItWorks() {
             <li className="process-item" key={step.number}>
               <span className="process-number">{step.number}</span>
               <div><h3>{step.title}</h3><p>{step.detail}</p></div>
-              <span className="process-mark" aria-hidden="true">↗</span>
+              
             </li>
           ))}
         </ol>
