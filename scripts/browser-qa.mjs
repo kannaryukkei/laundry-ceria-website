@@ -6,7 +6,7 @@ import process from 'node:process';
 
 const baseUrl = 'http://127.0.0.1:4173';
 const outputDir = 'artifacts/browser-qa';
-const widths = [320, 360, 390, 768, 1024, 1440];
+const widths = [320, 360, 390, 640, 768, 1024, 1440];
 const expectedSections = [
   'preview-notice', 'site-header', 'hero', 'services-pricing', 'turnaround',
   'how-it-works', 'pickup-delivery', 'hours-location', 'contact', 'site-footer'
@@ -37,8 +37,7 @@ const report = {
   page_errors: [],
   manual_checks_not_performed: [
     'Human visual design review of every screenshot',
-    'Keyboard-only end-to-end review including Escape and focus return',
-    'Real browser UI zoom at 200% (640 CSS-pixel viewport is only a narrow-layout proxy)',
+    'Real browser UI zoom at 200% (640 CSS-pixel viewport is a narrow-layout proxy only)',
     'Screen-reader review'
   ]
 };
@@ -133,6 +132,36 @@ try {
   for (const phrase of requiredCopy) {
     check('Required source-backed copy: ' + phrase, pageFacts.text.toLocaleLowerCase().includes(phrase.toLocaleLowerCase()), phrase);
   }
+
+  // Keyboard-only smoke checks: skip link, menu open, first navigation link and Escape return.
+  const keyboardPage = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  await keyboardPage.goto(baseUrl, { waitUntil: 'networkidle' });
+  await keyboardPage.keyboard.press('Tab');
+  check('Skip link is the first keyboard stop',
+    await keyboardPage.locator('.skip-link').evaluate((element) => element === document.activeElement));
+  await keyboardPage.keyboard.press('Enter');
+  check('Skip link moves focus to main content',
+    new URL(keyboardPage.url()).hash === '#main-content' &&
+    await keyboardPage.locator('#main-content').evaluate((element) => element === document.activeElement));
+
+  const keyboardMenu = keyboardPage.locator('.menu-toggle');
+  await keyboardPage.locator('.wordmark').focus();
+  await keyboardPage.keyboard.press('Tab');
+  check('Mobile menu button receives keyboard focus',
+    await keyboardMenu.evaluate((element) => element === document.activeElement));
+  check('Mobile menu button has a visible keyboard focus ring',
+    await keyboardMenu.evaluate((element) => getComputedStyle(element).outlineStyle !== 'none'));
+  await keyboardPage.keyboard.press('Enter');
+  check('Keyboard Enter opens mobile navigation',
+    await keyboardMenu.getAttribute('aria-expanded') === 'true');
+  await keyboardPage.keyboard.press('Tab');
+  check('Keyboard Tab enters the first mobile navigation link',
+    await keyboardPage.locator('.primary-nav a[href="#services-pricing"]').evaluate((element) => element === document.activeElement));
+  await keyboardPage.keyboard.press('Escape');
+  check('Escape closes mobile navigation and restores focus',
+    await keyboardMenu.getAttribute('aria-expanded') === 'false' &&
+    await keyboardMenu.evaluate((element) => element === document.activeElement));
+  await keyboardPage.close();
 
   for (const width of widths) {
     const page = await browser.newPage({ viewport: { width, height: 900 }, deviceScaleFactor: 1 });
