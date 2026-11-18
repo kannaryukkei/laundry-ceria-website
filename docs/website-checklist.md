@@ -1,6 +1,8 @@
 # Website Verification Checklist
 
-This is a human-readable manual checklist. It is not an automated test suite, approval register, or release state machine.\n\n**Post-merge status (2026-11-18):** PR #1 is merged into `main` at `4c80f7cd4b5e2c0d82adfe58805c94b9446751c2`. Exact-main CI [run #44353365204](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44353365204) completed SUCCESS; the canonical gate remains `PASS_WITH_MANUAL_REVIEW_REQUIRED`.
+This is a human-readable manual checklist. It is not an automated test suite, approval register, or release state machine.
+
+**Post-merge status (2026-11-18):** PR #1 is merged into `main` at `4c80f7cd4b5e2c0d82adfe58805c94b9446751c2`. Exact-main CI [run #44353365204](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44353365204) completed SUCCESS; the canonical gate remains `PASS_WITH_MANUAL_REVIEW_REQUIRED`.
 
 ## Content and safety
 
