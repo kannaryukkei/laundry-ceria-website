@@ -156,7 +156,7 @@ function Turnaround() {
           <p className="eyebrow eyebrow-light" data-qa-role="metadata"><span />WAKTU PENGERJAAN</p>
           <h2>Waktu yang<br /><em>lebih jelas.</em></h2>
           <p>Perhatikan perbedaan waktu layanan reguler dan ketentuan express berikut.</p>
-          <span className="side-index">02 <i>/ 06</i></span>
+          <span className="side-index">02</span>
         </div>
         <div className="timing-cards">
           <article className="timing-card regular-card">
