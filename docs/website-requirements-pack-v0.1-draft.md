@@ -2,9 +2,9 @@
 
 **Document ID:** WRP-LC-001  
 **Version:** 0.1 — retrospective reconstruction draft  
-**Project ID:** NOT_REGISTERED  
+**Project ID:** LC-TRAINING-001 — workspace-scoped training identifier; Laravel platform mapping NOT_VERIFIED  
 **Created:** 2026-11-18  
-**Source snapshot:** NOT_REGISTERED — reconstructed from branch feat/stage-4-website-production at baseline commit f79c2978e11dea653bbcc86f6a1832d3bd96ee8f and the source/handoff documents listed below  
+**Source snapshot:** SNAP-LC-0001 — docs/canonical-discovery-snapshot-v0.1.json, reconstructed from branch feat/stage-4-website-production at baseline commit f79c2978e11dea653bbcc86f6a1832d3bd96ee8f  
 **Schema version:** Website Requirements Pack v1.0  
 **Status:** DRAFT  
 **Artifact workflow state:** STUDIO_REVIEW_REQUIRED  
@@ -23,8 +23,8 @@ This pack reconstructs the business, visitor, content, interaction, visual and t
 The website implementation already exists on the source branch. Therefore, this document is retrospective: it records the requirements that appear to have informed that implementation. It must not be represented as an approved pre-implementation WRP.
 
 The pack remains DRAFT because:
-- no project-specific canonical discovery snapshot or Project ID is registered in the repository;
-- no canonical Source, Fact, Asset, Offer, Customer Question, CTA or Gap records were found; existing materials use NOTE_LINE locators and Stage 2 requirement IDs;
+- a workspace-scoped canonical snapshot now exists as LC-TRAINING-001 / SNAP-LC-0001, but its mapping to a Laravel platform project record has not been verified;
+- the canonical collections have been reconstructed in docs/canonical-discovery-snapshot-v0.1.json, but the packet still requires operator review and has not been adopted as an approved discovery snapshot;
 - no G1 tier/scope/commercial approval evidence was found;
 - no G2 owner approval or APPROVED_FOR_DESIGN decision exists;
 - the Studio's canonical stage sequence was adopted after the legacy project stage labels had been written.
@@ -335,7 +335,7 @@ Production acceptance is explicitly out of scope and cannot be inferred from pas
 | ID / item | Priority | Current state | Owner / next action | Safe fallback |
 |---|---|---|---|---|
 | Project ID and source snapshot registration | PREVIEW_BLOCKER for canonical WRP completeness | Not registered in project repo | Operator: register canonical project/snapshot references | Keep this pack DRAFT |
-| Canonical discovery records | PREVIEW_BLOCKER for canonical WRP completeness | Source/Fact/Asset/Offer/Question/CTA/Gap IDs absent | Operator: build canonical records from Stage 0 fixture without changing evidence/publication states | Preserve NOTE_LINE traceability; do not invent IDs |
+| Canonical discovery snapshot review | PREVIEW_BLOCKER for canonical WRP completeness | Draft snapshot exists; operator review/acceptance not recorded | Operator: validate all 5 source records, 21 coverage rows and downstream canonical collections in SNAP-LC-0001 | Keep snapshot draft; no evidence/publication status changes |
 | G1 tier/scope/commercial decision | PREVIEW_BLOCKER for progression under current workflow | No approval record found | Studio owner: decide tier, scope, exclusions and commercial boundary | Keep Starter as recommendation only |
 | G2 WRP approval | PREVIEW_BLOCKER | Not passed; this document is DRAFT | Studio owner: review exact WRP version after operator completeness check | Do not set APPROVED_FOR_DESIGN |
 | Material business/public facts | PRODUCTION_BLOCKER | All are DEMO-ONLY / NOT_APPROVED | No real client exists in this fictional fixture | Keep all fixture disclosure; no public release |
@@ -351,11 +351,11 @@ Production acceptance is explicitly out of scope and cannot be inferred from pas
 
 **Current WRP status: DRAFT — NOT APPROVED_FOR_DESIGN.**
 
-This pack is useful for reconstruction and issue resolution, but it does not satisfy the canonical WRP gate. Do not promote its status until:
-- the canonical project/source snapshot and discovery records are registered;
+The first canonical discovery snapshot exists, but this WRP still does not satisfy the canonical WRP gate. Do not promote its status until:
+- the operator has reviewed SNAP-LC-0001, confirmed its project-workspace identifiers and recorded any mapping to a Laravel project record;
 - tier/scope and G1 decision are recorded;
-- operator completeness/feasibility review is recorded;
+- operator completeness/feasibility review of this exact WRP version is recorded;
 - required owner decision and G2 approval are recorded against this exact version;
-- required client confirmations are either available or explicitly handled with safe fallbacks appropriate to the fictional fixture.
+- the fictional-fixture boundary and all applicable safe fallbacks are explicitly accepted for the training exercise. No real client confirmation can be inferred or fabricated.
 
 **No retroactive authorization:** approval of a future WRP version can authorize future work under the current workflow; it cannot rewrite the historical fact that implementation already began before this gate was recorded.
