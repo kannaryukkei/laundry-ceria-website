@@ -16,7 +16,7 @@ This is a human-readable manual checklist. It is not an automated test suite, ap
 
 - [ ] Inspect 320, 360, 390, 640, 768, 900, 1024, 1280, and 1440 px.
 - [x] Canonical shared gate reports zero page-level horizontal-overflow failures at nine diagnostic widths (320–1440 px); nested/intentional clipping is still subject to visual review.
-- [x] Confirm the Hero illustration does not overlap disclosure text at 640 px and 720 px on exact-head captures; see [run #44345244180](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44343672779).
+- [x] Confirm the Hero illustration does not overlap disclosure text at 640 px and 720 px on exact-head captures; see [run #44345925226](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44343672779).
 - [ ] Confirm service prices, turnaround terms, pickup conditions, fictional-address label, disabled contact state, and footer disclosures remain readable.
 - [ ] Review spacing, hierarchy, contrast, and visual consistency in rendered screenshots.
 
@@ -33,7 +33,7 @@ This is a human-readable manual checklist. It is not an automated test suite, ap
 ## Current known follow-up items
 
 - **VIS-003:** FIXED. Current-head CI captures at 640 px and 720 px show the disclosure/artwork gap is clear.
-- **VIS-002:** canonical gate has 0 measurable contrast failures. It reports `PASS_WITH_MANUAL_REVIEW_REQUIRED` because 208 Hero illustration samples use generated/image-backed surfaces that the automated renderer excludes; manual image-surface review remains required. Preserve thresholds; manual visual review remains required.
+- **VIS-002:** canonical gate has 0 measurable contrast failures. It reports `PASS_WITH_MANUAL_REVIEW_REQUIRED` because 205 Hero illustration samples use generated/image-backed surfaces that the automated renderer excludes; manual image-surface review remains required. Preserve thresholds; manual visual review remains required.
 - **A11Y-001 / A11Y-002:** both automated browser regressions PASS in [run #44343672779](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44343672779). Literal 200% browser zoom and assistive-technology review remain open; no WCAG certification is claimed.
 - **COPY-001:** fixed in the latest source candidate; exact-head CI rerun pending.
 - **COPY-001:** review the awkward contact-section heading.
