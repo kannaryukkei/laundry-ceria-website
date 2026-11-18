@@ -5,18 +5,20 @@ on:
     branches:
       - main
   pull_request:
-    branches:
-      - main
 
 permissions:
   contents: read
 
 jobs:
-  build:
+  build-and-preview:
     runs-on: ubuntu-latest
+    env:
+      CAPTURE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -27,3 +29,41 @@ jobs:
         run: npm run typecheck
       - name: Production build
         run: npm run build
+      - name: Install Chromium for breakpoint evidence
+        run: npx --yes playwright install --with-deps chromium
+      - name: Capture Hero at 640px and 720px
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/laundry-ceria-preview.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ready" -ne 1 ]; then
+            cat /tmp/laundry-ceria-preview.log
+            echo "Vite preview did not become ready"
+            exit 1
+          fi
+
+          npx --yes playwright screenshot --browser chromium --viewport-size "640,1000" --wait-for-timeout 500 http://127.0.0.1:4173/ artifacts/hero-640.png
+          npx --yes playwright screenshot --browser chromium --viewport-size "720,1000" --wait-for-timeout 500 http://127.0.0.1:4173/ artifacts/hero-720.png
+
+          captured_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          printf '{\n  "repository": "%s",\n  "ref": "%s",\n  "commit_sha": "%s",\n  "workflow_run_id": "%s",\n  "preview_url": "http://127.0.0.1:4173/",\n  "captured_at_utc": "%s",\n  "viewports": [640, 720],\n  "purpose": "Hero visual review evidence; manual inspection required"\n}\n'             "$GITHUB_REPOSITORY" "$GITHUB_REF" "$CAPTURE_SHA" "$GITHUB_RUN_ID" "$captured_at" > artifacts/capture-manifest.json
+      - name: Upload breakpoint evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: laundry-ceria-hero-breakpoint-evidence-${{ github.run_id }}
+          path: artifacts/
+          if-no-files-found: warn
+          retention-days: 14
