@@ -16,24 +16,24 @@ This is a human-readable manual checklist. It is not an automated test suite, ap
 
 - [ ] Inspect 320, 360, 390, 640, 768, 900, 1024, 1280, and 1440 px.
 - [ ] Confirm no page-level horizontal overflow or clipped substantive content.
-- [ ] Confirm the Hero illustration does not overlap disclosure text at 640 px and at one width between 700–767 px.
+- [x] Confirm the Hero illustration does not overlap disclosure text at 640 px and 720 px on an exact-head CI capture; see [run #44336859081](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44336859081).
 - [ ] Confirm service prices, turnaround terms, pickup conditions, fictional-address label, disabled contact state, and footer disclosures remain readable.
 - [ ] Review spacing, hierarchy, contrast, and visual consistency in rendered screenshots.
 
 ## Keyboard and accessibility review
 
-- [ ] Confirm a working skip link and focusable main-content target.
-- [ ] Navigate the complete page without a pointer.
-- [ ] Open and close the mobile navigation; Escape closes it and focus returns to the menu toggle.
-- [ ] Confirm focus indicators remain visible and tab order is sensible.
-- [ ] Check reduced-motion behavior.
-- [ ] Check layout and functionality at 200% zoom.
+- [x] Confirm the skip link is the first Tab stop and transfers focus to the focusable main-content target (Playwright CI).
+- [ ] Navigate every page control from beginning to end without a pointer; the current regression covers the skip link, desktop nav and mobile-menu path, not the entire page.
+- [x] Open and close mobile navigation by keyboard; five links are reachable, Escape closes the menu, focus returns to the toggle, and collapsed links leave the tab order (Playwright CI).
+- [x] Confirm visible focus indicators on the skip link and menu toggle and sensible navigation order (Playwright CI).
+- [x] Check reduced-motion behavior (Playwright CI).
+- [ ] Test with the browser's actual 200% zoom control. The current CI passes a 640 CSS-pixel zoom-equivalent reflow proxy, but does not change the browser zoom setting.
 
 ## Current known follow-up items
 
-- **VIS-003:** the 600–767 px Hero orbit-containment patch needs after-render verification at 640 px and a second width in the 700–767 px range.
+- **VIS-003:** FIXED. Current-head CI captures at 640 px and 720 px show the disclosure/artwork gap is clear.
 - **VIS-002:** residual contrast signatures were classified as decorative; preserve the shared threshold and retain manual review rather than weakening the gate.
-- **A11Y-001:** full skip-link, keyboard, Escape/focus-return, reduced-motion, and 200% zoom browser verification remains open.
+- **A11Y-001:** automated browser subset PASS in [run #44336859081](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44336859081). Full-page keyboard traversal and literal 200% browser zoom remain manual follow-ups; no assistive-technology certification is claimed.
 - **COPY-001:** review the awkward contact-section heading.
 - **DES-001:** comparative visual review against other relevant work is deferred.
 
