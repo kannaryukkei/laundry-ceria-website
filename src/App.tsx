@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { hours, processSteps, services } from './data';
 
 const navItems = [
@@ -27,6 +27,22 @@ function PreviewNotice() {
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuToggleRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      event.preventDefault();
+      setMenuOpen(false);
+      menuToggleRef.current?.focus();
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [menuOpen]);
+
   return (
     <header className="site-header" id="site-header">
       <div className="container header-inner">
@@ -34,7 +50,7 @@ function Header() {
           <span>Laundry<span className="wordmark-light">Ceria</span></span>
           <span className="wordmark-tag" data-qa-role="metadata">DEMO</span>
         </a>
-        <button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="primary-nav" onClick={() => setMenuOpen((open) => !open)}>
+        <button ref={menuToggleRef} className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="primary-nav" onClick={() => setMenuOpen((open) => !open)}>
           <span className="sr-only">{menuOpen ? 'Tutup navigasi' : 'Buka navigasi'}</span>
           <span /><span />
         </button>
@@ -277,9 +293,10 @@ function Footer() {
 export default function App() {
   return (
     <>
+      <a className="skip-link" href="#main-content">Lewati ke konten utama</a>
       <PreviewNotice />
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <ServicesPricing />
         <Turnaround />
