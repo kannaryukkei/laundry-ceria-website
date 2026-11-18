@@ -33,7 +33,7 @@ async function main() {
   if (g7) {
     assert.equal(g7.decision, 'HANDED_OVER');
     assert.equal(stage8?.status, 'PASSED', 'Stage 8 must be completed after G7 handover');
-    assert.ok(stage9?.can_start, 'Stage 9 must be startable after simulated G7');
+    assert.ok(stage9?.can_start || stage9?.status === 'PASSED', 'Stage 9 must be startable or already completed after simulated G7');
   } else {
     assert.ok(stage8?.can_start, 'Stage 8 must be startable after simulated G4-G6');
   }
