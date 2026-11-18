@@ -46,6 +46,7 @@ A gate is passed only within the scope stated in its decision record. Training-o
 | Web Preview CI run #74 at 9d4a5ef7049f781e5c0ec434658cd0c8c21b9bf7 | Dependency install, typecheck and Vite production build passed on that commit | Browser visual QA, keyboard operation, full responsive/accessibility acceptance or production readiness |
 | Web Preview CI run #94 at ff29c739ed23441ed76a3b781d784d66552e6ea0 | Dependency install, typecheck and Vite production build passed on the documentation-only decision head | Browser visual QA, keyboard operation, full responsive/accessibility acceptance or production readiness |
 | Web Preview CI run #99 at 9cc398f4b179e81de78e19148fb5fa9725f79e64 | Dependency install, typecheck and Vite production build passed on the latest documentation-only PR head | Browser visual QA, keyboard operation, full responsive/accessibility acceptance or production readiness |
+| Web Preview CI run #101 at 9bb9c055a0276acec34fae85e272cf062c62792b | Dependency install, typecheck and Vite production build passed on the current documentation-only PR head | Browser visual QA, keyboard operation, full responsive/accessibility acceptance or production readiness |
 | PR #1 | Candidate implementation and training decision docs exist in a draft/open PR targeting main; the website source/CSS was not changed by the seven decision-record commits | Merge, client acceptance, G4/G5/G6/G7 or publication authorization |
 
 ## 4. Canonical workflow reconciliation
