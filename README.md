@@ -1,43 +1,57 @@
 # Laundry Ceria — Website Experiment
 
-> **PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED**
+**Mode:** `studio_development` · **Data:** synthetic · **Publication:** not authorized
 
-This repository contains a fictional training project for validating the AI-Operated Web Studio workflow. Laundry Ceria is not a real business. Nothing in this repository may be represented as a real business website or published as a real business.
+This repository contains one fictional Laundry Ceria website experiment. It is a website project repository, not the AI Operated Web Studio platform, project manager, workflow engine, or approval system.
 
-## Project status
+## Current boundary
 
-- Stage 0 — Material Ingestion: completed
-- Stage 1 — Discovery & Strategy: completed
-- Stage 2 — Website Planning: completed
-- Stage 3 — Design Direction: completed
-- Stage 4 — Website Production: in progress
-- Stage 5 — Quality Assurance: pending
-- Stage 6 — Final Delivery: pending
+- Internal development and preview only. Laundry Ceria is not a real business.
+- All prices, service details, operating information, contact context, and address in this project are synthetic. Never present them as real business facts.
+- The displayed address, `Jl. Melati No. 12, Jakarta`, is fictional. Keep it explicitly labelled as demo data; never connect it to maps, directions, or a live location.
+- WhatsApp is `NOT_CONFIGURED`. Do not invent a number, create a `wa.me` link or QR code, or make the disabled contact treatment interactive.
+- The described business photos are not supplied as files. Verbal permission is not written permission; do not use the photos.
+- No official logo was supplied. Keep the identity text-only and temporary.
+- Do not add testimonials, ratings, awards, customer counts, fabricated trust signals, or an independently verified no-mix-up guarantee.
+- Do not imply payments, booking, checkout, order tracking, customer accounts, or other unsupported services.
+- Keep visible website copy in Bahasa Indonesia and retain the persistent `PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED` notice.
 
-## Non-negotiable safeguards
+No public deployment, publication, outreach, DNS configuration, real contact integration, or production release is authorized.
 
-- All business facts are fictional and remain `DEMO-ONLY`.
-- Publication status remains `NOT_APPROVED`.
-- The address `Jl. Melati No. 12, Jakarta` is fictional. It must always be explicitly labelled as demo data and must never be linked to map directions.
-- WhatsApp remains `NOT_CONFIGURED`. Do not invent a number, create a `wa.me` URL, QR code, or active WhatsApp action.
-- The three described phone photos are not included as files. Permission is verbal only and remains `PENDING`; do not use them.
-- No logo is supplied. Use text-only temporary identity treatment, not an invented official logo.
-- Do not add testimonials, ratings, awards, customer counts, or fabricated trust signals.
-- Do not convert the owner's no-mix-up statement into an independently verified guarantee.
-- Do not add unsupported payment methods, booking, checkout, order tracking, or service terms.
-- Keep all visible UI content in Bahasa Indonesia.
+## Project material
 
-## Source documents
+The original project handoffs are retained as source and design provenance:
 
-The approved stage handoffs are stored in [docs/](./docs/). Stage 0 is the source of business facts and publication constraints; Stages 1–3 define strategy, planning, and design decisions.
+- [Source fixture](./docs/stage-0-source-fixture.md) — fictional interview notes and hard constraints.
+- [Discovery and strategy](./docs/stage-1-discovery-strategy.md) — audience hypotheses and grounded positioning.
+- [Website plan](./docs/stage-2-website-planning.md) — one-page information architecture and interaction requirements.
+- [Design direction](./docs/stage-3-design-direction.md) — Fresh & Orderly visual direction and design tokens.
+- [Experiment 06 issue ledger](./docs/experiment-06-issue-ledger.md) — rendered findings and unresolved defects.
+- [Visual refinement log](./docs/experiment-06-visual-refinement-log.md) — before/after implementation and capture notes.
+- [Selector remediation map](./docs/experiment-06-selector-remediation-map.md) — source-specific audit notes.
+- [Website verification checklist](./docs/website-checklist.md) — manual checks still required.
+
+The old Stage 0–3 labels are historical names for these handoff documents, not a mandatory execution pipeline. Retired approval registers, canonical artifact snapshots, requirements-pack duplicates, and stage-reconciliation records are intentionally not maintained here.
 
 ## Development
 
-Stage 4 implementation instructions and commands will be added with the application scaffold. Do not assume a deployment target or public release is authorized.
+Requirements: Node.js 22 or compatible current LTS.
 
-## Git workflow
+```bash
+npm install
+npm run dev
+npm run typecheck
+npm run build
+```
 
-- `main` is the stable baseline.
-- Stage work is performed on dedicated feature branches and reviewed before merging.
-- Stage 4 must not be marked complete until its production build and implementation checks pass.
-- Stage 5 is a separate QA gate; production build success alone is not a QA pass.
+The GitHub Actions workflow runs dependency installation, TypeScript checking, a Vite production build, exact-head Hero captures at 640px and 720px, the A11Y-001/A11Y-002 Playwright regressions, and the canonical AWOS Shared Website Quality Gate. Screenshot captures are review evidence, not automated visual assertions; manual visual inspection, keyboard, accessibility, and human acceptance checks remain required. A passing build is not a QA or release approval.
+
+The shared quality gate requires `.website-quality/evidence-manifest.json`. This small file is intentionally retained even when the page has no detected proof-like claims: `"items": []` means there are no testimonial, rating, award, customer-count or performance-claim records to validate. `"humanReviewRequired": true` keeps human review enabled. This is a quality-gate input only; it is not a project-state manifest, workflow engine, approval register, or publication authorization.
+
+A committed dependency lockfile is not present in this repository snapshot; CI currently uses `npm install`.
+
+## How this repository is operated
+
+The active project conversation is the single operating and decision center. Use GitHub for the website source, project source material, and useful QA evidence. Do not recreate a dashboard, issue-form intake workflow, project-state manifest, approval register, artifact registry, or workflow engine in this repository.
+
+Use a focused feature branch and pull request into `main` for code changes. Keep the project in `studio_development` unless a real client engagement is separately established with real source material and authorization.
