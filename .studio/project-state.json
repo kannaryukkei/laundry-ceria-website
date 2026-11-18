@@ -337,6 +337,40 @@
         }
       ],
       "recorded_at": "2026-11-18T06:25:10.775Z"
+    },
+    {
+      "approval_id": "APR-G2-000033",
+      "gate_id": "G2",
+      "decision": "APPROVED",
+      "subject": "SYNTHETIC DEVELOPMENT SIMULATION — G2 review of WRP-LC-E2E-001 v1.0",
+      "artifact_bindings": [
+        {
+          "artifact_id": "website-requirements-pack",
+          "version": "1.0",
+          "sha256": "b71ba56859071a7c661718a8f00e1ffd4f0ceb65171734dc3a48ec9b35c627a2"
+        }
+      ],
+      "approvers": [
+        {
+          "role": "client_business_owner",
+          "person": "[SIMULATED] client_business_owner",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T06:30:13.715Z",
+          "evidence_reference": "SIMULATION_ONLY: synthetic client-owner confirmation for test progression; no real client, no publication consent",
+          "identity_source": "development_simulation",
+          "simulated_by_github_actor": "kannaryukkei"
+        },
+        {
+          "role": "studio_owner",
+          "person": "kannaryukkei",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T06:30:13.738Z",
+          "evidence_reference": "test/full-workflow-production-shaped-simulation@5591c877d33bd25971e35b436b73f00693eaf8f6: exact WRP-LC-E2E-001 v1.0 snapshot; internal simulation only",
+          "identity_source": "github_actor",
+          "github_actor": "kannaryukkei"
+        }
+      ],
+      "recorded_at": "2026-11-18T06:30:13.715Z"
     }
   ],
   "events": [
@@ -746,6 +780,50 @@
       "artifact_id": "website-requirements-pack",
       "artifact_version": "1.0",
       "artifact_sha256": "b71ba56859071a7c661718a8f00e1ffd4f0ceb65171734dc3a48ec9b35c627a2"
+    },
+    {
+      "event_id": "EVT-000033",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T06:30:13.715Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G2-000033",
+      "gate_id": "G2",
+      "gate_decision": "APPROVED",
+      "approver_role": "client_business_owner",
+      "approver_person": "[SIMULATED] client_business_owner",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "SIMULATION_ONLY: synthetic client-owner confirmation for test progression; no real client, no publication consent",
+      "identity_source": "development_simulation",
+      "simulated_by_github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "website-requirements-pack",
+          "version": "1.0",
+          "sha256": "b71ba56859071a7c661718a8f00e1ffd4f0ceb65171734dc3a48ec9b35c627a2"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-000034",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T06:30:13.738Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G2-000033",
+      "gate_id": "G2",
+      "gate_decision": "APPROVED",
+      "approver_role": "studio_owner",
+      "approver_person": "kannaryukkei",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "test/full-workflow-production-shaped-simulation@5591c877d33bd25971e35b436b73f00693eaf8f6: exact WRP-LC-E2E-001 v1.0 snapshot; internal simulation only",
+      "identity_source": "github_actor",
+      "github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "website-requirements-pack",
+          "version": "1.0",
+          "sha256": "b71ba56859071a7c661718a8f00e1ffd4f0ceb65171734dc3a48ec9b35c627a2"
+        }
+      ]
     }
   ]
 }
