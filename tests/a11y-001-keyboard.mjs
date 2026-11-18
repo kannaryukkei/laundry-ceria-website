@@ -89,7 +89,7 @@ try {
   await page.keyboard.press('Tab');
   assert.match(await activeClass(page), /\.wordmark$/);
   await page.keyboard.press('Tab');
-  assert.match(await activeClass(page), /#primary-nav/);
+  assert.equal(await page.evaluate(() => document.activeElement?.closest('#primary-nav') !== null), true, 'Desktop navigation links are in the primary nav');
   assert.equal(await page.locator('button.menu-toggle').isVisible(), false, 'Mobile toggle is hidden at desktop width');
   assert.equal(await page.locator('#primary-nav a:visible').count(), 5, 'All desktop navigation links are visible');
 
