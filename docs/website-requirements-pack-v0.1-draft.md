@@ -73,7 +73,7 @@ The WRP uses the project-scoped records in SNAP-LC-0001. Stable IDs are created 
 | Trust / proof boundary | TRUST-0001; FACT-0029 and FACT-0030 |
 | Open decisions and unavailable information | GAP-0001–GAP-0008; FACT-0035 |
 
-The Stage 2 requirement IDs REQ-001–REQ-015 remain the implementation acceptance references. They are not substitutes for canonical facts, offers, questions or CTAs. SNAP-LC-0001 now has 8 PREVIEW_ONLY page_coverage records for Q-0001–Q-0008. Each record points to the supplied after-QA-001 mobile/desktop section captures. These entries do not mean PUBLISHED, do not constitute an overall quality pass, and retain a NOT_VERIFIED limitation because the report does not embed the rendered website Git SHA.
+The Stage 2 requirement IDs REQ-001–REQ-015 remain the implementation acceptance references. They are not substitutes for canonical facts, offers, questions or CTAs. SNAP-LC-0001 has 8 PREVIEW_ONLY page_coverage records for Q-0001–Q-0008, linked to source SRC-0006 and its after-QA-001 mobile/desktop section captures. These entries do not mean PUBLISHED, do not constitute an overall quality pass, and retain a NOT_VERIFIED limitation because the report does not embed the rendered website Git SHA.
 
 ## 3. Project and business context
 
