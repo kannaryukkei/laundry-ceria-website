@@ -2,7 +2,7 @@
 
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
-**Status:** VIS-001 THROUGH VIS-006 VISUALLY VERIFIED FOR STAGE 6; RESIDUAL CONTRAST SIGNATURES AND ACCESSIBILITY/INDEPENDENT QA REMAIN OPEN  
+**Status:** VIS-001/VIS-002 and VIS-004–VIS-006 verified for Stage 6; VIS-003 orbit-containment patch committed after a 640px overlap finding and awaits after-render verification  
 **Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
 **Stage 6 branch:** fix/experiment-06-stage6-remediation  
 **Slice A implementation checkpoint:** ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc  
@@ -257,3 +257,16 @@ The supplied spot-check contains Hero, Turnaround and Location screenshots at 32
 **Disposition: VIS-003 FIXED.** No source change was necessary. Preserve the intentional decorative clipping and accessible screen-reader-only label. Do not apply blanket overflow suppression.
 
 Stage 6 visual findings VIS-001–VIS-006 are resolved for this internal experiment. The shared quality gate remains **FAIL** on four decorative aria-hidden contrast signatures/manual review; this spot-check does not change that status. A11Y-001 and independent Stage 7 QA remain open. No release or deployment is authorized.
+
+## 10. VIS-003 correction and targeted orbit-containment patch — 2026-11-18
+
+The initial final-spot-check conclusion in Section 9 that VIS-003 was fixed was premature. The supplied archive (`experiment-06-vis003-spotcheck.zip`, SHA-256 `f9d9bfe5b867296a17280a34718d4cfc514d153bfc44d6a3919e4db32da862ca`) contains 18 section screenshots and metrics for 320/360/640/900/1024/1280. Document width equals viewport at every new width. Turnaround and Location content remain in bounds. Hero screenshots at 320/360/900/1024/1280 look clear. The 640px Hero screenshot, however, shows the wide rotated orbit illustration extending behind the disclosure's background area. The text is still visible, but the visual separation is insufficient.
+
+### Targeted source patch
+
+- Commit: `472fdc4c94d8abd9fd033be1294a204a4265bb36`.
+- Scope: `@media (min-width:600px) and (max-width:767px)` only.
+- Set `.hero-art` min-height to 340px and bound the rotated `.orbit-one` / `.orbit-two` dimensions so they stay within the illustration block.
+- No page-wide overflow suppression, content changes, or accessibility-label removal.
+
+**VIS-003 remains OPEN until re-rendered evidence confirms disclosure/artwork separation at 640px and a second width between 700–767px.** This correction supersedes the earlier Section 9 disposition.
