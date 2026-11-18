@@ -1,0 +1,6 @@
+{
+  "gate_id": "G0",
+  "decision": "APPROVED",
+  "subject": "SYNTHETIC DEVELOPMENT SIMULATION — G0 source facts and asset boundaries",
+  "evidence_reference": "SIMULATION_ONLY: synthetic client-owner role; not real client consent; docs/stage-0-source-fixture.md"
+}
