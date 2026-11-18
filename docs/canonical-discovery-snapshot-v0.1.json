@@ -15,18 +15,18 @@
     "website_goal": "Help new customers understand the services and how to order.",
     "primary_conversion_cta_id": null,
     "recommended_tier": "STARTER",
-    "recommendation_rationale": "A responsive single-page presentation appears sufficient for the single stated website goal and compact information set. This is an unapproved studio recommendation; no G1 owner decision is recorded.",
+    "recommendation_rationale": "G1 training decision TDR-LC-2026-11-18-01 adopts a STARTER-equivalent one-page scope for this internal experiment only. It is not a commercial Starter sale; price, margin, payment, timeline, revision promise and client agreement are NOT_APPLICABLE.",
     "scope_risks": [
       "No live conversion destination exists: WhatsApp is NOT_CONFIGURED and the only address is fictional.",
       "All facts remain DEMO-ONLY and NOT_APPROVED.",
       "Described photos are not supplied as files and written permission is pending.",
       "No official logo or permitted social proof exists.",
-      "Canonical WRP/G2 approval was not recorded before the existing implementation began.",
-      "LC-TRAINING-001 and SNAP-LC-0001 are newly assigned workspace-scoped identifiers; mapping to a Laravel platform project record has not been verified.",
+      "The implementation began before G2 was recorded; the later WRP-LC-001 v0.2 decision applies prospectively only and does not retroactively authorize earlier work.",
+      "LC-TRAINING-001 and SNAP-LC-0001 are intentionally workspace-scoped; no Laravel platform mapping is asserted or required for this isolated experiment.",
       "Post-QA-001 shared quality report status is FAIL for unresolved typography and contrast issues. Page coverage records indicate rendered preview presence only, not quality acceptance.",
       "The after-QA-001 screenshot archive is registered as SRC-0006 but not committed to Git; report.json does not embed the website Git SHA, so exact screenshot-to-commit binding remains NOT_VERIFIED."
     ],
-    "next_step": "Operator review of the canonical snapshot and evidence references; secure the screenshot archive in the controlled project workspace if durable evidence retention is required; then obtain explicit Studio-owner G1/G2 decisions. Do not treat preview coverage as a quality pass or publication authorization."
+    "next_step": "G1/G2/G3 training-only decisions are recorded in TDR-LC-2026-11-18-01 and WRP-LC-001 v0.2 is APPROVED_FOR_DESIGN for internal preview only. Next: pin the exact candidate commit and capture a fresh browser-rendered baseline with retained PNGs, report.json and diagnostics.log before any Stage 6 source/CSS change."
   },
   "artifacts": {
     "sources": [
@@ -1453,9 +1453,9 @@
           }
         ],
         "milestone_priority": "PREVIEW_BLOCKER",
-        "owner_or_next_action": "Operator: review the complete snapshot and confirm whether LC-TRAINING-001 maps to an existing platform project record; do not assume the workspace ID is a platform database ID.",
-        "safe_fallback_or_omission": "Keep the snapshot as a versioned project-workspace artifact and keep the WRP DRAFT until the mapping and review are recorded.",
-        "resolution_status": "OPEN"
+        "owner_or_next_action": "Operator reviewed and accepted LC-TRAINING-001 / SNAP-LC-0001 as workspace-scoped records for this isolated experiment; no Laravel platform mapping is asserted or required.",
+        "safe_fallback_or_omission": "Keep the discovery snapshot versioned in this website repository. Do not represent the workspace ID as a Laravel platform record ID.",
+        "resolution_status": "ACCEPTED_FOR_PREVIEW_ONLY"
       },
       {
         "gap_id": "GAP-0002",
@@ -1585,9 +1585,9 @@
           }
         ],
         "milestone_priority": "PREVIEW_BLOCKER",
-        "owner_or_next_action": "Studio owner: make an explicit decision on the training scope and WRP version; an AI agent cannot approve this gate.",
-        "safe_fallback_or_omission": "Keep WRP DRAFT and do not treat past implementation as retroactively authorized.",
-        "resolution_status": "OPEN"
+        "owner_or_next_action": "Training-scope decisions G1/G2/G3 were explicitly accepted by the user on 2026-11-18 and recorded in TDR-LC-2026-11-18-01; commercial terms are N/A and approval is internal-preview-only.",
+        "safe_fallback_or_omission": "Apply WRP-LC-001 v0.2 APPROVED_FOR_DESIGN only to future internal training work. Do not infer real client confirmation, publication approval or retroactive authorization.",
+        "resolution_status": "ACCEPTED_FOR_PREVIEW_ONLY"
       },
       {
         "gap_id": "GAP-0008",
