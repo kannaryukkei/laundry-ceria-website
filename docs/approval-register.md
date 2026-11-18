@@ -38,9 +38,10 @@ No new approval was made during this reconstruction.
 | docs/stage-1-discovery-strategy.md | Discovery and preview strategy were documented; legacy Stage 1 handoff says PASS for Stage 2 | G1, G2 or current G0 approvals |
 | docs/stage-2-website-planning.md | Single-page plan, journeys, exact section order and REQ-001–REQ-015 | Formal current-workflow WRP approval |
 | docs/stage-3-design-direction.md | Fresh & Orderly design direction and implementation specification; legacy Stage 3 handoff says PASS for Stage 4 | Current G2 or G3 approval records |
-| tests/requirements-checklist.md | Existing implementation checklist; three validation lines remain unchecked in the inspected version | Completed full QA or production readiness |
+| tests/requirements-checklist.md | Typecheck/build is now checked with Web Preview CI run 30 evidence; responsive/visual and keyboard/focus/reduced-motion/200% zoom checks remain unchecked | Completed full QA or production readiness |
 | .website-quality/evidence-manifest.json | Manifest version 1, humanReviewRequired true, no evidence items registered | Human approval or evidence validation |
 | docs/canonical-discovery-snapshot-v0.1.json | Draft canonical packet with 5 sources, 21 source-coverage rows, 35 facts, 3 assets, 5 offers, 8 questions, 4 CTAs, 1 transparent trust alternative and 8 gaps | Operator acceptance, platform project mapping, G1/G2 approval or page coverage |
+| Web Preview CI run 30 | Node.js 22 dependency installation, typecheck and production build all succeeded at commit 121173d3802f921ceae26694683b13fafaff45ba | Visual/responsive QA, keyboard/accessibility checks, Stage 6 refinement, Stage 7 independent QA or production readiness |
 | README.md | Project status: Stage 4 in progress; Stage 5 QA pending; Stage 6 Final Delivery pending; preview/demo/not approved safeguards | Current Studio Master Skill stage numbering |
 | PR #1 | Stage 4 website implementation PR is draft/open and targets main | Merge, client acceptance, G2/G3 approval or publication authorization |
 
