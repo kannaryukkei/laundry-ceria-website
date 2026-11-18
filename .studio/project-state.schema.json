@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI Operated Web Studio Project State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "workflow_id",
+    "project_id",
+    "delivery_mode",
+    "artifacts",
+    "approvals",
+    "events"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "workflow_id": {
+      "const": "ai-operated-web-studio"
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 64,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"
+    },
+    "delivery_mode": {
+      "enum": [
+        "preview_only",
+        "production"
+      ]
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_id",
+          "stage_id",
+          "version",
+          "path",
+          "sha256",
+          "status",
+          "produced_at"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string"
+          },
+          "stage_id": {
+            "type": "string",
+            "pattern": "^stage-0[0-9]$"
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^\\d+(\\.\\d+){0,2}$"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{64}$"
+          },
+          "status": {
+            "const": "SUBMITTED"
+          },
+          "produced_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "approval_id",
+          "gate_id",
+          "decision",
+          "subject",
+          "artifact_bindings",
+          "approvers",
+          "recorded_at"
+        ],
+        "properties": {
+          "approval_id": {
+            "type": "string"
+          },
+          "gate_id": {
+            "type": "string",
+            "pattern": "^G[0-7]$"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "artifact_bindings": {
+            "type": "array"
+          },
+          "approvers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "role",
+                "person",
+                "decision",
+                "decided_at",
+                "evidence_reference",
+                "identity_source"
+              ],
+              "properties": {
+                "role": {
+                  "type": "string"
+                },
+                "person": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "decision": {
+                  "const": "APPROVED"
+                },
+                "decided_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "evidence_reference": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "identity_source": {
+                  "enum": [
+                    "self_declared",
+                    "github_actor",
+                    "development_simulation"
+                  ]
+                },
+                "github_actor": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "simulated_by_github_actor": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          "recorded_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "event_id",
+          "event_type",
+          "occurred_at",
+          "actor"
+        ],
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "pattern": "^EVT-\\d{6}$"
+          },
+          "event_type": {
+            "enum": [
+              "PROJECT_INITIALIZED",
+              "ARTIFACT_SUBMITTED",
+              "APPROVAL_RECORDED",
+              "APPROVAL_ROUND_RESET"
+            ]
+          },
+          "occurred_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "delivery_mode": {
+            "type": "string"
+          },
+          "stage_id": {
+            "type": "string"
+          },
+          "artifact_id": {
+            "type": "string"
+          },
+          "artifact_version": {
+            "type": "string"
+          },
+          "artifact_sha256": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{64}$"
+          },
+          "approval_id": {
+            "type": "string"
+          },
+          "gate_id": {
+            "type": "string",
+            "pattern": "^G[0-7]$"
+          },
+          "gate_decision": {
+            "type": "string"
+          },
+          "approver_role": {
+            "type": "string"
+          },
+          "approver_person": {
+            "type": "string"
+          },
+          "approver_decision": {
+            "const": "APPROVED"
+          },
+          "evidence_reference": {
+            "type": "string"
+          },
+          "identity_source": {
+            "enum": [
+              "self_declared",
+              "github_actor",
+              "development_simulation"
+            ]
+          },
+          "github_actor": {
+            "type": "string"
+          },
+          "previous_approval_id": {
+            "type": "string"
+          },
+          "new_approval_id": {
+            "type": "string"
+          },
+          "artifact_bindings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "artifact_id",
+                "version",
+                "sha256"
+              ],
+              "properties": {
+                "artifact_id": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-fA-F0-9]{64}$"
+                }
+              }
+            }
+          },
+          "operating_mode": {
+            "enum": [
+              "client_service",
+              "studio_development"
+            ]
+          },
+          "simulated_by_github_actor": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "operating_mode": {
+      "enum": [
+        "client_service",
+        "studio_development"
+      ],
+      "default": "client_service",
+      "description": "Operating context. Missing values in legacy manifests are treated as client_service."
+    }
+  }
+}
