@@ -1,6 +1,6 @@
 # Experiment 06 — Laundry Ceria Issue Ledger
 
-**Current status (post-PR #3 merge):** Child PR #3 was merged into this feature branch at merge commit `e9f8e50`. The first combined CI run [#44348190890](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44348190890) failed because PR #1's cleanup had removed the required `.website-quality/evidence-manifest.json`; all typography, measurable contrast, responsive and A11Y checks already passed. A valid empty manifest was restored on head `b0dad79`; exact-head run [#44349337688](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44349337688) now passes with `PASS_WITH_MANUAL_REVIEW_REQUIRED`. Literal browser zoom at 200%, assistive-technology review, complete visual spot-check and lockfile/advisory review remain open.
+**Current status (post-PR #1 merge):** GitHub records parent PR #1 as merged into `main` at merge commit `4c80f7cd4b5e2c0d82adfe58805c94b9446751c2` on 2026-11-18 16:58:25 UTC. The exact-main-head push run [#44353365204](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44353365204) completed SUCCESS. Its canonical gate reports `PASS_WITH_MANUAL_REVIEW_REQUIRED`: 0 typography failures, 0 measurable contrast failures, 0 responsive failures, valid evidence manifest, and 207 generated Hero-art observations excluded for manual review. PR merge and CI success do not close manual accessibility, visual, dependency or independent Stage 7 acceptance work.
 **Project:** Fictional training fixture — PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED
 **Website branch:** `feat/stage-4-website-production`
 **Original code-audit baseline commit:** `f79c2978e11dea653bbcc86f6a1832d3bd96ee8f`  
@@ -348,4 +348,41 @@ The restored-manifest commit is `b0dad79febba1d14cbe6df11db2f8c7462df7ec0`. Exac
 - Responsive failures: 0.
 - 216 generated/image-backed Hero observations remain excluded for manual review; therefore the correct gate result is `PASS_WITH_MANUAL_REVIEW_REQUIRED`, not an unqualified PASS.
 
-The PR remains Draft and targets `main`. No merge to `main`, deployment, or public release is authorized by this CI result.
+At the time of this exact-head run, PR #1 remained Draft and unmerged. Its later merge and post-merge verification are recorded in Section 22. This CI result did not authorize deployment or public release.
+
+## 22. Parent PR #1 merged; post-merge evidence and bounded self-review — 2026-11-18
+
+### Integration and exact-main verification
+
+GitHub records parent PR #1 as merged into `main` at merge commit `4c80f7cd4b5e2c0d82adfe58805c94b9446751c2` on 2026-11-18 at 16:58:25 UTC. The current `main` branch points to that merge commit.
+
+The subsequent push workflow [#44353365204](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44353365204) ran on the exact main commit and completed **SUCCESS**. All workflow steps passed: dependency installation, TypeScript check, Vite production build, Playwright/Chromium setup, 640px/720px Hero captures, A11Y-001, A11Y-002 and the canonical shared quality gate.
+
+The post-merge shared-gate artifact `14450420315` records:
+- Gate status: **PASS_WITH_MANUAL_REVIEW_REQUIRED**.
+- Typography failures: **0** across nine diagnostic widths (320–1440px).
+- Measurable contrast failures: **0** across 53 sampled viewport/state combinations.
+- Responsive page-level failures: **0** across nine diagnostic widths.
+- Evidence manifest: valid; `humanReviewRequired=true`; 0 proof candidates; 0 evidence failures.
+- Generated/image-backed Hero observations excluded from numeric contrast measurement: **207**. The gate correctly retains manual-review status; no thresholds were lowered.
+
+The post-merge screenshot artifact `14450420315` contains full-page captures at 390px, 768px and 1440px. The companion Hero artifact `14448763356` contains exact-main-head captures at 640px and 720px. A bounded assistant self-review inspected these five screenshots: no obvious disclosure/illustration overlap appeared in the 640px/720px Hero captures, and the 390px/768px/1440px page captures showed no obvious major layout break. This is a self-review of selected evidence, not an independent Stage 7 acceptance and not a complete nine-width visual inspection.
+
+### Acceptance disposition
+
+| Criterion | Result | Scope / limitation |
+|---|---|---|
+| TypeScript and production build | PASS | Exact-main push run #44353365204 |
+| A11Y-001 keyboard/focus/reduced-motion regression | PASS | Automated Playwright only |
+| A11Y-002 full link keyboard traversal | PASS | Automated Playwright only |
+| Typography and measurable contrast | PASS | 0 reported failures; 207 generated Hero-art observations remain excluded |
+| Responsive page-level overflow | PASS | 0 failures at nine diagnostic widths; this does not replace visual review of every width |
+| Selected screenshot self-review | PASS WITH CONCERNS | 390/768/1440 full page and 640/720 Hero inspected; not independent |
+| Literal browser zoom at 200% | NOT TESTED | Zoom-equivalent 640 CSS-pixel proxy is not the actual browser zoom control |
+| Screen reader / assistive technology | NOT TESTED | No manual AT session was performed |
+| Full visual spot-check at all nine widths | NOT COMPLETE | 320/360/900/1024/1280px still lack manual screenshot inspection |
+| Manual review of excluded Hero image surfaces | OPEN | 207 observations remain excluded by the renderer |
+| Dependency lockfile and advisory review | OPEN | No committed `package-lock.json`; CI still uses `npm install`. A local lockfile-generation attempt timed out before writing a lockfile; `npm ci` and `npm audit` were therefore not run |
+| Independent Stage 7 acceptance | NOT COMPLETED | This work is a post-merge evidence audit and assistant self-review, not independent acceptance |
+
+No full WCAG conformance, security clearance, production readiness, business-owner approval or public release is claimed. The repository remains `studio_development`, private and demo-only. No deployment, publication, outreach, DNS, real WhatsApp integration or production release is authorized.
