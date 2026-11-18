@@ -1,6 +1,6 @@
 # Experiment 06 — Laundry Ceria Issue Ledger
 
-**Status:** VIS-001/VIS-003 fixed; VIS-002 has 0 measurable contrast failures on exact-head run #44345925226 (`PASS_WITH_MANUAL_REVIEW_REQUIRED`) with 205 generated Hero-art observations retained for manual review. A11Y-001/A11Y-002 and COPY-001 all pass on latest tested PR #3 head `43072ca0c9d46a88d3b9df06052eb684a3a7f08c`. Literal browser zoom at 200%, assistive-technology review, dependency lockfile/advisory review and independent Stage 7 QA remain open.
+**Current status (post-PR #3 merge):** Child PR #3 was merged into this feature branch at merge commit `e9f8e50`. The first combined CI run [#44348190890](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44348190890) failed because PR #1's cleanup had removed the required `.website-quality/evidence-manifest.json`; all typography, measurable contrast, responsive and A11Y checks already passed. A valid empty manifest was restored on head `b0dad79`; exact-head run [#44349337688](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44349337688) now passes with `PASS_WITH_MANUAL_REVIEW_REQUIRED`. Literal browser zoom at 200%, assistive-technology review, complete visual spot-check and lockfile/advisory review remain open.
 **Project:** Fictional training fixture — PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED
 **Website branch:** `feat/stage-4-website-production`
 **Original code-audit baseline commit:** `f79c2978e11dea653bbcc86f6a1832d3bd96ee8f`  
@@ -304,3 +304,48 @@ The latest source also includes COPY-001's clarified heading and preview-only de
 - PR #1 baseline head `6d9f21d57e65227894ad70005998b1a242757c3e`, targeting `main`, still fails its exact-head [run #44345945442](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44345945442) at the canonical shared quality gate; install, typecheck, build and screenshot capture passed.
 - No merge has been performed. PR #3 must be integrated into PR #1's feature branch first; then the combined PR #1 branch must receive a fresh successful shared-gate run before it is considered for `main`.
 - Both PRs remain Draft. No public deployment or release is authorized.
+
+
+## 21. Post-merge PR #1 CI failure — evidence manifest restored — 2026-11-18
+
+### Failure diagnosis
+
+After child PR #3 was merged into PR #1's feature branch at merge commit `e9f8e50a6e7f7781a41fc76fc19bd2568ad159fd`, exact-head CI run [#44348190890](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44348190890) completed with **FAIL** in the canonical Shared Website Quality Gate.
+
+The report was unambiguous:
+- Typography failures: 0 across nine diagnostic widths.
+- Contrast failures: 0.
+- Responsive failures: 0.
+- A11Y-001: PASS.
+- A11Y-002: PASS.
+- Evidence validation: **FAIL** with `manifest must be a JSON object`.
+
+Root cause: the earlier PR #1 standalone cleanup intentionally removed the then-empty `.website-quality/evidence-manifest.json`. The feature-branch workflow later began invoking the canonical shared gate, which requires a valid manifest file even when the site has no proof-like claims. The missing manifest—not website code, contrast, or accessibility—was the only gate failure.
+
+### Fix
+
+Restored `.website-quality/evidence-manifest.json` on the parent feature branch with:
+```json
+{
+  "version": 1,
+  "humanReviewRequired": true,
+  "items": []
+}
+```
+
+This is the canonical minimal manifest shape. The empty `items` array is appropriate because Laundry Ceria has no testimonials, reviews, awards, customer counts or performance proof claims. Human review remains required. The file is only a Shared Website Quality Gate input; it does not create a workflow engine, project state, approval register or release permission.
+
+### Exact-head verification
+
+The restored-manifest commit is `b0dad79febba1d14cbe6df11db2f8c7462df7ec0`. Exact-head [run #44349337688](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44349337688) completed **SUCCESS**:
+- TypeScript check and Vite production build: PASS.
+- Hero 640px/720px screenshots: captured and uploaded.
+- A11Y-001: PASS.
+- A11Y-002: PASS.
+- Evidence manifest: valid; `humanReviewRequired=true`; zero proof candidates; zero evidence failures.
+- Typography failures: 0.
+- Contrast failures: 0 across 53 sampled viewport/state combinations.
+- Responsive failures: 0.
+- 216 generated/image-backed Hero observations remain excluded for manual review; therefore the correct gate result is `PASS_WITH_MANUAL_REVIEW_REQUIRED`, not an unqualified PASS.
+
+The PR remains Draft and targets `main`. No merge to `main`, deployment, or public release is authorized by this CI result.

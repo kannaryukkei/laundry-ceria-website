@@ -44,7 +44,9 @@ npm run typecheck
 npm run build
 ```
 
-The GitHub Actions workflow runs dependency installation, TypeScript checking, and a Vite production build. It also captures the built Hero at 640px and 720px and uploads those screenshots with a manifest tied to the exact PR head SHA. These captures are review evidence, not automated visual assertions; manual visual inspection, keyboard, accessibility, and human acceptance checks remain required. A passing build is not a QA or release approval.
+The GitHub Actions workflow runs dependency installation, TypeScript checking, a Vite production build, exact-head Hero captures at 640px and 720px, the A11Y-001/A11Y-002 Playwright regressions, and the canonical AWOS Shared Website Quality Gate. Screenshot captures are review evidence, not automated visual assertions; manual visual inspection, keyboard, accessibility, and human acceptance checks remain required. A passing build is not a QA or release approval.
+
+The shared quality gate requires `.website-quality/evidence-manifest.json`. This small file is intentionally retained even when the page has no detected proof-like claims: `"items": []` means there are no testimonial, rating, award, customer-count or performance-claim records to validate. `"humanReviewRequired": true` keeps human review enabled. This is a quality-gate input only; it is not a project-state manifest, workflow engine, approval register, or publication authorization.
 
 A committed dependency lockfile is not present in this repository snapshot; CI currently uses `npm install`.
 
