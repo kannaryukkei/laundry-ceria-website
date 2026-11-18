@@ -23,6 +23,7 @@ Current retrospective records:
 - [Canonical discovery snapshot SNAP-LC-0001 — draft](./docs/canonical-discovery-snapshot-v0.1.json)
 - [Approval register and G0–G7 status](./docs/approval-register.md)
 - [Experiment 06 issue ledger](./docs/experiment-06-issue-ledger.md)
+- [Experiment 06 selector remediation map](./docs/experiment-06-selector-remediation-map.md)
 
 These records do not grant approval: G1/G2 remain unrecorded/not passed, all fixture facts remain DEMO-ONLY / NOT_APPROVED, and the project remains preview-only. Do not infer that the existing implementation was retroactively authorized.
 
