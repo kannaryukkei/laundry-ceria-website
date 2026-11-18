@@ -30,7 +30,7 @@ try {
   const renderedLinks = await page.locator('a[href]:visible').evaluateAll((links) =>
     links.map((link) => ({
       href: link.getAttribute('href'),
-      label: (link.getAttribute('aria-label') || link.innerText || '').replace(/\\s+/g, ' ').trim(),
+      label: (link.getAttribute('aria-label') || link.innerText || '').replace(/\s+/g, ' ').trim(),
     })),
   );
   assert.equal(renderedLinks.length, desktopOrder.length, 'Every visible desktop link is included in the reviewed keyboard sequence');
