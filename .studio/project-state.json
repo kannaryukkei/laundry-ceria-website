@@ -586,6 +586,128 @@
         }
       ],
       "recorded_at": "2026-11-18T06:34:12.779Z"
+    },
+    {
+      "approval_id": "APR-G4-000056",
+      "gate_id": "G4",
+      "decision": "PREVIEW_ACCEPTED",
+      "subject": "SYNTHETIC DEVELOPMENT SIMULATION — acceptance of the internal Laundry Ceria preview candidate",
+      "artifact_bindings": [
+        {
+          "artifact_id": "independent-qa-report",
+          "version": "1.0",
+          "sha256": "256fc420efb093b3ecb843e4087f145efc0c02a7c2fc3c4566a082e9d7bbb85e"
+        },
+        {
+          "artifact_id": "tested-commit-reference",
+          "version": "1.0",
+          "sha256": "322b270b986af21a1096efe387a2cc23d8e6adf2b33486b3f5e825317e82f468"
+        }
+      ],
+      "approvers": [
+        {
+          "role": "client_business_owner",
+          "person": "[SIMULATED] client_business_owner",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T07:32:47.946Z",
+          "evidence_reference": "SIMULATION_ONLY: accepted for this isolated development exercise; not actual client preview approval or publication permission; tested commit 2aa97b6a50c0bb2009517e34a9fe9dfc3ec4a78f",
+          "identity_source": "development_simulation",
+          "simulated_by_github_actor": "kannaryukkei"
+        }
+      ],
+      "recorded_at": "2026-11-18T07:32:47.946Z"
+    },
+    {
+      "approval_id": "APR-G5-000057",
+      "gate_id": "G5",
+      "decision": "PRODUCTION_READY",
+      "subject": "SYNTHETIC DEVELOPMENT SIMULATION — production-shaped readiness checkpoint",
+      "artifact_bindings": [
+        {
+          "artifact_id": "independent-qa-report",
+          "version": "1.0",
+          "sha256": "256fc420efb093b3ecb843e4087f145efc0c02a7c2fc3c4566a082e9d7bbb85e"
+        },
+        {
+          "artifact_id": "page-coverage",
+          "version": "1.0",
+          "sha256": "26913c87933d423f94dabd13bfbaa3be129b0bb9972f80b9f8fb76b173f1e34b"
+        },
+        {
+          "artifact_id": "ci-test-evidence",
+          "version": "1.0",
+          "sha256": "6fd423dbe354e6a591b1a5833bb48ab58a7f1259b65f79747e26622d1662dfad"
+        }
+      ],
+      "approvers": [
+        {
+          "role": "client_business_owner",
+          "person": "[SIMULATED] client_business_owner",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T07:32:47.983Z",
+          "evidence_reference": "SIMULATION_ONLY: fictional client-owner role; no actual client, commercial acceptance or public readiness sign-off; test commit 2aa97b6a50c0bb2009517e34a9fe9dfc3ec4a78f",
+          "identity_source": "development_simulation",
+          "simulated_by_github_actor": "kannaryukkei"
+        },
+        {
+          "role": "independent_reviewer",
+          "person": "[SIMULATED] independent_reviewer",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T07:32:48.017Z",
+          "evidence_reference": "SIMULATION_ONLY: synthetic independent-reviewer role attributed to kannaryukkei; automated QA 44/44 passed, but not a separate human independent QA and does not clear listed manual/security gaps",
+          "identity_source": "development_simulation",
+          "simulated_by_github_actor": "kannaryukkei"
+        },
+        {
+          "role": "studio_owner",
+          "person": "kannaryukkei",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T07:32:48.062Z",
+          "evidence_reference": "SIMULATION_ONLY: role checkpoint for workflow E2E only; full npm audit retains 4 high findings in dev/build dependencies; manual zoom, screen-reader and complete contrast reviews remain not tested; external_release_allowed remains false",
+          "identity_source": "github_actor",
+          "github_actor": "kannaryukkei"
+        }
+      ],
+      "recorded_at": "2026-11-18T07:32:47.983Z"
+    },
+    {
+      "approval_id": "APR-G6-000060",
+      "gate_id": "G6",
+      "decision": "RELEASE_AUTHORIZED",
+      "subject": "SYNTHETIC DEVELOPMENT SIMULATION — internal Stage 8 release-path execution only",
+      "artifact_bindings": [
+        {
+          "artifact_id": "release-plan",
+          "version": "1.0",
+          "sha256": "5f770f254ebcca8c0b638e676987b93f85d5378f6eab8338e1850179a386ee40"
+        },
+        {
+          "artifact_id": "tested-commit-reference",
+          "version": "1.0",
+          "sha256": "322b270b986af21a1096efe387a2cc23d8e6adf2b33486b3f5e825317e82f468"
+        }
+      ],
+      "approvers": [
+        {
+          "role": "client_business_owner",
+          "person": "[SIMULATED] client_business_owner",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T07:32:48.105Z",
+          "evidence_reference": "SIMULATION_ONLY: fictional client-owner role; no real client authority or permission to publish; external_release_allowed remains false",
+          "identity_source": "development_simulation",
+          "simulated_by_github_actor": "kannaryukkei"
+        },
+        {
+          "role": "studio_owner",
+          "person": "kannaryukkei",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T07:32:48.152Z",
+          "evidence_reference": "SIMULATION_ONLY: authorization is limited to local/CI production-shaped verification and synthetic handover; no hosting deploy, public publication, DNS or external side effect; test commit 2aa97b6a50c0bb2009517e34a9fe9dfc3ec4a78f",
+          "identity_source": "github_actor",
+          "github_actor": "kannaryukkei"
+        }
+      ],
+      "recorded_at": "2026-11-18T07:32:48.105Z"
     }
   ],
   "events": [
@@ -1293,6 +1415,183 @@
       "artifact_id": "unresolved-gate-list",
       "artifact_version": "1.0",
       "artifact_sha256": "b75453bd7f2eb65a160fda16d08f71c02d265675e6e6163656108a110a8f9802"
+    },
+    {
+      "event_id": "EVT-000056",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T07:32:47.946Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G4-000056",
+      "gate_id": "G4",
+      "gate_decision": "PREVIEW_ACCEPTED",
+      "approver_role": "client_business_owner",
+      "approver_person": "[SIMULATED] client_business_owner",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "SIMULATION_ONLY: accepted for this isolated development exercise; not actual client preview approval or publication permission; tested commit 2aa97b6a50c0bb2009517e34a9fe9dfc3ec4a78f",
+      "identity_source": "development_simulation",
+      "simulated_by_github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "independent-qa-report",
+          "version": "1.0",
+          "sha256": "256fc420efb093b3ecb843e4087f145efc0c02a7c2fc3c4566a082e9d7bbb85e"
+        },
+        {
+          "artifact_id": "tested-commit-reference",
+          "version": "1.0",
+          "sha256": "322b270b986af21a1096efe387a2cc23d8e6adf2b33486b3f5e825317e82f468"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-000057",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T07:32:47.983Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G5-000057",
+      "gate_id": "G5",
+      "gate_decision": "PRODUCTION_READY",
+      "approver_role": "client_business_owner",
+      "approver_person": "[SIMULATED] client_business_owner",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "SIMULATION_ONLY: fictional client-owner role; no actual client, commercial acceptance or public readiness sign-off; test commit 2aa97b6a50c0bb2009517e34a9fe9dfc3ec4a78f",
+      "identity_source": "development_simulation",
+      "simulated_by_github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "independent-qa-report",
+          "version": "1.0",
+          "sha256": "256fc420efb093b3ecb843e4087f145efc0c02a7c2fc3c4566a082e9d7bbb85e"
+        },
+        {
+          "artifact_id": "page-coverage",
+          "version": "1.0",
+          "sha256": "26913c87933d423f94dabd13bfbaa3be129b0bb9972f80b9f8fb76b173f1e34b"
+        },
+        {
+          "artifact_id": "ci-test-evidence",
+          "version": "1.0",
+          "sha256": "6fd423dbe354e6a591b1a5833bb48ab58a7f1259b65f79747e26622d1662dfad"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-000058",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T07:32:48.017Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G5-000057",
+      "gate_id": "G5",
+      "gate_decision": "PRODUCTION_READY",
+      "approver_role": "independent_reviewer",
+      "approver_person": "[SIMULATED] independent_reviewer",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "SIMULATION_ONLY: synthetic independent-reviewer role attributed to kannaryukkei; automated QA 44/44 passed, but not a separate human independent QA and does not clear listed manual/security gaps",
+      "identity_source": "development_simulation",
+      "simulated_by_github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "independent-qa-report",
+          "version": "1.0",
+          "sha256": "256fc420efb093b3ecb843e4087f145efc0c02a7c2fc3c4566a082e9d7bbb85e"
+        },
+        {
+          "artifact_id": "page-coverage",
+          "version": "1.0",
+          "sha256": "26913c87933d423f94dabd13bfbaa3be129b0bb9972f80b9f8fb76b173f1e34b"
+        },
+        {
+          "artifact_id": "ci-test-evidence",
+          "version": "1.0",
+          "sha256": "6fd423dbe354e6a591b1a5833bb48ab58a7f1259b65f79747e26622d1662dfad"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-000059",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T07:32:48.062Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G5-000057",
+      "gate_id": "G5",
+      "gate_decision": "PRODUCTION_READY",
+      "approver_role": "studio_owner",
+      "approver_person": "kannaryukkei",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "SIMULATION_ONLY: role checkpoint for workflow E2E only; full npm audit retains 4 high findings in dev/build dependencies; manual zoom, screen-reader and complete contrast reviews remain not tested; external_release_allowed remains false",
+      "identity_source": "github_actor",
+      "github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "independent-qa-report",
+          "version": "1.0",
+          "sha256": "256fc420efb093b3ecb843e4087f145efc0c02a7c2fc3c4566a082e9d7bbb85e"
+        },
+        {
+          "artifact_id": "page-coverage",
+          "version": "1.0",
+          "sha256": "26913c87933d423f94dabd13bfbaa3be129b0bb9972f80b9f8fb76b173f1e34b"
+        },
+        {
+          "artifact_id": "ci-test-evidence",
+          "version": "1.0",
+          "sha256": "6fd423dbe354e6a591b1a5833bb48ab58a7f1259b65f79747e26622d1662dfad"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-000060",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T07:32:48.105Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G6-000060",
+      "gate_id": "G6",
+      "gate_decision": "RELEASE_AUTHORIZED",
+      "approver_role": "client_business_owner",
+      "approver_person": "[SIMULATED] client_business_owner",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "SIMULATION_ONLY: fictional client-owner role; no real client authority or permission to publish; external_release_allowed remains false",
+      "identity_source": "development_simulation",
+      "simulated_by_github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "release-plan",
+          "version": "1.0",
+          "sha256": "5f770f254ebcca8c0b638e676987b93f85d5378f6eab8338e1850179a386ee40"
+        },
+        {
+          "artifact_id": "tested-commit-reference",
+          "version": "1.0",
+          "sha256": "322b270b986af21a1096efe387a2cc23d8e6adf2b33486b3f5e825317e82f468"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-000061",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T07:32:48.152Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G6-000060",
+      "gate_id": "G6",
+      "gate_decision": "RELEASE_AUTHORIZED",
+      "approver_role": "studio_owner",
+      "approver_person": "kannaryukkei",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "SIMULATION_ONLY: authorization is limited to local/CI production-shaped verification and synthetic handover; no hosting deploy, public publication, DNS or external side effect; test commit 2aa97b6a50c0bb2009517e34a9fe9dfc3ec4a78f",
+      "identity_source": "github_actor",
+      "github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "release-plan",
+          "version": "1.0",
+          "sha256": "5f770f254ebcca8c0b638e676987b93f85d5378f6eab8338e1850179a386ee40"
+        },
+        {
+          "artifact_id": "tested-commit-reference",
+          "version": "1.0",
+          "sha256": "322b270b986af21a1096efe387a2cc23d8e6adf2b33486b3f5e825317e82f468"
+        }
+      ]
     }
   ]
 }

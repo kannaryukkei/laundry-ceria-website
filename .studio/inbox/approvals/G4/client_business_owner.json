@@ -1,6 +1,0 @@
-{
-  "gate_id": "G4",
-  "decision": "PREVIEW_ACCEPTED",
-  "subject": "SYNTHETIC DEVELOPMENT SIMULATION — acceptance of the internal Laundry Ceria preview candidate",
-  "evidence_reference": "SIMULATION_ONLY: accepted for this isolated development exercise; not actual client preview approval or publication permission; tested commit 2aa97b6a50c0bb2009517e34a9fe9dfc3ec4a78f"
-}

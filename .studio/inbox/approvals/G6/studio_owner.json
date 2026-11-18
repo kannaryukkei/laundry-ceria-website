@@ -1,6 +1,0 @@
-{
-  "gate_id": "G6",
-  "decision": "RELEASE_AUTHORIZED",
-  "subject": "SYNTHETIC DEVELOPMENT SIMULATION — internal Stage 8 release-path execution only",
-  "evidence_reference": "SIMULATION_ONLY: authorization is limited to local/CI production-shaped verification and synthetic handover; no hosting deploy, public publication, DNS or external side effect; test commit 2aa97b6a50c0bb2009517e34a9fe9dfc3ec4a78f"
-}

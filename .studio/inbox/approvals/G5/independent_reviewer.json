@@ -1,6 +1,0 @@
-{
-  "gate_id": "G5",
-  "decision": "PRODUCTION_READY",
-  "subject": "SYNTHETIC DEVELOPMENT SIMULATION — production-shaped readiness checkpoint",
-  "evidence_reference": "SIMULATION_ONLY: synthetic independent-reviewer role attributed to kannaryukkei; automated QA 44/44 passed, but not a separate human independent QA and does not clear listed manual/security gaps"
-}
