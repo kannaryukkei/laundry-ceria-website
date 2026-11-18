@@ -26,6 +26,12 @@ try {
   assert.equal(await page.locator('#main-content').getAttribute('tabindex'), '-1');
   await page.keyboard.press('Tab');
   assert.match(await activeClass(page), /\.skip-link$/);
+  await page.waitForFunction(() => {
+    const el = document.querySelector('a.skip-link');
+    if (!el) return false;
+    const transform = new DOMMatrixReadOnly(getComputedStyle(el).transform);
+    return Math.abs(transform.m42) < 1;
+  }, { timeout: 1500 });
   const skipStyle = await skip.evaluate(el => {
     const rect = el.getBoundingClientRect();
     const style = getComputedStyle(el);
