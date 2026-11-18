@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - feat/stage-4-website-production
+      - test/full-workflow-production-shaped-simulation
   pull_request:
     branches:
       - main
