@@ -657,3 +657,9 @@ button:focus-visible, a:focus-visible {
 .footer-brand p { color: rgba(255,255,255,.88); font-size: 15px; }
 .footer-nav a, .back-top { font-size: 13px; }
 .footer-bottom { font-size: 11px; }
+
+/* Final measured contrast corrections */
+.text-link span { color: var(--blue); }
+.ticket-foot { color: var(--blue); }
+.pickup-free .pickup-rule-bottom span { color: var(--white); }
+.pickup-paid .pickup-rule-bottom span { color: var(--ink-soft); }
