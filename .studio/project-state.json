@@ -434,6 +434,50 @@
         }
       ],
       "recorded_at": "2026-11-18T06:30:13.715Z"
+    },
+    {
+      "approval_id": "APR-G3-000042",
+      "gate_id": "G3",
+      "decision": "APPROVED",
+      "subject": "SYNTHETIC DEVELOPMENT SIMULATION — G3 content, selected design fingerprint and design specification",
+      "artifact_bindings": [
+        {
+          "artifact_id": "content-copy-pack",
+          "version": "1.0",
+          "sha256": "0dabad1b9c203645809d61f59395337c92cb9c2e7e64c8f36a5f5b7ee18afad8"
+        },
+        {
+          "artifact_id": "chosen-design-fingerprint",
+          "version": "1.0",
+          "sha256": "1339912feb78b552eef4900a856be913c1ce56356c83f1a75bc0ecd2c71671fa"
+        },
+        {
+          "artifact_id": "design-specification",
+          "version": "1.0",
+          "sha256": "34af7938253920a9306a4698a8bc5d261df1a54ac29f677a47ebc851b58ee9f7"
+        }
+      ],
+      "approvers": [
+        {
+          "role": "client_business_owner",
+          "person": "[SIMULATED] client_business_owner",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T06:34:12.779Z",
+          "evidence_reference": "SIMULATION_ONLY: synthetic client-owner content/design role; not actual client preference, sign-off or publication approval",
+          "identity_source": "development_simulation",
+          "simulated_by_github_actor": "kannaryukkei"
+        },
+        {
+          "role": "studio_owner",
+          "person": "kannaryukkei",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T06:34:12.791Z",
+          "evidence_reference": "test/full-workflow-production-shaped-simulation@53297fa76219aa13c2534ffaa6e4bce845dac5a4: LC-COPY-001 v1.0, LC-FINGERPRINT-001 and LC-DESIGN-001 v1.0",
+          "identity_source": "github_actor",
+          "github_actor": "kannaryukkei"
+        }
+      ],
+      "recorded_at": "2026-11-18T06:34:12.779Z"
     }
   ],
   "events": [
@@ -957,6 +1001,70 @@
       "artifact_id": "website-implementation",
       "artifact_version": "1.0",
       "artifact_sha256": "1284761b4cc09f8750b2f73865857eb60d6e78c3e6e5e4891ef79734496ac13c"
+    },
+    {
+      "event_id": "EVT-000042",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T06:34:12.779Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G3-000042",
+      "gate_id": "G3",
+      "gate_decision": "APPROVED",
+      "approver_role": "client_business_owner",
+      "approver_person": "[SIMULATED] client_business_owner",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "SIMULATION_ONLY: synthetic client-owner content/design role; not actual client preference, sign-off or publication approval",
+      "identity_source": "development_simulation",
+      "simulated_by_github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "content-copy-pack",
+          "version": "1.0",
+          "sha256": "0dabad1b9c203645809d61f59395337c92cb9c2e7e64c8f36a5f5b7ee18afad8"
+        },
+        {
+          "artifact_id": "chosen-design-fingerprint",
+          "version": "1.0",
+          "sha256": "1339912feb78b552eef4900a856be913c1ce56356c83f1a75bc0ecd2c71671fa"
+        },
+        {
+          "artifact_id": "design-specification",
+          "version": "1.0",
+          "sha256": "34af7938253920a9306a4698a8bc5d261df1a54ac29f677a47ebc851b58ee9f7"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-000043",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T06:34:12.791Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G3-000042",
+      "gate_id": "G3",
+      "gate_decision": "APPROVED",
+      "approver_role": "studio_owner",
+      "approver_person": "kannaryukkei",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "test/full-workflow-production-shaped-simulation@53297fa76219aa13c2534ffaa6e4bce845dac5a4: LC-COPY-001 v1.0, LC-FINGERPRINT-001 and LC-DESIGN-001 v1.0",
+      "identity_source": "github_actor",
+      "github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "content-copy-pack",
+          "version": "1.0",
+          "sha256": "0dabad1b9c203645809d61f59395337c92cb9c2e7e64c8f36a5f5b7ee18afad8"
+        },
+        {
+          "artifact_id": "chosen-design-fingerprint",
+          "version": "1.0",
+          "sha256": "1339912feb78b552eef4900a856be913c1ce56356c83f1a75bc0ecd2c71671fa"
+        },
+        {
+          "artifact_id": "design-specification",
+          "version": "1.0",
+          "sha256": "34af7938253920a9306a4698a8bc5d261df1a54ac29f677a47ebc851b58ee9f7"
+        }
+      ]
     }
   ]
 }
