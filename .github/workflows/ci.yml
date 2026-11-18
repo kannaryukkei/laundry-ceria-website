@@ -33,6 +33,12 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Capture pre-refinement visual baseline
         run: npm run qa:capture-baseline
+      - name: Capture dependency security audit
+        if: always()
+        run: |
+          mkdir -p artifacts/browser-qa
+          npm audit --json > artifacts/browser-qa/npm-audit-full.json || true
+          npm audit --omit=dev --json > artifacts/browser-qa/npm-audit-runtime.json || true
       - name: Browser QA and responsive screenshots
         run: npm run qa:browser
       - name: Upload browser QA evidence
