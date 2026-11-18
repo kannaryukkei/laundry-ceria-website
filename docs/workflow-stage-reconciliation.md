@@ -74,13 +74,21 @@ Until the project owner adopts a corrected project status record:
 - Treat the existing website as a disclosed training preview, not an approved production candidate.
 - Keep publication NOT_APPROVED; no deployment or public release.
 
-## 6. Recommended documentation follow-up
+## 6. Reconciliation work completed and remaining
 
-After this reconciliation is accepted into the project branch:
-1. Add a short workflow-version note and link to this map in README.
-2. Update the Stage 4 checklist to distinguish legacy project validations from current canonical Stage 5 implementation checks.
-3. Record canonical source/discovery IDs without changing source evidence or publication status.
-4. Record the G1/G2 decisions explicitly. A simulated exercise decision must be labelled simulated and must never be represented as a real client approval.
-5. Keep Stage 6 refinement and Stage 7 independent QA as separate work packages.
+### Completed in the current project branch
 
-This note does not authorize any of those approvals or project-state transitions.
+1. README now links to this reconciliation note, the retrospective WRP, canonical discovery snapshot and approval register.
+2. WRP-LC-001 v0.1 exists as a retrospective DRAFT and is linked to SNAP-LC-0001.
+3. Canonical discovery snapshot SNAP-LC-0001 has been created with project-workspace ID LC-TRAINING-001. Its stable record references and relationships passed a structural cross-reference check. Laravel platform mapping remains unverified.
+4. Approval register records G0–G7 status without granting or backdating any decision.
+5. The implementation checklist now records successful dependency installation, typecheck and production build from Web Preview CI run 30 at commit 121173d3802f921ceae26694683b13fafaff45ba.
+
+### Still required
+
+1. Operator review and acceptance of the canonical snapshot and WRP; confirm workspace-to-platform project mapping.
+2. Studio-owner G1 decision for tier/scope/commercial boundary and explicit G2 decision for the exact WRP version. These cannot be performed by the AI.
+3. Complete remaining responsive, keyboard, focus, reduced-motion and 200% zoom checks; current shared rendered quality gate still reports typography/contrast failures.
+4. Keep canonical Stage 6 refinement and Stage 7 independent QA separate. No source/CSS implementation change or publication is authorized by these documentation records.
+
+The current checklist remains incomplete and the README continues to label Laundry Ceria as a preview-only project.
