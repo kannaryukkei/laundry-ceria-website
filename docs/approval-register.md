@@ -40,8 +40,9 @@ No new approval was made during this reconstruction.
 | docs/stage-3-design-direction.md | Fresh & Orderly design direction and implementation specification; legacy Stage 3 handoff says PASS for Stage 4 | Current G2 or G3 approval records |
 | tests/requirements-checklist.md | Typecheck/build is now checked with Web Preview CI run 30 evidence; responsive/visual and keyboard/focus/reduced-motion/200% zoom checks remain unchecked | Completed full QA or production readiness |
 | .website-quality/evidence-manifest.json | Manifest version 1, humanReviewRequired true, no evidence items registered | Human approval or evidence validation |
-| docs/canonical-discovery-snapshot-v0.1.json | Draft canonical packet with 5 sources, 21 source-coverage rows, 35 facts, 3 assets, 5 offers, 8 questions, 4 CTAs, 1 transparent trust alternative and 8 gaps | Operator acceptance, platform project mapping, G1/G2 approval or page coverage |
+| docs/canonical-discovery-snapshot-v0.1.json | Draft canonical packet with 6 sources, 22 source-coverage rows, 35 facts, 3 assets, 5 offers, 8 questions, 4 CTAs, 1 transparent trust alternative, 8 gaps and 8 PREVIEW_ONLY page-coverage rows | Operator acceptance, platform project mapping, G1/G2 approval or page coverage |
 | Web Preview CI run 30 | Node.js 22 dependency installation, typecheck and production build all succeeded at commit 121173d3802f921ceae26694683b13fafaff45ba | Visual/responsive QA, keyboard/accessibility checks, Stage 6 refinement, Stage 7 independent QA or production readiness |
+| SRC-0006 — Experiment 06 after-QA-001 evidence archive | report.json plus full-page, viewport and section PNG captures; 8 question-to-section mappings are registered PREVIEW_ONLY | Durable Git retention, exact website Git SHA binding, visual-quality PASS, accessibility or production acceptance |
 | README.md | Project status: Stage 4 in progress; Stage 5 QA pending; Stage 6 Final Delivery pending; preview/demo/not approved safeguards | Current Studio Master Skill stage numbering |
 | PR #1 | Stage 4 website implementation PR is draft/open and targets main | Merge, client acceptance, G2/G3 approval or publication authorization |
 
