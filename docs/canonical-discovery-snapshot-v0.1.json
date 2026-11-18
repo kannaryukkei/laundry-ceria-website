@@ -21,9 +21,10 @@
       "All facts remain DEMO-ONLY and NOT_APPROVED.",
       "Described photos are not supplied as files and written permission is pending.",
       "No official logo or permitted social proof exists.",
-      "Canonical WRP/G2 approval was not recorded before the existing implementation began."
+      "Canonical WRP/G2 approval was not recorded before the existing implementation began.",
+      "LC-TRAINING-001 and SNAP-LC-0001 are newly assigned workspace-scoped identifiers; mapping to a Laravel platform project record has not been verified."
     ],
-    "next_step": "Operator review of this canonical snapshot, followed by Studio-owner G1/G2 decisions against an exact WRP version. Do not treat these records as approval or publication authorization."
+    "next_step": "Operator review of this canonical snapshot and its local project/snapshot IDs, followed by Studio-owner G1/G2 decisions against an exact WRP version. Do not treat these records as approval or publication authorization."
   },
   "artifacts": {
     "sources": [
@@ -73,6 +74,18 @@
         "confidentiality": "PROJECT_RESTRICTED",
         "parent_source_id": "SRC-0001",
         "notes": "Contains the Fresh & Orderly visual direction and design-system recommendations; it is not proof of current canonical G2/G3 approval."
+      },
+      {
+        "source_id": "SRC-0005",
+        "source_type": "PRIOR_PROJECT_RECORD",
+        "name": "Laundry Ceria Stage 4 implementation requirements checklist",
+        "original_ref": "tests/requirements-checklist.md",
+        "received_at": "2026-11-18T12:28:00+07:00",
+        "source_owner_or_provider": "Studio-generated implementation checklist",
+        "processing_status": "REVIEWED",
+        "confidentiality": "PROJECT_RESTRICTED",
+        "parent_source_id": "SRC-0004",
+        "notes": "Records implementation safeguards and remaining validation checks. In the inspected version, typecheck/build, visual/responsive QA and keyboard/focus/reduced-motion/200% zoom checks remain unchecked."
       }
     ],
     "source_coverage": [
@@ -365,6 +378,17 @@
           "GAP-0004"
         ],
         "reason_or_next_action": "Visual direction is a studio recommendation; exact design/G2 sign-off is not registered."
+      },
+      {
+        "coverage_id": "COV-0021",
+        "source_id": "SRC-0005",
+        "locator": "Implementation requirements checklist / completion and validation rows",
+        "topic": "Implemented safeguard checklist and remaining Stage 4 validation work",
+        "disposition": "NORMALIZED",
+        "target_record_ids": [
+          "GAP-0008"
+        ],
+        "reason_or_next_action": "Treat checklist state as recorded evidence only; do not mark unchecked validation as complete based on separate unrecorded recollection."
       }
     ],
     "facts": [
@@ -949,8 +973,8 @@
         "source_refs": [
           {
             "source_id": "SRC-0001",
-            "locator_type": "NOTE_LINE",
-            "locator": "Fixture notice",
+            "locator_type": "OTHER",
+            "locator": "Fixture notice / opening safeguards",
             "excerpt_or_evidence_note": "All business facts ... DEMO-ONLY; publication ... NOT_APPROVED."
           }
         ],
@@ -966,10 +990,10 @@
         "claim": "Payment methods are not supplied in the fixture.",
         "source_refs": [
           {
-            "source_id": "SRC-0001",
-            "locator_type": "NOTE_LINE",
-            "locator": "Stage 1 risks / payment methods",
-            "excerpt_or_evidence_note": "Payment methods not supplied; omit payment-method claims."
+            "source_id": "SRC-0002",
+            "locator_type": "OTHER",
+            "locator": "Section 11 — Risks and unresolved items / payment methods",
+            "excerpt_or_evidence_note": "Payment methods are not supplied; omit payment-method claims."
           }
         ],
         "answer_status": "NOT_AVAILABLE",
@@ -1385,8 +1409,8 @@
     "content_gaps": [
       {
         "gap_id": "GAP-0001",
-        "topic": "Canonical discovery records and source snapshot metadata",
-        "missing_or_conflicting_information": "The project repository had no canonical Source, Fact, Asset, Offer, Customer Question, CTA or Gap records, and no registered project/snapshot ID before this packet.",
+        "topic": "Canonical snapshot review and platform project mapping",
+        "missing_or_conflicting_information": "A canonical discovery snapshot is now present as SNAP-LC-0001 with workspace-scoped project ID LC-TRAINING-001. Operator review/acceptance and mapping to a Laravel platform project record have not been verified.",
         "source_refs": [
           {
             "source_id": "SRC-0002",
@@ -1396,8 +1420,8 @@
           }
         ],
         "milestone_priority": "PREVIEW_BLOCKER",
-        "owner_or_next_action": "Operator: review this snapshot, register the project-scoped IDs in the controlled workspace and confirm platform project mapping separately.",
-        "safe_fallback_or_omission": "Keep WRP at DRAFT until the canonical record snapshot is reviewed.",
+        "owner_or_next_action": "Operator: review the complete snapshot and confirm whether LC-TRAINING-001 maps to an existing platform project record; do not assume the workspace ID is a platform database ID.",
+        "safe_fallback_or_omission": "Keep the snapshot as a versioned project-workspace artifact and keep the WRP DRAFT until the mapping and review are recorded.",
         "resolution_status": "OPEN"
       },
       {
@@ -1538,16 +1562,10 @@
         "missing_or_conflicting_information": "The Stage 4 requirements checklist shows these implementation checks as incomplete; no durable completed test evidence is registered.",
         "source_refs": [
           {
-            "source_id": "SRC-0003",
+            "source_id": "SRC-0005",
             "locator_type": "OTHER",
-            "locator": "Stage 2 sections 8–9",
-            "excerpt_or_evidence_note": "Defines responsive and accessibility requirements."
-          },
-          {
-            "source_id": "SRC-0004",
-            "locator_type": "OTHER",
-            "locator": "Stage 3 design specification",
-            "excerpt_or_evidence_note": "Defines visual and focus/motion intentions."
+            "locator": "Implementation requirements checklist / validation rows",
+            "excerpt_or_evidence_note": "Responsive QA, keyboard, focus, reduced motion and 200% zoom checks remain unchecked in the inspected checklist."
           }
         ],
         "milestone_priority": "PREVIEW_BLOCKER",
