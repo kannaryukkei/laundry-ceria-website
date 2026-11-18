@@ -19,13 +19,20 @@ This repository contains a fictional training project for validating the AI-Oper
 The stage numbers in the project status above are **legacy project-local labels** from the initial training workflow. They do not map one-to-one to the current AI-Operated Web Studio Master Skill v1.12 stages. See [workflow-stage-reconciliation.md](./docs/workflow-stage-reconciliation.md) before advancing the project.
 
 Current retrospective records:
-- [Website Requirements Pack WRP-LC-001 v0.1 — DRAFT](./docs/website-requirements-pack-v0.1-draft.md)
+- [Website Requirements Pack WRP-LC-001 v0.2 — APPROVED_FOR_DESIGN, internal training only](./docs/website-requirements-pack-v0.2-internal-preview.md)
+- [WRP-LC-001 v0.1 — historical retrospective draft](./docs/website-requirements-pack-v0.1-draft.md)
+- [Training decision record TDR-LC-2026-11-18-01 — G1/G2/G3 boundaries](./docs/training-decision-record-2026-11-18.md)
+- [Experiment 06 visual refinement log — baseline capture gate](./docs/experiment-06-visual-refinement-log.md)
 - [Canonical discovery snapshot SNAP-LC-0001 — draft](./docs/canonical-discovery-snapshot-v0.1.json)
 - [Approval register and G0–G7 status](./docs/approval-register.md)
 - [Experiment 06 issue ledger](./docs/experiment-06-issue-ledger.md)
 - [Experiment 06 selector remediation map](./docs/experiment-06-selector-remediation-map.md)
 
-These records do not grant approval: G1/G2 remain unrecorded/not passed, all fixture facts remain DEMO-ONLY / NOT_APPROVED, and the project remains preview-only. Do not infer that the existing implementation was retroactively authorized.
+G1/G2/G3 are recorded as simulated decisions for this training exercise only; WRP v0.2 is APPROVED_FOR_DESIGN for internal preview/refinement. This is not real-client or business-owner confirmation. All fixture facts remain DEMO-ONLY / NOT_APPROVED, G0 publication remains NOT_APPROVED, G4/G5/G6/G7 remain unpassed, and the existing implementation is not retroactively authorized. Stage 6 source changes still require a fresh browser baseline pinned to an exact commit.
+
+## Current canonical workflow focus
+
+G1/G2/G3 training-only decisions are recorded. Current canonical focus is Stage 6 — Refinement. The exact branch/commit must be pinned and a fresh browser-rendered baseline preserved before any source/CSS correction. Stage 7 remains an independent QA gate; no deployment or public release is authorized.
 
 ## Non-negotiable safeguards
 
