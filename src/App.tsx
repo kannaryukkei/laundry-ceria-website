@@ -150,7 +150,7 @@ function Turnaround() {
             <div className="timing-rule" data-qa-role="disclosure"><span>01</span><span>Waktu dapat mengikuti ketentuan layanan reguler pada fixture.</span></div>
           </article>
           <article className="timing-card express-card">
-            <div className="timing-card-top" data-qa-role="metadata"><span className="timing-icon">✳</span><span>LAYANAN EXPRESS</span><b>+50%</b></div>
+            <div className="timing-card-top" data-qa-role="metadata"><span className="timing-icon">✳</span><span>LAYANAN EXPRESS</span><b data-qa-role="disclosure">+50%</b></div>
             <p className="express-intro">Masuk sebelum <strong>10.00</strong></p>
             <div className="express-arrow" aria-hidden="true">↓</div>
             <p className="express-result">Selesai hari yang sama <strong>20.00</strong></p>
