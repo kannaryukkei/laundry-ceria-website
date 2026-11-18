@@ -2,7 +2,7 @@
 
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
-**Status:** SLICE A VERIFIED; TABLET CTA VERIFIED AT 768PX; SLICE B MOBILE LAYOUT AND STATIC-AFFORDANCE PATCHED — AFTER-RENDER PENDING  
+**Status:** SLICE B RENDERED AND VERIFIED — VIS-004/VIS-005 FIXED; VIS-003 TRIAGED, WIDTH SPOT-CHECKS PENDING  
 **Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
 **Stage 6 branch:** fix/experiment-06-stage6-remediation  
 **Slice A implementation checkpoint:** ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc  
@@ -197,3 +197,38 @@ The 768px initial viewport screenshot was inspected after the tablet-only CSS pa
 - A11Y-001 skip link, main landmark target, Escape/focus restoration, keyboard journey, focus visibility and 200% zoom remain untested.
 - Keyboard and zoom testing are not replaced by the responsive diagnostic.
 - Stage 7 independent QA remains separate.
+
+## 8. Slice B after-capture review and VIS-003 triage — 2026-11-18
+
+**Archive:** `experiment-06-after-slice-b.zip`  
+**Archive SHA-256:** `6c2b619e1880fd1e9c4ba5b34f255934e6580cf8442b2345ec0145e9b755fab7`  
+**Capture / PR head SHA:** `625e3daec64ed749b5e64a49fde2be9f39fc4d36`  
+**Baseline SHA:** `ff29c739ed23441ed76a3b781d784d66552e6ea0`  
+**App commit:** `ab3a32fe9b24547c543cb0336f66916e7da7b1f2`  
+**CSS commit:** `c1c6e94d6a1b0002886682485720e948684da9d1`
+
+### Build and capture verification
+
+User-supplied terminal transcript confirms the expected SHA and clean tracked/staged state. TypeScript and Vite 6.4.6 production build passed (30 modules transformed, 906ms). The shared quality runner completed the captures but returned exit code 1 because its report status is **FAIL**. This is not a build failure. No GitHub Actions workflow run or combined status is associated with the commit.
+
+### Slice B results
+
+| Measure | Result |
+|---|---:|
+| Typography failures | **0** across nine widths |
+| Contrast failure rows | 185 / 4 signatures |
+| Contrast excluded surfaces | 205 |
+| Contrast not-visible samples | 232 |
+| Responsive page-level failures | **0** |
+| Evidence manifest | Valid; no candidates/failures; human review required |
+
+The four remaining contrast signatures are JAKARTA, DEMO / 001, the disabled WhatsApp helper arrow and contact `/06` index; all are decorative aria-hidden marks. The former process-step arrow signature is no longer present. The gate remains **FAIL**, with no threshold reduction.
+
+- **VIS-004: FIXED.** Mobile 390 and desktop 1440 screenshots show all six numbered process steps remain clear after removing the static arrows.
+- **VIS-005: FIXED.** Mobile 390 screenshot shows the regular/express cards stacked vertically; desktop 1440 keeps both cards side-by-side. All nine diagnostic widths report no page-level responsive failure. 320/360 were covered by DOM diagnostics and CSS media-query behavior, not separate visual screenshots.
+
+### VIS-003 triage
+
+The 58 nested-overflow candidates map to intentional clipped decorative rings/illustration, a rotated aria-hidden watermark within the clipped address card, and the visually hidden accessible navigation name. `documentWidth` equals `viewportWidth` at all nine tested widths, and inspected screenshots at 390, 768 and 1440 show no substantive content clipping.
+
+Do not use blanket horizontal overflow suppression or remove the `.sr-only` label. Direct visual spot checks are still required at 320, 360, 640, 900, 1024 and 1280 before VIS-003 can be closed.
