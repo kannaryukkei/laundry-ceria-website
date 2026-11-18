@@ -120,8 +120,8 @@ button:focus-visible, a:focus-visible {
   background-size: 42px 42px;
 }
 .hero-grid {
-  display: grid; grid-template-columns: .93fr 1.07fr;
-  align-items: center; gap: clamp(36px, 6vw, 78px);
+  display: grid; grid-template-columns: 1.08fr .92fr;
+  align-items: center; gap: clamp(28px, 4.8vw, 56px);
 }
 .hero-copy { position: relative; z-index: 1; padding-block: 26px 34px; }
 .eyebrow, .section-label {
@@ -132,7 +132,7 @@ button:focus-visible, a:focus-visible {
 .eyebrow-mark { display: inline-block; width: 22px; height: 3px; background: var(--coral); }
 .hero h1 {
   max-width: 660px; margin: 0;
-  color: var(--ink); font-size: clamp(48px, 6.2vw, 82px);
+  color: var(--ink); font-size: clamp(48px, 5.4vw, 70px);
   font-weight: 850; line-height: .98; letter-spacing: -.075em;
 }
 .hero h1 em { color: var(--blue); font-style: normal; }
