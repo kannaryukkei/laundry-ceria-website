@@ -2,7 +2,7 @@
 
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
-**Status:** SLICE A IMPLEMENTED — LOCAL BUILD AND RENDERED RECAPTURE PENDING  
+**Status:** SLICE A RENDERED — TYPOGRAPHY/COPY CONTRAST VERIFIED; TABLET CTA FOLLOW-UP PATCHED, RECAPTURE PENDING  
 **Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
 **Stage 6 branch:** fix/experiment-06-stage6-remediation  
 **Slice A implementation checkpoint:** ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc  
@@ -78,26 +78,64 @@ Stage 6 is not passed by this log. It will require before/after evidence, bounde
 
 ## 6. Slice A — typography roles, readable type and contrast
 
-**Branch:** `fix/experiment-06-stage6-remediation`  
-**Implementation checkpoint:** `ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc`  
-**Changed files:** `src/App.tsx`, `src/styles.css`  
-**Scope:** VIS-001, VIS-002, GATE-003.
+**Pinned before baseline:** `ff29c739ed23441ed76a3b781d784d66552e6ea0`  
+**Capture checkout SHA:** `b469627523eea16f6259d236545d3cd2318777b9` (the archive manifest calls this `baseline_commit_sha`; it is the capture checkout/head, not the original before-baseline SHA)  
+**Implementation source checkpoint:** `ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc`  
+**After-capture branch:** `fix/experiment-06-stage6-remediation`  
+**After archive:** `experiment-06-after-slice-a.zip` — SHA-256 `7e96ba4ba383e6010d9533411f49ffff732db0be4ae7e0210757892754438770`  
+**Report SHA-256:** `ed4b378757ff9739f29376f8383af06db6f0450d4a0e1cf0087c62a92025504e`  
+**Diagnostics SHA-256:** `00bdfebf398cdb467fe59933e636ef080cad468f4e6de44e7938b6dc6a1ff072`  
+**Report generated:** `2026-11-18T10:40:39.260Z` (UTC)  
+**Capture source:** `http://127.0.0.1:4174`  
+**Changed implementation files in Slice A:** `src/App.tsx`, `src/styles.css`
 
 ### Implemented changes
 
 - Added explicit semantic QA roles for metadata, body, controls and disclosures. Shared typography thresholds remain unchanged.
-- Eyebrows and section/category labels are assigned METADATA; key simulation, price, turnaround, pickup, schedule, fictional-address and unavailable-state notes are assigned DISCLOSURE; body and control elements are explicitly tagged where tag fallback would otherwise be ambiguous.
-- Raised small but decision-relevant text including preview notice, body descriptions, price labels/units, turnaround terms, process explanations, pickup conditions, hours, contact explanations, fictional-address label, status pills and footer disclosures.
-- Replaced measured low-contrast muted colors with the existing `--color-muted` token where appropriate; white on teal and footer disclosure opacity were increased for the relevant content pairs.
-- Increased the express surcharge label to 13px and marked it as a disclosure.
-- Marked decorative card numbering and contact index as hidden from assistive technology.
+- Eyebrows and section/category labels are assigned METADATA; simulation, price, turnaround, pickup, schedule, fictional-address and unavailable-state notes are assigned DISCLOSURE.
+- Raised decision-relevant body text, price labels/units, turnaround terms, process descriptions, pickup conditions, hours, contact explanations, fictional-address label, status pills and footer disclosures.
+- Replaced measured low-contrast muted colors with the existing `--color-muted` token where appropriate; improved white/paper text on teal and footer disclosure opacity.
+- Kept all factual values, prices, qualifiers, CTA destinations, disabled WhatsApp behavior, approved direction and shared typography floors unchanged.
 
-### Verification status
+### After-capture results
 
-The GitHub diff confirms only `src/App.tsx` and `src/styles.css` changed in this code slice. No dependencies, business facts, CTA destinations, links, backend, external services or transaction behavior were added.
+| Measure | Before baseline | After Slice A | Interpretation |
+|---|---:|---:|---|
+| Typography failure observations | 423 | **0** | All nine sampled widths report zero typography failures |
+| Contrast failure observations | 1,839 | 197 | Remaining 197 rows reduce to five signatures, all aria-hidden/decorative |
+| Contrast excluded-surface rows | 216 | 205 | Manual-review surfaces; not automatically content failures |
+| Contrast not-visible samples | 500 | 520 | Not observed failures |
+| Page-level responsive failures | 0 | **0** | `documentWidth` equals viewport width at all nine sampled widths |
+| Nested overflow candidates | 58 | 58 | Still require visual/manual triage |
+| Evidence manifest | valid; 0 candidates/failures | valid; 0 candidates/failures | Human review still required; `matchedRecordIds=[]` |
 
-**Not yet verified:** no production build has been run on the Stage 6 branch head, and no after-slice browser screenshots have been captured. Therefore VIS-001, VIS-002 and GATE-003 remain OPEN. The shared rendered gate result for this patch is unknown; no PASS is claimed.
+The five remaining contrast signatures are: the decorative `↗` inside the disabled WhatsApp label; the `JAKARTA` and `DEMO / 001` address watermark; the `/ 06` contact index; and the static process `↗` marker. Their parent/element semantics are `aria-hidden`; the gate nevertheless measures these visuals. They are not the substantive content contrast pairs fixed in this slice. The rendered gate status remains **FAIL** because those measured decorative signatures remain and manual review is still required.
 
-### Required next check
+### Visual review
 
-On the local machine, switch to this branch without cleaning the working tree, run the existing production build, then capture a new Shared Website Quality Gate archive at 390/768/1440 with the same seven mobile and seven desktop section captures. Inspect typography, color pairs, line wrapping, clipping and price/unit association. Keep the original baseline ZIP untouched and store the after-slice evidence separately.
+Opened and compared the report-linked before/after screenshots at the same viewports/states:
+- Mobile 390px: hero, services/pricing, turnaround, process, pickup/delivery, hours/location and contact.
+- Tablet 768px: initial viewport.
+- Desktop 1440px: all seven section captures, including turnaround.
+- Report coverage: 3 viewport screenshots and 14 section screenshots; 20 report-linked captures in total.
+
+The mobile price, process, hours, contact and disclosure copy is substantially more legible. The turnaround cards remain side-by-side at 390px and still feel dense; this remains VIS-005, not a hidden pass. The process arrows remain visible and potentially imply navigation; VIS-004 remains open.
+
+**Tablet regression found:** at 768px the 16px primary hero CTA and its adjacent text link shrink/wrap into multiple lines. This is recorded as VIS-006. A tablet-only CSS follow-up was committed at `1778d1fa6e27a7be91e02e7d8cfa5b7382fb08a8` to allow clean wrapping between the controls while keeping each label unbroken. That follow-up has **not yet been rendered or verified**.
+
+### Evidence and validation caveats
+
+- The after archive contains 109 PNG files, but only 20 are referenced by `report.json` (3 viewport + 14 section + 3 full-page captures). The other 89 PNGs are in an unreferenced `Screenshots 1/` directory and were not treated as quality-gate evidence.
+- The manifest's `baseline_commit_sha` value is `b469627523eea16f6259d236545d3cd2318777b9`, matching the GitHub PR branch head at capture time. The true pre-change baseline remains `ff29c739ed23441ed76a3b781d784d66552e6ea0`; `implementation_commit_sha` is `ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc`. Future manifests should use separate `before_baseline_sha` and `capture_commit_sha` keys to avoid this ambiguity.
+- The archive includes report and diagnostics, but no production-build transcript. GitHub returned no Actions run or combined status for the captured head. Build success is therefore **not independently evidenced by this archive** and must be confirmed on the current follow-up head.
+- Keyboard-only navigation, menu Escape/focus restoration, focus obstruction, reduced-motion behavior and 200% zoom remain NOT_TESTED.
+- No claim of Stage 7 QA, production readiness, deployment or release is made.
+
+### Current disposition
+
+- VIS-001: FIXED in the rendered report (0 typography failures).
+- GATE-003: FIXED for this Laundry Ceria implementation (explicit QA roles; all sampled role floors pass).
+- VIS-002: FIXED for substantive content text/surface pairs; remaining gate failures are aria-hidden/decorative signatures described above.
+- VIS-006: tablet CTA wrapping follow-up CSS patch committed; awaiting recapture.
+- VIS-003, VIS-004, VIS-005 and A11Y-001 remain open.
+- The draft PR remains unmerged.
