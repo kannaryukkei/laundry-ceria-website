@@ -1,0 +1,6 @@
+{
+  "gate_id": "G5",
+  "decision": "PRODUCTION_READY",
+  "subject": "SYNTHETIC DEVELOPMENT SIMULATION — production-shaped readiness checkpoint",
+  "evidence_reference": "SIMULATION_ONLY: role checkpoint for workflow E2E only; full npm audit retains 4 high findings in dev/build dependencies; manual zoom, screen-reader and complete contrast reviews remain not tested; external_release_allowed remains false"
+}

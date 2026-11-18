@@ -1,0 +1,6 @@
+{
+  "gate_id": "G5",
+  "decision": "PRODUCTION_READY",
+  "subject": "SYNTHETIC DEVELOPMENT SIMULATION — production-shaped readiness checkpoint",
+  "evidence_reference": "SIMULATION_ONLY: fictional client-owner role; no actual client, commercial acceptance or public readiness sign-off; test commit 2aa97b6a50c0bb2009517e34a9fe9dfc3ec4a78f"
+}

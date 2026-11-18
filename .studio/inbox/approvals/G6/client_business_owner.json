@@ -1,0 +1,6 @@
+{
+  "gate_id": "G6",
+  "decision": "RELEASE_AUTHORIZED",
+  "subject": "SYNTHETIC DEVELOPMENT SIMULATION — internal Stage 8 release-path execution only",
+  "evidence_reference": "SIMULATION_ONLY: fictional client-owner role; no real client authority or permission to publish; external_release_allowed remains false"
+}
