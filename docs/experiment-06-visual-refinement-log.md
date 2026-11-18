@@ -2,7 +2,7 @@
 
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
-**Status:** SLICE B RENDERED AND VERIFIED — VIS-004/VIS-005 FIXED; VIS-003 TRIAGED, WIDTH SPOT-CHECKS PENDING  
+**Status:** VIS-001 THROUGH VIS-006 VISUALLY VERIFIED FOR STAGE 6; RESIDUAL CONTRAST SIGNATURES AND ACCESSIBILITY/INDEPENDENT QA REMAIN OPEN  
 **Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
 **Stage 6 branch:** fix/experiment-06-stage6-remediation  
 **Slice A implementation checkpoint:** ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc  
@@ -238,3 +238,22 @@ Do not use blanket horizontal overflow suppression or remove the `.sr-only` labe
 The supplied spot-check archive was CRC-valid and contained section screenshots for Hero, Turnaround and Location at 320, 360, 640, 900, 1024 and 1280px, plus DOM metrics. At all six widths, document width matched viewport width. The 320/360/640 mobile and 900/1024/1280 desktop/tablet section screenshots were inspected.
 
 A genuine issue was found at 640px: the decorative Hero circles exceed the mobile illustration frame and overlap the disclosure text. The circles are decorative, but the disclosure is meaningful content, so this is not an acceptable intentional clip. CSS commit `9276e1446118af6b0aa5c0bfd22d0ee104216218` caps the mobile circle sizes at 300px and 280px. Rebuild and recapture before calling this resolved. Address-card watermark and `.sr-only` nav label clipping remain intentional; no blanket overflow suppression is warranted.
+
+## 9. VIS-003 final visual spot-check — 2026-11-18
+
+**Archive:** `experiment-06-vis003-spotcheck.zip`  
+**Archive SHA-256:** `e6c2f2c46f8df6d76b11ce4f9f8f994a67a55d39e40e1e9acbd0a03a3a6d22f1`  
+**Contents:** 18 section screenshots and `metrics.json`; ZIP CRC valid.
+
+The supplied spot-check contains Hero, Turnaround and Location screenshots at 320, 360, 640, 900, 1024 and 1280px. Combined with prior captures at 390, 768 and 1440px, all nine diagnostic widths have direct visual evidence.
+
+### Findings
+
+- No visible clipping of substantive text, headings, service/timing cards, address content, prices, CTAs or section layout at the six new widths.
+- Document width equals viewport width at all six new widths.
+- Nested candidates remain intentional: clipped decorative pseudo-rings on Hero/Turnaround, transformed Hero illustration geometry, rotated aria-hidden address watermark inside the clipped address card, and the 1px clipped screen-reader-only accessible navigation label.
+- Hero illustration is contained within its section; Turnaround cards remain legible and vertically stacked on narrow mobile; Location/address content remains inside the card.
+
+**Disposition: VIS-003 FIXED.** No source change was necessary. Preserve the intentional decorative clipping and accessible screen-reader-only label. Do not apply blanket overflow suppression.
+
+Stage 6 visual findings VIS-001–VIS-006 are resolved for this internal experiment. The shared quality gate remains **FAIL** on four decorative aria-hidden contrast signatures/manual review; this spot-check does not change that status. A11Y-001 and independent Stage 7 QA remain open. No release or deployment is authorized.
