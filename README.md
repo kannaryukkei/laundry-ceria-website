@@ -14,6 +14,17 @@ This repository contains a fictional training project for validating the AI-Oper
 - Stage 5 — Quality Assurance: pending
 - Stage 6 — Final Delivery: pending
 
+## Workflow reconciliation records
+
+The stage numbers in the project status above are **legacy project-local labels** from the initial training workflow. They do not map one-to-one to the current AI-Operated Web Studio Master Skill v1.12 stages. See [workflow-stage-reconciliation.md](./docs/workflow-stage-reconciliation.md) before advancing the project.
+
+Current retrospective records:
+- [Website Requirements Pack WRP-LC-001 v0.1 — DRAFT](./docs/website-requirements-pack-v0.1-draft.md)
+- [Canonical discovery snapshot SNAP-LC-0001 — draft](./docs/canonical-discovery-snapshot-v0.1.json)
+- [Approval register and G0–G7 status](./docs/approval-register.md)
+
+These records do not grant approval: G1/G2 remain unrecorded/not passed, all fixture facts remain DEMO-ONLY / NOT_APPROVED, and the project remains preview-only. Do not infer that the existing implementation was retroactively authorized.
+
 ## Non-negotiable safeguards
 
 - All business facts are fictional and remain `DEMO-ONLY`.
