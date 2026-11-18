@@ -2,11 +2,12 @@
 
 **Document ID:** WRP-LC-001  
 **Version:** 0.2 — approved for internal training preview only  
-**Project ID:** LC-TRAINING-001 — workspace-scoped training identifier; Laravel platform mapping NOT_VERIFIED  
+**Project ID:** LC-TRAINING-001 — workspace-scoped training identifier; no Laravel platform mapping is asserted or required for this experiment  
 **Created:** 2026-11-18  
 **Source snapshot:** SNAP-LC-0001 — docs/canonical-discovery-snapshot-v0.1.json, reconstructed from branch feat/stage-4-website-production at baseline commit f79c2978e11dea653bbcc86f6a1832d3bd96ee8f  
 **Schema version:** Website Requirements Pack v1.0  
-**Status:** APPROVED_FOR_DESIGN — INTERNAL TRAINING ONLY  
+**Status:** APPROVED_FOR_DESIGN  
+**Approval scope:** INTERNAL TRAINING ONLY  
 **Artifact workflow state:** APPROVED_FOR_DESIGN  
 **Owner approval reference:** TDR-LC-2026-11-18-01 / G2  
 **Client confirmation reference:** NOT_APPLICABLE_TO_FICTIONAL_FIXTURE; the training decision accepts safe fallbacks for internal preview only  
@@ -360,8 +361,8 @@ The training decisions in TDR-LC-2026-11-18-01 resolve the exercise scope and WR
 |---|---|---|---|---|
 | Project ID and source snapshot registration | PREVIEW_BLOCKER for canonical WRP completeness | Accepted as workspace-scoped training records; no Laravel platform mapping asserted or required | Operator: preserve LC-TRAINING-001 / SNAP-LC-0001 in this repository | Do not present these IDs as platform database identifiers |
 | Canonical discovery snapshot review | PREVIEW_BLOCKER for canonical WRP completeness | Operator review and structural cross-reference check recorded for this training exercise; 6 sources and 22 coverage rows | Operator: maintain exact source references and update by version if material source data changes | Do not change factual/evidence/publication status through this WRP decision |
-| G1 tier/scope/commercial decision | PREVIEW_BLOCKER for progression under current workflow | SIMULATED_PASS — training one-page scope; commercial terms N/A | See TDR-LC-2026-11-18-01 | Do not quote or imply a real Starter sale, price or client agreement |
-| G2 WRP approval | PREVIEW_BLOCKER | SIMULATED_PASS — this WRP v0.2 is APPROVED_FOR_DESIGN for internal training only | See TDR-LC-2026-11-18-01 | No retroactive authorization; no real client approval implied |
+| G1 tier/scope/commercial decision | RESOLVED — TRAINING SCOPE ONLY | SIMULATED_PASS — training one-page scope; commercial terms N/A | See TDR-LC-2026-11-18-01 | Do not quote or imply a real Starter sale, price or client agreement |
+| G2 WRP approval | RESOLVED — TRAINING SCOPE ONLY | SIMULATED_PASS — this WRP v0.2 is APPROVED_FOR_DESIGN for internal training only | See TDR-LC-2026-11-18-01 | No retroactive authorization; no real client approval implied |
 | G3 content/claims/visual direction | PREVIEW_BLOCKER for production/public claims | SIMULATED_PASS for the existing Stage 3 direction and copy constraints, internal preview only | See TDR-LC-2026-11-18-01 and docs/stage-3-design-direction.md | Every business fact remains DEMO-ONLY / NOT_APPROVED |
 | Exact visual baseline and commit binding | PREVIEW_BLOCKER for Stage 6 execution | Existing SRC-0006 report does not embed website Git SHA; current screenshots are historical and not independently commit-bound | Operator: capture a new browser baseline against the exact recorded candidate commit and retain PNGs, report.json and diagnostics.log | Do not change website source/CSS until the baseline is pinned and preserved |
 | Material business/public facts | PRODUCTION_BLOCKER | All are DEMO-ONLY / NOT_APPROVED | No real client exists in this fictional fixture | Keep all fixture disclosure; no public release |
