@@ -172,7 +172,7 @@ No candidate group has caused document-level horizontal overflow in the report. 
 ## 10. VIS-003 final visual spot-check — 2026-11-18
 
 - Archive: `experiment-06-vis003-spotcheck.zip`.
-- Archive SHA-256: `e6c2f2c46f8df6d76b11ce4f9f8f994a67a55d39e40e1e9acbd0a03a3a6d22f1`.
+- Archive SHA-256: `f9d9bfe5b867296a17280a34718d4cfc514d153bfc44d6a3919e4db32da862ca`.
 - ZIP CRC validation passed; 19 entries: 18 section screenshots (Hero, Turnaround, Location × six widths) and `metrics.json`.
 - New screenshot widths: 320, 360, 640, 900, 1024, 1280.
 - Combined with the previously inspected Slice B screenshots at 390, 768 and 1440, all nine diagnostic widths now have visual evidence for the relevant sections.
