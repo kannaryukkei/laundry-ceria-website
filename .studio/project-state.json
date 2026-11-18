@@ -203,6 +203,50 @@
         }
       ],
       "recorded_at": "2026-11-18T06:17:22.854Z"
+    },
+    {
+      "approval_id": "APR-G1-000021",
+      "gate_id": "G1",
+      "decision": "APPROVED",
+      "subject": "SYNTHETIC DEVELOPMENT SIMULATION — Starter-equivalent training scope; no commercial offer or contract",
+      "artifact_bindings": [
+        {
+          "artifact_id": "tier-recommendation",
+          "version": "1.0",
+          "sha256": "0f4cfba18152584c0b79528574273a2b0d4d057a7400a0b22dbfa73aa6de0e52"
+        },
+        {
+          "artifact_id": "approved-scope-and-exclusions",
+          "version": "1.0",
+          "sha256": "472bcbc379385b81ea53db2f99626615e1028e5fec0f4891722ce1bb3a58af3c"
+        },
+        {
+          "artifact_id": "commercial-decision-record",
+          "version": "1.0",
+          "sha256": "08f54c5b0e83c6acf6563f5b50a511cbd985a09a34eb6b10bb2b86906ff7fed2"
+        }
+      ],
+      "approvers": [
+        {
+          "role": "client_business_owner",
+          "person": "[SIMULATED] client_business_owner",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T06:25:10.775Z",
+          "evidence_reference": "SIMULATION_ONLY: synthetic client-owner approval for workflow testing; not real client acceptance",
+          "identity_source": "development_simulation",
+          "simulated_by_github_actor": "kannaryukkei"
+        },
+        {
+          "role": "studio_owner",
+          "person": "kannaryukkei",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T06:25:10.791Z",
+          "evidence_reference": "test/full-workflow-production-shaped-simulation@0f62e7ce3be21372709546cad23f2fd85f2697a3: LC-DEV-SCOPE-001; client fee and margin remain NOT SET",
+          "identity_source": "github_actor",
+          "github_actor": "kannaryukkei"
+        }
+      ],
+      "recorded_at": "2026-11-18T06:25:10.775Z"
     }
   ],
   "events": [
@@ -448,6 +492,70 @@
       "artifact_id": "timeline-and-dependencies",
       "artifact_version": "1.0",
       "artifact_sha256": "b26bef346e1fcdccec076114103134c3e1cbd4db15b1acbb70471b24fe4c5753"
+    },
+    {
+      "event_id": "EVT-000021",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T06:25:10.775Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G1-000021",
+      "gate_id": "G1",
+      "gate_decision": "APPROVED",
+      "approver_role": "client_business_owner",
+      "approver_person": "[SIMULATED] client_business_owner",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "SIMULATION_ONLY: synthetic client-owner approval for workflow testing; not real client acceptance",
+      "identity_source": "development_simulation",
+      "simulated_by_github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "tier-recommendation",
+          "version": "1.0",
+          "sha256": "0f4cfba18152584c0b79528574273a2b0d4d057a7400a0b22dbfa73aa6de0e52"
+        },
+        {
+          "artifact_id": "approved-scope-and-exclusions",
+          "version": "1.0",
+          "sha256": "472bcbc379385b81ea53db2f99626615e1028e5fec0f4891722ce1bb3a58af3c"
+        },
+        {
+          "artifact_id": "commercial-decision-record",
+          "version": "1.0",
+          "sha256": "08f54c5b0e83c6acf6563f5b50a511cbd985a09a34eb6b10bb2b86906ff7fed2"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-000022",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T06:25:10.791Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G1-000021",
+      "gate_id": "G1",
+      "gate_decision": "APPROVED",
+      "approver_role": "studio_owner",
+      "approver_person": "kannaryukkei",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "test/full-workflow-production-shaped-simulation@0f62e7ce3be21372709546cad23f2fd85f2697a3: LC-DEV-SCOPE-001; client fee and margin remain NOT SET",
+      "identity_source": "github_actor",
+      "github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "tier-recommendation",
+          "version": "1.0",
+          "sha256": "0f4cfba18152584c0b79528574273a2b0d4d057a7400a0b22dbfa73aa6de0e52"
+        },
+        {
+          "artifact_id": "approved-scope-and-exclusions",
+          "version": "1.0",
+          "sha256": "472bcbc379385b81ea53db2f99626615e1028e5fec0f4891722ce1bb3a58af3c"
+        },
+        {
+          "artifact_id": "commercial-decision-record",
+          "version": "1.0",
+          "sha256": "08f54c5b0e83c6acf6563f5b50a511cbd985a09a34eb6b10bb2b86906ff7fed2"
+        }
+      ]
     }
   ]
 }
