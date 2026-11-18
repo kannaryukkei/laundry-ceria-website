@@ -113,11 +113,7 @@ button:focus-visible, a:focus-visible {
 /* Hero */
 .hero {
   position: relative; overflow: hidden; padding: 68px 0 32px;
-  background:
-    linear-gradient(90deg, rgba(28,41,64,.035) 1px, transparent 1px),
-    linear-gradient(rgba(28,41,64,.035) 1px, transparent 1px),
-    var(--paper);
-  background-size: 42px 42px;
+  background: var(--paper);
 }
 .hero-grid {
   display: grid; grid-template-columns: 1.08fr .92fr;
@@ -600,3 +596,64 @@ button:focus-visible, a:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Readability and contrast refinements */
+.notice-inner { flex-wrap: wrap; padding-block: 8px; font-size: 13px; }
+.notice-inner strong, .notice-inner > span:last-child { font-size: 13px; }
+.notice-inner > span:last-child { flex: 1 1 170px; }
+.wordmark-tag { font-size: 11px; }
+.primary-nav a { font-size: 13px; }
+.section-topline { font-size: 11px; }
+.eyebrow, .section-label { font-size: 11px; }
+.section-description { font-size: 15px; }
+.hero-note { font-size: 13px; }
+.hero-fact > span { font-size: 11px; }
+.hero-fact small { font-size: 11px; }
+.scene-ticket { padding: 18px 18px 13px; }
+.ticket-top, .ticket-foot { font-size: 11px; }
+.ticket-title { font-size: 18px; }
+.ticket-lines { display: grid; gap: 11px; margin: 17px 0 16px; }
+.ticket-lines span { display: block; height: 7px; border-radius: 8px; background: var(--line); }
+.ticket-lines span:nth-child(1) { width: 94%; }
+.ticket-lines span:nth-child(2) { width: 78%; }
+.ticket-lines span:nth-child(3) { width: 60%; }
+.scene-sticker { width: 70px; height: 70px; font-size: 25px; }
+.scene-caption { font-size: 13px; }
+.price-group-head > span { font-size: 11px; }
+.price-row > span { font-size: 15px; }
+.price-row small { font-size: 11px; }
+.price-board-head { font-size: 11px; }
+.price-board-note { color: var(--ink-soft); font-size: 13px; }
+.regular-time > span, .express-head > span, .express-head > b, .express-flow small { font-size: 11px; }
+.turnaround-copy > p:last-child { color: rgba(255,255,255,.9); font-size: 15px; }
+.regular-time p { color: rgba(255,255,255,.9); font-size: 15px; }
+.express-head > span { color: var(--ink); opacity: 1; }
+.express-time > p { color: var(--ink); font-size: 15px; font-weight: 750; }
+.process-side-note { font-size: 15px; }
+.process-step-copy p { font-size: 15px; }
+.process-step-mark { color: var(--blue); }
+.process-note-mark { color: var(--blue); }
+.process-note p { font-size: 15px; }
+.process-note > span:last-child { color: var(--ink); font-size: 11px; }
+.pickup-copy .section-label { color: var(--ink); }
+.pickup-copy > p:not(.section-label) { font-size: 15px; }
+.radius-caption { font-size: 11px; }
+.pickup-rule-top { font-size: 11px; }
+.pickup-rule-bottom span { color: var(--white); font-size: 11px; opacity: 1; }
+.pickup-note { color: var(--ink); font-size: 13px; }
+.panel-heading > span { font-size: 11px; }
+.hours-row { font-size: 15px; }
+.hours-row span, .hours-row strong { font-size: 15px; }
+.fictional-label { font-size: 13px; }
+.address-panel > p:last-child { color: rgba(255,255,255,.9); font-size: 13px; }
+.contact-card-top { font-size: 11px; }
+.contact-card > p { font-size: 15px; opacity: 1; }
+.walkin-card > p { color: rgba(255,255,255,.92); }
+.whatsapp-card > p { color: var(--ink-soft); }
+.status-pill { font-size: 13px; }
+.contact-card-bottom a { font-size: 13px; }
+.disabled-action { color: var(--ink-soft); font-size: 13px; }
+.footer-brand p { color: rgba(255,255,255,.88); font-size: 15px; }
+.footer-nav a, .back-top { font-size: 13px; }
+.footer-bottom { font-size: 11px; }
