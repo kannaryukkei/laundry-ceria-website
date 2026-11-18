@@ -2,7 +2,7 @@
 
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
-**Status:** VIS-001/VIS-002 and VIS-004–VIS-006 verified for Stage 6; VIS-003 orbit-containment patch committed after a 640px overlap finding and awaits after-render verification  
+**Status:** VIS-003 fixed at 640px and 720px on the exact PR #3 head; A11Y-001 manual verification and remaining gate reviews are still open  
 **Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
 **Stage 6 branch:** fix/experiment-06-stage6-remediation  
 **Slice A implementation checkpoint:** ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc  
@@ -281,7 +281,7 @@ The initial final-spot-check conclusion in Section 9 that VIS-003 was fixed was 
 - There is no screenshot at 700–767px. A screenshot at 900px is outside the requested breakpoint and cannot substitute for one.
 - The standalone Website CI workflow now captures 640px and 720px screenshots from the exact pull-request head and uploads them with a commit-bound manifest. This provides reproducible review evidence; it does not perform visual assertions or replace manual inspection. The capture for this documentation update is still pending.
 
-**Disposition:** VIS-003 remains OPEN. The evidence archive confirms the problem is real at 640px but is not post-patch evidence. Capture the exact current PR head after build at 640px and at one width between 700–767px (for example 720px), with a manifest recording repo, branch, exact commit SHA, preview URL and capture time. Keep the disclosure and decorative artwork visibly separated. Do not claim VIS-003 is fixed until those images are inspected.
+**Disposition at the time of this note:** VIS-003 remained OPEN because the supplied archive was not commit-bound. The subsequent current-head verification is recorded in Section 12 below.
 
 ## 11. A11Y-001 keyboard accessibility implementation checkpoint — 2026-11-18
 
@@ -292,3 +292,14 @@ The initial final-spot-check conclusion in Section 9 that VIS-003 was fixed was 
 - Added focused-state presentation for the skip link. Existing :focus-visible styles and reduced-motion media override remain unchanged.
 - App commit: d757f14e9f18584f18190ab3ef704f74c5cc7033.
 - This is an implementation checkpoint only, not an accessibility pass. Local build and browser evidence are still required for the first-Tab skip-link journey, complete keyboard path, Escape/focus restoration, hidden-menu tab order, focus visibility, reduced-motion behavior and manual 200% zoom review.
+
+
+## 12. VIS-003 current-head verification — 2026-11-18
+
+- Exact website source: PR #3 head `bba7c70e8523c0b0e43e4f13ad00eb9e853274a4` on `fix/experiment-06-stage6-remediation`.
+- GitHub Actions: Website CI run [#44330232724](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44330232724) completed successfully. Install, TypeScript check, production build, Chromium installation, both screenshot captures and artifact upload all passed.
+- Artifact: `laundry-ceria-hero-breakpoint-evidence-44330232724` (artifact ID `14438013686`). The embedded `capture-manifest.json` records repository, PR ref, exact source SHA, run ID, preview URL, capture time and viewport widths.
+- Reviewed screenshots: `hero-640.png` and `hero-720.png`. At both widths, the Hero disclosure sits clearly above the illustration; the decorative artwork no longer intrudes into the disclosure area.
+- The 640/720 captures are bound to PR #3 head `bba7c70e8523c0b0e43e4f13ad00eb9e853274a4`. They supersede the earlier unpinned archive as evidence for this breakpoint. The old archive remains useful as the original bug evidence, not as proof of the current source output.
+
+**Disposition: VIS-003 FIXED for the 600–767px Hero overlap.** Keep the responsive spot-check conclusions for the other inspected widths and intentional overflow candidates as previously recorded. This does not close A11Y-001, the shared contrast gate, or independent Stage 7 QA. No deployment or public release is authorized.
