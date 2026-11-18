@@ -76,6 +76,51 @@
       "sha256": "917aa2410b3f3dfe12caeddb184d0c98e29a6cad54375e247d7cef566d098dae",
       "status": "SUBMITTED",
       "produced_at": "2026-11-18T06:14:21.365Z"
+    },
+    {
+      "artifact_id": "audience-and-needs-summary",
+      "stage_id": "stage-01",
+      "version": "1.0",
+      "path": "project-artifacts/stage-01/audience-and-needs-summary/v1.0/audience-and-needs-summary.md",
+      "sha256": "89e7e5b57eda6ea34ef86b3c62717e756c28a8d106748e60bbcdda4d2fb74f90",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:21:59.421Z"
+    },
+    {
+      "artifact_id": "business-intelligence-summary",
+      "stage_id": "stage-01",
+      "version": "1.0",
+      "path": "project-artifacts/stage-01/business-intelligence-summary/v1.0/business-intelligence-summary.md",
+      "sha256": "3c4a1ff6ac8ade773355272ee03c5c432f97312d24bb84b60ccfa3b3f337fed9",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:21:59.429Z"
+    },
+    {
+      "artifact_id": "offer-matrix",
+      "stage_id": "stage-01",
+      "version": "1.0",
+      "path": "project-artifacts/stage-01/offer-matrix/v1.0/offer-matrix.md",
+      "sha256": "61f47425084c54246aff7cc66065ac7a1f14a63fd3ab630cdd9bf8769678f300",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:21:59.439Z"
+    },
+    {
+      "artifact_id": "operational-constraints",
+      "stage_id": "stage-01",
+      "version": "1.0",
+      "path": "project-artifacts/stage-01/operational-constraints/v1.0/operational-constraints.md",
+      "sha256": "de9cf67ee963865a5113c2918d8037d2bf911146441f47250feffe7b836a593c",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:21:59.450Z"
+    },
+    {
+      "artifact_id": "trust-evidence-register",
+      "stage_id": "stage-01",
+      "version": "1.0",
+      "path": "project-artifacts/stage-01/trust-evidence-register/v1.0/trust-evidence-register.md",
+      "sha256": "e4cda1d24b27a53fab90e9a227db4ed250902a8e1cb80f9c555fc53ab21ab511",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:21:59.461Z"
     }
   ],
   "approvals": [
@@ -277,6 +322,56 @@
           "sha256": "e283b225137938aac6f1ee5b77201515c814e1d27e1a46c6940235938a04579c"
         }
       ]
+    },
+    {
+      "event_id": "EVT-000012",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:21:59.421Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-01",
+      "artifact_id": "audience-and-needs-summary",
+      "artifact_version": "1.0",
+      "artifact_sha256": "89e7e5b57eda6ea34ef86b3c62717e756c28a8d106748e60bbcdda4d2fb74f90"
+    },
+    {
+      "event_id": "EVT-000013",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:21:59.429Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-01",
+      "artifact_id": "business-intelligence-summary",
+      "artifact_version": "1.0",
+      "artifact_sha256": "3c4a1ff6ac8ade773355272ee03c5c432f97312d24bb84b60ccfa3b3f337fed9"
+    },
+    {
+      "event_id": "EVT-000014",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:21:59.439Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-01",
+      "artifact_id": "offer-matrix",
+      "artifact_version": "1.0",
+      "artifact_sha256": "61f47425084c54246aff7cc66065ac7a1f14a63fd3ab630cdd9bf8769678f300"
+    },
+    {
+      "event_id": "EVT-000015",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:21:59.450Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-01",
+      "artifact_id": "operational-constraints",
+      "artifact_version": "1.0",
+      "artifact_sha256": "de9cf67ee963865a5113c2918d8037d2bf911146441f47250feffe7b836a593c"
+    },
+    {
+      "event_id": "EVT-000016",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:21:59.461Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-01",
+      "artifact_id": "trust-evidence-register",
+      "artifact_version": "1.0",
+      "artifact_sha256": "e4cda1d24b27a53fab90e9a227db4ed250902a8e1cb80f9c555fc53ab21ab511"
     }
   ]
 }
