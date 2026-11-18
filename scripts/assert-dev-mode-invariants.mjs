@@ -28,12 +28,20 @@ async function main() {
   }
 
   const stage8 = evaluation.stages?.find((stage) => stage.stage_id === 'stage-08');
+  const stage9 = evaluation.stages?.find((stage) => stage.stage_id === 'stage-09');
+  const g7 = actual.get('G7');
+  if (g7) {
+    assert.equal(g7.decision, 'HANDED_OVER');
+    assert.equal(stage8?.status, 'PASSED', 'Stage 8 must be completed after G7 handover');
+    assert.ok(stage9?.can_start, 'Stage 9 must be startable after simulated G7');
+  } else {
+    assert.ok(stage8?.can_start, 'Stage 8 must be startable after simulated G4-G6');
+  }
   assert.equal(evaluation.ok, true, 'Workflow evaluation must be valid');
   assert.equal(evaluation.operating_mode, 'studio_development');
   assert.equal(evaluation.delivery_mode, 'production');
   assert.equal(evaluation.execution_class, 'SIMULATION_ONLY');
   assert.equal(evaluation.external_release_allowed, false);
-  assert.ok(stage8?.can_start, 'Stage 8 must be startable after simulated G4-G6');
 
   const report = {
     result: 'PASS',
@@ -44,7 +52,10 @@ async function main() {
     execution_class: evaluation.execution_class,
     external_release_allowed: evaluation.external_release_allowed,
     current_stage: evaluation.current_stage,
-    stage_08_can_start: stage8.can_start,
+    stage_08_status: stage8?.status ?? 'UNKNOWN',
+    stage_08_can_start: Boolean(stage8?.can_start),
+    stage_09_can_start: Boolean(stage9?.can_start),
+    g7_recorded: Boolean(g7),
     simulated_gate_decisions: expectedDecisions,
     note: 'This proves repository workflow isolation in studio_development. It does not authorize any external deployment, public release, DNS change or client communication.'
   };
