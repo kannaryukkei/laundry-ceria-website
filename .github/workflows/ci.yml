@@ -31,8 +31,24 @@ jobs:
         run: npm run build
       - name: Install Playwright and Chromium for breakpoint evidence
         run: |
-          npm install --no-save playwright
+          npm install --save-dev playwright
           npx playwright install --with-deps chromium
+      - name: Collect dependency reproducibility and advisory evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          node --version > artifacts/node-version.txt
+          npm --version > artifacts/npm-version.txt
+          cp package.json artifacts/package.json
+          cp package-lock.json artifacts/package-lock.json
+          set +e
+          npm ls --all --json > artifacts/npm-dependency-tree.json 2> artifacts/npm-ls.stderr.log
+          ls_status=$?
+          npm audit --json > artifacts/npm-audit.json 2> artifacts/npm-audit.stderr.log
+          audit_status=$?
+          set -e
+          printf '{\\n  "npm_ls_exit_code": %s,\\n  "npm_audit_exit_code": %s\\n}\\n' "$ls_status" "$audit_status" > artifacts/dependency-review-summary.json
       - name: Capture Hero at 640px and 720px
         shell: bash
         run: |
@@ -56,8 +72,11 @@ jobs:
             exit 1
           fi
 
-          npx --yes playwright screenshot --browser chromium --viewport-size "640,1000" --wait-for-timeout 500 http://127.0.0.1:4173/ artifacts/hero-640.png
-          npx --yes playwright screenshot --browser chromium --viewport-size "720,1000" --wait-for-timeout 500 http://127.0.0.1:4173/ artifacts/hero-720.png
+          npx playwright screenshot --browser chromium --viewport-size "640,1000" --wait-for-timeout 500 http://127.0.0.1:4173/ artifacts/hero-640.png
+          npx playwright screenshot --browser chromium --viewport-size "720,1000" --wait-for-timeout 500 http://127.0.0.1:4173/ artifacts/hero-720.png
+          for width in 320 360 900 1024 1280; do
+            npx playwright screenshot --browser chromium --viewport-size "${width},1000" --full-page --wait-for-timeout 500 http://127.0.0.1:4173/ "artifacts/visual-review-${width}.png"
+          done
           if [ -f tests/a11y-001-keyboard.mjs ]; then node tests/a11y-001-keyboard.mjs; else echo "A11Y-001 browser regression is not part of this PR candidate yet; skipping."; fi
           if [ -f tests/a11y-002-full-keyboard.mjs ]; then node tests/a11y-002-full-keyboard.mjs; else echo "A11Y-002 full keyboard regression is not part of this PR candidate yet; skipping."; fi
 
