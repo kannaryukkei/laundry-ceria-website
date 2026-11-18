@@ -265,7 +265,7 @@ function HoursLocation() {
               <div className="panel-heading"><h3>Alamat dalam contoh</h3><span>DATA FIKTIF</span></div>
               <p className="fictional-label" data-qa-role="disclosure">ALAMAT FIKTIF — DATA DEMO</p>
               <h4>Jl. Melati No. 12,<br />Jakarta</h4>
-              <p>Alamat ini bukan lokasi usaha sungguhan dan tidak dapat digunakan untuk petunjuk arah.</p>
+              <p data-qa-role="disclosure">Alamat ini bukan lokasi usaha sungguhan dan tidak dapat digunakan untuk petunjuk arah.</p>
             </article>
           </div>
         </div>
