@@ -48,7 +48,9 @@ jobs:
           npm audit --json > artifacts/npm-audit.json 2> artifacts/npm-audit.stderr.log
           audit_status=$?
           set -e
-          printf '{\\n  "npm_ls_exit_code": %s,\\n  "npm_audit_exit_code": %s\\n}\\n' "$ls_status" "$audit_status" > artifacts/dependency-review-summary.json
+          cat > artifacts/dependency-review-summary.json <<EOF
+          {"npm_ls_exit_code": $ls_status, "npm_audit_exit_code": $audit_status}
+          EOF
       - name: Capture Hero at 640px and 720px
         shell: bash
         run: |
@@ -81,7 +83,19 @@ jobs:
           if [ -f tests/a11y-002-full-keyboard.mjs ]; then node tests/a11y-002-full-keyboard.mjs; else echo "A11Y-002 full keyboard regression is not part of this PR candidate yet; skipping."; fi
 
           captured_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-          printf '{\n  "repository": "%s",\n  "ref": "%s",\n  "commit_sha": "%s",\n  "workflow_run_id": "%s",\n  "preview_url": "http://127.0.0.1:4173/",\n  "captured_at_utc": "%s",\n  "viewports": [640, 720],\n  "purpose": "Hero visual review evidence; manual inspection required"\n}\n'             "$GITHUB_REPOSITORY" "$GITHUB_REF" "$CAPTURE_SHA" "$GITHUB_RUN_ID" "$captured_at" > artifacts/capture-manifest.json
+          cat > artifacts/capture-manifest.json <<EOF
+          {
+            "repository": "$GITHUB_REPOSITORY",
+            "ref": "$GITHUB_REF",
+            "commit_sha": "$CAPTURE_SHA",
+            "workflow_run_id": "$GITHUB_RUN_ID",
+            "preview_url": "http://127.0.0.1:4173/",
+            "captured_at_utc": "$captured_at",
+            "hero_viewports": [640, 720],
+            "additional_full_page_viewports": [320, 360, 900, 1024, 1280],
+            "purpose": "Exact-head responsive visual review plus dependency reproducibility and advisory evidence; manual inspection required"
+          }
+          EOF
       - name: Upload breakpoint evidence
         if: always()
         uses: actions/upload-artifact@v4
