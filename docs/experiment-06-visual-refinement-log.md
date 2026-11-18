@@ -2,7 +2,7 @@
 
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
-**Status:** VIS-003 fixed at 640px and 720px on the exact PR #3 head; A11Y-001 manual verification and remaining gate reviews are still open  
+**Status:** VIS-003 fixed at 640px and 720px; A11Y-001 automated Chromium regression passes on PR #3 head `b415bfc`; literal 200% browser zoom and broader manual/assistive-tech checks remain open  
 **Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
 **Stage 6 branch:** fix/experiment-06-stage6-remediation  
 **Slice A implementation checkpoint:** ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc  
@@ -303,3 +303,25 @@ The initial final-spot-check conclusion in Section 9 that VIS-003 was fixed was 
 - The 640/720 captures are bound to PR #3 head `bba7c70e8523c0b0e43e4f13ad00eb9e853274a4`. They supersede the earlier unpinned archive as evidence for this breakpoint. The old archive remains useful as the original bug evidence, not as proof of the current source output.
 
 **Disposition: VIS-003 FIXED for the 600–767px Hero overlap.** Keep the responsive spot-check conclusions for the other inspected widths and intentional overflow candidates as previously recorded. This does not close A11Y-001, the shared contrast gate, or independent Stage 7 QA. No deployment or public release is authorized.
+
+
+## 13. A11Y-001 automated browser verification — 2026-11-18
+
+**Source:** PR #3 head `b415bfc7fb152afbb44dee16f2b3cabfabbae9bf`  
+**Workflow:** [Website CI run #44336859081](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44336859081) — **SUCCESS**  
+**Artifact:** `laundry-ceria-hero-breakpoint-evidence-44336859081`, ID `14441008622`, SHA-256 `7c9d43cdd014b8d8cfff97307a62dede14693aeb5bc809e8a82c14c52428e0d0`.
+
+The browser regression completed these checks:
+- Skip link is the first Tab stop; Enter moves focus to the focusable `#main-content` target.
+- Skip-link and mobile-menu-toggle focus indicators are visible.
+- Five mobile navigation destinations are reachable in DOM/keyboard order.
+- Escape closes the mobile menu and returns focus to the toggle; collapsed links are removed from the tab sequence.
+- Desktop navigation is keyboard reachable in logical order.
+- `prefers-reduced-motion: reduce` changes root scrolling to `auto` and reduces meaningful transition durations to effectively zero.
+- At 640 CSS px viewport width, the document and body reflow without page-level horizontal overflow. This is the CSS layout-width equivalent of a 1280px viewport at 200% zoom, not a literal browser-zoom control test.
+
+CI output explicitly states: `A11Y-001 PASS: skip link, keyboard order, focus visibility, mobile Escape/focus return, reduced motion, and 200% zoom-equivalent reflow.`
+
+The same exact-head run captured `hero-640.png` and `hero-720.png`; `capture-manifest.json` records the repository, PR ref, source SHA, run ID, capture time and viewports. Both screenshots were inspected and show clear separation between the Hero disclosure and decorative illustration.
+
+**Disposition:** the automated A11Y-001 subset passes. Manual whole-page keyboard traversal, literal 200% browser zoom and assistive-technology testing remain separate tasks. This is not a WCAG certification or release approval.
