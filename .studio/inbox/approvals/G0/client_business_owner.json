@@ -1,0 +1,5 @@
+{
+  "decision": "CONDITIONAL_PREVIEW",
+  "subject": "Synthetic development fixture — G0 sources, facts and asset permissions",
+  "evidence_reference": "SIMULATION_ONLY: synthetic client-owner role for system development test"
+}
