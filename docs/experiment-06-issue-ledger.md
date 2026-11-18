@@ -244,3 +244,10 @@ A targeted CSS patch has now been committed:
 - Updated the canonical Studio workflow on PR #1's feature branch to invoke the AWOS shared website-quality action by pinned commit and run A11Y-002. The website repository does not copy the shared gate implementation.
 - First run after the source change, [#44342280294](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44342280294), passed the existing build/A11Y-001/screenshot workflow but did not yet contain the new A11Y-002 or remote shared-gate steps. A subsequent exact-head run is required to verify the refreshed workflow.
 - Still unverified: literal browser zoom controls at 200%, assistive-technology/screen-reader review, and independent Stage 7 acceptance. No WCAG conformance or public-release approval is claimed.
+
+
+## 16. Follow-up contrast signature surfaced by canonical gate — 2026-11-18
+
+The first run of the canonical AWOS shared gate on the revised candidate, [run #44342879459](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44342879459), confirmed zero typography failures, zero responsive failures and valid evidence, while both A11Y-001 and A11Y-002 browser tests passed. It isolated 37 remaining contrast observations to the low-contrast decorative suffix `/ 06` in the turnaround section's non-semantic `02 / 06` index (12px, 3.38:1 against the dark section; required 4.5:1).
+
+The suffix is not meaningful content, so it was removed rather than changing global thresholds or recoloring meaningful text. The higher-contrast decorative `02` remains. Its unused suffix CSS was removed. The latest candidate must pass the canonical gate before VIS-002 can be marked resolved.
