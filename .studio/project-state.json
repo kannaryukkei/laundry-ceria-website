@@ -454,6 +454,42 @@
       "sha256": "4aace98169215f3f57a66df740b32df2b1ce935dd42ebe62f0a3a08d8036dd9f",
       "status": "SUBMITTED",
       "produced_at": "2026-11-18T07:38:58.108Z"
+    },
+    {
+      "artifact_id": "calibration-record",
+      "stage_id": "stage-09",
+      "version": "1.0",
+      "path": "project-artifacts/stage-09/calibration-record/v1.0/calibration-record.md",
+      "sha256": "ed5a7ccbeab354d78ffa942e24ae37c5dfc8ba359df02bff0f8b59021cf31cbc",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:50:23.881Z"
+    },
+    {
+      "artifact_id": "regression-results",
+      "stage_id": "stage-09",
+      "version": "1.0",
+      "path": "project-artifacts/stage-09/regression-results/v1.0/regression-results.md",
+      "sha256": "5fa9b9b004fef96ccbf39550f292bf3ca7a92ae09325ef9dda30c2572a6b9cf0",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:50:23.907Z"
+    },
+    {
+      "artifact_id": "root-cause-decision",
+      "stage_id": "stage-09",
+      "version": "1.0",
+      "path": "project-artifacts/stage-09/root-cause-decision/v1.0/root-cause-decision.md",
+      "sha256": "1fe0561a1701cc6a6a1d70c50ffc3b1ff6bf4cfae92dbb067e69cc786c51c91d",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:50:23.936Z"
+    },
+    {
+      "artifact_id": "system-learning-decision",
+      "stage_id": "stage-09",
+      "version": "1.0",
+      "path": "project-artifacts/stage-09/system-learning-decision/v1.0/system-learning-decision.md",
+      "sha256": "2c1695eadee08bac65a0755f90544a40fc6143487f218848ee143681fa4e5c38",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T07:50:23.962Z"
     }
   ],
   "approvals": [
@@ -1761,6 +1797,46 @@
           "sha256": "94f9749da7369d14d62cb83e1c5886ffac5caf323d53e992c3822859582f240e"
         }
       ]
+    },
+    {
+      "event_id": "EVT-000068",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:50:23.881Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-09",
+      "artifact_id": "calibration-record",
+      "artifact_version": "1.0",
+      "artifact_sha256": "ed5a7ccbeab354d78ffa942e24ae37c5dfc8ba359df02bff0f8b59021cf31cbc"
+    },
+    {
+      "event_id": "EVT-000069",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:50:23.907Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-09",
+      "artifact_id": "regression-results",
+      "artifact_version": "1.0",
+      "artifact_sha256": "5fa9b9b004fef96ccbf39550f292bf3ca7a92ae09325ef9dda30c2572a6b9cf0"
+    },
+    {
+      "event_id": "EVT-000070",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:50:23.936Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-09",
+      "artifact_id": "root-cause-decision",
+      "artifact_version": "1.0",
+      "artifact_sha256": "1fe0561a1701cc6a6a1d70c50ffc3b1ff6bf4cfae92dbb067e69cc786c51c91d"
+    },
+    {
+      "event_id": "EVT-000071",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T07:50:23.962Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-09",
+      "artifact_id": "system-learning-decision",
+      "artifact_version": "1.0",
+      "artifact_sha256": "2c1695eadee08bac65a0755f90544a40fc6143487f218848ee143681fa4e5c38"
     }
   ]
 }
