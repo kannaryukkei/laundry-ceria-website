@@ -255,7 +255,7 @@ function Contact() {
       <div className="container">
         <div className="section-topline" data-qa-role="metadata"><span>06 — LANGKAH SELANJUTNYA</span><span>KONVERSI · PREVIEW ONLY</span></div>
         <div className="contact-heading-grid">
-          <SectionHeading eyebrow="INFORMASI KONTAK" title="Pilih cara yang ingin dikenali." description="Dua jalur berikut adalah tujuan konversi dalam brief, namun belum dapat digunakan sebagai kontak bisnis nyata." />
+          <SectionHeading eyebrow="INFORMASI KONTAK" title="Pilihan kunjungan dan kontak." description="Alamat kunjungan dan kontak WhatsApp pada halaman ini masih berupa data simulasi." />
           
         </div>
         <div className="contact-grid">
