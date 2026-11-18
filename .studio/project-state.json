@@ -4,7 +4,80 @@
   "project_id": "LAUNDRY-CERIA-FULL-E2E-DEV",
   "operating_mode": "studio_development",
   "delivery_mode": "production",
-  "artifacts": [],
+  "artifacts": [
+    {
+      "artifact_id": "asset-permission-register",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/asset-permission-register/v1.0/asset-permission-register.md",
+      "sha256": "e283b225137938aac6f1ee5b77201515c814e1d27e1a46c6940235938a04579c",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:14:21.348Z"
+    },
+    {
+      "artifact_id": "clarification-and-conflict-register",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/clarification-and-conflict-register/v1.0/clarification-and-conflict-register.md",
+      "sha256": "f1468f5114ec19f03a74ff2acb5ed91acfd1f22449d16b4745cb40df1b3ad7ce",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:14:21.354Z"
+    },
+    {
+      "artifact_id": "client-brief",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/client-brief/v1.0/client-brief.md",
+      "sha256": "6eccda1deceeb7dd5051b724bf3ce71760bf0babcb9cb531e94ead2a32cdffef",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:14:21.356Z"
+    },
+    {
+      "artifact_id": "fact-register",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/fact-register/v1.0/fact-register.md",
+      "sha256": "d55800b8d1bae004c798d677b525d519d94e294b23386c767ae565ed05bb724a",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:14:21.357Z"
+    },
+    {
+      "artifact_id": "interview-summary",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/interview-summary/v1.0/interview-summary.md",
+      "sha256": "c7502185fa0b2e21894605ef689bf7658117e6a9120f81d5070b54135fe48536",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:14:21.359Z"
+    },
+    {
+      "artifact_id": "raw-material-index",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/raw-material-index/v1.0/raw-material-index.md",
+      "sha256": "2bf8d3f9542986651dbafaa8a7579f4bcd6a4630f9dde066da0e17aa119a971f",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:14:21.361Z"
+    },
+    {
+      "artifact_id": "source-coverage-matrix",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/source-coverage-matrix/v1.0/source-coverage-matrix.md",
+      "sha256": "e0e67c049541d7e7c8bb47c39f12788ed22d33632863412135f29af8dfc89485",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:14:21.363Z"
+    },
+    {
+      "artifact_id": "source-register",
+      "stage_id": "stage-00",
+      "version": "1.0",
+      "path": "project-artifacts/stage-00/source-register/v1.0/source-register.md",
+      "sha256": "917aa2410b3f3dfe12caeddb184d0c98e29a6cad54375e247d7cef566d098dae",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:14:21.365Z"
+    }
+  ],
   "approvals": [],
   "events": [
     {
@@ -15,6 +88,86 @@
       "project_id": "LAUNDRY-CERIA-FULL-E2E-DEV",
       "operating_mode": "studio_development",
       "delivery_mode": "production"
+    },
+    {
+      "event_id": "EVT-000002",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:14:21.348Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "asset-permission-register",
+      "artifact_version": "1.0",
+      "artifact_sha256": "e283b225137938aac6f1ee5b77201515c814e1d27e1a46c6940235938a04579c"
+    },
+    {
+      "event_id": "EVT-000003",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:14:21.354Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "clarification-and-conflict-register",
+      "artifact_version": "1.0",
+      "artifact_sha256": "f1468f5114ec19f03a74ff2acb5ed91acfd1f22449d16b4745cb40df1b3ad7ce"
+    },
+    {
+      "event_id": "EVT-000004",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:14:21.356Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "client-brief",
+      "artifact_version": "1.0",
+      "artifact_sha256": "6eccda1deceeb7dd5051b724bf3ce71760bf0babcb9cb531e94ead2a32cdffef"
+    },
+    {
+      "event_id": "EVT-000005",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:14:21.357Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "fact-register",
+      "artifact_version": "1.0",
+      "artifact_sha256": "d55800b8d1bae004c798d677b525d519d94e294b23386c767ae565ed05bb724a"
+    },
+    {
+      "event_id": "EVT-000006",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:14:21.359Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "interview-summary",
+      "artifact_version": "1.0",
+      "artifact_sha256": "c7502185fa0b2e21894605ef689bf7658117e6a9120f81d5070b54135fe48536"
+    },
+    {
+      "event_id": "EVT-000007",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:14:21.361Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "raw-material-index",
+      "artifact_version": "1.0",
+      "artifact_sha256": "2bf8d3f9542986651dbafaa8a7579f4bcd6a4630f9dde066da0e17aa119a971f"
+    },
+    {
+      "event_id": "EVT-000008",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:14:21.363Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "source-coverage-matrix",
+      "artifact_version": "1.0",
+      "artifact_sha256": "e0e67c049541d7e7c8bb47c39f12788ed22d33632863412135f29af8dfc89485"
+    },
+    {
+      "event_id": "EVT-000009",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:14:21.365Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-00",
+      "artifact_id": "source-register",
+      "artifact_version": "1.0",
+      "artifact_sha256": "917aa2410b3f3dfe12caeddb184d0c98e29a6cad54375e247d7cef566d098dae"
     }
   ]
 }
