@@ -2,7 +2,7 @@
 
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
-**Status:** VIS-003 fixed at 640px and 720px; A11Y-001 automated subset passes; A11Y-002 full-page link-traversal regression and four decorative contrast-signature removals are committed on PR #3 head `e5a6aa4`; latest shared-gate CI verification pending. Literal 200% browser zoom and assistive-tech checks remain open  
+**Status:** VIS-001/VIS-003 fixed; measured contrast failures are 0 on canonical run #44343672779 with 205 generated Hero-art surfaces requiring manual review. A11Y-001 and A11Y-002 pass on that exact head. COPY-001 wording is corrected on the current source head; exact-head CI rerun pending. Literal browser zoom at 200%, assistive-tech review and Stage 7 remain open  
 **Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
 **Stage 6 branch:** fix/experiment-06-stage6-remediation  
 **Slice A implementation checkpoint:** ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc  
@@ -343,3 +343,23 @@ A new automated regression, `tests/a11y-002-full-keyboard.mjs`, was added on PR 
 That workflow now also invokes the canonical Shared Website Quality Gate from `kannaryukkei/ai-operated-web-studio`, pinned to commit `44d52586a2179a5f91d46049b139c823eaf1afa2`. The Laundry Ceria repository consumes the shared action rather than maintaining a copied gate. Exact-head CI execution of these new steps remains pending.
 
 Literal browser zoom at 200%, assistive-technology/screen-reader review and independent Stage 7 acceptance remain separate manual checks. This is not a WCAG conformance or production-release claim.
+
+
+## 17. Canonical shared gate and full desktop keyboard path — 2026-11-18
+
+The exact-head candidate `49b4a8e2b5ab6fb260e9c62573b9121d5c68e12a` passed [Website CI run #44343672779](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44343672779). The run included TypeScript checking, Vite production build, exact-head 640px/720px captures, A11Y-001, A11Y-002 and the canonical AWOS Shared Website Quality Gate.
+
+Canonical report outcome: **PASS_WITH_MANUAL_REVIEW_REQUIRED**:
+- Typography failures: 0 over 320/360/390/640/768/900/1024/1280/1440px.
+- Contrast failures: 0 across the nine widths and 53 sampled render states.
+- Page-level responsive failures: 0; document width equals viewport width at all nine diagnostic widths.
+- Evidence: valid; zero proof candidates and zero evidence failures.
+- 205 contrast samples remain excluded because the shared renderer cannot reliably resolve generated image/background layers in the decorative Hero illustration. They resolve to decorative spark marks and illustration-only badge/caption, not required content or business proof. The gate's manual-review designation remains and thresholds were not changed.
+
+The exact-head screenshot manifest and artifacts are tied to run #44343672779 and source SHA `49b4a8e2b5ab6fb260e9c62573b9121d5c68e12a`. The 390px, 768px and 1440px shared-gate full-page screenshots, plus the Hero captures at 640px and 720px, were visually inspected. The Hero notice is separated from the artwork and all substantive content remains clear at those inspected widths. Other diagnostic widths have automated responsive measurements; full visual spot-check at every width remains on the checklist.
+
+A11Y-002 confirms every visible desktop link (16 total) is in the expected Tab order, has a discernible accessible name and existing in-page target, and has a visible focus style; Shift+Tab reverses correctly and collapsed mobile navigation is skipped. A11Y-001 continues to cover skip link, mobile-nav Escape/focus return, reduced motion and zoom-equivalent reflow.
+
+COPY-001 was subsequently corrected to “Pilihan kunjungan dan kontak.” with explicit demo-only supporting copy; that copy-only follow-up requires the next exact-head run before closing the latest source candidate.
+
+Literal browser zoom at 200%, assistive-technology/screen-reader review, lockfile/advisory review and independent Stage 7 acceptance remain open. This is not WCAG certification or release approval.
