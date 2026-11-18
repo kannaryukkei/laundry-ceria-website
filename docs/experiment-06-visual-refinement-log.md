@@ -2,8 +2,10 @@
 
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
-**Status:** BASELINE CAPTURE RECEIVED — SOURCE-TREE INTEGRITY CONFIRMATION PENDING  
+**Status:** SLICE A IMPLEMENTED — LOCAL BUILD AND RENDERED RECAPTURE PENDING  
 **Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
+**Stage 6 branch:** fix/experiment-06-stage6-remediation  
+**Slice A implementation checkpoint:** ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc  
 **WRP:** WRP-LC-001 v0.2 — APPROVED_FOR_DESIGN, internal training only  
 **Decision record:** TDR-LC-2026-11-18-01  
 **Working branch:** feat/stage-4-website-production
@@ -44,7 +46,9 @@
 
 The website `npm ci` and `npm run build` completed successfully on the checked-out HEAD. npm reported four high-severity dependency advisories during installation; no automatic dependency changes were made. This is a separate dependency-security item for review, not a reason to modify the pinned baseline.
 
-**Important integrity caveat:** the operator's pre-checkout `git status --porcelain` was non-empty and raised an error. Checkout to the target SHA then succeeded, but a post-checkout `git status` / tracked-source diff was not captured in the supplied transcript. The manifest records the checked-out HEAD SHA, but does not independently prove the working tree was clean when the build and screenshots were produced. Preserve the archive and do not alter it; verify current tracked and untracked source state non-destructively before treating this as a fully SHA-bound baseline.
+**Integrity verification from the follow-up transcript:** HEAD equals `ff29c739ed23441ed76a3b781d784d66552e6ea0`; both unstaged and staged tracked-source diffs are empty; `git ls-files --others --exclude-standard -- src public` returns no files. The remaining untracked entries are generated QA archives, `dist/`, `node_modules/`, the baseline ZIP and `package-lock.json`. No local file was deleted or reset.
+
+**Dependency reproducibility caveat:** `package-lock.json` is absent from the pinned Git tree but existed locally and was used by `npm ci`. Thus the tracked app source matches the pinned SHA, but the exact local dependency resolution is not fully represented by the repository commit. The install also reported four high-severity advisories; no automatic dependency changes were made. Preserve the before archive unchanged.
 
 ## 3. Required baseline capture
 
@@ -70,3 +74,30 @@ No source/CSS change has been made as part of this entry preparation. Once sourc
 ## 5. Exit boundary
 
 Stage 6 is not passed by this log. It will require before/after evidence, bounded fixes, actual builds and affected tests, separate aesthetic and visual-fidelity verdicts, explicit unresolved findings, and a distinct Stage 7 independent QA pass. This exercise remains PREVIEW ONLY; G0 publication, G4, G5, G6 and G7 are not approved or passed.
+
+
+## 6. Slice A — typography roles, readable type and contrast
+
+**Branch:** `fix/experiment-06-stage6-remediation`  
+**Implementation checkpoint:** `ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc`  
+**Changed files:** `src/App.tsx`, `src/styles.css`  
+**Scope:** VIS-001, VIS-002, GATE-003.
+
+### Implemented changes
+
+- Added explicit semantic QA roles for metadata, body, controls and disclosures. Shared typography thresholds remain unchanged.
+- Eyebrows and section/category labels are assigned METADATA; key simulation, price, turnaround, pickup, schedule, fictional-address and unavailable-state notes are assigned DISCLOSURE; body and control elements are explicitly tagged where tag fallback would otherwise be ambiguous.
+- Raised small but decision-relevant text including preview notice, body descriptions, price labels/units, turnaround terms, process explanations, pickup conditions, hours, contact explanations, fictional-address label, status pills and footer disclosures.
+- Replaced measured low-contrast muted colors with the existing `--color-muted` token where appropriate; white on teal and footer disclosure opacity were increased for the relevant content pairs.
+- Increased the express surcharge label to 13px and marked it as a disclosure.
+- Marked decorative card numbering and contact index as hidden from assistive technology.
+
+### Verification status
+
+The GitHub diff confirms only `src/App.tsx` and `src/styles.css` changed in this code slice. No dependencies, business facts, CTA destinations, links, backend, external services or transaction behavior were added.
+
+**Not yet verified:** no production build has been run on the Stage 6 branch head, and no after-slice browser screenshots have been captured. Therefore VIS-001, VIS-002 and GATE-003 remain OPEN. The shared rendered gate result for this patch is unknown; no PASS is claimed.
+
+### Required next check
+
+On the local machine, switch to this branch without cleaning the working tree, run the existing production build, then capture a new Shared Website Quality Gate archive at 390/768/1440 with the same seven mobile and seven desktop section captures. Inspect typography, color pairs, line wrapping, clipping and price/unit association. Keep the original baseline ZIP untouched and store the after-slice evidence separately.
