@@ -2,7 +2,7 @@
 
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
-**Status:** VIS-003 fixed at 640px and 720px; A11Y-001 automated Chromium regression passes on PR #3 head `b415bfc`; literal 200% browser zoom and broader manual/assistive-tech checks remain open  
+**Status:** VIS-003 fixed at 640px and 720px; A11Y-001 automated subset passes; A11Y-002 full-page link-traversal regression and four decorative contrast-signature removals are committed on PR #3 head `e5a6aa4`; latest shared-gate CI verification pending. Literal 200% browser zoom and assistive-tech checks remain open  
 **Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
 **Stage 6 branch:** fix/experiment-06-stage6-remediation  
 **Slice A implementation checkpoint:** ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc  
@@ -325,3 +325,21 @@ CI output explicitly states: `A11Y-001 PASS: skip link, keyboard order, focus vi
 The same exact-head run captured `hero-640.png` and `hero-720.png`; `capture-manifest.json` records the repository, PR ref, source SHA, run ID, capture time and viewports. Both screenshots were inspected and show clear separation between the Hero disclosure and decorative illustration.
 
 **Disposition:** the automated A11Y-001 subset passes. Manual whole-page keyboard traversal, literal 200% browser zoom and assistive-technology testing remain separate tasks. This is not a WCAG certification or release approval.
+
+
+## 15. Remove decorative contrast signatures and expand keyboard traversal — 2026-11-18
+
+The four residual contrast signatures from the previous Slice B report were non-informational decorations, not content that needed a color or contrast-threshold workaround. The PR #3 implementation removes them at source:
+
+- The rotated address-card watermark `JAKARTA / DEMO / 001` was removed. The fictional address remains explicitly labelled in the visible disclosure and explanatory copy.
+- The arrow glyph beside the disabled WhatsApp status was removed. The status remains visible as text, with WhatsApp still NOT_CONFIGURED and non-interactive.
+- The decorative `06/06` contact index was removed.
+- Unused CSS rules for these three treatments were removed.
+
+No WCAG/contrast threshold was lowered, no substantive content was recolored, and no fictional business claim was added.
+
+A new automated regression, `tests/a11y-002-full-keyboard.mjs`, was added on PR #3. It verifies all 16 visible desktop links, their accessible names and in-page targets, the complete expected forward Tab order, visible focus treatment for every link, reverse Shift+Tab order, and the mobile collapsed-navigation tab sequence. The script is wired into the PR #1 feature-branch CI workflow.
+
+That workflow now also invokes the canonical Shared Website Quality Gate from `kannaryukkei/ai-operated-web-studio`, pinned to commit `44d52586a2179a5f91d46049b139c823eaf1afa2`. The Laundry Ceria repository consumes the shared action rather than maintaining a copied gate. Exact-head CI execution of these new steps remains pending.
+
+Literal browser zoom at 200%, assistive-technology/screen-reader review and independent Stage 7 acceptance remain separate manual checks. This is not a WCAG conformance or production-release claim.
