@@ -1,0 +1,730 @@
+{
+  "workflow_id": "ai-operated-web-studio",
+  "contract_version": "1.1.0",
+  "schema_version": "1.0.0",
+  "title": "AI-Operated Web Studio Canonical Website Workflow",
+  "description": "Agent-neutral executable contract for the canonical Stage 0-9 lifecycle.",
+  "runtime": {
+    "minimum_node_major": 20,
+    "api_required": false,
+    "provider_specific": false,
+    "state_authority": "repository_artifacts_and_validated_manifest",
+    "stage_statuses_are_derived": true
+  },
+  "stage_statuses": [
+    "LOCKED",
+    "READY",
+    "IN_PROGRESS",
+    "AWAITING_APPROVAL",
+    "PASSED",
+    "FAILED",
+    "NOT_APPLICABLE"
+  ],
+  "artifact_statuses": [
+    "SUBMITTED"
+  ],
+  "approval_decisions": [
+    "APPROVED",
+    "CONDITIONAL_PREVIEW",
+    "PREVIEW_ACCEPTED",
+    "PRODUCTION_READY",
+    "RELEASE_AUTHORIZED",
+    "HANDED_OVER",
+    "CHANGES_REQUESTED",
+    "REJECTED"
+  ],
+  "roles": [
+    "studio_owner",
+    "studio_operator",
+    "client_business_owner",
+    "independent_reviewer"
+  ],
+  "artifacts": [
+    {
+      "id": "raw-material-index",
+      "stage_id": "stage-00",
+      "label": "Raw Material Index",
+      "format": "markdown"
+    },
+    {
+      "id": "source-register",
+      "stage_id": "stage-00",
+      "label": "Source Register",
+      "format": "markdown"
+    },
+    {
+      "id": "source-coverage-matrix",
+      "stage_id": "stage-00",
+      "label": "Source Coverage Matrix",
+      "format": "markdown"
+    },
+    {
+      "id": "interview-summary",
+      "stage_id": "stage-00",
+      "label": "Transcript or Interview Summary (or explicit NOT_APPLICABLE)",
+      "format": "markdown"
+    },
+    {
+      "id": "client-brief",
+      "stage_id": "stage-00",
+      "label": "Normalized Client Brief v2.1",
+      "format": "markdown"
+    },
+    {
+      "id": "fact-register",
+      "stage_id": "stage-00",
+      "label": "Atomic Fact Register",
+      "format": "markdown"
+    },
+    {
+      "id": "asset-permission-register",
+      "stage_id": "stage-00",
+      "label": "Asset and Permission Register",
+      "format": "markdown"
+    },
+    {
+      "id": "clarification-and-conflict-register",
+      "stage_id": "stage-00",
+      "label": "Conflict, Gap and Minimal Clarification Register",
+      "format": "markdown"
+    },
+    {
+      "id": "business-intelligence-summary",
+      "stage_id": "stage-01",
+      "label": "Business Intelligence Summary",
+      "format": "markdown"
+    },
+    {
+      "id": "audience-and-needs-summary",
+      "stage_id": "stage-01",
+      "label": "Audience, Jobs-to-be-Done and Needs Summary",
+      "format": "markdown"
+    },
+    {
+      "id": "offer-matrix",
+      "stage_id": "stage-01",
+      "label": "Offer Matrix",
+      "format": "markdown"
+    },
+    {
+      "id": "trust-evidence-register",
+      "stage_id": "stage-01",
+      "label": "Trust and Evidence Register",
+      "format": "markdown"
+    },
+    {
+      "id": "operational-constraints",
+      "stage_id": "stage-01",
+      "label": "Operational Constraints and Unresolved Business Questions",
+      "format": "markdown"
+    },
+    {
+      "id": "tier-recommendation",
+      "stage_id": "stage-02",
+      "label": "Tier Recommendation",
+      "format": "markdown"
+    },
+    {
+      "id": "approved-scope-and-exclusions",
+      "stage_id": "stage-02",
+      "label": "Approved Scope and Exclusions",
+      "format": "markdown"
+    },
+    {
+      "id": "commercial-decision-record",
+      "stage_id": "stage-02",
+      "label": "Proposal and Commercial Decision Record",
+      "format": "markdown"
+    },
+    {
+      "id": "timeline-and-dependencies",
+      "stage_id": "stage-02",
+      "label": "Timeline, Dependencies and Client Responsibilities",
+      "format": "markdown"
+    },
+    {
+      "id": "customer-question-map",
+      "stage_id": "stage-03",
+      "label": "Customer Question Map",
+      "format": "markdown"
+    },
+    {
+      "id": "buying-journey",
+      "stage_id": "stage-03",
+      "label": "Buying Journey",
+      "format": "markdown"
+    },
+    {
+      "id": "information-architecture",
+      "stage_id": "stage-03",
+      "label": "Information Architecture",
+      "format": "markdown"
+    },
+    {
+      "id": "source-to-page-plan",
+      "stage_id": "stage-03",
+      "label": "Source-to-Page Plan",
+      "format": "markdown"
+    },
+    {
+      "id": "cta-map",
+      "stage_id": "stage-03",
+      "label": "Public CTA and Contact Map",
+      "format": "markdown"
+    },
+    {
+      "id": "content-copy-pack",
+      "stage_id": "stage-04",
+      "label": "Content Outline and Copy Pack",
+      "format": "markdown"
+    },
+    {
+      "id": "cta-register",
+      "stage_id": "stage-04",
+      "label": "CTA Register",
+      "format": "markdown"
+    },
+    {
+      "id": "claim-evidence-list",
+      "stage_id": "stage-04",
+      "label": "Claim and Evidence List",
+      "format": "markdown"
+    },
+    {
+      "id": "content-coverage",
+      "stage_id": "stage-04",
+      "label": "Content Coverage and Remaining Gaps",
+      "format": "markdown"
+    },
+    {
+      "id": "website-requirements-pack",
+      "stage_id": "stage-04",
+      "label": "Versioned Website Requirements Pack",
+      "format": "markdown"
+    },
+    {
+      "id": "design-directions",
+      "stage_id": "stage-05",
+      "label": "Two Materially Different Design Directions and Wireframes",
+      "format": "markdown"
+    },
+    {
+      "id": "design-differentiation-record",
+      "stage_id": "stage-05",
+      "label": "Design Differentiation Gate Record",
+      "format": "markdown"
+    },
+    {
+      "id": "chosen-design-fingerprint",
+      "stage_id": "stage-05",
+      "label": "Chosen Design Fingerprint",
+      "format": "markdown"
+    },
+    {
+      "id": "design-specification",
+      "stage_id": "stage-05",
+      "label": "Versioned Design Specification",
+      "format": "markdown"
+    },
+    {
+      "id": "website-implementation",
+      "stage_id": "stage-05",
+      "label": "Working Website Implementation",
+      "format": "repository_reference"
+    },
+    {
+      "id": "implementation-commit-reference",
+      "stage_id": "stage-05",
+      "label": "Implementation Repository, Branch and Commit Reference",
+      "format": "markdown"
+    },
+    {
+      "id": "initial-build-evidence",
+      "stage_id": "stage-05",
+      "label": "Initial Production Build and Functional Check Evidence",
+      "format": "markdown"
+    },
+    {
+      "id": "visual-refinement-log",
+      "stage_id": "stage-06",
+      "label": "Visual Refinement Log",
+      "format": "markdown"
+    },
+    {
+      "id": "visual-baseline-and-after-evidence",
+      "stage_id": "stage-06",
+      "label": "Baseline and After-cycle Screenshot Evidence",
+      "format": "markdown"
+    },
+    {
+      "id": "distinctiveness-verdict",
+      "stage_id": "stage-06",
+      "label": "Distinctiveness Verdict",
+      "format": "markdown"
+    },
+    {
+      "id": "issue-fix-mapping",
+      "stage_id": "stage-06",
+      "label": "Issue and Fix Mapping",
+      "format": "markdown"
+    },
+    {
+      "id": "refreshed-build-evidence",
+      "stage_id": "stage-06",
+      "label": "Refreshed Build and Regression Evidence",
+      "format": "markdown"
+    },
+    {
+      "id": "independent-qa-report",
+      "stage_id": "stage-07",
+      "label": "Independent QA Report",
+      "format": "markdown"
+    },
+    {
+      "id": "tested-commit-reference",
+      "stage_id": "stage-07",
+      "label": "Exact Tested Commit Reference",
+      "format": "markdown"
+    },
+    {
+      "id": "ci-test-evidence",
+      "stage_id": "stage-07",
+      "label": "CI and Automated Test Evidence",
+      "format": "markdown"
+    },
+    {
+      "id": "responsive-visual-evidence",
+      "stage_id": "stage-07",
+      "label": "Responsive and Section Screenshot Evidence",
+      "format": "markdown"
+    },
+    {
+      "id": "page-coverage",
+      "stage_id": "stage-07",
+      "label": "Canonical Page Coverage Records",
+      "format": "markdown"
+    },
+    {
+      "id": "release-plan",
+      "stage_id": "stage-07",
+      "label": "Release Candidate, Rollback and Release Plan",
+      "format": "markdown"
+    },
+    {
+      "id": "unresolved-gate-list",
+      "stage_id": "stage-07",
+      "label": "Unresolved Gate and NOT TESTED List",
+      "format": "markdown"
+    },
+    {
+      "id": "release-and-rollback-note",
+      "stage_id": "stage-08",
+      "label": "Release Execution and Rollback Note",
+      "format": "markdown"
+    },
+    {
+      "id": "production-verification",
+      "stage_id": "stage-08",
+      "label": "Production Verification Evidence",
+      "format": "markdown"
+    },
+    {
+      "id": "handover-pack",
+      "stage_id": "stage-08",
+      "label": "Handover Pack and Receipt",
+      "format": "markdown"
+    },
+    {
+      "id": "ownership-cost-register",
+      "stage_id": "stage-08",
+      "label": "Ownership, Access and Renewal Cost Register",
+      "format": "markdown"
+    },
+    {
+      "id": "calibration-record",
+      "stage_id": "stage-09",
+      "label": "Evidence-led Calibration Record",
+      "format": "markdown"
+    },
+    {
+      "id": "root-cause-decision",
+      "stage_id": "stage-09",
+      "label": "Root Cause Classification and Decision",
+      "format": "markdown"
+    },
+    {
+      "id": "regression-results",
+      "stage_id": "stage-09",
+      "label": "Original and Regression Test Results",
+      "format": "markdown"
+    },
+    {
+      "id": "system-learning-decision",
+      "stage_id": "stage-09",
+      "label": "RETAIN / REVISE / REJECT / NOT YET PROVEN Decision",
+      "format": "markdown"
+    }
+  ],
+  "gates": [
+    {
+      "id": "G0",
+      "title": "Discovery facts, public claims and assets",
+      "allowed_decisions": [
+        "APPROVED",
+        "CONDITIONAL_PREVIEW"
+      ],
+      "required_roles": [
+        "client_business_owner",
+        "studio_owner"
+      ],
+      "artifact_ids": [
+        "source-register",
+        "fact-register",
+        "asset-permission-register"
+      ],
+      "conditional_preview_only": true
+    },
+    {
+      "id": "G1",
+      "title": "Tier, scope and commercial approval",
+      "allowed_decisions": [
+        "APPROVED"
+      ],
+      "required_roles": [
+        "studio_owner",
+        "client_business_owner"
+      ],
+      "artifact_ids": [
+        "tier-recommendation",
+        "approved-scope-and-exclusions",
+        "commercial-decision-record"
+      ]
+    },
+    {
+      "id": "G2",
+      "title": "Website Requirements Pack approval for design",
+      "allowed_decisions": [
+        "APPROVED"
+      ],
+      "required_roles": [
+        "studio_owner",
+        "client_business_owner"
+      ],
+      "artifact_ids": [
+        "website-requirements-pack"
+      ]
+    },
+    {
+      "id": "G3",
+      "title": "Content, claims and visual direction",
+      "allowed_decisions": [
+        "APPROVED"
+      ],
+      "required_roles": [
+        "studio_owner",
+        "client_business_owner"
+      ],
+      "artifact_ids": [
+        "content-copy-pack",
+        "chosen-design-fingerprint",
+        "design-specification"
+      ]
+    },
+    {
+      "id": "G4",
+      "title": "Preview acceptance",
+      "allowed_decisions": [
+        "PREVIEW_ACCEPTED"
+      ],
+      "required_roles": [
+        "client_business_owner"
+      ],
+      "artifact_ids": [
+        "independent-qa-report",
+        "tested-commit-reference"
+      ]
+    },
+    {
+      "id": "G5",
+      "title": "Production readiness",
+      "allowed_decisions": [
+        "PRODUCTION_READY"
+      ],
+      "required_roles": [
+        "independent_reviewer",
+        "studio_owner",
+        "client_business_owner"
+      ],
+      "artifact_ids": [
+        "independent-qa-report",
+        "page-coverage",
+        "ci-test-evidence"
+      ]
+    },
+    {
+      "id": "G6",
+      "title": "Production release authorization",
+      "allowed_decisions": [
+        "RELEASE_AUTHORIZED"
+      ],
+      "required_roles": [
+        "studio_owner",
+        "client_business_owner"
+      ],
+      "artifact_ids": [
+        "release-plan",
+        "tested-commit-reference"
+      ]
+    },
+    {
+      "id": "G7",
+      "title": "Handover and closure",
+      "allowed_decisions": [
+        "HANDED_OVER"
+      ],
+      "required_roles": [
+        "studio_owner",
+        "client_business_owner"
+      ],
+      "artifact_ids": [
+        "handover-pack",
+        "ownership-cost-register"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "stage-00",
+      "number": 0,
+      "name": "Material-first intake and source normalization",
+      "dependencies": [],
+      "required_start_gates": [],
+      "required_artifacts": [
+        "raw-material-index",
+        "source-register",
+        "source-coverage-matrix",
+        "interview-summary",
+        "client-brief",
+        "fact-register",
+        "asset-permission-register",
+        "clarification-and-conflict-register"
+      ],
+      "required_completion_gates": []
+    },
+    {
+      "id": "stage-01",
+      "number": 1,
+      "name": "Business intelligence",
+      "dependencies": [
+        "stage-00"
+      ],
+      "required_start_gates": [],
+      "required_artifacts": [
+        "business-intelligence-summary",
+        "audience-and-needs-summary",
+        "offer-matrix",
+        "trust-evidence-register",
+        "operational-constraints"
+      ],
+      "required_completion_gates": []
+    },
+    {
+      "id": "stage-02",
+      "number": 2,
+      "name": "Tier, scope and commercial decision",
+      "dependencies": [
+        "stage-01"
+      ],
+      "required_start_gates": [],
+      "required_artifacts": [
+        "tier-recommendation",
+        "approved-scope-and-exclusions",
+        "commercial-decision-record",
+        "timeline-and-dependencies"
+      ],
+      "required_completion_gates": [
+        "G1"
+      ]
+    },
+    {
+      "id": "stage-03",
+      "number": 3,
+      "name": "Customer questions and information architecture",
+      "dependencies": [
+        "stage-02"
+      ],
+      "required_start_gates": [],
+      "required_artifacts": [
+        "customer-question-map",
+        "buying-journey",
+        "information-architecture",
+        "source-to-page-plan",
+        "cta-map"
+      ],
+      "required_completion_gates": []
+    },
+    {
+      "id": "stage-04",
+      "number": 4,
+      "name": "Content and conversion",
+      "dependencies": [
+        "stage-03"
+      ],
+      "required_start_gates": [],
+      "required_artifacts": [
+        "content-copy-pack",
+        "cta-register",
+        "claim-evidence-list",
+        "content-coverage",
+        "website-requirements-pack"
+      ],
+      "required_completion_gates": [
+        "G2"
+      ]
+    },
+    {
+      "id": "stage-05",
+      "number": 5,
+      "name": "Creative direction and implementation",
+      "dependencies": [
+        "stage-04"
+      ],
+      "required_start_gates": [
+        "G0"
+      ],
+      "required_artifacts": [
+        "design-directions",
+        "design-differentiation-record",
+        "chosen-design-fingerprint",
+        "design-specification",
+        "website-implementation",
+        "implementation-commit-reference",
+        "initial-build-evidence"
+      ],
+      "required_completion_gates": [
+        "G3"
+      ]
+    },
+    {
+      "id": "stage-06",
+      "number": 6,
+      "name": "Refinement",
+      "dependencies": [
+        "stage-05"
+      ],
+      "required_start_gates": [],
+      "required_artifacts": [
+        "visual-refinement-log",
+        "visual-baseline-and-after-evidence",
+        "distinctiveness-verdict",
+        "issue-fix-mapping",
+        "refreshed-build-evidence"
+      ],
+      "required_completion_gates": []
+    },
+    {
+      "id": "stage-07",
+      "number": 7,
+      "name": "Independent QA",
+      "dependencies": [
+        "stage-06"
+      ],
+      "required_start_gates": [],
+      "required_artifacts": [
+        "independent-qa-report",
+        "tested-commit-reference",
+        "ci-test-evidence",
+        "responsive-visual-evidence",
+        "page-coverage",
+        "release-plan",
+        "unresolved-gate-list"
+      ],
+      "required_completion_gates": []
+    },
+    {
+      "id": "stage-08",
+      "number": 8,
+      "name": "Release and handover",
+      "dependencies": [
+        "stage-07"
+      ],
+      "required_start_gates": [],
+      "required_artifacts": [],
+      "required_completion_gates": [],
+      "required_artifacts_by_mode": {
+        "preview_only": [],
+        "production": [
+          "release-and-rollback-note",
+          "production-verification",
+          "handover-pack",
+          "ownership-cost-register"
+        ]
+      },
+      "required_start_gates_by_mode": {
+        "preview_only": [],
+        "production": [
+          "G4",
+          "G5",
+          "G6"
+        ]
+      },
+      "required_completion_gates_by_mode": {
+        "preview_only": [],
+        "production": [
+          "G7"
+        ]
+      },
+      "not_applicable_modes": [
+        "preview_only"
+      ]
+    },
+    {
+      "id": "stage-09",
+      "number": 9,
+      "name": "Evidence-led calibration and system learning",
+      "dependencies": [
+        "stage-08"
+      ],
+      "required_start_gates": [],
+      "required_artifacts": [
+        "calibration-record",
+        "root-cause-decision",
+        "regression-results",
+        "system-learning-decision"
+      ],
+      "required_completion_gates": [],
+      "dependencies_by_mode": {
+        "preview_only": [
+          "stage-07"
+        ],
+        "production": [
+          "stage-08"
+        ]
+      }
+    }
+  ],
+  "operating_modes": [
+    "client_service",
+    "studio_development"
+  ],
+  "operating_mode_policy": {
+    "default": "client_service",
+    "client_service": {
+      "synthetic_business_facts": "forbidden",
+      "simulated_approvals": "forbidden",
+      "client_and_asset_constraints": "enforced",
+      "authenticated_human_roles": "required"
+    },
+    "studio_development": {
+      "synthetic_business_facts": "allowed_when_labelled",
+      "simulated_approvals": "allowed_when_explicitly_labelled_and_attributed",
+      "client_and_asset_constraints": "relaxed_for_synthetic_fixtures_only",
+      "external_release": "forbidden",
+      "production_delivery_path": "simulation_only"
+    }
+  },
+  "delivery_modes": [
+    "preview_only",
+    "production"
+  ]
+}
