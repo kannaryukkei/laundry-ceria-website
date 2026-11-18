@@ -1,0 +1,6 @@
+{
+  "gate_id": "G7",
+  "decision": "HANDED_OVER",
+  "subject": "SYNTHETIC DEVELOPMENT SIMULATION — Stage 8 handover receipt",
+  "evidence_reference": "SIMULATION_ONLY: Stage 8 artifacts committed on 8d86a4a9e69ddb4442928500d58850a4f802221d; repo handover pack, build/QA evidence and ownership register are synthetic; no actual client or access transfer"
+}
