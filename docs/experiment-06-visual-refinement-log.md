@@ -271,6 +271,17 @@ The initial final-spot-check conclusion in Section 9 that VIS-003 was fixed was 
 
 **VIS-003 remains OPEN until re-rendered evidence confirms disclosure/artwork separation at 640px and a second width between 700–767px.** This correction supersedes the earlier Section 9 disposition.
 
+### 10.1 Review of the supplied spot-check archive — 2026-11-18
+
+- Re-materialized archive: `experiment-06-vis003-spotcheck.zip`.
+- SHA-256: `f9d9bfe5b867296a17280a34718d4cfc514d153bfc44d6a3919e4db32da862ca`; ZIP CRC validation passed.
+- The archive contains 18 section screenshots and `metrics.json`; its width set is 320, 360, 640, 900, 1024 and 1280px. It contains no manifest, capture commit SHA or preview-build identifier.
+- Direct review of `hero-640.png` confirms the illustration overlaps the disclosure text area. The 900px Hero image is clear. The metrics report no page-level horizontal overflow at any of the six recorded widths; this does not negate the visual overlap.
+- Because the archive is not bound to a website commit, it cannot establish whether it was captured before or after CSS patch `472fdc4c94d8abd9fd033be1294a204a4265bb36`. It therefore cannot validate or invalidate that patch on current PR head `61e005daea25e54be87f24a10c73053ec4fd35fa`.
+- There is no screenshot at 700–767px. A screenshot at 900px is outside the requested breakpoint and cannot substitute for one.
+
+**Disposition:** VIS-003 remains OPEN. The evidence archive confirms the problem is real at 640px but is not post-patch evidence. Capture the exact current PR head after build at 640px and at one width between 700–767px (for example 720px), with a manifest recording repo, branch, exact commit SHA, preview URL and capture time. Keep the disclosure and decorative artwork visibly separated. Do not claim VIS-003 is fixed until those images are inspected.
+
 ## 11. A11Y-001 keyboard accessibility implementation checkpoint — 2026-11-18
 
 **Status: source patch committed; browser verification pending.**
