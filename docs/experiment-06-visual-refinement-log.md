@@ -3,6 +3,7 @@
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
 **Status:** ENTRY PREPARATION — BLOCKED ON FRESH SHA-PINNED BROWSER BASELINE  
+**Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
 **WRP:** WRP-LC-001 v0.2 — APPROVED_FOR_DESIGN, internal training only  
 **Decision record:** TDR-LC-2026-11-18-01  
 **Working branch:** feat/stage-4-website-production
@@ -13,7 +14,7 @@
 |---|---|---|
 | WRP APPROVED_FOR_DESIGN and G2 recorded | WRP-LC-001 v0.2 and TDR-LC-2026-11-18-01 | PASS — training only |
 | Approved design direction, scope, copy and asset limits available | Stage 3 Design Direction; WRP v0.2; canonical SNAP-LC-0001 | PASS — internal preview only |
-| Working website candidate and initial production build pass | PR #1 current head 9d4a5ef7049f781e5c0ec434658cd0c8c21b9bf7; Web Preview CI #74 passed | PASS — install/typecheck/build only |
+| Working website candidate and initial production build pass | PR #1 candidate commit ff29c739ed23441ed76a3b781d784d66552e6ea0; Web Preview CI #94 passed on this exact documentation-only head | PASS — install/typecheck/build only |
 | Exact repo, branch and baseline commit identified | kannaryukkei/laundry-ceria-website; feat/stage-4-website-production; candidate head recorded above | PASS — candidate identified |
 | Fresh browser-rendered baseline captured and retained for that exact commit | Existing SRC-0006 archive has screenshots, but report.json omits website Git SHA | BLOCKED — recapture required |
 
@@ -32,14 +33,14 @@ Existing SRC-0006 evidence is useful historical audit material but cannot be the
 
 ## 3. Required baseline capture
 
-Capture the exact candidate branch and SHA with the existing Shared Website Quality Gate from the Studio repository. Retain:
+Capture the exact candidate branch and SHA ff29c739ed23441ed76a3b781d784d66552e6ea0 (or a later explicitly re-pinned commit if the website source changes) with the existing Shared Website Quality Gate from the Studio repository. Retain:
 - Full-page screenshots at 390, 768 and 1440.
 - Initial viewport screenshots at 390, 768 and 1440.
 - Section screenshots at mobile 390 and desktop 1440.
 - report.json, diagnostics.log, runner version and actual commands.
 - A small manifest recording repository, branch, exact website commit SHA, preview URL, capture time and the artifact archive name.
 
-Only after the images are inspectable and this baseline manifest is recorded may bounded source/CSS refinement begin.
+The earlier documentation commits changed no website source/CSS. Capture this exact target commit, then include a manifest that binds the returned report and PNGs to this SHA. Only after the images are inspectable and this baseline manifest is recorded may bounded source/CSS refinement begin.
 
 ## 4. Planned bounded slices — not yet started
 
