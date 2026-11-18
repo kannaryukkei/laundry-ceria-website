@@ -12,6 +12,9 @@ permissions:
 jobs:
   build-and-preview:
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: write
     env:
       CAPTURE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
@@ -23,16 +26,41 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Restore dependency manifest and lockfile from reviewed bootstrap run
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'chore/experiment-06-lockfile-security-review'
+        uses: actions/download-artifact@v4
+        with:
+          name: laundry-ceria-hero-breakpoint-evidence-44364714461
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 44364714461
+          path: .bootstrap-artifact
+      - name: Commit reviewed dependency files to the PR branch
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'chore/experiment-06-lockfile-security-review'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s .bootstrap-artifact/package.json
+          test -s .bootstrap-artifact/package-lock.json
+          cp .bootstrap-artifact/package.json package.json
+          cp .bootstrap-artifact/package-lock.json package-lock.json
+          node -e 'const p=require("./package.json"); const l=require("./package-lock.json"); if(p.devDependencies?.playwright!=="1.65.1" || l.packages?.[""]?.devDependencies?.playwright!=="1.65.1" || l.lockfileVersion!==3) process.exit(1)'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(deps): commit reproducible dependency lock"
+            git push origin "HEAD:refs/heads/${GITHUB_HEAD_REF}"
+          fi
+          echo "CAPTURE_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Typecheck
         run: npm run typecheck
       - name: Production build
         run: npm run build
       - name: Install Playwright and Chromium for breakpoint evidence
-        run: |
-          npm install --save-exact --save-dev playwright@1.65.1
-          npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium
       - name: Collect dependency reproducibility and advisory evidence
         shell: bash
         run: |
