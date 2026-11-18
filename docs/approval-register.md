@@ -23,7 +23,7 @@ No new approval was made during this reconstruction.
 |---|---|---|---|---|
 | G0 — Facts, public claims and assets | Client/business owner confirms material facts, public destinations, asset rights/consent; Studio owner controls publication policy | Stage 0 fixture explicitly marks facts DEMO-ONLY and publication NOT_APPROVED. WhatsApp missing. Address fictional. Photo files absent; written consent pending. No approval record. | NOT_RECORDED; publication remains NOT_APPROVED | Retain all preview safeguards. No public claims/assets/destinations may be promoted |
 | G1 — Tier, scope and commercial | Studio owner approves tier, scope, price, margin, timeline and exclusions; client agrees commercial offer | Stage 1 recommends a focused single-page site; no owner commercial approval or client agreement record found | NOT_RECORDED | Record owner decision if this training project proceeds under a defined tier/scope; do not describe Starter recommendation as approved |
-| G2 — WRP approval for design | Studio owner approves exact WRP/tier/scope progression; required client confirmations or safe fallbacks are recorded | No project WRP was present at the inspected baseline. WRP-LC-001 v0.1 is a new retrospective draft only | NOT_PASSED | Complete canonical records and internal review, then record an explicit owner decision against an exact WRP version |
+| G2 — WRP approval for design | Studio owner approves exact WRP/tier/scope progression; required client confirmations or safe fallbacks are recorded | WRP-LC-001 v0.1 and canonical snapshot SNAP-LC-0001 now exist as retrospective drafts; the WRP remains DRAFT / STUDIO_REVIEW_REQUIRED and is not approved | NOT_PASSED | Complete canonical records and internal review, then record an explicit owner decision against an exact WRP version |
 | G3 — Content, claims and visual direction | Client confirms business-facing content; Studio owner approves policy/scope claims and material design decisions | Stage 3 Design Direction exists and says READY FOR STAGE 4 under the legacy project labels. No separate canonical G3 approval entry for exact content/design version found | ARTIFACT_EXISTS; APPROVAL_NOT_RECORDED | Preserve Stage 3 as a design reference; do not imply G3 was formally approved under current policy |
 | G4 — Preview and revision acceptance | Client/business owner accepts or requests changes to the exact preview version; owner handles exceptions/out-of-scope changes | Website candidate exists; PR #1 is still draft/open. No preview acceptance record found. Fixture has no real client | NOT_RECORDED | Treat all screenshots and site output as internal training evidence, not client acceptance |
 | G5 — Production readiness | Operator/independent reviewer verifies project acceptance; client confirms final facts/assets/CTA; owner decides readiness | Current README states preview-only and publication not approved. Stage 4 checklist has unchecked QA items. No production acceptance report found | NOT_STARTED / NOT_PASSED | Not applicable to this fictional fixture unless the exercise explicitly defines a simulated gate; never publish |
@@ -40,6 +40,7 @@ No new approval was made during this reconstruction.
 | docs/stage-3-design-direction.md | Fresh & Orderly design direction and implementation specification; legacy Stage 3 handoff says PASS for Stage 4 | Current G2 or G3 approval records |
 | tests/requirements-checklist.md | Existing implementation checklist; three validation lines remain unchecked in the inspected version | Completed full QA or production readiness |
 | .website-quality/evidence-manifest.json | Manifest version 1, humanReviewRequired true, no evidence items registered | Human approval or evidence validation |
+| docs/canonical-discovery-snapshot-v0.1.json | Draft canonical packet with 5 sources, 21 source-coverage rows, 35 facts, 3 assets, 5 offers, 8 questions, 4 CTAs, 1 transparent trust alternative and 8 gaps | Operator acceptance, platform project mapping, G1/G2 approval or page coverage |
 | README.md | Project status: Stage 4 in progress; Stage 5 QA pending; Stage 6 Final Delivery pending; preview/demo/not approved safeguards | Current Studio Master Skill stage numbering |
 | PR #1 | Stage 4 website implementation PR is draft/open and targets main | Merge, client acceptance, G2/G3 approval or publication authorization |
 
@@ -58,7 +59,7 @@ See docs/workflow-stage-reconciliation.md for the explicit mapping and limits.
 - Exclude the described photos because files are absent and written permission is pending.
 - Do not add a logo, testimonials, ratings, awards, customer counts, payment methods, booking, checkout, tracking or invented operational terms.
 - Do not deploy or publish.
-- Do not begin formal Stage 6 refinement until WRP/G2, canonical source/requirement reconciliation and the remaining Stage 5 implementation handoff requirements are addressed.
+- Do not begin formal Stage 6 refinement until the canonical snapshot has been reviewed, WRP/G2 is approved, and the remaining canonical Stage 5 implementation handoff requirements are addressed.
 - Independent Stage 7 QA and production/release gates remain separate.
 
 ## 6. Next actions and owners
@@ -66,7 +67,7 @@ See docs/workflow-stage-reconciliation.md for the explicit mapping and limits.
 | Order | Action | Responsible | Completion evidence |
 |---:|---|---|---|
 | 1 | Review the retrospective WRP and reconcile it with canonical schema | Operator | WRP updated to internally reviewed draft with traceability gaps explicit |
-| 2 | Create canonical source/fact/asset/offer/question/CTA/gap records from existing fixture, preserving exact locators/statuses | Operator | Versioned canonical discovery snapshot; no fabricated facts/permissions |
+| 2 | Validate and accept the canonical source/fact/asset/offer/question/CTA/gap snapshot from the existing fixture, preserving exact locators/statuses | Operator | Versioned canonical discovery snapshot; no fabricated facts/permissions |
 | 3 | Record G1 tier/scope/commercial decision, or explicitly mark it not applicable to this training exercise under an owner-approved training scope | Studio owner | Approval record tied to exact scope artifact |
 | 4 | Decide whether to simulate G2 for the training exercise; if so, record it as a simulated exercise decision, never a real client approval | Studio owner | Explicit decision tied to exact WRP version |
 | 5 | Reconcile README/checklists with the current canonical stage model without erasing historical project-stage labels | Operator | Updated project status/handoff with stage references and evidence |
