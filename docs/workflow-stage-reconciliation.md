@@ -64,15 +64,15 @@ This is a cautious mapping of artifacts, not a retroactive reassignment of appro
 
 ## 5. Project state to use from this point
 
-Until the project owner adopts a corrected project status record:
+The 2026-11-18 training decision has been recorded in TDR-LC-2026-11-18-01 and the new WRP-LC-001 v0.2 artifact. From this point:
 
-- Keep the legacy Stage labels in existing historical handoffs.
-- Use canonical Studio stage names when planning new work.
-- Record the retrospective WRP as DRAFT only.
-- Do not report canonical Stage 4 complete or G2 passed.
-- Do not start canonical Stage 6 refinement while its entry conditions remain unsatisfied.
-- Treat the existing website as a disclosed training preview, not an approved production candidate.
-- Keep publication NOT_APPROVED; no deployment or public release.
+- Keep the legacy Stage labels in historical handoffs; use canonical Studio stage names for new work.
+- G1, G2 and G3 are recorded as SIMULATED_PASS for this training exercise only. WRP-LC-001 v0.2 is APPROVED_FOR_DESIGN for internal training/refinement only; commercial terms are N/A.
+- The workspace-scoped IDs LC-TRAINING-001 / SNAP-LC-0001 are accepted as local exercise identifiers. No Laravel platform project mapping is asserted or required.
+- These decisions apply prospectively and do not retroactively authorize the earlier implementation.
+- The existing site remains an internal training preview. All business facts stay DEMO-ONLY / NOT_APPROVED; G0 publication, G4 preview acceptance, G5 production readiness, G6 release and G7 handover remain unpassed.
+- Do not begin Stage 6 source/CSS changes until the exact candidate commit is pinned and a fresh browser-rendered baseline is captured and preserved. The existing SRC-0006 archive cannot serve as a SHA-bound baseline because its report omits the website Git SHA.
+- Do not deploy or publicly release.
 
 ## 6. Reconciliation work completed and remaining
 
@@ -86,9 +86,14 @@ Until the project owner adopts a corrected project status record:
 
 ### Still required
 
-1. Operator review and acceptance of the canonical snapshot and WRP; confirm workspace-to-platform project mapping.
-2. Studio-owner G1 decision for tier/scope/commercial boundary and explicit G2 decision for the exact WRP version. These cannot be performed by the AI.
-3. Complete remaining responsive, keyboard, focus, reduced-motion and 200% zoom checks; current shared rendered quality gate still reports typography/contrast failures.
-4. Keep canonical Stage 6 refinement and Stage 7 independent QA separate. No source/CSS implementation change or publication is authorized by these documentation records.
+1. G1/G2/G3 training-only decisions are recorded against WRP-LC-001 v0.2. No real client or commercial engagement exists; the commercial component is N/A.
+2. Capture a fresh browser baseline against the exact candidate SHA; the earlier archive remains historical and not independently commit-bound.
+3. Continue Stage 6 as bounded screenshot-led refinement after baseline capture; address typography, contrast, nested overflow and interface/accessibility findings without changing scope or claims.
+4. Complete independent Stage 7 separately. The current quality gate remains FAIL until the actual rerun proves otherwise; keyboard/focus/reduced-motion/200% zoom checks remain NOT_TESTED until executed.
 
 The current checklist remains incomplete and the README continues to label Laundry Ceria as a preview-only project.
+
+
+## 7. Training decision update — 2026-11-18
+
+TDR-LC-2026-11-18-01 records the user's explicit acceptance of the internal training defaults. WRP-LC-001 v0.2 is approved for internal training design/refinement only. This does not represent an actual client/business-owner signoff and does not grant publication, asset, production or release rights. Stage 6 source changes remain gated on a new SHA-pinned browser baseline.
