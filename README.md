@@ -48,7 +48,7 @@ The GitHub Actions workflow uses the committed npm lockfile with `npm ci`, runs 
 
 The shared quality gate requires `.website-quality/evidence-manifest.json`. This small file is intentionally retained even when the page has no detected proof-like claims: `"items": []` means there are no testimonial, rating, award, customer-count or performance-claim records to validate. `"humanReviewRequired": true` keeps human review enabled. This is a quality-gate input only; it is not a project-state manifest, workflow engine, approval register, or publication authorization.
 
-`package-lock.json` is committed (npm lockfile v3, 122 package entries) and pins Playwright to `1.65.1`. Exact-head CI run [#44370283497](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44370283497) passed using `npm ci`; the run's `npm ls --all` and `npm audit` both exited 0, with zero reported vulnerabilities. These results are tied to the run date and are not a guarantee of future dependency security.
+`package-lock.json` is committed (npm lockfile v3, 122 package entries) and pins Playwright to `1.65.1`. Exact-head CI run [#44374760430](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44374760430) passed using `npm ci`; the run's `npm ls --all` and `npm audit` both exited 0, with zero reported vulnerabilities. These results are tied to the run date and are not a guarantee of future dependency security.
 
 ## How this repository is operated
 
