@@ -94,3 +94,6 @@
   .notice-inner strong{font-size:12px}
   .footer-bottom{font-size:12px}
 }
+
+/* Keep footer status legible on desktop, tablet and mobile. */
+.footer-bottom{font-size:12px}
