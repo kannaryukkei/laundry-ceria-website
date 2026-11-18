@@ -239,7 +239,7 @@ function Contact() {
       <div className="container">
         <div className="section-topline"><span>06 — LANGKAH SELANJUTNYA</span><span>KONVERSI · PREVIEW ONLY</span></div>
         <div className="contact-heading-grid">
-          <SectionHeading eyebrow="INFORMASI KONTAK" title="Pilih cara yang ingin dikenali." description="Dua jalur berikut adalah tujuan konversi dalam brief, namun belum dapat digunakan sebagai kontak bisnis nyata." />
+          <SectionHeading eyebrow="INFORMASI KONTAK" title="Informasi sebelum menghubungi." description="Dua jalur berikut adalah tujuan konversi dalam brief, namun belum dapat digunakan sebagai kontak bisnis nyata." />
           <span className="contact-index">06<span>/06</span></span>
         </div>
         <div className="contact-grid">
