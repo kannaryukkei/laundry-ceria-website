@@ -241,7 +241,7 @@ function HoursLocation() {
             <div className="fictional-label" data-qa-role="disclosure"><span />ALAMAT FIKTIF — DATA DEMO</div>
             <h3>Jl. Melati No. 12,<br />Jakarta</h3>
             <p>Alamat ini hanya digunakan sebagai contoh dalam proyek latihan dan bukan lokasi usaha sungguhan.</p>
-            <div className="address-decoration" aria-hidden="true"><span>JAKARTA</span><span>DEMO / 001</span></div>
+            
           </article>
         </div>
       </div>
@@ -256,7 +256,7 @@ function Contact() {
         <div className="section-topline" data-qa-role="metadata"><span>06 — LANGKAH SELANJUTNYA</span><span>KONVERSI · PREVIEW ONLY</span></div>
         <div className="contact-heading-grid">
           <SectionHeading eyebrow="INFORMASI KONTAK" title="Pilih cara yang ingin dikenali." description="Dua jalur berikut adalah tujuan konversi dalam brief, namun belum dapat digunakan sebagai kontak bisnis nyata." />
-          <span className="contact-index" aria-hidden="true">06<span>/06</span></span>
+          
         </div>
         <div className="contact-grid">
           <article className="contact-card walkin-card">
@@ -269,7 +269,7 @@ function Contact() {
             <div className="contact-card-top" data-qa-role="metadata"><span className="contact-icon">⌁</span><span>JALUR 02</span><span className="status-pill status-disabled" data-qa-role="disclosure">NOT_CONFIGURED</span></div>
             <h3 id="whatsapp-title">Hubungi via WhatsApp</h3>
             <p>Nomor WhatsApp usaha belum tersedia dalam materi. Karena itu, jalur kontak ini belum dapat diaktifkan.</p>
-            <div className="contact-card-bottom"><span className="status-pill status-muted" data-qa-role="disclosure">BELUM TERSEDIA</span><span className="disabled-action" data-qa-role="disclosure" aria-disabled="true">WhatsApp belum dikonfigurasi <span aria-hidden="true">↗</span></span></div>
+            <div className="contact-card-bottom"><span className="status-pill status-muted" data-qa-role="disclosure">BELUM TERSEDIA</span><span className="disabled-action" data-qa-role="disclosure" aria-disabled="true">WhatsApp belum dikonfigurasi</span></div>
           </article>
         </div>
       </div>
