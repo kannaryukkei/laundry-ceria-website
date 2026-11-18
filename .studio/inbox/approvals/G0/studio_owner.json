@@ -1,6 +1,0 @@
-{
-  "gate_id": "G0",
-  "decision": "APPROVED",
-  "subject": "SYNTHETIC DEVELOPMENT SIMULATION — G0 source facts and asset boundaries",
-  "evidence_reference": "test/full-workflow-production-shaped-simulation@b5b325314b0e461af4b060f4fa8bc609e57813ef: Stage 0 artefacts and explicit DEMO-ONLY / NOT_APPROVED boundary"
-}

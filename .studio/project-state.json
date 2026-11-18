@@ -78,7 +78,52 @@
       "produced_at": "2026-11-18T06:14:21.365Z"
     }
   ],
-  "approvals": [],
+  "approvals": [
+    {
+      "approval_id": "APR-G0-000010",
+      "gate_id": "G0",
+      "decision": "APPROVED",
+      "subject": "SYNTHETIC DEVELOPMENT SIMULATION — G0 source facts and asset boundaries",
+      "artifact_bindings": [
+        {
+          "artifact_id": "source-register",
+          "version": "1.0",
+          "sha256": "917aa2410b3f3dfe12caeddb184d0c98e29a6cad54375e247d7cef566d098dae"
+        },
+        {
+          "artifact_id": "fact-register",
+          "version": "1.0",
+          "sha256": "d55800b8d1bae004c798d677b525d519d94e294b23386c767ae565ed05bb724a"
+        },
+        {
+          "artifact_id": "asset-permission-register",
+          "version": "1.0",
+          "sha256": "e283b225137938aac6f1ee5b77201515c814e1d27e1a46c6940235938a04579c"
+        }
+      ],
+      "approvers": [
+        {
+          "role": "client_business_owner",
+          "person": "[SIMULATED] client_business_owner",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T06:17:22.854Z",
+          "evidence_reference": "SIMULATION_ONLY: synthetic client-owner role; not real client consent; docs/stage-0-source-fixture.md",
+          "identity_source": "development_simulation",
+          "simulated_by_github_actor": "kannaryukkei"
+        },
+        {
+          "role": "studio_owner",
+          "person": "kannaryukkei",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T06:17:22.859Z",
+          "evidence_reference": "test/full-workflow-production-shaped-simulation@b5b325314b0e461af4b060f4fa8bc609e57813ef: Stage 0 artefacts and explicit DEMO-ONLY / NOT_APPROVED boundary",
+          "identity_source": "github_actor",
+          "github_actor": "kannaryukkei"
+        }
+      ],
+      "recorded_at": "2026-11-18T06:17:22.854Z"
+    }
+  ],
   "events": [
     {
       "event_id": "EVT-000001",
@@ -168,6 +213,70 @@
       "artifact_id": "source-register",
       "artifact_version": "1.0",
       "artifact_sha256": "917aa2410b3f3dfe12caeddb184d0c98e29a6cad54375e247d7cef566d098dae"
+    },
+    {
+      "event_id": "EVT-000010",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T06:17:22.854Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G0-000010",
+      "gate_id": "G0",
+      "gate_decision": "APPROVED",
+      "approver_role": "client_business_owner",
+      "approver_person": "[SIMULATED] client_business_owner",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "SIMULATION_ONLY: synthetic client-owner role; not real client consent; docs/stage-0-source-fixture.md",
+      "identity_source": "development_simulation",
+      "simulated_by_github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "source-register",
+          "version": "1.0",
+          "sha256": "917aa2410b3f3dfe12caeddb184d0c98e29a6cad54375e247d7cef566d098dae"
+        },
+        {
+          "artifact_id": "fact-register",
+          "version": "1.0",
+          "sha256": "d55800b8d1bae004c798d677b525d519d94e294b23386c767ae565ed05bb724a"
+        },
+        {
+          "artifact_id": "asset-permission-register",
+          "version": "1.0",
+          "sha256": "e283b225137938aac6f1ee5b77201515c814e1d27e1a46c6940235938a04579c"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-000011",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T06:17:22.859Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G0-000010",
+      "gate_id": "G0",
+      "gate_decision": "APPROVED",
+      "approver_role": "studio_owner",
+      "approver_person": "kannaryukkei",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "test/full-workflow-production-shaped-simulation@b5b325314b0e461af4b060f4fa8bc609e57813ef: Stage 0 artefacts and explicit DEMO-ONLY / NOT_APPROVED boundary",
+      "identity_source": "github_actor",
+      "github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "source-register",
+          "version": "1.0",
+          "sha256": "917aa2410b3f3dfe12caeddb184d0c98e29a6cad54375e247d7cef566d098dae"
+        },
+        {
+          "artifact_id": "fact-register",
+          "version": "1.0",
+          "sha256": "d55800b8d1bae004c798d677b525d519d94e294b23386c767ae565ed05bb724a"
+        },
+        {
+          "artifact_id": "asset-permission-register",
+          "version": "1.0",
+          "sha256": "e283b225137938aac6f1ee5b77201515c814e1d27e1a46c6940235938a04579c"
+        }
+      ]
     }
   ]
 }
