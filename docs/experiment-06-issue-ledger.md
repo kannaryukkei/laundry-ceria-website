@@ -1,6 +1,6 @@
 # Experiment 06 — Laundry Ceria Issue Ledger
 
-**Status:** Slice A follow-up capture/build verified; VIS-006 visually resolved at 768px; Slice B mobile-turnaround and static-arrow source patches implemented and awaiting after-render verification.
+**Status:** Slice B build and after-capture verified; VIS-004/VIS-005 fixed; VIS-003 nested-overflow candidates triaged with narrow-width visual spot checks still open.
 **Project:** Fictional training fixture — PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED
 **Website branch:** `feat/stage-4-website-production`
 **Original code-audit baseline commit:** `f79c2978e11dea653bbcc86f6a1832d3bd96ee8f`  
@@ -33,16 +33,16 @@ Diagnostic widths: 320, 360, 390, 640, 768, 900, 1024, 1280 and 1440 px. The rec
 |---|---|---|---|---|---|
 | GATE-001 | MEDIUM | EXTERNAL_APPROVAL_DEPENDENCY | The user accepted TDR-LC-2026-11-18-01 for the fictional training exercise. G1/G2/G3 are SIMULATED_PASS for this exercise only; WRP-LC-001 v0.2 is APPROVED_FOR_DESIGN for internal preview. Commercial terms are N/A. This is not a real client/business-owner approval and does not retroactively authorize the earlier implementation. | Preserve the exact WRP and decision record; do not reuse it as approval evidence for a real client or infer publication/asset rights. | RESOLVED FOR TRAINING ONLY; NOT APPROVED FOR REAL CLIENT WORK |
 | GATE-002 | HIGH | EXTERNAL_APPROVAL_DEPENDENCY | Legacy Laundry stage numbering was inconsistent with Studio Master Skill v1.12 / Canonical Operating Workflow v1.0. | Keep `docs/workflow-stage-reconciliation.md` and README links. Stage 6 refinement and Stage 7 independent QA remain separate. | DOCUMENTED IN BRANCH |
-| PROC-001 | HIGH | IMPLEMENTATION_QA | User-supplied transcript confirms the follow-up checkout SHA `b3f0fa0a9929ce81fff8e2e0ffcaa5ac76abbca3` and local `npm.cmd run build` passed (TypeScript + Vite 6.4.6, 30 modules). Rendered gate completed capture but remains FAIL. No GitHub Actions run/status is associated with the head. An untracked package-lock was used and is absent from Git; npm previously reported four high-severity advisories. | Re-run build and rendered capture on the current Slice B head. Keep dependency reproducibility/advisory review separate; complete keyboard, focus, reduced-motion and 200% zoom checks. | OPEN — SLICE B BUILD/RENDER PENDING |
+| PROC-001 | HIGH | IMPLEMENTATION_QA | User transcript confirms current capture checkout SHA `625e3daec64ed749b5e64a49fde2be9f39fc4d36` and local production build PASS (TypeScript + Vite 6.4.6, 30 modules, 906ms). The same SHA has a valid rendered report and 20 report-linked screenshots. No GitHub Actions run or combined status is associated with the head. An untracked package-lock was used and is absent from Git; npm previously reported four high-severity advisories. | Keep dependency reproducibility/advisory review separate; do not claim CI PASS. Shared rendered gate remains FAIL on contrast signatures and manual review. | RESOLVED — local build + capture evidence verified; GH Actions not run and quality gate remains FAIL |
 | VIS-001 | HIGH | IMPLEMENTATION_QA | Before: 423 typography failures across nine widths. After Slice A: `typography.failures=[]` at all nine diagnostic widths; role counts include BODY, CONTROL, METADATA and DISCLOSURE. Mobile 390 and tablet 768/desktop 1440 screenshots were inspected. | Preserve role-accurate `data-qa-role` attributes and unchanged shared floors. Recheck tablet hero CTA wrapping after follow-up patch; do not lower thresholds. | FIXED — rendered gate reports zero typography failures; tablet CTA regression separately tracked as VIS-006 |
-| VIS-002 | HIGH | IMPLEMENTATION_QA | Latest follow-up: 200 contrast rows / 5 signatures; all are aria-hidden decorative marks: disabled WhatsApp arrow, two address watermarks, contact `/06` index and process-step arrow. 205 excluded surfaces and 517 not-visible samples. Substantive content pairs remain corrected. Gate remains FAIL on decorative signatures/manual review. | Keep shared contrast threshold unchanged. VIS-004 removes the process arrow in Slice B; only the new report can confirm the reduced decorative signature count. | FIXED — substantive content pairs corrected; decorative residuals pending Slice B recapture |
-| VIS-003 | MEDIUM | IMPLEMENTATION_QA | The SHA-labelled recapture records 58 nested-overflow candidate rows across nine widths while `responsive.failures=[]` and `documentWidth` equals viewport width at every sampled width. Suspects include hero/turnaround sections, hero wrapper/art, address card and visually hidden nav label. | Inspect visible clipping at 320/360/390/640/768/900/1024/1280/1440px. Separate intentional art clipping and visually hidden text from actual content clipping. No blanket `overflow-x:hidden`. | OPEN — manual confirmation |
+| VIS-002 | HIGH | IMPLEMENTATION_QA | Slice B report: 185 contrast failure rows / 4 signatures: `JAKARTA` (50), `DEMO / 001` (50), disabled WhatsApp arrow (50), contact `/06` index (35). The `.process-mark` arrow signature no longer appears after VIS-004 markup removal. Remaining signatures are aria-hidden decorative marks; 205 excluded surfaces and 232 not-visible samples. | Keep shared contrast thresholds unchanged. Continue manual review/disposition of remaining decorative signatures; no substantive text/surface contrast failures are indicated by these residual signatures. | PARTIALLY RESOLVED — process-arrow signature removed; four decorative residual signatures keep gate FAIL |
+| VIS-003 | MEDIUM | IMPLEMENTATION_QA | Slice B records 58 nested-overflow candidates over nine diagnostic widths, but `documentWidth` equals `viewportWidth` and `responsive.failures=[]` at every width. Triage maps candidates to: clipped decorative pseudo-rings on `#hero` / `#turnaround` (both `overflow:hidden`); decorative hero illustration/orbits and rotated stamp; rotated `aria-hidden` address watermark within `.address-card{overflow:hidden}`; and the standard 1px clipped `.sr-only` nav label. Screenshot spot checks at 390, 768 and 1440 show no visible substantive content clipping. | Retain intentional clipping; do not add blanket `overflow-x:hidden`. Obtain visual spot checks at 320/360/640 and 900/1024/1280 before closing the width-by-width manual review. Check address card and hero illustration at narrow widths. | TRIAGED — no page-level overflow; remaining narrow/intermediate visual spot checks pending |
 | A11Y-001 | HIGH | IMPLEMENTATION_QA | Source inspection confirms no skip link or main-target ID and no Escape-key handling in the mobile nav. Existing `:focus-visible` CSS (3px outline/4px offset) and `prefers-reduced-motion: reduce` CSS are present. Keyboard-only journeys, focus continuity and 200% zoom remain NOT TESTED. | Add a skip link and programmatically focusable main target; test menu open/close, Escape and focus return. Preserve existing focus/reduced-motion CSS and verify them in a browser; record 200% zoom evidence. | OPEN — NOT TESTED |
 | COPY-001 | LOW | MASTER_SKILL_REASONING | Contact heading “Pilih cara yang ingin dikenali.” is awkward and may not clearly communicate contact options. | Make a bounded Bahasa Indonesia copy correction only after the relevant WRP/scope gate is resolved; verify no conversion behavior is implied. | OPEN |
 | DES-001 | MEDIUM | MASTER_SKILL_REASONING | Preliminary aesthetic verdict: COMPETENT BUT GENERIC. Required comparison against at least two recent relevant Studio projects was not completed. | Compare design fingerprints and rendered references of two projects; document reused/new patterns and whether direction needs redesign. | DEFERRED |
 | GATE-003 | MEDIUM | IMPLEMENTATION_QA | `.eyebrow` paragraphs and other role-specific elements now have explicit `data-qa-role` assignments. After report records zero typography failures across all nine sampled widths; BODY / CONTROL / METADATA / DISCLOSURE are present. | Keep roles tied to semantics; do not lower global thresholds. Any future Studio-wide regression test remains separate from this client patch. | FIXED — verified in Laundry Ceria rendered report |
-| VIS-004 | MEDIUM | MASTER_SKILL_REASONING | Static `.process-item` arrow implied navigation although each row is informational. | Removed arrow markup and CSS rule at App commit `ab3a32fe9b24547c543cb0336f66916e7da7b1f2` / CSS commit `c1c6e94d6a1b0002886682485720e948684da9d1`. Verify the numbered process list remains clear and non-interactive. | IMPLEMENTED — after-render verification pending |
-| VIS-005 | MEDIUM | IMPLEMENTATION_QA | Follow-up mobile 390 screenshot still showed regular/express cards side-by-side and dense. | Changed mobile timing grid to one column with natural card height and 12px gap; paired layout retained at 768px+. CSS commit `c1c6e94d6a1b0002886682485720e948684da9d1`. Re-capture 320/360/390 and wider viewports; preserve all timings and +50% surcharge. | IMPLEMENTED — after-render verification pending |
+| VIS-004 | MEDIUM | MASTER_SKILL_REASONING | Static `.process-item` arrow implied navigation although each row is informational. | Arrow markup and CSS removed at App commit `ab3a32fe9b24547c543cb0336f66916e7da7b1f2` / CSS commit `c1c6e94d6a1b0002886682485720e948684da9d1`. Slice B mobile 390 and desktop 1440 screenshots show six ordered, non-interactive steps remain clear; process-arrow contrast signature disappeared from report. | FIXED — after-render screenshot and report verified |
+| VIS-005 | MEDIUM | IMPLEMENTATION_QA | Previous 390px screenshot showed regular/express timing cards side-by-side and dense. | Mobile CSS now stacks timing cards under 768px with natural height and 12px gap; desktop retains two columns. Slice B 390 screenshot confirms stacked cards; 1440 screenshot confirms desktop pair; responsive diagnostics have zero page-level failures at all nine widths (320–1440). | FIXED — mobile/desktop screenshots and nine-width responsive report verified |
 | VIS-006 | MEDIUM | IMPLEMENTATION_QA | Follow-up capture at 768px shows the primary hero CTA and `Jam operasional` link each on one intact line after the tablet-only wrapping patch. Responsive diagnostics include 900px and report no page-level responsive failures; no dedicated 900px screenshot was captured. | Keep the tablet-only flex-wrap and no-wrap control labels. A later design change must preserve this treatment at 768–1023px. | FIXED — visually verified at 768px; 900px covered by responsive diagnostic only |
 | QA-001 | HIGH | IMPLEMENTATION_QA | Testimonial detector matched substring `review` inside `preview`, falsely treating the preview notice as proof. | Word-boundary-aware matching and regression tests merged in Studio PR #48. Post-fix evidence check has 0 candidates and 0 failures; all PNGs unchanged. | FIXED — VERIFIED |
 
@@ -72,7 +72,7 @@ Proceed in this order:
 4. Re-capture the same viewports/sections, retain before/after screenshots, build/test outputs and exact SHA.
 5. Stage 7 independent QA remains separate. No preview pass authorizes production or release.
 
-**Current decision (updated after Slice A follow-up and Slice B implementation):** QA-001 and GATE-001 are resolved for this training exercise only. VIS-001 and GATE-003 are FIXED; VIS-002 substantive content pairs are FIXED, while five aria-hidden decorative signatures keep the shared report at FAIL. VIS-006 is FIXED at 768px. VIS-004 and VIS-005 source patches are implemented but await rendered verification. PROC-001 requires a new build/capture on the current Slice B head. VIS-003, A11Y-001 and COPY-001 remain open; DES-001 deferred. No public release is authorized.
+**Current decision (after Slice B verification):** QA-001, GATE-001, VIS-001 and GATE-003 are resolved for this training exercise only. VIS-004 and VIS-005 are FIXED after Slice B screenshots/report. VIS-006 is FIXED at 768px. VIS-002 substantive content pairs remain corrected, but four aria-hidden decorative signatures keep the shared report at FAIL. PROC-001 local build/capture evidence is resolved; no GitHub Actions run is recorded. VIS-003 is triaged with no page-level overflow and intentional decorative/accessibility clipping identified; targeted visual checks at 320/360/640/900/1024/1280 remain. A11Y-001 and COPY-001 remain open; DES-001 deferred. No public release is authorized.
 
 ## 6. Stage 6 Slice A implementation checkpoint — 2026-11-18
 
@@ -111,3 +111,51 @@ Branch `fix/experiment-06-stage6-remediation`, source checkpoint `ed77b9cdbf7f5f
 - App commit `ab3a32fe9b24547c543cb0336f66916e7da7b1f2`: remove misleading static process arrows.
 - CSS commit `c1c6e94d6a1b0002886682485720e948684da9d1`: stack turnaround cards on mobile, retain paired layout at tablet/desktop, remove 240px minimum height at max-width 380px.
 - **No build or after-render evidence is claimed for Slice B.** VIS-004 and VIS-005 remain pending until current-head build and report-linked screenshot inspection.
+
+## 9. Slice B after-capture review and VIS-003 triage — 2026-11-18
+
+### 9.1 Evidence integrity and build
+
+- Archive: `experiment-06-after-slice-b.zip`; SHA-256 `6c2b619e1880fd1e9c4ba5b34f255934e6580cf8442b2345ec0145e9b755fab7`.
+- ZIP integrity: CRC test passed; 24 entries including 20 PNGs, report, diagnostics and manifest.
+- Before baseline SHA: `ff29c739ed23441ed76a3b781d784d66552e6ea0`.
+- Capture checkout SHA and PR head: `625e3daec64ed749b5e64a49fde2be9f39fc4d36`.
+- Branch: `fix/experiment-06-stage6-remediation`.
+- Source commits: App `ab3a32fe9b24547c543cb0336f66916e7da7b1f2`; CSS `c1c6e94d6a1b0002886682485720e948684da9d1`.
+- User terminal transcript confirms SHA assertion and clean tracked/staged state; local TypeScript + Vite 6.4.6 production build passed (30 modules, 906ms).
+- Shared rendered gate captured the report/screenshots but returned exit code 1 because report status is **FAIL**. No GitHub Actions workflow run or combined status is recorded for this head.
+
+### 9.2 Quality report
+
+- Typography failures: **0** across nine widths (320, 360, 390, 640, 768, 900, 1024, 1280, 1440).
+- Contrast: **185 rows / 4 signatures** — JAKARTA 50, DEMO / 001 50, disabled WhatsApp helper arrow 50, contact `/06` index 35. The former `.process-mark` signature is absent.
+- Contrast excluded surfaces: 205; not-visible samples: 232; manual review remains required.
+- Responsive page-level failures: **0**; document width equals viewport width at every diagnostic width.
+- Evidence manifest valid, no candidates or evidence failures, but human review required.
+- Overall shared gate: **FAIL**. No threshold was lowered.
+
+### 9.3 Slice B dispositions
+
+**VIS-004 — FIXED.** The `.process-mark` arrow markup and CSS are removed. The mobile 390 and desktop 1440 process screenshots show the six ordered steps remain clear and non-interactive. The process-arrow contrast signature also disappeared from the report.
+
+**VIS-005 — FIXED.** At widths below 768px, timing cards stack vertically with natural height and spacing. The mobile 390 screenshot confirms the stacked layout; the desktop 1440 screenshot confirms the paired layout is retained. Responsive diagnostics show no page-level failures at any of the nine widths. The report has no dedicated 320/360 screenshots, so those widths are covered by DOM diagnostics and the mobile media-query rule, not direct screenshot inspection.
+
+### 9.4 VIS-003 nested-overflow triage
+
+All 58 candidate rows fall into seven recurring element groups:
+1. Empty absolutely positioned decorative elements (9 widths).
+2. `section#hero` (9 widths), which clips its oversize ring artwork with `overflow:hidden`.
+3. `section#turnaround` (9 widths), which clips its intentional decorative ring pseudo-element with `overflow:hidden`.
+4. Hero content/grid wrapper (9 widths), whose excess scroll width is attributable to the decorative illustration group.
+5. `.hero-art` (9 widths), containing transformed orbit/fabric/stamp decoration.
+6. Address card article (9 widths), whose small excess is from the rotated `.address-decoration` watermark; the card has `overflow:hidden` and the watermark is `aria-hidden`.
+7. The `.sr-only` “Buka navigasi” text (4 widths), intentionally positioned/clipped to expose the accessible name without visual display.
+
+No candidate group has caused document-level horizontal overflow in the report. The inspected 390, 768 and 1440 screenshots show no substantive text clipping. This is a triage, not a full manual sign-off: direct visual spot checks remain outstanding at 320, 360, 640, 900, 1024 and 1280. Do not globally hide horizontal overflow or remove accessible screen-reader text to silence these candidates.
+
+### 9.5 Remaining work
+
+- Complete VIS-003 visual spot checks at the six widths listed above; inspect the address card and hero illustration in particular.
+- A11Y-001: skip link/main target, Escape and focus restoration, full keyboard path, focus visibility and 200% zoom remain not tested.
+- Dependency lockfile reproducibility and npm advisory review remain independent of the verified local build.
+- Stage 7 independent QA and all release approvals remain separate. No deployment or public release.
