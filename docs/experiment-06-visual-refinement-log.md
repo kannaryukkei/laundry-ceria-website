@@ -2,7 +2,7 @@
 
 **Project:** LC-TRAINING-001 — Laundry Ceria (fictional training fixture)  
 **Canonical stage:** Stage 6 — Refinement  
-**Status:** SLICE A RENDERED — TYPOGRAPHY/COPY CONTRAST VERIFIED; TABLET CTA FOLLOW-UP PATCHED, RECAPTURE PENDING  
+**Status:** SLICE A VERIFIED; TABLET CTA VERIFIED AT 768PX; SLICE B MOBILE LAYOUT AND STATIC-AFFORDANCE PATCHED — AFTER-RENDER PENDING  
 **Target baseline commit:** ff29c739ed23441ed76a3b781d784d66552e6ea0  
 **Stage 6 branch:** fix/experiment-06-stage6-remediation  
 **Slice A implementation checkpoint:** ed77b9cdbf7f5fed810a9b0aabe1b8f3c75b0adc  
@@ -136,6 +136,64 @@ The mobile price, process, hours, contact and disclosure copy is substantially m
 - VIS-001: FIXED in the rendered report (0 typography failures).
 - GATE-003: FIXED for this Laundry Ceria implementation (explicit QA roles; all sampled role floors pass).
 - VIS-002: FIXED for substantive content text/surface pairs; remaining gate failures are aria-hidden/decorative signatures described above.
-- VIS-006: tablet CTA wrapping follow-up CSS patch committed; awaiting recapture.
+- VIS-006: tablet CTA wrapping follow-up CSS patch has now been recaptured at 768px; see Section 7. No dedicated 900px screenshot was captured, although the report responsive diagnostic included 900px.
 - VIS-003, VIS-004, VIS-005 and A11Y-001 remain open.
 - The draft PR remains unmerged.
+
+## 7. Follow-up verification and Slice B implementation — 2026-11-18
+
+### 7.1 Follow-up capture for VIS-006
+
+**Capture checkout SHA:** `b3f0fa0a9929ce81fff8e2e0ffcaa5ac76abbca3`  
+**Before baseline SHA:** `ff29c739ed23441ed76a3b781d784d66552e6ea0`  
+**Implementation commit tested:** `1778d1fa6e27a7be91e02e7d8cfa5b7382fb08a8`  
+**Archive:** `experiment-06-after-slice-a-followup.zip`  
+**Archive SHA-256:** `93dabb5d744bb8f0ed982ae5199c9134c98ea2b847a41433a092dfdb82cfd767`  
+**Report SHA-256:** `ed4b378757ff9739f29376f8383af06db6f0450d4a0e1cf0087c62a92025504e`  
+**Diagnostics SHA-256:** `00bdfebf398cdb467fe59933e636ef080cad468f4e6de44e7938b6dc6a1ff072`  
+**Manifest captured_at:** `2026-11-18T18:10:55.3038681+07:00`  
+**Report generatedAt:** `2026-11-18T11:10:47.425Z`
+
+The supplied terminal transcript confirms:
+- Fast-forward from `b469627` to `b3f0fa0` completed.
+- Target SHA check passed; `git diff --quiet` passed.
+- `npm.cmd --prefix $siteRoot run build` passed: TypeScript check and Vite 6.4.6 production build, 30 modules transformed.
+- Shared rendered quality gate completed all captures and wrote report/diagnostics; its exit code was 1 because status was **FAIL**, not because capture failed.
+- ZIP contains 20 report-linked PNG screenshots, report.json, diagnostics.log and followup-manifest.json.
+
+### 7.2 Follow-up quality results
+
+| Measure | Follow-up result | Interpretation |
+|---|---:|---|
+| Typography failures | **0** | All nine diagnostic widths have zero role-floor failures |
+| Contrast failures | 200 rows / 5 signatures | The five signatures are aria-hidden decorative marks: disabled WhatsApp arrow, two address watermarks, contact `/06` index and process-step arrow |
+| Contrast excluded surfaces | 205 | Manual review required; not automatically a content failure |
+| Contrast not-visible samples | 517 | Not failures |
+| Page-level responsive failures | **0** | Report responsive.failures is empty |
+| Evidence manifest | valid; 0 candidates; 0 failures | Human review required; no matched canonical record IDs |
+
+The contrast observation count is 200 in this later capture (the earlier Slice A capture recorded 197); use this latest report as the current number. The overall quality gate remains **FAIL** because the decorative signatures are still measured and manual review remains required. Do not lower thresholds or claim a full PASS.
+
+### 7.3 VIS-006 tablet CTA verification
+
+The 768px initial viewport screenshot was inspected after the tablet-only CSS patch. Both “Lihat layanan & harga” and “Jam operasional” appear on intact, single lines; the previous per-control line wrapping is no longer visible. The report includes 900px in responsive diagnostics with no page-level responsive failure, but no dedicated 900px screenshot is present. VIS-006 is resolved at the visually inspected 768px viewport; the 900px state is covered only by automated page-width diagnostics.
+
+### 7.4 Slice B implementation checkpoint
+
+**Branch:** `fix/experiment-06-stage6-remediation`  
+**App commit:** `ab3a32fe9b24547c543cb0336f66916e7da7b1f2`  
+**CSS commit:** `c1c6e94d6a1b0002886682485720e948684da9d1`  
+**Changed files:** `src/App.tsx`, `src/styles.css`
+
+- **VIS-005:** at `max-width:767px`, regular and express turnaround cards now use one grid column, 12px gap, natural height and 20px horizontal padding. The narrower `max-width:380px` rule no longer imposes a 240px minimum height. Tablet/desktop retain the paired two-column presentation.
+- **VIS-004:** removed the upward-arrow marker from static process list items and removed its unused CSS rule. Numbering and list order continue to communicate sequence.
+- No content, timing, surcharge, fixture facts, CTA, destination, integration or dependency was changed.
+
+**Not yet verified:** Slice B source patches require production build and a new report-linked capture before VIS-004/VIS-005 can be marked FIXED. The current mobile turnaround screenshot in Section 7.1 is still the pre-Slice-B state and must not be presented as evidence for the new stacked layout.
+
+### 7.5 Remaining open work
+
+- VIS-003 nested overflow candidates still require manual classification.
+- A11Y-001 skip link, main landmark target, Escape/focus restoration, keyboard journey, focus visibility and 200% zoom remain untested.
+- Keyboard and zoom testing are not replaced by the responsive diagnostic.
+- Stage 7 independent QA remains separate.
