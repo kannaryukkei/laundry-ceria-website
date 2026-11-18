@@ -744,6 +744,45 @@
         }
       ],
       "recorded_at": "2026-11-18T07:32:48.105Z"
+    },
+    {
+      "approval_id": "APR-G7-000066",
+      "gate_id": "G7",
+      "decision": "HANDED_OVER",
+      "subject": "SYNTHETIC DEVELOPMENT SIMULATION — Stage 8 handover receipt",
+      "artifact_bindings": [
+        {
+          "artifact_id": "handover-pack",
+          "version": "1.0",
+          "sha256": "d4ffc81cfbe52bd8701b22d40c3640b4e3c1673ecd353f7c06031f91a689aede"
+        },
+        {
+          "artifact_id": "ownership-cost-register",
+          "version": "1.0",
+          "sha256": "94f9749da7369d14d62cb83e1c5886ffac5caf323d53e992c3822859582f240e"
+        }
+      ],
+      "approvers": [
+        {
+          "role": "client_business_owner",
+          "person": "[SIMULATED] client_business_owner",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T07:39:46.073Z",
+          "evidence_reference": "SIMULATION_ONLY: [SIMULATED] client_business_owner accepts synthetic handover pack solely to exercise G7; no actual client, credentials, domain, hosting account or publication permission",
+          "identity_source": "development_simulation",
+          "simulated_by_github_actor": "kannaryukkei"
+        },
+        {
+          "role": "studio_owner",
+          "person": "kannaryukkei",
+          "decision": "APPROVED",
+          "decided_at": "2026-11-18T07:39:46.100Z",
+          "evidence_reference": "SIMULATION_ONLY: Stage 8 artifacts committed on 8d86a4a9e69ddb4442928500d58850a4f802221d; repo handover pack, build/QA evidence and ownership register are synthetic; no actual client or access transfer",
+          "identity_source": "github_actor",
+          "github_actor": "kannaryukkei"
+        }
+      ],
+      "recorded_at": "2026-11-18T07:39:46.073Z"
     }
   ],
   "events": [
@@ -1668,6 +1707,60 @@
       "artifact_id": "release-and-rollback-note",
       "artifact_version": "1.0",
       "artifact_sha256": "4aace98169215f3f57a66df740b32df2b1ce935dd42ebe62f0a3a08d8036dd9f"
+    },
+    {
+      "event_id": "EVT-000066",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T07:39:46.073Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G7-000066",
+      "gate_id": "G7",
+      "gate_decision": "HANDED_OVER",
+      "approver_role": "client_business_owner",
+      "approver_person": "[SIMULATED] client_business_owner",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "SIMULATION_ONLY: [SIMULATED] client_business_owner accepts synthetic handover pack solely to exercise G7; no actual client, credentials, domain, hosting account or publication permission",
+      "identity_source": "development_simulation",
+      "simulated_by_github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "handover-pack",
+          "version": "1.0",
+          "sha256": "d4ffc81cfbe52bd8701b22d40c3640b4e3c1673ecd353f7c06031f91a689aede"
+        },
+        {
+          "artifact_id": "ownership-cost-register",
+          "version": "1.0",
+          "sha256": "94f9749da7369d14d62cb83e1c5886ffac5caf323d53e992c3822859582f240e"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-000067",
+      "event_type": "APPROVAL_RECORDED",
+      "occurred_at": "2026-11-18T07:39:46.100Z",
+      "actor": "kannaryukkei",
+      "approval_id": "APR-G7-000066",
+      "gate_id": "G7",
+      "gate_decision": "HANDED_OVER",
+      "approver_role": "studio_owner",
+      "approver_person": "kannaryukkei",
+      "approver_decision": "APPROVED",
+      "evidence_reference": "SIMULATION_ONLY: Stage 8 artifacts committed on 8d86a4a9e69ddb4442928500d58850a4f802221d; repo handover pack, build/QA evidence and ownership register are synthetic; no actual client or access transfer",
+      "identity_source": "github_actor",
+      "github_actor": "kannaryukkei",
+      "artifact_bindings": [
+        {
+          "artifact_id": "handover-pack",
+          "version": "1.0",
+          "sha256": "d4ffc81cfbe52bd8701b22d40c3640b4e3c1673ecd353f7c06031f91a689aede"
+        },
+        {
+          "artifact_id": "ownership-cost-register",
+          "version": "1.0",
+          "sha256": "94f9749da7369d14d62cb83e1c5886ffac5caf323d53e992c3822859582f240e"
+        }
+      ]
     }
   ]
 }
