@@ -247,6 +247,69 @@
       "sha256": "b71ba56859071a7c661718a8f00e1ffd4f0ceb65171734dc3a48ec9b35c627a2",
       "status": "SUBMITTED",
       "produced_at": "2026-11-18T06:29:26.824Z"
+    },
+    {
+      "artifact_id": "chosen-design-fingerprint",
+      "stage_id": "stage-05",
+      "version": "1.0",
+      "path": "project-artifacts/stage-05/chosen-design-fingerprint/v1.0/chosen-design-fingerprint.md",
+      "sha256": "1339912feb78b552eef4900a856be913c1ce56356c83f1a75bc0ecd2c71671fa",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:32:32.379Z"
+    },
+    {
+      "artifact_id": "design-differentiation-record",
+      "stage_id": "stage-05",
+      "version": "1.0",
+      "path": "project-artifacts/stage-05/design-differentiation-record/v1.0/design-differentiation-record.md",
+      "sha256": "842ca3793039b36a164705d436a8d7ce29275ede89629f00952e493546666023",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:32:32.408Z"
+    },
+    {
+      "artifact_id": "design-directions",
+      "stage_id": "stage-05",
+      "version": "1.0",
+      "path": "project-artifacts/stage-05/design-directions/v1.0/design-directions.md",
+      "sha256": "ca22467912dbc9588da99d4fb6e0b6a1b066a8561ba5b40b619fe4d36779177a",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:32:32.444Z"
+    },
+    {
+      "artifact_id": "design-specification",
+      "stage_id": "stage-05",
+      "version": "1.0",
+      "path": "project-artifacts/stage-05/design-specification/v1.0/design-specification.md",
+      "sha256": "34af7938253920a9306a4698a8bc5d261df1a54ac29f677a47ebc851b58ee9f7",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:32:32.489Z"
+    },
+    {
+      "artifact_id": "implementation-commit-reference",
+      "stage_id": "stage-05",
+      "version": "1.0",
+      "path": "project-artifacts/stage-05/implementation-commit-reference/v1.0/implementation-commit-reference.md",
+      "sha256": "93ac6d9bec78ccb1841756bce9a8e7e91b66ff523c477335b21020fc39a7eb71",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:32:32.519Z"
+    },
+    {
+      "artifact_id": "initial-build-evidence",
+      "stage_id": "stage-05",
+      "version": "1.0",
+      "path": "project-artifacts/stage-05/initial-build-evidence/v1.0/initial-build-evidence.md",
+      "sha256": "8dcd112e9a2a913ab9cd825de6aea7c198c63a58abde979d4f9ec0af58ae56b2",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:32:32.541Z"
+    },
+    {
+      "artifact_id": "website-implementation",
+      "stage_id": "stage-05",
+      "version": "1.0",
+      "path": "project-artifacts/stage-05/website-implementation/v1.0/website-implementation.md",
+      "sha256": "1284761b4cc09f8750b2f73865857eb60d6e78c3e6e5e4891ef79734496ac13c",
+      "status": "SUBMITTED",
+      "produced_at": "2026-11-18T06:32:32.563Z"
     }
   ],
   "approvals": [
@@ -824,6 +887,76 @@
           "sha256": "b71ba56859071a7c661718a8f00e1ffd4f0ceb65171734dc3a48ec9b35c627a2"
         }
       ]
+    },
+    {
+      "event_id": "EVT-000035",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:32:32.379Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-05",
+      "artifact_id": "chosen-design-fingerprint",
+      "artifact_version": "1.0",
+      "artifact_sha256": "1339912feb78b552eef4900a856be913c1ce56356c83f1a75bc0ecd2c71671fa"
+    },
+    {
+      "event_id": "EVT-000036",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:32:32.408Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-05",
+      "artifact_id": "design-differentiation-record",
+      "artifact_version": "1.0",
+      "artifact_sha256": "842ca3793039b36a164705d436a8d7ce29275ede89629f00952e493546666023"
+    },
+    {
+      "event_id": "EVT-000037",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:32:32.444Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-05",
+      "artifact_id": "design-directions",
+      "artifact_version": "1.0",
+      "artifact_sha256": "ca22467912dbc9588da99d4fb6e0b6a1b066a8561ba5b40b619fe4d36779177a"
+    },
+    {
+      "event_id": "EVT-000038",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:32:32.489Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-05",
+      "artifact_id": "design-specification",
+      "artifact_version": "1.0",
+      "artifact_sha256": "34af7938253920a9306a4698a8bc5d261df1a54ac29f677a47ebc851b58ee9f7"
+    },
+    {
+      "event_id": "EVT-000039",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:32:32.519Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-05",
+      "artifact_id": "implementation-commit-reference",
+      "artifact_version": "1.0",
+      "artifact_sha256": "93ac6d9bec78ccb1841756bce9a8e7e91b66ff523c477335b21020fc39a7eb71"
+    },
+    {
+      "event_id": "EVT-000040",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:32:32.541Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-05",
+      "artifact_id": "initial-build-evidence",
+      "artifact_version": "1.0",
+      "artifact_sha256": "8dcd112e9a2a913ab9cd825de6aea7c198c63a58abde979d4f9ec0af58ae56b2"
+    },
+    {
+      "event_id": "EVT-000041",
+      "event_type": "ARTIFACT_SUBMITTED",
+      "occurred_at": "2026-11-18T06:32:32.563Z",
+      "actor": "kannaryukkei",
+      "stage_id": "stage-05",
+      "artifact_id": "website-implementation",
+      "artifact_version": "1.0",
+      "artifact_sha256": "1284761b4cc09f8750b2f73865857eb60d6e78c3e6e5e4891ef79734496ac13c"
     }
   ]
 }
