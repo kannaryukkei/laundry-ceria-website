@@ -1,6 +1,6 @@
 # Experiment 06 — Laundry Ceria Issue Ledger
 
-**Current status (post-PR #3 merge):** Child PR #3 was merged into this feature branch at merge commit `e9f8e50`. The first combined CI run [#44348190890](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44348190890) failed because PR #1's cleanup had removed the required `.website-quality/evidence-manifest.json`; all typography, measurable contrast, responsive and A11Y checks already passed. A valid empty manifest was restored on head `b0dad79`; exact-head run [#44349337688](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44349337688) now passes with `PASS_WITH_MANUAL_REVIEW_REQUIRED`. Literal browser zoom at 200%, assistive-technology review, complete visual spot-check and lockfile/advisory review remain open.
+**Current status (post-PR #1 merge):** GitHub records parent PR #1 as merged into `main` at merge commit `4c80f7cd4b5e2c0d82adfe58805c94b9446751c2` on 2026-11-18 16:58:25 UTC. The exact-main-head push run [#44353365204](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44353365204) completed SUCCESS. Its canonical gate reports `PASS_WITH_MANUAL_REVIEW_REQUIRED`: 0 typography failures, 0 measurable contrast failures, 0 responsive failures, valid evidence manifest, and 207 generated Hero-art observations excluded for manual review. PR merge and CI success do not close manual accessibility, visual, dependency or independent Stage 7 acceptance work.
 **Project:** Fictional training fixture — PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED
 **Website branch:** `feat/stage-4-website-production`
 **Original code-audit baseline commit:** `f79c2978e11dea653bbcc86f6a1832d3bd96ee8f`  
@@ -348,4 +348,108 @@ The restored-manifest commit is `b0dad79febba1d14cbe6df11db2f8c7462df7ec0`. Exac
 - Responsive failures: 0.
 - 216 generated/image-backed Hero observations remain excluded for manual review; therefore the correct gate result is `PASS_WITH_MANUAL_REVIEW_REQUIRED`, not an unqualified PASS.
 
-The PR remains Draft and targets `main`. No merge to `main`, deployment, or public release is authorized by this CI result.
+At the time of this exact-head run, PR #1 remained Draft and unmerged. Its later merge and post-merge verification are recorded in Section 22. This CI result did not authorize deployment or public release.
+
+## 22. Parent PR #1 merged; post-merge evidence and bounded self-review — 2026-11-18
+
+### Integration and exact-main verification
+
+GitHub records parent PR #1 as merged into `main` at merge commit `4c80f7cd4b5e2c0d82adfe58805c94b9446751c2` on 2026-11-18 at 16:58:25 UTC. The current `main` branch points to that merge commit.
+
+The subsequent push workflow [#44353365204](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44353365204) ran on the exact main commit and completed **SUCCESS**. All workflow steps passed: dependency installation, TypeScript check, Vite production build, Playwright/Chromium setup, 640px/720px Hero captures, A11Y-001, A11Y-002 and the canonical shared quality gate.
+
+The post-merge shared-gate artifact `14450420315` records:
+- Gate status: **PASS_WITH_MANUAL_REVIEW_REQUIRED**.
+- Typography failures: **0** across nine diagnostic widths (320–1440px).
+- Measurable contrast failures: **0** across 53 sampled viewport/state combinations.
+- Responsive page-level failures: **0** across nine diagnostic widths.
+- Evidence manifest: valid; `humanReviewRequired=true`; 0 proof candidates; 0 evidence failures.
+- Generated/image-backed Hero observations excluded from numeric contrast measurement: **207**. The gate correctly retains manual-review status; no thresholds were lowered.
+
+The post-merge screenshot artifact `14450420315` contains full-page captures at 390px, 768px and 1440px. The companion Hero artifact `14448763356` contains exact-main-head captures at 640px and 720px. A bounded assistant self-review inspected these five screenshots: no obvious disclosure/illustration overlap appeared in the 640px/720px Hero captures, and the 390px/768px/1440px page captures showed no obvious major layout break. This is a self-review of selected evidence, not an independent Stage 7 acceptance and not a complete nine-width visual inspection.
+
+### Acceptance disposition
+
+| Criterion | Result | Scope / limitation |
+|---|---|---|
+| TypeScript and production build | PASS | Exact-main push run #44353365204 |
+| A11Y-001 keyboard/focus/reduced-motion regression | PASS | Automated Playwright only |
+| A11Y-002 full link keyboard traversal | PASS | Automated Playwright only |
+| Typography and measurable contrast | PASS | 0 reported failures; 207 generated Hero-art observations remain excluded |
+| Responsive page-level overflow | PASS | 0 failures at nine diagnostic widths; this does not replace visual review of every width |
+| Selected screenshot self-review | PASS WITH CONCERNS | 390/768/1440 full page and 640/720 Hero inspected; not independent |
+| Literal browser zoom at 200% | NOT TESTED | Zoom-equivalent 640 CSS-pixel proxy is not the actual browser zoom control |
+| Screen reader / assistive technology | NOT TESTED | No manual AT session was performed |
+| Full visual spot-check at all nine widths | NOT COMPLETE | 320/360/900/1024/1280px still lack manual screenshot inspection |
+| Manual review of excluded Hero image surfaces | OPEN | 207 observations remain excluded by the renderer |
+| Dependency lockfile and advisory review | OPEN | No committed `package-lock.json`; CI still uses `npm install`. A local lockfile-generation attempt timed out before writing a lockfile; `npm ci` and `npm audit` were therefore not run |
+| Independent Stage 7 acceptance | NOT COMPLETED | This work is a post-merge evidence audit and assistant self-review, not independent acceptance |
+
+No full WCAG conformance, security clearance, production readiness, business-owner approval or public release is claimed. The repository remains `studio_development`, private and demo-only. No deployment, publication, outreach, DNS, real WhatsApp integration or production release is authorized.
+
+
+
+## 23. PR #5 dependency reproducibility, rendered review and current branch checkpoint — 2026-11-18
+
+### Dependency and exact-head CI
+
+PR #5, `chore/experiment-06-lockfile-security-review`, adds a committed dependency manifest/lockfile and changes the canonical website CI to use `npm ci` rather than a floating `npm install`.
+
+- `package-lock.json`: npm lockfile v3, 122 package entries, 62,228 bytes.
+- Playwright: exact development dependency `1.65.1`.
+- Lockfile SHA-256: `f48b2932d85e610e1c0b91cbe2a4d5593d6dc45f014a7f246e9227dc48db0896`.
+- Exact-head code verification [run #44374760430](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44374760430) passed on `4705af6ef2a26a96b17c6f1271735c478647fc85`.
+- Latest branch-head verification [run #44375371695](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44375371695) completed SUCCESS on `546b3824e0f281c1e54cf5693c50277d5217e2c9`; the commits after the code-verification SHA were README/checklist documentation updates only.
+- Both exact-head runs passed `npm ci`, TypeScript, Vite production build, Playwright/Chromium setup, A11Y-001, A11Y-002, breakpoint capture/upload and the canonical shared quality gate.
+- `npm ls --all` and `npm audit` exited 0. The audit reports 0 info, low, moderate, high or critical vulnerabilities at the time of the run.
+
+### Responsive and visual evidence
+
+The exact-head capture manifests bind the artifacts to their website source commit and workflow run. Full-page captures are available at 320, 360, 900, 1024 and 1280px; the canonical shared gate captures 390, 768 and 1440px; Hero-specific captures cover 640 and 720px.
+
+Across the nine diagnostic widths (320/360/390/640/768/900/1024/1280/1440):
+- Responsive failures: 0; document width equals viewport width at every sampled size.
+- Typography failures: 0.
+- Evidence manifest: valid, with 0 proof candidates and 0 evidence failures.
+- Canonical shared-gate status remains `PASS_WITH_MANUAL_REVIEW_REQUIRED`.
+
+The full-page screenshots and selected sections were visually inspected. No page-level horizontal overflow, overlap of the Hero disclosure, or clipping of substantive pricing, turnaround, pickup, fictional-address or disabled-contact information was observed. Nested decorative overflow is intentional and contained by its sections; the global width checks remain clean.
+
+### Contrast disposition and targeted refinement
+
+The final code candidate retains 0 measurable contrast failures across 53 viewport/state samples. The renderer excludes 212 observations across five Hero illustration signatures because it cannot reliably resolve their generated/layered backgrounds. The signatures are:
+- Teal star mark `#0F6B68` on paper `#F6F7F2`.
+- Teal stamp star `#0F6B68` on the translucent white stamp.
+- Amber spark `#8A5A0A` on paper `#F6F7F2`.
+- Stamp label `RAPI TERATUR` in `#0F6B68`.
+- Hero caption `ILUSTRASI DEKORATIF` in `#52636C`.
+
+Source refinements raised the caption from `#82918E` / 8px to `var(--color-muted)` / 10px, enlarged the stamp label from 8px to 9px, and darkened the amber spark from `#D39A34` to `#8A5A0A`.
+
+A bounded AI self-review of the exact rendered screenshots and corresponding CSS token pairs calculated:
+- `#0F6B68` on `#F6F7F2`: **5.87:1**.
+- `#8A5A0A` on `#F6F7F2`: **5.50:1**.
+- `#52636C` on `#F6F7F2`: **5.80:1**.
+- Stamp text/icon `#0F6B68` on the 78%-white panel: **4.52:1** in a conservative composite over the darkest plausible teal backing; the actual rendered backing is lighter.
+
+The manual inspection and calculations are a self-review by the implementation assistant, not independent human acceptance. The gate's manual-review status is retained; no thresholds were lowered and `humanReviewRequired=true` remains.
+
+### Accessibility and acceptance disposition
+
+| Criterion | Result | Scope / limitation |
+|---|---|---|
+| TypeScript and production build | PASS | Exact-head CI |
+| `npm ci`, dependency tree and advisory audit | PASS | Committed npm lockfile; 0 reported vulnerabilities |
+| A11Y-001 keyboard/focus/reduced-motion regression | PASS | Automated Playwright subset |
+| A11Y-002 full desktop link keyboard traversal | PASS | 16 links, names/targets/focus, Shift+Tab, collapsed mobile navigation |
+| Responsive document width | PASS | 0 failures at nine diagnostic widths |
+| Typography and measurable contrast | PASS | 0 reported failures; 212 generated-background observations excluded for manual review |
+| Selected responsive screenshot self-review | PASS WITH CONCERNS | AI self-review, not independent |
+| Literal browser zoom at 200% | NOT TESTED | 640 CSS-pixel viewport is only a zoom-equivalent reflow proxy |
+| Screen reader / assistive technology | NOT TESTED | No manual AT session performed |
+| Comparative visual review | PARTIAL | Laundry Ceria and source-level ZACKS/ACFIX directions were compared; a full side-by-side screenshot comparison with prior rendered projects is unavailable |
+| Independent Stage 7 acceptance | NOT COMPLETED | Must be performed by a reviewer who did not implement the site |
+
+PR #5 is **Ready for review**, open and unmerged. It changes the CI workflow, README, website checklist, package manifest, lockfile and the scoped Hero-label contrast styles. No merge or release is implied by the successful CI runs.
+
+The project remains private, synthetic, `studio_development`, PREVIEW ONLY / DEMO-ONLY / NOT_APPROVED. No deployment, publication, outreach, DNS change, real WhatsApp integration or production release is authorized.
