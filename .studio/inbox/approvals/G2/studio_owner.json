@@ -1,0 +1,6 @@
+{
+  "gate_id": "G2",
+  "decision": "APPROVED",
+  "subject": "SYNTHETIC DEVELOPMENT SIMULATION — G2 review of WRP-LC-E2E-001 v1.0",
+  "evidence_reference": "test/full-workflow-production-shaped-simulation@5591c877d33bd25971e35b436b73f00693eaf8f6: exact WRP-LC-E2E-001 v1.0 snapshot; internal simulation only"
+}
