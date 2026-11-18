@@ -6,7 +6,8 @@
 **Created:** 2026-11-18  
 **Source snapshot:** NOT_REGISTERED — reconstructed from branch feat/stage-4-website-production at baseline commit f79c2978e11dea653bbcc86f6a1832d3bd96ee8f and the source/handoff documents listed below  
 **Schema version:** Website Requirements Pack v1.0  
-**Status:** DRAFT — INTERNAL_REVIEW_REQUIRED  
+**Status:** DRAFT  
+**Artifact workflow state:** STUDIO_REVIEW_REQUIRED  
 **Owner approval reference:** PENDING  
 **Client confirmation reference:** NOT_APPLICABLE_TO_FICTIONAL_FIXTURE; safe preview fallbacks are documented  
 **Supersedes:** None
@@ -256,7 +257,7 @@ The Stage 3 design specification names **Fresh & Orderly**. This section records
 - Temporary identity: text-only “Laundry Ceria”; no invented mark, slogan, seal or monogram.
 - Colors: primary teal #0F6B68; ink #172B3A; paper #F6F7F2; white #FFFFFF; mint #DDEFEA; muted #52636C; amber #F0B54A; disabled surface #E9EFEB; border #DCE4DF.
 - Typography families: Plus Jakarta Sans for display/headings; Inter for body/interface, with the documented fallbacks.
-- Planned type roles from the design handoff: display 64px desktop / 42px mobile; H2 44px / 32px; body 16px; small 14px; micro 12px. The current rendered implementation must be checked against these roles; this WRP does not waive legibility requirements.
+- Planned type roles from the design handoff: display 64px desktop / 42px mobile; H2 44px / 32px; H3 26px / 22px; lead 19px / 18px; body 16px; small 14px; micro 12px. Planned line heights are display 1.05–1.10, H2 1.10–1.18, H3 1.20, lead 1.50–1.60, body 1.55–1.70, small 1.45–1.55 and micro 1.40–1.50. Critical notices, prices, units, hours and disabled explanations must not be reduced to micro text; the current Studio implementation standard targets at least 13px for important conditions/disclosures or requires a layout restructure. The current rendered implementation must be checked against these roles; this WRP does not waive legibility requirements.
 - Layout: maximum content width 1200px; planned 20px mobile, 32px tablet and 48px desktop gutters; mobile below 640px, tablet 640–1023px, desktop 1024px and above.
 - No photography-dependent composition. No fabricated trust signals, luxury cues or unsupported claims.
 - The section sequence from Stage 2 is retained.
