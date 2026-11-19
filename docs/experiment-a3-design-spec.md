@@ -8,16 +8,16 @@
 
 ## 1. Evidence inspected
 
-The A3 browser study requested 12 views (four pages × desktop/tablet/mobile). Eight views were captured and measured:
+The A3 browser study requested 12 views (four pages × desktop/tablet/mobile). Nine views were captured and measured in workflow run #178:
 
 | Reference | Desktop 1440 | Tablet 768 | Mobile 390 |
 |---|---|---|---|
 | QnC Laundry home | Captured · HTTP 200 | Captured · HTTP 200 | Captured · HTTP 200 |
 | QnC Laundry services/pricing | Captured · HTTP 200 | Captured · HTTP 200 | Captured · HTTP 200 |
-| Bloom Laundry price list | Captured · HTTP 200 | Blocked · TLS certificate error | Captured · HTTP 200 |
-| Yanti Laundry home | Blocked · page navigated during measurement | Blocked · page navigated during measurement | Blocked · page navigated during measurement |
+| Bloom Laundry price list | Captured · HTTP 200 | Captured · HTTP 200 | Captured · HTTP 200 |
+| Yanti Laundry home | Screenshot saved; measurement extraction failed | Screenshot saved; measurement extraction failed | Screenshot saved; measurement extraction failed |
 
-Yanti's A2 screenshots remain historical visual evidence, but A3 did not produce reliable measurements for it. Do not claim it was measured in A3. QnC and Bloom are the measured design inputs below.
+QnC and Bloom produced reliable selector-based measurements. Yanti screenshots were also saved, but the measurement script assumed a semantic page element existed and failed when it encountered a missing element. The extractor was updated to handle missing headings/landmarks safely; a rerun is included in the later CI review.
 
 ## 2. Observed reference evidence
 
@@ -40,7 +40,7 @@ The source page reported horizontal overflow at the supplied 768 px and 390 px v
 - Main pricing container: **1152 px** wide at 1440 px viewport.
 - Mobile header: **137.8 px**; title: **38.4 px / 45.5 px** inside a **366 px** content width.
 - The price list separates service categories with full-width category bands, then aligns service names and prices into scannable rows.
-- The tablet capture was blocked by a certificate error; no tablet measurements are claimed.
+- Tablet: header **97.8 px**; title **51.2 px / 54.6 px**; content width **744 px** within a 768 px viewport, with no horizontal overflow.
 
 Bloom contains many service-specific durations and prices that do not exist in the Laundry Ceria fixture. A3 borrows only the category/row hierarchy. It must not invent a duration column, additional services, or any Bloom facts.
 
@@ -86,4 +86,4 @@ The source references' mobile overflow is not an acceptance target. The Laundry 
 
 ## 6. Evidence limitations
 
-This study is a measured snapshot, not a guarantee that public reference pages will remain unchanged. A3's initial study is partial: Bloom tablet failed TLS validation, and Yanti navigated while measurement was running. No precise values are inferred for those missing views. The coded result still requires same-viewport screenshot review and the canonical website quality gate; a passing build alone is not visual acceptance.
+This study is a measured snapshot, not a guarantee that public reference pages will remain unchanged. The QnC source itself overflows at 768 px and 390 px: its document width is 1010 px in both viewports, so the heading begins at x=-31 px on the home page and x=-99 px on the pricing page. Bloom stayed within the viewport at all three tested sizes. The Yanti page screenshots were saved, but its DOM measurement failed because the capture script assumed a semantic element existed; the script has since been made null-safe and the next run will attempt the same measurements again. The coded result still requires same-viewport screenshot review and the canonical website quality gate; a passing build alone is not visual acceptance.
