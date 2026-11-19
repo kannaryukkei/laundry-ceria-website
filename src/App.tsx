@@ -84,35 +84,6 @@ function SectionHeading({ eyebrow, title, description }: { eyebrow: string; titl
   );
 }
 
-function HeroIllustration() {
-  return (
-    <div className="hero-art" role="img" aria-label="Ilustrasi kain terlipat dengan label harga layanan laundry, bukan foto toko">
-      <div className="art-grid" aria-hidden="true" />
-      <div className="art-orbit art-orbit-one" aria-hidden="true" />
-      <div className="art-orbit art-orbit-two" aria-hidden="true" />
-      <div className="fabric-stack" aria-hidden="true">
-        <span className="fabric fabric-back" />
-        <span className="fabric fabric-middle" />
-        <span className="fabric fabric-front" />
-      </div>
-      <div className="price-ticket" aria-hidden="true">
-        <div className="ticket-top">
-          <span>HARGA KILOAN</span>
-          <span className="ticket-mark">LC</span>
-        </div>
-        <div className="ticket-rule" />
-        <span className="ticket-intro">SETRIKA SAJA</span>
-        <div className="ticket-price"><strong>7.000</strong><span>Rp / kg</span></div>
-        <div className="ticket-bottom">
-          <span>DATA DEMO</span>
-          <span>PER KILOGRAM</span>
-        </div>
-      </div>
-      <span className="art-caption" data-qa-role="disclosure">ILUSTRASI · BUKAN FOTO TOKO</span>
-    </div>
-  );
-}
-
 function Hero() {
   return (
     <section className="hero" id="hero">
@@ -141,7 +112,6 @@ function Hero() {
               Contoh website untuk latihan. Bukan penawaran usaha nyata.
             </p>
           </div>
-          <HeroIllustration />
         </div>
         <div className="hero-facts" aria-label="Ringkasan informasi layanan">
           <div className="hero-fact">
