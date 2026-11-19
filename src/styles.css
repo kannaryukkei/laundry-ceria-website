@@ -116,7 +116,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--color-primary);
 .ticket-price strong { color: var(--color-ink); font: 800 clamp(36px, 4vw, 54px)/1.05 var(--font-display); letter-spacing: -.075em; font-variant-numeric: tabular-nums; }
 .ticket-price span { color: var(--color-primary); font-size: 14px; font-weight: 800; }
 .ticket-bottom { display: flex; justify-content: space-between; gap: 12px; margin-top: 16px; padding-top: 11px; border-top: 1px dashed var(--color-border); color: var(--color-muted); font-size: 10px; font-weight: 800; letter-spacing: .09em; }
-.art-caption { position: absolute; right: 18px; bottom: 14px; z-index: 3; color: var(--color-muted); font-size: 13px; font-weight: 800; letter-spacing: .11em; }
+.art-caption { position: absolute; left: 18px; right: 18px; bottom: 14px; z-index: 3; color: var(--color-muted); font-size: 12px; font-weight: 800; letter-spacing: .08em; line-height: 1.35; text-align: right; }
 
 .hero-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 54px; border-top: 1px solid var(--color-border); }
 .hero-fact { display: flex; min-height: 86px; justify-content: center; flex-direction: column; gap: 6px; padding: 15px 20px 16px 0; }
