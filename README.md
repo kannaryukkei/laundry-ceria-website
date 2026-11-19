@@ -1,57 +1,44 @@
-# Laundry Ceria — Website Experiment
+# Laundry Ceria — AWOS Simplified Test 02
 
-**Mode:** `studio_development` · **Data:** synthetic · **Publication:** not authorized
+**Mode:** studio_development · **Business:** synthetic training fixture · **Publication:** NOT_APPROVED
 
-This repository contains one fictional Laundry Ceria website experiment. It is a website project repository, not the AI Operated Web Studio platform, project manager, workflow engine, or approval system.
+This branch is an independent full-website generation experiment. It does not continue or copy the A5, A6, or Test 01 implementations.
 
-## Current boundary
+## Test 02 direction
 
-- Internal development and preview only. Laundry Ceria is not a real business.
-- All prices, service details, operating information, contact context, and address in this project are synthetic. Never present them as real business facts.
-- The displayed address, `Jl. Melati No. 12, Jakarta`, is fictional. Keep it explicitly labelled as demo data; never connect it to maps, directions, or a live location.
-- WhatsApp is `NOT_CONFIGURED`. Do not invent a number, create a `wa.me` link or QR code, or make the disabled contact treatment interactive.
-- The described business photos are not supplied as files. Verbal permission is not written permission; do not use the photos.
-- No official logo was supplied. Keep the identity text-only and temporary.
-- Do not add testimonials, ratings, awards, customer counts, fabricated trust signals, or an independently verified no-mix-up guarantee.
-- Do not imply payments, booking, checkout, order tracking, customer accounts, or other unsupported services.
-- Keep visible website copy in Bahasa Indonesia and retain the persistent `PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED` notice.
+- **Concept:** Neighborhood Laundry Ledger — an editorial, price-first presentation for a small neighborhood laundry.
+- **Visual system:** ultramarine, warm paper, citrus accent, serif display typography, sans-serif reading text, and monospaced information labels.
+- **Structure:** one responsive page covering services/prices, turnaround, process, pickup/delivery, hours/location, and contact readiness.
+- **Implementation:** React + TypeScript + Vite; no backend, account, database, booking, payment, form submission, analytics, or external contact integration.
+- **Assets:** no supplied business photos are used. The temporary identity is text-only; no official logo is claimed.
+- **Typography:** system fallbacks only; no external font dependency is required.
 
-No public deployment, publication, outreach, DNS configuration, real contact integration, or production release is authorized.
+## Source of truth
 
-## Project material
+docs/stage-0-source-fixture.md contains the fictional interview notes and hard constraints. Business information is synthetic and must remain visibly identified as demo-only.
 
-The original project handoffs are retained as source and design provenance:
+- Address Jl. Melati No. 12, Jakarta is fictional. Do not link it to maps or directions.
+- WhatsApp is NOT_CONFIGURED. Do not invent a number, wa.me URL, QR code, or active contact control.
+- Three described business photos are not supplied as files; verbal permission is not written permission. Do not use them.
+- No logo was supplied. Do not invent an official logo or monogram.
+- No testimonials, ratings, awards, customer counts, or unsupported trust claims.
+- No checkout, payment, booking, order tracking, or customer accounts.
+- Visible copy is in Bahasa Indonesia. Keep PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED visible at the top and footer.
 
-- [Source fixture](./docs/stage-0-source-fixture.md) — fictional interview notes and hard constraints.
-- [Discovery and strategy](./docs/stage-1-discovery-strategy.md) — audience hypotheses and grounded positioning.
-- [Website plan](./docs/stage-2-website-planning.md) — one-page information architecture and interaction requirements.
-- [Design direction](./docs/stage-3-design-direction.md) — Fresh & Orderly visual direction and design tokens.
-- [Experiment 06 issue ledger](./docs/experiment-06-issue-ledger.md) — rendered findings and unresolved defects.
-- [Visual refinement log](./docs/experiment-06-visual-refinement-log.md) — before/after implementation and capture notes.
-- [Selector remediation map](./docs/experiment-06-selector-remediation-map.md) — source-specific audit notes.
-- [Website verification checklist](./docs/website-checklist.md) — manual checks still required.
-
-The old Stage 0–3 labels are historical names for these handoff documents, not a mandatory execution pipeline. Retired approval registers, canonical artifact snapshots, requirements-pack duplicates, and stage-reconciliation records are intentionally not maintained here.
-
-## Development
+## Local development
 
 Requirements: Node.js 22 or compatible current LTS.
 
-```bash
 npm ci
 npm run dev
 npm run typecheck
 npm run build
-```
 
-The GitHub Actions workflow uses the committed npm lockfile with `npm ci`, runs TypeScript checking and a Vite production build, installs Chromium for the pinned Playwright `1.65.1` regressions, captures exact-head Hero screenshots at 640px/720px and full-page breakpoint evidence at 320px/360px/900px/1024px/1280px, and invokes the canonical AWOS Shared Website Quality Gate. The shared gate also measures 320px/360px/390px/640px/768px/900px/1024px/1280px/1440px. Screenshot captures are review evidence, not automated visual assertions; manual visual inspection, keyboard, accessibility, and human acceptance checks remain required. A passing build is not a QA or release approval.
+The CI workflow runs TypeScript/build checks, browser keyboard tests, Test 02 source/safeguard and responsive checks, reference captures, and the canonical shared website quality gate. Screenshots and automated checks are evidence, not proof of aesthetic quality or WCAG conformance.
 
-The shared quality gate requires `.website-quality/evidence-manifest.json`. This small file is intentionally retained even when the page has no detected proof-like claims: `"items": []` means there are no testimonial, rating, award, customer-count or performance-claim records to validate. `"humanReviewRequired": true` keeps human review enabled. This is a quality-gate input only; it is not a project-state manifest, workflow engine, approval register, or publication authorization.
+## Isolation and publication boundary
 
-`package-lock.json` is committed (npm lockfile v3, 122 package entries) and pins Playwright to `1.65.1`. Exact-head CI run [#44374760430](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44374760430) passed using `npm ci`; the run's `npm ls --all` and `npm audit` both exited 0, with zero reported vulnerabilities. These results are tied to the run date and are not a guarantee of future dependency security.
-
-## How this repository is operated
-
-The active project conversation is the single operating and decision center. Use GitHub for the website source, project source material, and useful QA evidence. Do not recreate a dashboard, issue-form intake workflow, project-state manifest, approval register, artifact registry, or workflow engine in this repository.
-
-Use a focused feature branch and pull request into `main` for code changes. Keep the project in `studio_development` unless a real client engagement is separately established with real source material and authorization.
+- Test branch: experiment/test-02-independent-generation
+- Baseline commit: 71dbcf27e6d77310cd7fa1a098dc8a7935711be2
+- A5 PR #10, A6 PR #11, and Test 01 PR #12 are not modified by this branch.
+- Do not merge, deploy, publish, configure DNS, contact real people, or represent this fictional business as real.
