@@ -95,11 +95,6 @@ function Hero() {
             <p className="hero-lead" data-qa-role="body">
               Pilih cuci lipat, cuci setrika, atau setrika saja. Untuk bed cover dan selimut, tarif dihitung per potong.
             </p>
-            <div className="hero-price-cue" data-qa-role="disclosure">
-              <span>HARGA KILOAN MULAI DARI</span>
-              <strong>Rp7.000<small>/kg</small></strong>
-              <span>Setrika saja · data latihan</span>
-            </div>
             <div className="hero-actions">
               <a className="button button-primary" data-qa-role="control" href="#services-pricing">
                 Lihat layanan & harga <ArrowUpRight />
@@ -112,6 +107,18 @@ function Hero() {
               Contoh website untuk latihan. Bukan penawaran usaha nyata.
             </p>
           </div>
+          <aside className="hero-rate-stamp" aria-label="Ilustrasi tipografi tarif setrika saja sebesar tujuh ribu rupiah per kilogram, data latihan">
+            <span className="stamp-overline" data-qa-role="metadata">01 / TARIF REFERENSI</span>
+            <span className="stamp-service" data-qa-role="metadata">SETRIKA SAJA</span>
+            <div className="stamp-price">
+              <span>Rp</span>
+              <strong>7.000</strong>
+            </div>
+            <div className="stamp-bottom">
+              <span data-qa-role="metadata">PER KILOGRAM</span>
+              <span data-qa-role="disclosure">DATA LATIHAN</span>
+            </div>
+          </aside>
         </div>
         <div className="hero-facts" aria-label="Ringkasan informasi layanan">
           <div className="hero-fact">
