@@ -880,6 +880,7 @@ button:focus-visible, a:focus-visible { outline-color: var(--color-primary); }
   font-weight: 800;
   letter-spacing: .1em;
 }
+.stamp-bottom [data-qa-role="disclosure"] { font-size: 13px; }
 
 @media (max-width: 1100px) {
   .hero-grid { grid-template-columns: minmax(0, 1.4fr) minmax(250px, .8fr); gap: 30px; }
