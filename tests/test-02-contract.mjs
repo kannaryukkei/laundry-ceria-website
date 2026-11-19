@@ -13,10 +13,11 @@ try {
   page.on('pageerror', error => consoleErrors.push(error.message));
   await page.goto(baseURL, { waitUntil: 'networkidle' });
   const bodyText = (await page.locator('body').innerText()).replace(/\s+/g, ' ');
-  for (const expected of ['PREVIEW ONLY','DEMO-ONLY','NOT_APPROVED','Cuci lipat','Rp8.000','Cuci setrika','Rp12.000','Setrika saja','Rp7.000','Bed cover','Rp25.000','Selimut','Rp20.000','Biasanya 2 hari','10.00','20.00','+50%','Di atas 5 kg','GRATIS','5 kg atau kurang','Rp5.000','Jl. Melati No. 12','ALAMAT FIKTIF','NOT CONFIGURED']) {
+  for (const expected of ['PREVIEW ONLY','DEMO-ONLY','NOT_APPROVED','Cuci lipat','Rp8.000','Cuci setrika','Rp12.000','Setrika saja','Rp7.000','Bed cover','Rp25.000','Selimut','Rp20.000','Biasanya 2 hari','Kiloan reguler','10.00','20.00','+50%','Di atas 5 kg','GRATIS','5 kg atau kurang','Rp5.000','Jl. Melati No. 12','ALAMAT FIKTIF','NOT CONFIGURED']) {
     assert.ok(bodyText.includes(expected), 'Required source-backed content is present: ' + expected);
   }
-  assert.equal(await page.locator('a[href*="wa.me"], a[href*="whatsapp.com"], a[href*="api.whatsapp"]').count(), 0, 'No WhatsApp destination is fabricated');
+  assert.ok(!bodyText.includes('Waktu reguler'), 'Regular turnaround is not generalized to all services');
+  assert.equal(await page.locator('a[href*="wa.me", a[href*="whatsapp.com"], a[href*="api.whatsapp"]').count(), 0, 'No WhatsApp destination is fabricated');
   assert.equal(await page.locator('iframe, [data-map], a[href*="maps.google"], a[href*="google.com/maps"]').count(), 0, 'No real map or directions are created');
   assert.equal(await page.locator('.contact-disabled a, .contact-disabled button').count(), 0, 'Unconfigured WhatsApp remains non-interactive');
   assert.equal(await page.locator('a[href^="http"]').count(), 0, 'No external business action is exposed');
