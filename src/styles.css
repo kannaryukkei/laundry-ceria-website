@@ -705,3 +705,13 @@ button:focus-visible, a:focus-visible {
   .quick-fact strong { font-size: 15px; }
   .express-timeline strong { font-size: 36px; }
 }
+
+
+/* Final quality-gate corrections */
+.text-link span { color: var(--plum); }
+.quick-fact small { font-size: 11px; }
+.regular-time p[data-qa-role="body"],
+.express-time > p[data-qa-role="body"] { font-size: 15px; }
+.radius-badge > b { font-size: 11px; }
+.notice-inner strong[data-qa-role="disclosure"] { font-size: 13px; }
+.process-footnote p[data-qa-role="body"] { font-size: 15px; }
