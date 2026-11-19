@@ -339,6 +339,8 @@ function PriceEstimator() {
                 <input
                   id="estimate-quantity"
                   data-qa-role="control"
+                  aria-invalid={quantity !== '' && !validQuantity}
+                  aria-describedby={quantity !== '' && !validQuantity ? 'estimate-quantity-error' : undefined}
                   type="number"
                   min={category === 'satuan' ? '1' : undefined}
                   step={category === 'kiloan' ? 'any' : '1'}
@@ -350,7 +352,7 @@ function PriceEstimator() {
                 <span data-qa-role="metadata">{category === 'kiloan' ? 'KG' : 'POTONG'}</span>
               </div>
               {quantity !== '' && !validQuantity && (
-                <p className="estimate-validation" role="alert" data-qa-role="disclosure">
+                <p id="estimate-quantity-error" className="estimate-validation" role="alert" data-qa-role="disclosure">
                   {hasQuantity ? 'Jumlah potong harus berupa bilangan bulat.' : 'Masukkan jumlah yang lebih besar dari nol.'}
                 </p>
               )}
