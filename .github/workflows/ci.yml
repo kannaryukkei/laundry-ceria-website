@@ -79,6 +79,7 @@ jobs:
           done
           if [ -f tests/a11y-001-keyboard.mjs ]; then node tests/a11y-001-keyboard.mjs; else echo "A11Y-001 browser regression is not part of this PR candidate yet; skipping."; fi
           if [ -f tests/a11y-002-full-keyboard.mjs ]; then node tests/a11y-002-full-keyboard.mjs; else echo "A11Y-002 full keyboard regression is not part of this PR candidate yet; skipping."; fi
+          if [ -f tests/a5-experience-conversion.mjs ]; then node tests/a5-experience-conversion.mjs; else echo "A5 experience and conversion regression is not part of this PR candidate yet; skipping."; fi
 
           captured_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
           cat > artifacts/capture-manifest.json <<EOF

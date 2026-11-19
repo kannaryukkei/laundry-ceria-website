@@ -12,8 +12,14 @@ const desktopOrder = [
   '#primary-nav a[href="#pickup-delivery"]',
   '#primary-nav a[href="#hours-location"]',
   '#primary-nav a.nav-cta',
+  '.hero-actions a[href="#price-estimator"]',
   '.hero-actions a[href="#services-pricing"]',
-  '.hero-actions a[href="#hours-location"]',
+  '.estimate-category button:nth-child(1)',
+  '.estimate-category button:nth-child(2)',
+  '#estimate-service',
+  '#estimate-quantity',
+  '#estimate-pickup',
+  '.estimate-reset',
   '.walkin-card a[href="#hours-location"]',
   'a.footer-wordmark',
   '.footer-nav a[href="#services-pricing"]',
@@ -33,7 +39,8 @@ try {
       label: (link.getAttribute('aria-label') || link.innerText || '').replace(/\s+/g, ' ').trim(),
     })),
   );
-  assert.equal(renderedLinks.length, desktopOrder.length, 'Every visible desktop link is included in the reviewed keyboard sequence');
+  const expectedLinkStops = desktopOrder.filter((selector) => selector.startsWith('a.') || selector.includes(' a[') || selector.includes(' a.nav-cta'));
+  assert.equal(renderedLinks.length, expectedLinkStops.length, 'Every visible desktop link is included in the reviewed keyboard sequence');
   for (const link of renderedLinks) {
     assert.ok(link.label, `Link has a discernible accessible name: ${link.href}`);
     assert.ok(link.href?.startsWith('#'), `Demo links stay within the local page: ${link.href}`);

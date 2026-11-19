@@ -84,6 +84,38 @@ function SectionHeading({ eyebrow, title, description }: { eyebrow: string; titl
   );
 }
 
+function WasherIllustration() {
+  return (
+    <div className="washer-illustration" role="img" aria-label="Ilustrasi animasi mesin cuci dengan drum berputar dan gelembung, dibuat dengan CSS untuk demo">
+      <div className="washer-machine">
+        <div className="washer-control-panel">
+          <span className="washer-brand">LC</span>
+          <span className="washer-display" aria-hidden="true" />
+          <span className="washer-knob" aria-hidden="true" />
+        </div>
+        <div className="washer-door">
+          <div className="washer-rim">
+            <div className="washer-glass">
+              <div className="washer-drum">
+                <span className="washer-cloth washer-cloth-one" />
+                <span className="washer-cloth washer-cloth-two" />
+                <span className="washer-cloth washer-cloth-three" />
+                <span className="washer-water" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="washer-machine-feet" aria-hidden="true"><i /><i /></div>
+      </div>
+      <span className="washer-bubble bubble-one" aria-hidden="true" />
+      <span className="washer-bubble bubble-two" aria-hidden="true" />
+      <span className="washer-bubble bubble-three" aria-hidden="true" />
+      <span className="washer-sparkle sparkle-one" aria-hidden="true">✳</span>
+      <span className="washer-sparkle sparkle-two" aria-hidden="true">✳</span>
+    </div>
+  );
+}
+
 function Hero() {
   return (
     <section className="hero" id="hero">
@@ -96,28 +128,31 @@ function Hero() {
               Pilih cuci lipat, cuci setrika, atau setrika saja. Untuk bed cover dan selimut, tarif dihitung per potong.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" data-qa-role="control" href="#services-pricing">
-                Lihat layanan & harga <ArrowUpRight />
+              <a className="button button-primary" data-qa-role="control" href="#price-estimator">
+                Coba estimasi biaya <ArrowUpRight />
               </a>
-              <a className="text-link" data-qa-role="control" href="#hours-location">
-                Jam operasional <span aria-hidden="true">↓</span>
+              <a className="text-link" data-qa-role="control" href="#services-pricing">
+                Lihat semua tarif <span aria-hidden="true">↓</span>
               </a>
             </div>
             <p className="hero-footnote" data-qa-role="disclosure">
               Contoh website untuk latihan. Bukan penawaran usaha nyata.
             </p>
           </div>
-          <aside className="hero-rate-stamp" aria-label="Ilustrasi tipografi tarif setrika saja sebesar tujuh ribu rupiah per kilogram, data latihan">
-            <span className="stamp-overline" data-qa-role="metadata">01 / TARIF REFERENSI</span>
-            <span className="stamp-service" data-qa-role="metadata">SETRIKA SAJA</span>
-            <div className="stamp-price">
-              <span>Rp</span>
-              <strong>7.000</strong>
+          <aside className="hero-experience-card">
+            <div className="hero-experience-top">
+              <span data-qa-role="metadata">LAUNDRY CERIA / MOTION STUDY</span>
+              <span className="motion-indicator" data-qa-role="metadata"><i /> LIVE ILLUSTRATION</span>
             </div>
-            <div className="stamp-bottom">
-              <span data-qa-role="metadata">PER KILOGRAM</span>
-              <span data-qa-role="disclosure">DATA LATIHAN</span>
+            <WasherIllustration />
+            <div className="hero-experience-rate">
+              <div>
+                <span data-qa-role="metadata">TARIF REFERENSI · SETRIKA SAJA</span>
+                <strong>Rp7.000<small>/kg</small></strong>
+              </div>
+              <span className="hero-demo-stamp" data-qa-role="disclosure">DATA LATIHAN</span>
             </div>
+            <p className="hero-art-note" data-qa-role="disclosure">ILUSTRASI CSS · BUKAN FOTO TOKO</p>
           </aside>
         </div>
         <div className="hero-facts" aria-label="Ringkasan informasi layanan">
@@ -195,6 +230,194 @@ function ServicesPricing() {
         <p className="pricing-note" data-qa-role="disclosure">
           Harga yang ditampilkan merupakan bagian dari fixture fiktif. Website ini tidak menambahkan biaya atau ketentuan lain.
         </p>
+      </div>
+    </section>
+  );
+}
+
+function PriceEstimator() {
+  const [category, setCategory] = useState<'kiloan' | 'satuan'>('kiloan');
+  const [serviceName, setServiceName] = useState<string>(services.kiloan[0].name);
+  const [quantity, setQuantity] = useState('');
+  const [includePickup, setIncludePickup] = useState(false);
+
+  const serviceOptions = category === 'kiloan' ? services.kiloan : services.satuan;
+  const selectedService = serviceOptions.find((service) => service.name === serviceName) ?? serviceOptions[0];
+  const unitPrice = Number(selectedService.price.replace(/\D/g, ''));
+  const quantityValue = Number(quantity);
+  const hasQuantity = quantity.trim() !== '' && Number.isFinite(quantityValue) && quantityValue > 0;
+  const validQuantity = hasQuantity && (category === 'satuan' ? Number.isInteger(quantityValue) : true);
+  const serviceTotal = validQuantity ? unitPrice * quantityValue : 0;
+  const pickupFee = validQuantity && category === 'kiloan' && includePickup
+    ? (quantityValue > 5 ? 0 : 5000)
+    : 0;
+  const estimatedTotal = serviceTotal + pickupFee;
+  const formatMoney = (amount: number) => new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    maximumFractionDigits: 0,
+  }).format(amount);
+
+  const changeCategory = (nextCategory: 'kiloan' | 'satuan') => {
+    setCategory(nextCategory);
+    setServiceName(nextCategory === 'kiloan' ? services.kiloan[0].name : services.satuan[0].name);
+    setQuantity('');
+    setIncludePickup(false);
+  };
+
+  const resetEstimate = () => {
+    setCategory('kiloan');
+    setServiceName(services.kiloan[0].name);
+    setQuantity('');
+    setIncludePickup(false);
+  };
+
+  return (
+    <section className="section estimate-section" id="price-estimator">
+      <div className="container">
+        <div className="section-topline" data-qa-role="metadata">
+          <span>SIMULASI / HITUNGAN SEDERHANA</span>
+          <span>DEMO INTERAKTIF</span>
+        </div>
+        <div className="estimate-intro">
+          <div>
+            <p className="section-label" data-qa-role="metadata">SEBELUM MENENTUKAN PILIHAN</p>
+            <h2>Mulai dari<br /><em>perkiraanmu.</em></h2>
+          </div>
+          <p data-qa-role="body">
+            Pilih satu layanan dan masukkan jumlahnya untuk melihat hitungan berdasarkan tarif pada demo ini.
+          </p>
+        </div>
+
+        <div className="estimate-workspace">
+          <div className="estimate-controls">
+            <div className="estimate-field">
+              <span className="estimate-field-label" data-qa-role="metadata">01 / KATEGORI LAYANAN</span>
+              <div className="estimate-category" role="group" aria-label="Pilih kategori layanan">
+                <button
+                  type="button"
+                  className={category === 'kiloan' ? 'is-selected' : ''}
+                  aria-pressed={category === 'kiloan'}
+                  data-qa-role="control"
+                  onClick={() => changeCategory('kiloan')}
+                >
+                  Laundry kiloan
+                  <small>Per kilogram</small>
+                </button>
+                <button
+                  type="button"
+                  className={category === 'satuan' ? 'is-selected' : ''}
+                  aria-pressed={category === 'satuan'}
+                  data-qa-role="control"
+                  onClick={() => changeCategory('satuan')}
+                >
+                  Laundry satuan
+                  <small>Per potong</small>
+                </button>
+              </div>
+            </div>
+
+            <div className="estimate-field">
+              <label className="estimate-field-label" htmlFor="estimate-service" data-qa-role="metadata">02 / PILIH LAYANAN</label>
+              <select
+                data-qa-role="control"
+                id="estimate-service"
+                value={serviceName}
+                onChange={(event) => setServiceName(event.target.value)}
+              >
+                {serviceOptions.map((service) => (
+                  <option key={service.name} value={service.name}>{service.name} — {service.price}{service.unit}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="estimate-field">
+              <label className="estimate-field-label" htmlFor="estimate-quantity" data-qa-role="metadata">
+                03 / {category === 'kiloan' ? 'MASUKKAN BERAT PERKIRAAN' : 'MASUKKAN JUMLAH POTONG'}
+              </label>
+              <div className="estimate-quantity-wrap">
+                <input
+                  id="estimate-quantity"
+                  data-qa-role="control"
+                  type="number"
+                  min={category === 'satuan' ? '1' : undefined}
+                  step={category === 'kiloan' ? 'any' : '1'}
+                  inputMode="decimal"
+                  placeholder={category === 'kiloan' ? 'Contoh: 3' : 'Contoh: 2'}
+                  value={quantity}
+                  onChange={(event) => setQuantity(event.target.value)}
+                />
+                <span data-qa-role="metadata">{category === 'kiloan' ? 'KG' : 'POTONG'}</span>
+              </div>
+              {quantity !== '' && !validQuantity && (
+                <p className="estimate-validation" role="alert" data-qa-role="disclosure">
+                  {hasQuantity ? 'Jumlah potong harus berupa bilangan bulat.' : 'Masukkan jumlah yang lebih besar dari nol.'}
+                </p>
+              )}
+            </div>
+
+            {category === 'kiloan' ? (
+              <label className="estimate-pickup-option" htmlFor="estimate-pickup">
+                <input
+                  id="estimate-pickup"
+                  data-qa-role="control"
+                  type="checkbox"
+                  checked={includePickup}
+                  onChange={(event) => setIncludePickup(event.target.checked)}
+                />
+                <span>
+                  <strong>Hitung juga biaya antar-jemput</strong>
+                  <small>Saya memastikan alamat berada dalam radius maksimal 2 km.</small>
+                </span>
+              </label>
+            ) : (
+              <p className="estimate-pickup-note" data-qa-role="disclosure">
+                Biaya antar-jemput tidak disimulasikan untuk layanan per potong karena data sumber menetapkan tarifnya berdasarkan berat pesanan.
+              </p>
+            )}
+            <button className="estimate-reset" data-qa-role="control" type="button" onClick={resetEstimate}>Atur ulang simulasi</button>
+          </div>
+
+          <aside className="estimate-result" aria-label="Hasil simulasi harga">
+            <div className="estimate-result-top">
+              <span data-qa-role="metadata">RINGKASAN PERKIRAAN</span>
+              <span className="result-live"><i /> LIVE CALCULATION</span>
+            </div>
+            <div className="estimate-total" aria-live="polite" aria-atomic="true">
+              <span data-qa-role="metadata">ESTIMASI TOTAL</span>
+              <output id="estimate-total" htmlFor="estimate-service estimate-quantity">
+                {validQuantity ? formatMoney(estimatedTotal) : 'Masukkan jumlah untuk melihat estimasi'}
+              </output>
+            </div>
+            <div className="estimate-breakdown">
+              <div>
+                <span data-qa-role="body">{selectedService.name}</span>
+                <strong>{validQuantity ? formatMoney(serviceTotal) : '—'}</strong>
+              </div>
+              {category === 'kiloan' && includePickup && (
+                <div>
+                  <span data-qa-role="body">Antar-jemput (radius maksimal 2 km)</span>
+                  <strong>{validQuantity ? (pickupFee === 0 ? 'GRATIS' : formatMoney(pickupFee)) : '—'}</strong>
+                </div>
+              )}
+              {validQuantity && (
+                <div>
+                  <span data-qa-role="body">Jumlah</span>
+                  <strong>{category === 'kiloan' ? quantityValue.toLocaleString('id-ID') + ' kg' : quantityValue + ' potong'}</strong>
+                </div>
+              )}
+            </div>
+            <p className="estimate-disclosure" data-qa-role="disclosure">
+              Simulasi ini hanya menghitung satu jenis layanan. Untuk kiloan, hasil memakai berat perkiraan; berat aktual ditimbang di depan pelanggan.
+            </p>
+            {category === 'kiloan' && (
+              <p className="estimate-disclosure estimate-express-note" data-qa-role="disclosure">
+                Express tidak dihitung di sini. Ketentuannya +50%, diterima sebelum 10.00 dan selesai hari yang sama pukul 20.00; layanan yang memenuhi syarat belum ditentukan dalam data demo.
+              </p>
+            )}
+            <p className="estimate-local-note" data-qa-role="metadata">TIDAK DIKIRIM · TIDAK DISIMPAN · DEMO-ONLY</p>
+          </aside>
+        </div>
       </div>
     </section>
   );
@@ -443,6 +666,24 @@ function Footer() {
 }
 
 export default function App() {
+  useEffect(() => {
+    const targets = document.querySelectorAll<HTMLElement>('.section-heading, .process-item, .price-row, .pickup-rule');
+    if (!('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+    targets.forEach((target) => {
+      target.classList.add('motion-entry');
+      observer.observe(target);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <a className="skip-link" href="#main-content">Lewati ke konten utama</a>
@@ -451,6 +692,7 @@ export default function App() {
       <main id="main-content" tabIndex={-1}>
         <Hero />
         <ServicesPricing />
+        <PriceEstimator />
         <Turnaround />
         <HowItWorks />
         <PickupDelivery />
