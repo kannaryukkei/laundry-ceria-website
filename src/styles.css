@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
-
 :root {
-  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  font-family: Arial, Helvetica, ui-sans-serif, system-ui, sans-serif;
   color: #202236;
   background: #F6F2E9;
   font-synthesis: none;
@@ -15,8 +13,8 @@
   --white: #FFFEFB;
   --muted: #626575;
   --line: #DCD9D0;
-  --mono: 'DM Mono', ui-monospace, monospace;
-  --display: 'Playfair Display', Georgia, serif;
+  --mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --display: Georgia, 'Times New Roman', serif;
   --shell: 1180px;
   --gutter: 48px;
   scroll-behavior: smooth;
