@@ -109,17 +109,22 @@ try {
               objectPosition: style.objectPosition,
             };
           };
-          const summary = (element) => ({
-            tag: element.tagName.toLowerCase(),
-            text: cleanText(element.innerText || element.getAttribute('aria-label') || ''),
-            box: box(element),
-            style: styleOf(element),
-          });
+          const summary = (element) => {
+            if (!element) return null;
+            return {
+              tag: element.tagName.toLowerCase(),
+              text: cleanText(element.innerText || element.getAttribute('aria-label') || ''),
+              box: box(element),
+              style: styleOf(element),
+            };
+          };
 
-          const heading = document.querySelector('h1');
-          let hero = heading;
+          const semanticHeading = document.querySelector('h1');
+          const heading = semanticHeading || document.querySelector('h2, h3');
+          let hero = heading || document.querySelector('main, [role="main"]') ||
+            document.querySelector('[class*="hero" i]') || document.body;
           let heroFound = false;
-          let ancestor = heading;
+          let ancestor = heading || hero;
           for (let depth = 0; ancestor && depth < 7; depth += 1) {
             const rect = ancestor.getBoundingClientRect();
             const hasImage = Boolean(ancestor.querySelector('img, picture, video, svg'));
@@ -185,6 +190,7 @@ try {
             header: summary(document.querySelector('header')),
             navigation: summary(document.querySelector('nav')),
             hero: { foundImageAncestor: heroFound, element: summary(hero) },
+            hasSemanticH1: Boolean(semanticHeading),
             mainHeading: heading ? summary(heading) : null,
             headings: headingNodes.map(summary),
             measuredSections: sections.map(summary),
@@ -205,10 +211,10 @@ try {
 
         // A separate crop makes the opening composition easier to inspect than a scaled full-page image.
         const heroCrop = await page.evaluate(() => {
-          const heading = document.querySelector('h1');
-          if (!heading) return null;
-          let candidate = heading;
-          let ancestor = heading;
+          const heading = document.querySelector('h1, h2, h3');
+          let candidate = heading || document.querySelector('main, [role="main"]') ||
+            document.querySelector('[class*="hero" i]') || document.body;
+          let ancestor = heading || candidate;
           for (let depth = 0; ancestor && depth < 7; depth += 1) {
             const rect = ancestor.getBoundingClientRect();
             const hasImage = Boolean(ancestor.querySelector('img, picture, video, svg'));
