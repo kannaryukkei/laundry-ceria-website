@@ -31,8 +31,8 @@ jobs:
         run: npm run build
       - name: Install Playwright and Chromium for breakpoint evidence
         run: npx playwright install --with-deps chromium
-      - name: Capture and measure live design references for A3
-        run: node scripts/capture-reference-study.mjs
+      - name: Capture and measure independent Test 02 design references
+        run: node scripts/test-02-reference-study.mjs
       - name: Collect dependency reproducibility and advisory evidence
         shell: bash
         run: |
@@ -81,6 +81,7 @@ jobs:
           done
           if [ -f tests/a11y-001-keyboard.mjs ]; then node tests/a11y-001-keyboard.mjs; else echo "A11Y-001 browser regression is not part of this PR candidate yet; skipping."; fi
           if [ -f tests/a11y-002-full-keyboard.mjs ]; then node tests/a11y-002-full-keyboard.mjs; else echo "A11Y-002 full keyboard regression is not part of this PR candidate yet; skipping."; fi
+          if [ -f tests/test-02-contract.mjs ]; then node tests/test-02-contract.mjs; else echo "Test 02 contract regression is not part of this PR candidate yet; skipping."; fi
 
           captured_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
           cat > artifacts/capture-manifest.json <<EOF
