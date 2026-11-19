@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { hours, processSteps, services } from './data';
 
 const navItems = [
@@ -228,7 +228,7 @@ function PickupDelivery() {
             <b>GRATIS</b>
           </div>
           <div className="pickup-row pickup-paid">
-            <div><small data-qa-role="metadata">5 KG ATAU KURANG</small><strong>5 kg</strong></div>
+            <div><small data-qa-role="metadata">BERAT PESANAN</small><strong>5 kg atau kurang</strong></div>
             <b>Rp5.000</b>
           </div>
           <p className="pickup-note" data-qa-role="disclosure">Ketentuan radius dan biaya di atas merupakan data fiktif untuk latihan.</p>
@@ -269,7 +269,7 @@ function Contact() {
       <div className="container">
         <div className="section-topline"><span data-qa-role="metadata">LANGKAH SELANJUTNYA</span><span data-qa-role="metadata">PREVIEW ONLY</span></div>
         <div className="contact-intro">
-          <SectionTitle label="INFORMASI KONTAK" title="Pilih jalur yang tersedia." description="Kedua pilihan ini masih berupa contoh dan belum dapat digunakan untuk kunjungan atau pemesanan nyata." />
+          <SectionTitle label="INFORMASI KONTAK" title="Informasi sebelum berkunjung." description="Alamat contoh ini bersifat fiktif, sementara nomor WhatsApp belum tersedia. Tidak ada jalur kunjungan atau kontak yang aktif." />
         </div>
         <div className="contact-grid">
           <article className="contact-card walkin-card">
