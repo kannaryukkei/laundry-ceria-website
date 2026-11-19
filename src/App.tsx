@@ -15,7 +15,8 @@ function PreviewNotice() {
         <span className="notice-dot" aria-hidden="true" />
         <strong data-qa-role="disclosure">PREVIEW ONLY</strong>
         <span className="notice-divider" aria-hidden="true" />
-        <span data-qa-role="disclosure">Data fiktif untuk latihan — <b>DEMO-ONLY</b> · <b>NOT_APPROVED</b></span>
+        <span className="notice-copy" data-qa-role="disclosure">Data fiktif untuk latihan</span>
+        <span className="notice-status" data-qa-role="disclosure"><b>DEMO-ONLY</b> · <b>NOT_APPROVED</b></span>
       </div>
     </div>
   );
@@ -91,7 +92,7 @@ function Hero() {
       <div className="container hero-grid">
         <div className="hero-copy">
           <p className="eyebrow" data-qa-role="metadata"><span /> LAUNDRY KILOAN & SATUAN</p>
-          <h1>Layanan dan harga,<br /><span>terlihat sejak awal.</span></h1>
+          <h1>Pilih layanan,<br /><span>lihat harganya.</span></h1>
           <p className="hero-lead" data-qa-role="body">Lihat pilihan laundry, waktu pengerjaan, dan aturan antar-jemput sebelum menentukan kebutuhan.</p>
           <div className="hero-actions">
             <a className="button button-primary" data-qa-role="control" href="#services-pricing">Lihat daftar harga <span aria-hidden="true">↘</span></a>
@@ -164,7 +165,7 @@ function Turnaround() {
       <div className="container turnaround-grid">
         <div className="turnaround-copy">
           <p className="section-label section-label-light" data-qa-role="metadata">WAKTU PENGERJAAN</p>
-          <h2>Ketahui kapan<br />cucian selesai.</h2>
+          <h2>Waktu pengerjaan.</h2>
           <p data-qa-role="body">Waktu reguler dan layanan ekspres memiliki ketentuan yang berbeda.</p>
         </div>
         <div className="turnaround-board">
