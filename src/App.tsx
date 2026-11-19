@@ -9,17 +9,19 @@ const navItems = [
 ] as const;
 
 function ArrowUpRight() {
-  return <span aria-hidden="true" className="arrow">↗</span>;
+  return <span className="arrow" aria-hidden="true">↗</span>;
 }
 
 function PreviewNotice() {
   return (
-    <div className="preview-notice" id="preview-notice" role="note" aria-label="Pemberitahuan demo">
+    <div className="preview-notice" id="preview-notice" role="note" aria-label="Pemberitahuan website demo">
       <div className="container notice-inner">
         <span className="notice-dot" aria-hidden="true" />
         <strong data-qa-role="disclosure">PREVIEW ONLY</strong>
         <span className="notice-divider" aria-hidden="true" />
-        <span data-qa-role="disclosure">Data fiktif untuk latihan — <b>DEMO-ONLY</b> · <b>NOT_APPROVED</b></span>
+        <span data-qa-role="disclosure">Data fiktif untuk latihan</span>
+        <b data-qa-role="disclosure">DEMO-ONLY</b>
+        <b data-qa-role="disclosure">NOT_APPROVED</b>
       </div>
     </div>
   );
@@ -31,14 +33,12 @@ function Header() {
 
   useEffect(() => {
     if (!menuOpen) return;
-
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key !== 'Escape') return;
       event.preventDefault();
       setMenuOpen(false);
       menuToggleRef.current?.focus();
     };
-
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [menuOpen]);
@@ -47,10 +47,17 @@ function Header() {
     <header className="site-header" id="site-header">
       <div className="container header-inner">
         <a className="wordmark" href="#hero" aria-label="Laundry Ceria, kembali ke awal">
-          <span>Laundry<span className="wordmark-light">Ceria</span></span>
+          <span className="wordmark-name">Laundry<span className="wordmark-light">Ceria</span></span>
           <span className="wordmark-tag" data-qa-role="metadata">DEMO</span>
         </a>
-        <button ref={menuToggleRef} className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="primary-nav" onClick={() => setMenuOpen((open) => !open)}>
+        <button
+          ref={menuToggleRef}
+          className="menu-toggle"
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="primary-nav"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
           <span className="sr-only">{menuOpen ? 'Tutup navigasi' : 'Buka navigasi'}</span>
           <span /><span />
         </button>
@@ -58,7 +65,9 @@ function Header() {
           {navItems.map(([label, id]) => (
             <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>
           ))}
-          <a className="nav-cta" href="#contact" onClick={() => setMenuOpen(false)}>Info Kontak <ArrowUpRight /></a>
+          <a className="nav-cta" href="#contact" onClick={() => setMenuOpen(false)}>
+            Info kontak <ArrowUpRight />
+          </a>
         </nav>
       </div>
     </header>
@@ -68,56 +77,87 @@ function Header() {
 function SectionHeading({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {
   return (
     <div className="section-heading">
-      <p className="eyebrow" data-qa-role="metadata"><span />{eyebrow}</p>
+      <p className="section-label" data-qa-role="metadata">{eyebrow}</p>
       <h2>{title}</h2>
-      <p className="section-description">{description}</p>
-    </div>
-  );
-}
-
-function HeroIllustration() {
-  return (
-    <div className="hero-art" aria-label="Ilustrasi dekoratif bentuk kain terlipat" role="img">
-      <div className="art-orbit orbit-one" />
-      <div className="art-orbit orbit-two" />
-      <div className="art-spark spark-one">✳</div>
-      <div className="art-spark spark-two">✳</div>
-      <div className="fabric fabric-back" />
-      <div className="fabric fabric-mid" />
-      <div className="fabric fabric-front"><span /></div>
-      <div className="art-stamp"><span className="stamp-mark">✳</span><span>RAPI<br />TERATUR</span></div>
-      <span className="art-caption">ILUSTRASI DEKORATIF</span>
+      <p className="section-description" data-qa-role="body">{description}</p>
     </div>
   );
 }
 
 function Hero() {
   return (
-    <section className="hero section-pad" id="hero">
-      <div className="container hero-grid">
-        <div className="hero-copy">
-          <p className="eyebrow" data-qa-role="metadata"><span />LAYANAN LAUNDRY KILOAN</p>
-          <h1>Kenali layanan,<br /><em>harga, dan prosesnya.</em></h1>
-          <p className="hero-lead">Pilihan layanan laundry untuk kebutuhan harian. Kenali layanan, harga, dan alur pengerjaannya dalam satu tempat.</p>
-          <div className="hero-actions">
-            <a className="button button-primary" data-qa-role="control" href="#services-pricing">Lihat layanan & harga <ArrowUpRight /></a>
-            <a className="text-link" data-qa-role="control" href="#hours-location">Jam operasional <span aria-hidden="true">↓</span></a>
+    <section className="hero" id="hero">
+      <div className="container">
+        <div className="hero-grid">
+          <div className="hero-copy">
+            <p className="eyebrow hero-eyebrow" data-qa-role="metadata">LAYANAN KILOAN & SATUAN</p>
+            <h1>Laundry harian.<br /><em>Harga jelas sejak awal.</em></h1>
+            <p className="hero-lead" data-qa-role="body">
+              Pilih cuci lipat, cuci setrika, atau setrika saja. Untuk bed cover dan selimut, tarif dihitung per potong.
+            </p>
+            <div className="hero-actions">
+              <a className="button button-primary" data-qa-role="control" href="#services-pricing">
+                Lihat layanan & harga <ArrowUpRight />
+              </a>
+              <a className="text-link" data-qa-role="control" href="#hours-location">
+                Jam operasional <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+            <p className="hero-footnote" data-qa-role="disclosure">
+              Contoh website untuk latihan. Bukan penawaran usaha nyata.
+            </p>
           </div>
-          <div className="hero-footnote" data-qa-role="disclosure"><span className="footnote-line" />Informasi ini merupakan materi simulasi, bukan penawaran bisnis nyata.</div>
+          <aside className="hero-rate-stamp" aria-label="Ilustrasi tipografi tarif setrika saja sebesar tujuh ribu rupiah per kilogram, data latihan">
+            <span className="stamp-overline" data-qa-role="metadata">01 / TARIF REFERENSI</span>
+            <span className="stamp-service" data-qa-role="metadata">SETRIKA SAJA</span>
+            <div className="stamp-price">
+              <span>Rp</span>
+              <strong>7.000</strong>
+            </div>
+            <div className="stamp-bottom">
+              <span data-qa-role="metadata">PER KILOGRAM</span>
+              <span data-qa-role="disclosure">DATA LATIHAN</span>
+            </div>
+          </aside>
         </div>
-        <HeroIllustration />
+        <div className="hero-facts" aria-label="Ringkasan informasi layanan">
+          <div className="hero-fact">
+            <span data-qa-role="metadata">REGULER</span>
+            <strong data-qa-role="body">Biasanya 2 hari</strong>
+          </div>
+          <div className="hero-fact">
+            <span data-qa-role="metadata">EXPRESS</span>
+            <strong data-qa-role="body">Sebelum 10.00 · +50%</strong>
+          </div>
+          <div className="hero-fact">
+            <span data-qa-role="metadata">ANTAR-JEMPUT</span>
+            <strong data-qa-role="body">Radius 2 km</strong>
+          </div>
+        </div>
       </div>
-      <div className="hero-bottom container" aria-hidden="true"><span>01 / INFORMASI LAYANAN</span><span>SCROLL UNTUK MENJELAJAHI <span className="scroll-mark">↓</span></span></div>
     </section>
   );
 }
 
-function PriceGroup({ title, subtitle, items, className }: { title: string; subtitle: string; items: readonly { name: string; price: string; unit: string }[]; className: string }) {
+function PriceGroup({
+  title,
+  subtitle,
+  items,
+  className,
+}: {
+  title: string;
+  subtitle: string;
+  items: readonly { name: string; price: string; unit: string }[];
+  className: string;
+}) {
   return (
-    <article className={`price-card ${className}`}>
-      <div className="price-card-head">
-        <div><span className="card-index" data-qa-role="metadata">{className === 'kiloan-card' ? '01' : '02'}</span><h3>{title}</h3></div>
-        <p>{subtitle}</p>
+    <article className={`price-panel ${className}`}>
+      <div className="price-panel-heading">
+        <div>
+          <span className="panel-index" data-qa-role="metadata">{className === 'kiloan-panel' ? '01' : '02'}</span>
+          <h3>{title}</h3>
+        </div>
+        <p data-qa-role="metadata">{subtitle}</p>
       </div>
       <div className="price-list">
         {items.map((item) => (
@@ -127,22 +167,34 @@ function PriceGroup({ title, subtitle, items, className }: { title: string; subt
           </div>
         ))}
       </div>
-      <div className="price-card-foot" data-qa-role="disclosure"><span className="tiny-check" aria-hidden="true">✓</span><span>Harga sesuai data fixture latihan</span></div>
+      <div className="price-panel-foot" data-qa-role="disclosure">
+        <span className="foot-mark" aria-hidden="true">✳</span>
+        Tarif dari data fiktif untuk latihan
+      </div>
     </article>
   );
 }
 
 function ServicesPricing() {
   return (
-    <section className="section-pad services-section" id="services-pricing">
+    <section className="section services-section" id="services-pricing">
       <div className="container">
-        <div className="section-topline" data-qa-role="metadata"><span>01 — LAYANAN</span><span>DAFTAR HARGA · DATA DEMO</span></div>
-        <SectionHeading eyebrow="PILIH SESUAI KEBUTUHAN" title="Layanan yang tersedia." description="Kenali pilihan layanan dan rincian harga sebelum menentukan kebutuhan laundry." />
-        <div className="price-grid">
-          <PriceGroup title="Laundry Kiloan" subtitle="Dihitung berdasarkan berat pakaian" items={services.kiloan} className="kiloan-card" />
-          <PriceGroup title="Laundry Satuan" subtitle="Dihitung per potong" items={services.satuan} className="satuan-card" />
+        <div className="section-topline" data-qa-role="metadata">
+          <span>01 / DAFTAR LAYANAN</span>
+          <span>HARGA · DATA DEMO</span>
         </div>
-        <div className="pricing-note"><span className="note-icon">i</span><p data-qa-role="disclosure">Harga pada halaman ini adalah bagian dari fixture fiktif untuk latihan. Tidak ada biaya atau ketentuan lain yang ditambahkan.</p></div>
+        <SectionHeading
+          eyebrow="PILIH SESUAI KEBUTUHAN"
+          title="Dua cara menghitung harga."
+          description="Layanan kiloan dihitung berdasarkan berat pakaian. Bed cover dan selimut dihitung per potong."
+        />
+        <div className="price-grid">
+          <PriceGroup title="Laundry kiloan" subtitle="HARGA PER KILOGRAM" items={services.kiloan} className="kiloan-panel" />
+          <PriceGroup title="Laundry satuan" subtitle="HARGA PER POTONG" items={services.satuan} className="satuan-panel" />
+        </div>
+        <p className="pricing-note" data-qa-role="disclosure">
+          Harga yang ditampilkan merupakan bagian dari fixture fiktif. Website ini tidak menambahkan biaya atau ketentuan lain.
+        </p>
       </div>
     </section>
   );
@@ -150,27 +202,40 @@ function ServicesPricing() {
 
 function Turnaround() {
   return (
-    <section className="section-pad turnaround-section" id="turnaround">
-      <div className="container turnaround-grid">
-        <div className="turnaround-intro">
-          <p className="eyebrow eyebrow-light" data-qa-role="metadata"><span />WAKTU PENGERJAAN</p>
-          <h2>Waktu yang<br /><em>lebih jelas.</em></h2>
-          <p>Perhatikan perbedaan waktu layanan reguler dan ketentuan express berikut.</p>
-          <span className="side-index">02</span>
+    <section className="section turnaround-section" id="turnaround">
+      <div className="container turnaround-layout">
+        <div className="section-topline section-topline-dark" data-qa-role="metadata">
+          <span>02 / WAKTU PENGERJAAN</span>
+          <span>REGULER & EXPRESS</span>
         </div>
-        <div className="timing-cards">
-          <article className="timing-card regular-card">
-            <div className="timing-card-top" data-qa-role="metadata"><span className="timing-icon">◷</span><span>LAYANAN REGULER</span></div>
-            <p className="timing-value">Biasanya <strong>2 hari</strong></p>
-            <p className="timing-detail">Estimasi penyelesaian untuk layanan laundry kiloan.</p>
-            <div className="timing-rule" data-qa-role="disclosure"><span>01</span><span>Waktu dapat mengikuti ketentuan layanan reguler pada fixture.</span></div>
+        <div className="turnaround-copy">
+          <p className="eyebrow eyebrow-light" data-qa-role="metadata">WAKTU PENGERJAAN</p>
+          <h2>Kapan cucian{' '}<br /><em>siap diambil?</em></h2>
+          <p data-qa-role="body">Ketahui estimasi reguler dan ketentuan Express dari materi latihan.</p>
+        </div>
+        <div className="turnaround-details">
+          <article className="regular-detail">
+            <span className="detail-label" data-qa-role="metadata">LAYANAN REGULER</span>
+            <div className="regular-time"><strong>2</strong><span>hari</span></div>
+            <p data-qa-role="body">Biasanya 2 hari untuk layanan kiloan.</p>
           </article>
-          <article className="timing-card express-card">
-            <div className="timing-card-top" data-qa-role="metadata"><span className="timing-icon">✳</span><span>LAYANAN EXPRESS</span><b data-qa-role="disclosure">+50%</b></div>
-            <p className="express-intro">Masuk sebelum <strong>10.00</strong></p>
-            <div className="express-arrow" aria-hidden="true">↓</div>
-            <p className="express-result">Selesai hari yang sama <strong>20.00</strong></p>
-            <div className="express-foot" data-qa-role="disclosure">Biaya tambahan 50% dari harga normal.</div>
+          <article className="express-detail">
+            <div className="express-header">
+              <span className="detail-label" data-qa-role="metadata">LAYANAN EXPRESS</span>
+              <strong className="express-surcharge" data-qa-role="disclosure">+50%</strong>
+            </div>
+            <div className="express-timeline">
+              <div>
+                <span data-qa-role="metadata">DITERIMA SEBELUM</span>
+                <strong>10.00</strong>
+              </div>
+              <span className="timeline-arrow" aria-hidden="true">→</span>
+              <div>
+                <span data-qa-role="metadata">SELESAI HARI YANG SAMA</span>
+                <strong>20.00</strong>
+              </div>
+            </div>
+            <p data-qa-role="disclosure">Biaya tambahan 50% dari harga normal. Ketentuan waktu mengikuti materi latihan.</p>
           </article>
         </div>
       </div>
@@ -180,23 +245,42 @@ function Turnaround() {
 
 function HowItWorks() {
   return (
-    <section className="section-pad process-section" id="how-it-works">
+    <section className="section process-section" id="how-it-works">
       <div className="container">
-        <div className="section-topline" data-qa-role="metadata"><span>03 — PROSES</span><span>DARI TERIMA HINGGA SELESAI</span></div>
-        <div className="process-heading-grid">
-          <SectionHeading eyebrow="ALUR PENGERJAAN" title="Langkah demi langkah." description="Berikut gambaran proses berdasarkan informasi yang diberikan dalam materi latihan." />
-          <div className="process-aside"><span className="aside-icon">↳</span><p>Setiap pakaian ditimbang di depan pelanggan dan dicatat per pelanggan sebelum dicuci.</p></div>
+        <div className="section-topline" data-qa-role="metadata">
+          <span>03 / ALUR PENGERJAAN</span>
+          <span>DARI TERIMA HINGGA SELESAI</span>
         </div>
-        <ol className="process-grid">
+        <div className="process-heading-grid">
+          <SectionHeading
+            eyebrow="PROSES LAYANAN"
+            title="Dari diterima sampai selesai."
+            description="Urutan berikut merangkum proses yang disebutkan dalam materi latihan."
+          />
+          <p className="process-aside" data-qa-role="body">
+            Pakaian ditimbang di depan pelanggan dan dicatat per pelanggan sebelum masuk proses pencucian.
+          </p>
+        </div>
+        <ol className="process-list">
           {processSteps.map((step) => (
             <li className="process-item" key={step.number}>
-              <span className="process-number">{step.number}</span>
-              <div><h3>{step.title}</h3><p>{step.detail}</p></div>
-              
+              <span className="process-number" aria-hidden="true">{step.number}</span>
+              <div>
+                <h3>{step.title}</h3>
+                <p data-qa-role="body">{step.detail}</p>
+              </div>
             </li>
           ))}
         </ol>
-        <div className="process-bottom-note"><span className="package-symbol" aria-hidden="true">▱</span><p>Setiap pesanan dibungkus plastik gratis setelah selesai.</p><span className="note-label" data-qa-role="metadata">INFO TAMBAHAN</span></div>
+        <div className="process-note">
+          <div className="process-note-main" data-qa-role="disclosure">
+            <span className="package-symbol" aria-hidden="true">▱</span>
+            <p>Setiap pesanan dibungkus plastik gratis setelah selesai.</p>
+          </div>
+          <p className="process-note-secondary" data-qa-role="disclosure">
+            Pemberitahuan melalui WhatsApp merupakan deskripsi alur pada fixture; nomor kontak belum dikonfigurasi.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -204,18 +288,46 @@ function HowItWorks() {
 
 function PickupDelivery() {
   return (
-    <section className="section-pad pickup-section" id="pickup-delivery">
-      <div className="container pickup-grid">
+    <section className="section pickup-section" id="pickup-delivery">
+      <div className="container pickup-layout">
+        <div className="section-topline" data-qa-role="metadata">
+          <span>04 / ANTAR-JEMPUT</span>
+          <span>RADIUS & BIAYA</span>
+        </div>
         <div className="pickup-copy">
-          <p className="eyebrow" data-qa-role="metadata"><span />LAYANAN ANTAR-JEMPUT</p>
-          <h2>Lebih dekat<br />dalam <em>jangkauan.</em></h2>
-          <p>Informasi area layanan dan biaya antar-jemput berdasarkan data simulasi.</p>
-          <div className="radius-display"><span className="radius-ring">⌖</span><div><small>JANGKAUAN LAYANAN</small><strong>2 km</strong><span>Radius dari ruko (data fiktif)</span></div></div>
+          <p className="eyebrow" data-qa-role="metadata">ANTAR-JEMPUT SEKITAR TOKO</p>
+          <h2>Masih dalam<br /><em>jangkauan.</em></h2>
+          <p data-qa-role="body">Layanan antar-jemput pada materi latihan memiliki radius maksimal 2 km dari ruko.</p>
+          <div className="radius-display">
+            <span className="radius-number">2</span>
+            <div>
+              <span data-qa-role="metadata">RADIUS MAKSIMAL</span>
+              <strong>kilometer</strong>
+            </div>
+          </div>
         </div>
         <div className="pickup-rules">
-          <article className="pickup-rule pickup-free"><div className="rule-meta" data-qa-role="metadata"><span>ATURAN 01</span><span className="rule-symbol">＋</span></div><p>Berat pesanan</p><h3>Di atas 5 kg</h3><div className="rule-bottom"><strong>GRATIS</strong><span data-qa-role="disclosure">Biaya antar-jemput</span></div></article>
-          <article className="pickup-rule pickup-paid"><div className="rule-meta" data-qa-role="metadata"><span>ATURAN 02</span><span className="rule-symbol">↗</span></div><p>Berat pesanan</p><h3>5 kg atau kurang</h3><div className="rule-bottom"><strong>Rp5.000</strong><span data-qa-role="disclosure">Biaya antar-jemput</span></div></article>
-          <p className="pickup-footnote" data-qa-role="disclosure">Ketentuan radius dan biaya di atas merupakan data demo, bukan informasi layanan aktif.</p>
+          <article className="pickup-rule pickup-free">
+            <div className="rule-top">
+              <span data-qa-role="metadata">BERAT PESANAN</span>
+              <span className="rule-symbol" aria-hidden="true">＋</span>
+            </div>
+            <p data-qa-role="body">Di atas 5 kg</p>
+            <strong>GRATIS</strong>
+            <span className="rule-description" data-qa-role="disclosure">Biaya antar-jemput</span>
+          </article>
+          <article className="pickup-rule pickup-paid">
+            <div className="rule-top">
+              <span data-qa-role="metadata">BERAT PESANAN</span>
+              <span className="rule-symbol" aria-hidden="true">02</span>
+            </div>
+            <p data-qa-role="body">5 kg atau kurang</p>
+            <strong>Rp5.000</strong>
+            <span className="rule-description" data-qa-role="disclosure">Biaya antar-jemput</span>
+          </article>
+          <p className="pickup-footnote" data-qa-role="disclosure">
+            Radius dan biaya di atas adalah data fiktif; bukan cakupan layanan aktif.
+          </p>
         </div>
       </div>
     </section>
@@ -224,24 +336,46 @@ function PickupDelivery() {
 
 function HoursLocation() {
   return (
-    <section className="section-pad location-section" id="hours-location">
+    <section className="section location-section" id="hours-location">
       <div className="container">
-        <div className="section-topline" data-qa-role="metadata"><span>05 — INFORMASI KUNJUNGAN</span><span>JADWAL & ALAMAT DEMO</span></div>
-        <SectionHeading eyebrow="JAM & LOKASI" title="Kenali detailnya." description="Jadwal operasional dan alamat ditampilkan sesuai materi latihan fiktif." />
+        <div className="section-topline" data-qa-role="metadata">
+          <span>05 / INFORMASI KUNJUNGAN</span>
+          <span>JADWAL & ALAMAT DEMO</span>
+        </div>
+        <SectionHeading
+          eyebrow="JAM OPERASIONAL & LOKASI"
+          title="Catat sebelum berkunjung."
+          description="Jadwal dan alamat berikut ditampilkan sesuai materi latihan fiktif."
+        />
         <div className="location-grid">
-          <article className="info-card hours-card">
-            <div className="info-card-head" data-qa-role="metadata"><span className="info-icon">◷</span><span>JAM OPERASIONAL</span><span className="card-corner" aria-hidden="true">01</span></div>
-            <div className="hours-list">
-              {hours.map((item) => <div className="hours-row" data-qa-role="body" key={item.day}><span>{item.day}</span><strong>{item.time}</strong></div>)}
+          <article className="hours-panel" aria-labelledby="hours-title">
+            <div className="panel-heading">
+              <div>
+                <span className="panel-index" data-qa-role="metadata">01</span>
+                <h3 id="hours-title">Jam operasional</h3>
+              </div>
+              <span data-qa-role="metadata">SETIAP MINGGU</span>
             </div>
-            <p className="card-footnote" data-qa-role="disclosure">Seluruh jadwal merupakan data dari fixture latihan.</p>
+            <div className="hours-list">
+              {hours.map((item) => (
+                <div className="hours-row" key={item.day}>
+                  <span data-qa-role="body">{item.day}</span>
+                  <strong data-qa-role="body">{item.time}</strong>
+                </div>
+              ))}
+            </div>
+            <p className="card-footnote" data-qa-role="disclosure">Jadwal merupakan data dari fixture latihan.</p>
           </article>
-          <article className="info-card address-card">
-            <div className="info-card-head" data-qa-role="metadata"><span className="info-icon">⌖</span><span>ALAMAT</span><span className="card-corner" aria-hidden="true">02</span></div>
-            <div className="fictional-label" data-qa-role="disclosure"><span />ALAMAT FIKTIF — DATA DEMO</div>
-            <h3>Jl. Melati No. 12,<br />Jakarta</h3>
-            <p>Alamat ini hanya digunakan sebagai contoh dalam proyek latihan dan bukan lokasi usaha sungguhan.</p>
-            
+          <article className="address-panel" aria-labelledby="address-title">
+            <div className="address-topline">
+              <span data-qa-role="metadata">ALAMAT</span>
+              <b data-qa-role="disclosure">ALAMAT FIKTIF — DATA DEMO</b>
+            </div>
+            <h3 id="address-title">Jl. Melati No. 12,<br />Jakarta</h3>
+            <p data-qa-role="body">Alamat ini hanya digunakan sebagai contoh latihan dan bukan lokasi usaha sungguhan.</p>
+            <p className="address-warning" data-qa-role="disclosure">
+              Tidak ada peta atau petunjuk arah untuk alamat fiktif ini.
+            </p>
           </article>
         </div>
       </div>
@@ -251,25 +385,35 @@ function HoursLocation() {
 
 function Contact() {
   return (
-    <section className="section-pad contact-section" id="contact">
+    <section className="section contact-section" id="contact">
       <div className="container">
-        <div className="section-topline" data-qa-role="metadata"><span>06 — LANGKAH SELANJUTNYA</span><span>KONVERSI · PREVIEW ONLY</span></div>
-        <div className="contact-heading-grid">
-          <SectionHeading eyebrow="INFORMASI KONTAK" title="Pilihan kunjungan dan kontak." description="Alamat kunjungan dan kontak WhatsApp pada halaman ini masih berupa data simulasi." />
-          
+        <div className="section-topline" data-qa-role="metadata">
+          <span>06 / PILIHAN KONTAK</span>
+          <span>PREVIEW ONLY</span>
         </div>
+        <SectionHeading
+          eyebrow="LANGKAH SELANJUTNYA"
+          title="Pilihan kunjungan dan kontak."
+          description="Alamat dan nomor kontak pada halaman ini masih merupakan data simulasi."
+        />
         <div className="contact-grid">
           <article className="contact-card walkin-card">
-            <div className="contact-card-top" data-qa-role="metadata"><span className="contact-icon">⌖</span><span>JALUR 01</span></div>
+            <div className="contact-card-top">
+              <span className="contact-index" data-qa-role="metadata">01 / KUNJUNGAN</span>
+              <span className="contact-marker" aria-hidden="true">↗</span>
+            </div>
             <h3>Datang langsung</h3>
-            <p>Alamat pada materi latihan bersifat fiktif dan tidak dapat digunakan untuk kunjungan nyata.</p>
-            <div className="contact-card-bottom"><span className="status-pill status-demo" data-qa-role="disclosure">ALAMAT DEMO</span><a data-qa-role="control" href="#hours-location">Lihat detail alamat <ArrowUpRight /></a></div>
+            <p data-qa-role="body">Alamat pada materi latihan bersifat fiktif dan tidak dapat digunakan untuk kunjungan nyata.</p>
+            <a data-qa-role="control" href="#hours-location">Lihat jam dan alamat demo <ArrowUpRight /></a>
           </article>
           <article className="contact-card whatsapp-card" aria-labelledby="whatsapp-title">
-            <div className="contact-card-top" data-qa-role="metadata"><span className="contact-icon">⌁</span><span>JALUR 02</span><span className="status-pill status-disabled" data-qa-role="disclosure">NOT_CONFIGURED</span></div>
-            <h3 id="whatsapp-title">Hubungi via WhatsApp</h3>
-            <p>Nomor WhatsApp usaha belum tersedia dalam materi. Karena itu, jalur kontak ini belum dapat diaktifkan.</p>
-            <div className="contact-card-bottom"><span className="status-pill status-muted" data-qa-role="disclosure">BELUM TERSEDIA</span><span className="disabled-action" data-qa-role="disclosure" aria-disabled="true">WhatsApp belum dikonfigurasi</span></div>
+            <div className="contact-card-top">
+              <span className="contact-index" data-qa-role="metadata">02 / PESAN</span>
+              <span className="status-code" data-qa-role="disclosure">NOT_CONFIGURED</span>
+            </div>
+            <h3 id="whatsapp-title">WhatsApp belum tersedia</h3>
+            <p data-qa-role="body">Nomor WhatsApp usaha belum diberikan dalam materi. Preview ini tidak menyediakan tautan atau tombol chat.</p>
+            <div className="disabled-label" aria-disabled="true" data-qa-role="disclosure">Belum dikonfigurasi</div>
           </article>
         </div>
       </div>
@@ -279,13 +423,21 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="site-footer" id="site-footer">
+    <footer className="site-footer">
       <div className="container footer-main">
-        <div><a className="footer-wordmark" href="#hero">Laundry<span>Ceria</span></a><p>Materi website simulasi untuk validasi alur Web Studio.</p></div>
-        <nav className="footer-nav" aria-label="Navigasi footer">{navItems.map(([label, id]) => <a data-qa-role="control" key={id} href={`#${id}`}>{label}</a>)}</nav>
+        <div className="footer-brand">
+          <a className="footer-wordmark" href="#hero">Laundry<span>Ceria</span></a>
+          <p data-qa-role="body">Contoh website untuk latihan AI-Operated Web Studio.</p>
+        </div>
+        <nav className="footer-nav" aria-label="Navigasi footer">
+          {navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}
+        </nav>
         <a className="back-top" href="#preview-notice">Kembali ke atas <span aria-hidden="true">↑</span></a>
       </div>
-      <div className="container footer-bottom" data-qa-role="disclosure"><span>PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED</span><span>BUKAN WEBSITE BISNIS NYATA</span></div>
+      <div className="container footer-bottom">
+        <span data-qa-role="disclosure">PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED</span>
+        <span data-qa-role="disclosure">BUKAN WEBSITE BISNIS NYATA</span>
+      </div>
     </footer>
   );
 }
