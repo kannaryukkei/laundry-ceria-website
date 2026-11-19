@@ -22,6 +22,10 @@ try {
   assert.equal(await page.locator('main').count(), 1, 'Page has one main landmark');
   assert.equal(await page.locator('ol.process-list > li').count(), 6, 'All six supplied process steps are present');
   assert.equal(await page.locator('.hours-line').count(), 7, 'All seven opening-day entries are present');
+  const hoursText = (await page.locator('.hours-sheet').innerText()).replace(/\\s+/g, ' ');
+  for (const day of ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']) assert.ok(hoursText.includes(day + ' 08.00–20.00'), 'Correct weekday hours: ' + day);
+  assert.ok(hoursText.includes('Minggu 09.00–15.00'), 'Correct Sunday hours');
+  assert.equal(await page.locator('form').count(), 0, 'No fake booking or submission form is present');
   for (const width of widths) {
     await page.setViewportSize({ width, height: 900 });
     await page.waitForTimeout(80);
