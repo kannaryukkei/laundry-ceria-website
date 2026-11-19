@@ -233,7 +233,7 @@ function Turnaround() {
         </div>
         <div className="turnaround-copy">
           <p className="eyebrow eyebrow-light" data-qa-role="metadata">WAKTU PENGERJAAN</p>
-          <h2>Kapan cucian<br /><em>siap diambil?</em></h2>
+          <h2>Kapan cucian{' '}<br /><em>siap diambil?</em></h2>
           <p data-qa-role="body">Ketahui estimasi reguler dan ketentuan Express dari materi latihan.</p>
         </div>
         <div className="turnaround-details">
