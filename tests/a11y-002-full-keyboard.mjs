@@ -39,7 +39,7 @@ try {
       label: (link.getAttribute('aria-label') || link.innerText || '').replace(/\s+/g, ' ').trim(),
     })),
   );
-  const expectedLinkStops = desktopOrder.filter((selector) => selector.startsWith('a.') || selector.includes(' a['));
+  const expectedLinkStops = desktopOrder.filter((selector) => selector.startsWith('a.') || selector.includes(' a[') || selector.includes(' a.nav-cta'));
   assert.equal(renderedLinks.length, expectedLinkStops.length, 'Every visible desktop link is included in the reviewed keyboard sequence');
   for (const link of renderedLinks) {
     assert.ok(link.label, `Link has a discernible accessible name: ${link.href}`);
