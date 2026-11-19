@@ -386,7 +386,7 @@ function PriceEstimator() {
             <div className="estimate-total" aria-live="polite" aria-atomic="true">
               <span data-qa-role="metadata">ESTIMASI TOTAL</span>
               <output id="estimate-total" htmlFor="estimate-service estimate-quantity">
-                {validQuantity ? formatMoney(estimatedTotal) : 'Isi jumlah di samping'}
+                {validQuantity ? formatMoney(estimatedTotal) : 'Masukkan jumlah untuk melihat estimasi'}
               </output>
             </div>
             <div className="estimate-breakdown">
