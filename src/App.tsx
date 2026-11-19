@@ -39,7 +39,7 @@ function HeroArtwork() {
 function Hero() {
   return <section className="hero" id="hero"><div className="container hero-grid">
     <div className="hero-copy"><p className="eyebrow"><span /> Laundry kiloan & satuan</p><h1>Urusan pakaian,<br /><em>lebih tertata.</em></h1><p className="hero-lead">Lihat pilihan layanan, harga, dan waktu pengerjaan dengan jelas sebelum menentukan kebutuhan laundry.</p>
-      <div className="hero-actions"><a className="button button-dark" href="#services-pricing">Jelajahi layanan <span aria-hidden="true">↘</span></a><a className="quiet-link" href="#hours-location">Jam operasional <span aria-hidden="true">↓</span></a></div>
+      <div className="hero-actions"><a className="button button-dark button-primary" href="#services-pricing">Jelajahi layanan <span aria-hidden="true">↘</span></a><a className="quiet-link" href="#hours-location">Jam operasional <span aria-hidden="true">↓</span></a></div>
       <div className="hero-footnote"><span className="footnote-line" />Contoh website untuk pengembangan internal, bukan penawaran usaha nyata.</div>
     </div><HeroArtwork />
   </div>
