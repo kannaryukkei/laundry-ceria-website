@@ -39,7 +39,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange); outlin
 .masthead { position: relative; z-index: 20; border-bottom: 1px solid var(--line); background: var(--paper); }
 .masthead-inner { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
 .wordmark { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-size: 18px; font-weight: 800; letter-spacing: -.055em; text-decoration: none; white-space: nowrap; }
-.wordmark-symbol { width: 32px; height: 32px; display: grid; place-items: center; color: white; background: var(--blue); font: 500 11px var(--mono); letter-spacing: -.06em; }
 .wordmark small { align-self: flex-start; margin: 1px 0 0 -4px; color: var(--muted); font: 500 9px var(--mono); letter-spacing: .04em; }
 .main-nav { display: flex; align-items: center; gap: clamp(12px, 1.7vw, 25px); }
 .main-nav a { color: #45485B; font-size: 13px; font-weight: 600; text-decoration: none; transition: color .18s ease; }
@@ -223,7 +222,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange); outlin
   .preview-bar b { font-size: 9px; }
   .masthead-inner { min-height: 70px; }
   .wordmark { gap: 8px; font-size: 16px; }
-  .wordmark-symbol { width: 29px; height: 29px; }
   .wordmark small { font-size: 8px; }
   .menu-toggle { width: 43px; height: 43px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--white); cursor: pointer; }
   .menu-toggle span { width: 17px; height: 2px; background: var(--ink); }
