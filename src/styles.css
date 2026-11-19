@@ -221,12 +221,12 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange); outlin
   :root { --gutter: 22px; }
   .preview-bar { justify-content: flex-start; flex-wrap: wrap; gap: 7px 9px; min-height: 44px; font-size: 11px; }
   .preview-bar b { font-size: 11px; }
-  .masthead-inner { min-height: 70px; }
+  .masthead-inner { min-height: 70px; flex-wrap: wrap; gap: 0; }
   .wordmark { gap: 8px; font-size: 16px; }
   .wordmark small { font-size: 11px; }
   .menu-toggle { width: 43px; height: 43px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--white); cursor: pointer; }
   .menu-toggle span { width: 17px; height: 2px; background: var(--ink); }
-  .main-nav { position: absolute; top: 100%; right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px var(--gutter) 18px; border-bottom: 1px solid var(--line); background: var(--paper); }
+  .main-nav { position: static; width: 100%; flex: 0 0 100%; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 0 18px; border-bottom: 1px solid var(--line); background: var(--paper); }
   .main-nav.is-open { display: flex; }
   .main-nav a { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
   .main-nav .nav-cta { justify-content: space-between; margin-top: 12px; padding: 13px 15px; border-bottom: 0; }
