@@ -4,7 +4,7 @@ import { chromium } from 'playwright';
 const baseURL = process.env.PREVIEW_URL ?? 'http://127.0.0.1:4173/';
 const browser = await chromium.launch({ headless: true });
 
-const desktopOrder = [
+const desktopLinkOrder = [
   'a.skip-link',
   'a.wordmark',
   '#primary-nav a[href="#services-pricing"]',
@@ -23,6 +23,18 @@ const desktopOrder = [
   'a.back-top',
 ];
 
+// The A6 FAQ adds five real keyboard-operable disclosure buttons before
+// the contact link. Keep them in the tab sequence instead of disabling
+// keyboard access merely to preserve the older 16-link-only expectation.
+const faqButtonOrder = Array.from({ length: 5 }, (_, index) =>
+  `.faq-item:nth-child(${index + 1}) button`,
+);
+const desktopOrder = [
+  ...desktopLinkOrder.slice(0, 9),
+  ...faqButtonOrder,
+  ...desktopLinkOrder.slice(9),
+];
+
 try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
   await page.goto(baseURL, { waitUntil: 'networkidle' });
@@ -33,7 +45,7 @@ try {
       label: (link.getAttribute('aria-label') || link.innerText || '').replace(/\s+/g, ' ').trim(),
     })),
   );
-  assert.equal(renderedLinks.length, desktopOrder.length, 'Every visible desktop link is included in the reviewed keyboard sequence');
+  assert.equal(renderedLinks.length, desktopLinkOrder.length, 'Every visible desktop link is included in the reviewed keyboard sequence');
   for (const link of renderedLinks) {
     assert.ok(link.label, `Link has a discernible accessible name: ${link.href}`);
     assert.ok(link.href?.startsWith('#'), `Demo links stay within the local page: ${link.href}`);
