@@ -105,7 +105,7 @@ function HeroIllustration() {
         <div className="ticket-price"><strong>7.000</strong><span>Rp / kg</span></div>
         <div className="ticket-bottom">
           <span>DATA DEMO</span>
-          <span>01 / 03</span>
+          <span>PER KILOGRAM</span>
         </div>
       </div>
       <span className="art-caption" data-qa-role="disclosure">ILUSTRASI DEKORATIF · BUKAN FOTO TOKO</span>
@@ -273,7 +273,7 @@ function HowItWorks() {
         <div className="process-heading-grid">
           <SectionHeading
             eyebrow="PROSES LAYANAN"
-            title="Setiap langkah tercatat."
+            title="Dari diterima sampai selesai."
             description="Urutan berikut merangkum proses yang disebutkan dalam materi latihan."
           />
           <p className="process-aside" data-qa-role="body">
