@@ -38,13 +38,21 @@ try {
           timeout: 45000,
         });
 
+        await page.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => {});
+        const contentReady = await page
+          .locator('h1, main, [role="main"]')
+          .first()
+          .waitFor({ state: 'visible', timeout: 10000 })
+          .then(() => true)
+          .catch(() => false);
+
         await page.evaluate(() =>
           Promise.race([
             document.fonts.ready.then(() => true),
             new Promise((resolve) => setTimeout(resolve, 5000)),
           ]),
         );
-        await page.waitForTimeout(900);
+        await page.waitForTimeout(700);
 
         const fileName = `${reference.name}-${viewport.name}.png`;
         const screenshotPath = path.join(outputDirectory, fileName);
@@ -60,6 +68,7 @@ try {
           finalUrl: page.url(),
           pageTitle: await page.title(),
           viewport: `${viewport.width}x${viewport.height}`,
+          contentReady,
           fullPage: viewport.fullPage,
           httpStatus: response?.status() ?? null,
           screenshot: fileName,
@@ -72,6 +81,7 @@ try {
           requestedUrl: reference.url,
           viewport: `${viewport.width}x${viewport.height}`,
           screenshot: null,
+          contentReady: false,
           pageErrors,
           result: 'failed',
           error: error instanceof Error ? error.message : String(error),
