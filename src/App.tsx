@@ -65,7 +65,7 @@ function Header() {
           {navItems.map(([label, id]) => (
             <a key={id} href={'#' + id} onClick={() => setMenuOpen(false)}>{label}</a>
           ))}
-          <a className="nav-contact" href="#contact" onClick={() => setMenuOpen(false)}>Info kontak <span aria-hidden="true">↗</span></a>
+          <a className="nav-contact nav-cta" href="#contact" onClick={() => setMenuOpen(false)}>Info kontak <span aria-hidden="true">↗</span></a>
         </nav>
       </div>
     </header>
@@ -108,7 +108,7 @@ function Hero() {
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#services-pricing">Lihat daftar harga <span aria-hidden="true">↘</span></a>
-            <a className="text-link" href="#how-it-works">Lihat proses <span aria-hidden="true">↓</span></a>
+            <a className="text-link" href="#hours-location">Jam operasional <span aria-hidden="true">↓</span></a>
           </div>
           <p className="hero-disclaimer">Contoh website untuk latihan. Bukan penawaran usaha nyata.</p>
         </div>
@@ -305,7 +305,7 @@ function Contact() {
           description="Kontak dan alamat pada halaman ini belum dapat digunakan untuk kunjungan atau komunikasi nyata."
         />
         <div className="contact-layout">
-          <div className="contact-option">
+          <div className="contact-option walkin-card">
             <span className="contact-index">01 / KUNJUNGAN</span>
             <h3>Datang langsung</h3>
             <p>Alamat pada materi latihan bersifat fiktif dan tidak dapat digunakan untuk kunjungan nyata.</p>
@@ -334,7 +334,7 @@ function Footer() {
         <nav className="footer-nav" aria-label="Navigasi footer">
           {navItems.map(([label, id]) => <a key={id} href={'#' + id}>{label}</a>)}
         </nav>
-        <a className="back-to-top" href="#preview-notice">Kembali ke atas <span aria-hidden="true">↑</span></a>
+        <a className="back-to-top back-top" href="#preview-notice">Kembali ke atas <span aria-hidden="true">↑</span></a>
       </div>
       <div className="container footer-bottom">
         <span>PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED</span>
