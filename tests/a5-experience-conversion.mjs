@@ -31,6 +31,11 @@ try {
   assert.match(await readText(page.locator('#estimate-total')), /40\.800/, '5.1 kg at Rp8,000/kg totals Rp40,800 with free pickup');
   assert.equal(await readText(paidPickup), 'GRATIS', 'Pickup becomes free only above 5 kg');
 
+  // Kiloan estimates accept positive decimal weights without inventing a 0.1 kg increment.
+  await page.locator('#estimate-quantity').fill('2.35');
+  assert.match(await readText(page.locator('#estimate-total')), /18\.800/, '2.35 kg at Rp8,000/kg totals Rp18,800');
+  assert.equal(await page.locator('.estimate-validation').count(), 0, 'Positive decimal kiloan weights are not rejected by an invented increment rule');
+
   // A single-piece service uses its own per-piece rate and does not infer pickup weight.
   await page.getByRole('button', { name: /Laundry satuan/ }).click();
   assert.equal(await page.locator('#estimate-pickup').count(), 0, 'Piece-based services do not infer a weight-based pickup fee');
