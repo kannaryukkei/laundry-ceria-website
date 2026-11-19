@@ -357,7 +357,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--color-primary);
   .pickup-copy > p:not(.eyebrow) { margin-top: 15px; font-size: 15px; }
   .radius-display { margin-top: 23px; }
   .radius-number { font-size: 55px; }
-  .pickup-rules { grid-template-columns: 1fr 1fr; gap: 9px; }
+  .pickup-rules { grid-template-columns: 1fr; gap: 12px; }
   .pickup-rule { min-height: 218px; padding: 17px 14px 15px; }
   .pickup-rule > p { margin-top: 32px; font-size: 15px; }
   .pickup-rule > strong { font-size: 23px; }
