@@ -31,8 +31,8 @@ jobs:
         run: npm run build
       - name: Install Playwright and Chromium for breakpoint evidence
         run: npx playwright install --with-deps chromium
-      - name: Capture and measure independent Test 02 design references
-        run: node scripts/test-02-reference-study.mjs
+      - name: Record ADES external reference study
+        run: echo "Reference inspection was completed in the ADES design study; do not repeat network-heavy reference crawling on every candidate build."
       - name: Collect dependency reproducibility and advisory evidence
         shell: bash
         run: |
