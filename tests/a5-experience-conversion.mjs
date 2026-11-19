@@ -67,6 +67,8 @@ try {
 
   // The new interactive section must still reflow on the narrowest supported viewport.
   await page.setViewportSize({ width: 320, height: 900 });
+  await page.goto(baseURL, { waitUntil: 'networkidle' });
+  await page.waitForTimeout(100);
   const viewportAudit = await page.evaluate(() => {
     const viewport = document.documentElement.clientWidth;
     const offenders = Array.from(document.body.querySelectorAll('*')).map((element) => {
