@@ -301,6 +301,7 @@ function PriceEstimator() {
                   type="button"
                   className={category === 'kiloan' ? 'is-selected' : ''}
                   aria-pressed={category === 'kiloan'}
+                  data-qa-role="control"
                   onClick={() => changeCategory('kiloan')}
                 >
                   Laundry kiloan
@@ -310,6 +311,7 @@ function PriceEstimator() {
                   type="button"
                   className={category === 'satuan' ? 'is-selected' : ''}
                   aria-pressed={category === 'satuan'}
+                  data-qa-role="control"
                   onClick={() => changeCategory('satuan')}
                 >
                   Laundry satuan
@@ -321,6 +323,7 @@ function PriceEstimator() {
             <div className="estimate-field">
               <label className="estimate-field-label" htmlFor="estimate-service" data-qa-role="metadata">02 / PILIH LAYANAN</label>
               <select
+                data-qa-role="control"
                 id="estimate-service"
                 value={serviceName}
                 onChange={(event) => setServiceName(event.target.value)}
@@ -338,6 +341,7 @@ function PriceEstimator() {
               <div className="estimate-quantity-wrap">
                 <input
                   id="estimate-quantity"
+                  data-qa-role="control"
                   type="number"
                   min={category === 'kiloan' ? '0.1' : '1'}
                   step={category === 'kiloan' ? '0.1' : '1'}
@@ -359,6 +363,7 @@ function PriceEstimator() {
               <label className="estimate-pickup-option" htmlFor="estimate-pickup">
                 <input
                   id="estimate-pickup"
+                  data-qa-role="control"
                   type="checkbox"
                   checked={includePickup}
                   onChange={(event) => setIncludePickup(event.target.checked)}
@@ -373,7 +378,7 @@ function PriceEstimator() {
                 Biaya antar-jemput tidak disimulasikan untuk layanan per potong karena data sumber menetapkan tarifnya berdasarkan berat pesanan.
               </p>
             )}
-            <button className="estimate-reset" type="button" onClick={resetEstimate}>Atur ulang simulasi</button>
+            <button className="estimate-reset" data-qa-role="control" type="button" onClick={resetEstimate}>Atur ulang simulasi</button>
           </div>
 
           <aside className="estimate-result" aria-label="Hasil simulasi harga">
