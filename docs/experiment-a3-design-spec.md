@@ -8,17 +8,16 @@
 
 ## 1. Evidence inspected
 
-The A3 browser study requested 12 views (four pages × desktop/tablet/mobile). Nine views were captured and measured in workflow run #178:
+The A3 browser study captured and measured **12 of 12 views** in workflow run #181:
 
 | Reference | Desktop 1440 | Tablet 768 | Mobile 390 |
 |---|---|---|---|
 | QnC Laundry home | Captured · HTTP 200 | Captured · HTTP 200 | Captured · HTTP 200 |
 | QnC Laundry services/pricing | Captured · HTTP 200 | Captured · HTTP 200 | Captured · HTTP 200 |
 | Bloom Laundry price list | Captured · HTTP 200 | Captured · HTTP 200 | Captured · HTTP 200 |
-| Yanti Laundry home | Screenshot saved; measurement extraction failed | Screenshot saved; measurement extraction failed | Screenshot saved; measurement extraction failed |
+| Yanti Laundry home | Captured · HTTP 200 | Captured · HTTP 200 | Captured · HTTP 200 |
 
-QnC and Bloom produced reliable selector-based measurements. Yanti screenshots were also saved, but the measurement script assumed a semantic page element existed and failed when it encountered a missing element. The extractor was updated to handle missing headings/landmarks safely; a rerun is included in the later CI review.
-
+All twelve pages loaded and produced selector-based measurement records. Yanti does not expose a semantic HTML header element, so its header geometry is not available; its visible heading, layout, imagery and page width were still measured.
 ## 2. Observed reference evidence
 
 ### QnC — desktop opening composition
@@ -43,6 +42,14 @@ The source page reported horizontal overflow at the supplied 768 px and 390 px v
 - Tablet: header **97.8 px**; title **51.2 px / 54.6 px**; content width **744 px** within a 768 px viewport, with no horizontal overflow.
 
 Bloom contains many service-specific durations and prices that do not exist in the Laundry Ceria fixture. A3 borrows only the category/row hierarchy. It must not invent a duration column, additional services, or any Bloom facts.
+
+### Yanti — content scale and responsive structure
+
+- Main H1: **22 px / 28.16 px**, with a **212.8 × 85.7 px** rendered box on desktop and **180.4 × 85.7 px** on mobile.
+- The page uses a tall, narrow, vertically stacked content flow; the measured document heights were approximately **7107 px** desktop and **7062 px** mobile.
+- No horizontal document overflow was recorded at 1440, 768, or 390 px.
+- The page does not expose a semantic `<header>` element, so no header measurement is claimed.
+- A3 does not copy its green palette, mascot, service claims, images or long page composition. Its useful evidence is simply that the content remains within the viewport at narrow widths.
 
 ## 3. Design decisions for Laundry Ceria
 
@@ -86,4 +93,4 @@ The source references' mobile overflow is not an acceptance target. The Laundry 
 
 ## 6. Evidence limitations
 
-This study is a measured snapshot, not a guarantee that public reference pages will remain unchanged. The QnC source itself overflows at 768 px and 390 px: its document width is 1010 px in both viewports, so the heading begins at x=-31 px on the home page and x=-99 px on the pricing page. Bloom stayed within the viewport at all three tested sizes. The Yanti page screenshots were saved, but its DOM measurement failed because the capture script assumed a semantic element existed; the script has since been made null-safe and the next run will attempt the same measurements again. The coded result still requires same-viewport screenshot review and the canonical website quality gate; a passing build alone is not visual acceptance.
+This study is a measured snapshot, not a guarantee that public reference pages will remain unchanged. QnC overflows at 768 px and 390 px: its document width is 1010 px in both viewports, so the heading begins at x=-31 px on the home page and x=-99 px on the pricing page. Bloom and Yanti stayed within their viewports at all three tested sizes. Yanti has no semantic `<header>` element, so its header size could not be measured; its H1 and page geometry were measured. The coded result still requires same-viewport screenshot review and the canonical website quality gate; a passing build alone is not visual acceptance.
