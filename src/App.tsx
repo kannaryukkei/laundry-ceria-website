@@ -39,7 +39,7 @@ function HeroArtwork() {
 function Hero() {
   return <section className="hero" id="hero"><div className="container hero-grid">
     <div className="hero-copy"><p className="eyebrow"><span /> Laundry kiloan & satuan</p><h1>Urusan pakaian,<br /><em>lebih tertata.</em></h1><p className="hero-lead">Lihat pilihan layanan, harga, dan waktu pengerjaan dengan jelas sebelum menentukan kebutuhan laundry.</p>
-      <div className="hero-actions"><a className="button button-dark" href="#services-pricing">Jelajahi layanan <span aria-hidden="true">↘</span></a><a className="quiet-link" href="#how-it-works">Kenali prosesnya <span aria-hidden="true">↓</span></a></div>
+      <div className="hero-actions"><a className="button button-dark" href="#services-pricing">Jelajahi layanan <span aria-hidden="true">↘</span></a><a className="quiet-link" href="#hours-location">Jam operasional <span aria-hidden="true">↓</span></a></div>
       <div className="hero-footnote"><span className="footnote-line" />Contoh website untuk pengembangan internal, bukan penawaran usaha nyata.</div>
     </div><HeroArtwork />
   </div>
@@ -102,11 +102,11 @@ function FAQ() {
 }
 
 function Contact() {
-  return <section className="contact-section" id="contact"><div className="container contact-panel"><div className="contact-copy"><p className="eyebrow">Langkah berikutnya</p><h2>Informasi sudah jelas.<br /><em>Kontak masih demo.</em></h2><p>Halaman ini memperlihatkan dua jalur yang direncanakan dalam materi latihan. Keduanya belum bisa digunakan untuk tindakan nyata.</p></div><div className="contact-options"><div className="contact-option"><span>01 / KUNJUNGAN</span><b>Datang langsung</b><p>Alamat yang ditampilkan adalah alamat fiktif. Jangan gunakan untuk navigasi.</p><a href="#hours-location">Lihat informasi alamat ↗</a></div><div className="contact-option disabled"><span>02 / PESAN</span><b>WhatsApp belum tersedia</b><p>Nomor usaha belum diberikan. Tidak ada tautan atau aksi WhatsApp yang aktif.</p><span className="disabled-state">NOT_CONFIGURED</span></div></div></div></section>;
+  return <section className="contact-section" id="contact"><div className="container contact-panel"><div className="contact-copy"><p className="eyebrow">Langkah berikutnya</p><h2>Informasi sudah jelas.<br /><em>Kontak masih demo.</em></h2><p>Halaman ini memperlihatkan dua jalur yang direncanakan dalam materi latihan. Keduanya belum bisa digunakan untuk tindakan nyata.</p></div><div className="contact-options"><div className="contact-option walkin-card"><span>01 / KUNJUNGAN</span><b>Datang langsung</b><p>Alamat yang ditampilkan adalah alamat fiktif. Jangan gunakan untuk navigasi.</p><a href="#hours-location">Lihat informasi alamat ↗</a></div><div className="contact-option disabled"><span>02 / PESAN</span><b>WhatsApp belum tersedia</b><p>Nomor usaha belum diberikan. Tidak ada tautan atau aksi WhatsApp yang aktif.</p><span className="disabled-state">NOT_CONFIGURED</span></div></div></div></section>;
 }
 
 function Footer() {
-  return <footer className="site-footer"><div className="container footer-main"><div className="footer-brand"><a href="#hero">Laundry <b>Ceria</b></a><p>Eksperimen website untuk AI-Operated Web Studio.</p></div><nav aria-label="Navigasi footer">{navItems.map(([label,id])=><a key={id} href={'#'+id}>{label}</a>)}</nav><a className="back-top" href="#preview-notice">Kembali ke atas ↑</a></div><div className="container footer-bottom"><span>PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED</span><span>BUKAN WEBSITE BISNIS NYATA</span></div></footer>;
+  return <footer className="site-footer"><div className="container footer-main"><div className="footer-brand"><a className="footer-wordmark" href="#hero">Laundry <b>Ceria</b></a><p>Eksperimen website untuk AI-Operated Web Studio.</p></div><nav className="footer-nav" aria-label="Navigasi footer">{navItems.map(([label,id])=><a key={id} href={'#'+id}>{label}</a>)}</nav><a className="back-top" href="#preview-notice">Kembali ke atas ↑</a></div><div className="container footer-bottom"><span>PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED</span><span>BUKAN WEBSITE BISNIS NYATA</span></div></footer>;
 }
 
 export default function App() {
