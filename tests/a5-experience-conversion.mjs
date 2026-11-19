@@ -45,15 +45,23 @@ try {
   assert.match(await readText(page.locator('#estimate-total')), /50\.000/, 'Two bed covers at Rp25,000 each total Rp50,000');
 
   // Fractional piece counts and zero quantities must not produce a price.
-  await page.locator('#estimate-quantity').fill('1.5');
+  const quantityInput = page.locator('#estimate-quantity');
+  await quantityInput.fill('1.5');
   assert.match(await readText(page.locator('.estimate-validation')), /bilangan bulat/i);
   assert.match(await readText(page.locator('#estimate-total')), /Masukkan jumlah/i);
-  await page.locator('#estimate-quantity').fill('0');
+  assert.equal(await quantityInput.getAttribute('aria-invalid'), 'true');
+  assert.equal(await quantityInput.getAttribute('aria-describedby'), 'estimate-quantity-error');
+  assert.equal(await page.locator('#estimate-quantity-error').count(), 1);
+
+  await quantityInput.fill('0');
   assert.match(await readText(page.locator('.estimate-validation')), /lebih besar dari nol/i);
+  assert.equal(await quantityInput.getAttribute('aria-invalid'), 'true');
 
   // Reset clears user input and returns to the default category without saving or sending anything.
   await page.getByRole('button', { name: 'Atur ulang simulasi' }).click();
-  assert.equal(await page.locator('#estimate-quantity').inputValue(), '');
+  assert.equal(await quantityInput.inputValue(), '');
+  assert.equal(await quantityInput.getAttribute('aria-invalid'), 'false');
+  assert.equal(await quantityInput.getAttribute('aria-describedby'), null);
   assert.equal(await page.locator('#estimate-pickup').isChecked(), false);
   assert.equal(await page.locator('#estimate-service').inputValue(), 'Cuci lipat');
   assert.match(await readText(page.locator('#estimate-total')), /Masukkan jumlah/i);
