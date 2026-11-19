@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
+import { mkdir } from 'node:fs/promises';
+import path from 'node:path';
 
 const baseURL = process.env.PREVIEW_URL ?? 'http://127.0.0.1:4173/';
 const browser = await chromium.launch({ headless: true });
@@ -34,5 +36,12 @@ try {
     assert.ok(metrics.body <= metrics.viewport, 'Body fits viewport at ' + width + 'px');
   }
   assert.deepEqual(consoleErrors, [], 'No uncaught browser runtime errors');
-  console.log('TEST-02 CONTRACT PASS: source content, synthetic-data safeguards, no fake conversion, semantic structure, and nine responsive widths.');
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(baseURL, { waitUntil: 'networkidle' });
+  await page.locator('button.menu-toggle').click();
+  await page.waitForFunction(() => document.querySelector('#primary-nav')?.classList.contains('is-open'));
+  const interactionDirectory = path.resolve('artifacts/test-02-interaction');
+  await mkdir(interactionDirectory, { recursive: true });
+  await page.screenshot({ path: path.join(interactionDirectory, 'mobile-menu-open-390.png'), fullPage: false, animations: 'disabled' });
+  console.log('TEST-02 CONTRACT PASS: source content, synthetic-data safeguards, no fake conversion, semantic structure, nine responsive widths, and mobile menu capture.');
 } finally { await browser.close(); }
