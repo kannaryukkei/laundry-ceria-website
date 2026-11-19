@@ -246,10 +246,7 @@ function PriceEstimator() {
   const unitPrice = Number(selectedService.price.replace(/\D/g, ''));
   const quantityValue = Number(quantity);
   const hasQuantity = quantity.trim() !== '' && Number.isFinite(quantityValue) && quantityValue > 0;
-  const validIncrement = category === 'satuan'
-    ? Number.isInteger(quantityValue)
-    : Math.abs(quantityValue * 10 - Math.round(quantityValue * 10)) < 0.000001;
-  const validQuantity = hasQuantity && validIncrement;
+  const validQuantity = hasQuantity && (category === 'satuan' ? Number.isInteger(quantityValue) : true);
   const serviceTotal = validQuantity ? unitPrice * quantityValue : 0;
   const pickupFee = validQuantity && category === 'kiloan' && includePickup
     ? (quantityValue > 5 ? 0 : 5000)
@@ -343,8 +340,8 @@ function PriceEstimator() {
                   id="estimate-quantity"
                   data-qa-role="control"
                   type="number"
-                  min={category === 'kiloan' ? '0.1' : '1'}
-                  step={category === 'kiloan' ? '0.1' : '1'}
+                  min={category === 'satuan' ? '1' : undefined}
+                  step={category === 'kiloan' ? 'any' : '1'}
                   inputMode="decimal"
                   placeholder={category === 'kiloan' ? 'Contoh: 3' : 'Contoh: 2'}
                   value={quantity}
@@ -354,7 +351,7 @@ function PriceEstimator() {
               </div>
               {quantity !== '' && !validQuantity && (
                 <p className="estimate-validation" role="alert" data-qa-role="disclosure">
-                  {hasQuantity ? (category === 'kiloan' ? 'Gunakan kelipatan 0,1 kg.' : 'Jumlah potong harus berupa bilangan bulat.') : 'Masukkan jumlah yang lebih besar dari nol.'}
+                  {hasQuantity ? 'Jumlah potong harus berupa bilangan bulat.' : 'Masukkan jumlah yang lebih besar dari nol.'}
                 </p>
               )}
             </div>
