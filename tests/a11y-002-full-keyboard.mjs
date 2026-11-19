@@ -13,14 +13,10 @@ const desktopOrder = [
   '#primary-nav a[href="#hours-location"]',
   '#primary-nav a.nav-cta',
   '.hero-actions a[href="#services-pricing"]',
-  '.hero-actions a[href="#hours-location"]',
-  '.walkin-card a[href="#hours-location"]',
+  '.hero-actions a[href="#how-it-works"]',
+  '.contact-option a[href="#hours-location"]',
   'a.footer-wordmark',
-  '.footer-nav a[href="#services-pricing"]',
-  '.footer-nav a[href="#how-it-works"]',
-  '.footer-nav a[href="#pickup-delivery"]',
-  '.footer-nav a[href="#hours-location"]',
-  'a.back-top',
+  'a.footer-top',
 ];
 
 try {
