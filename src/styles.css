@@ -1300,3 +1300,8 @@ button:focus-visible, a:focus-visible { outline-color: var(--color-primary); }
   .motion-entry.is-in-view { animation: none !important; }
   .estimate-category button, .price-row, .process-item { transition: none !important; }
 }
+
+.estimate-pickup-option input:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
