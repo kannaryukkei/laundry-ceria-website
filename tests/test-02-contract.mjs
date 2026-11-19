@@ -42,6 +42,10 @@ try {
   await page.goto(baseURL, { waitUntil: 'networkidle' });
   await page.locator('button.menu-toggle').click();
   await page.waitForFunction(() => document.querySelector('#primary-nav')?.classList.contains('is-open'));
+  assert.equal(await page.locator('h1').isVisible(), true, 'Hero heading remains visible when mobile navigation opens');
+  const menuBox = await page.locator('#primary-nav').boundingBox();
+  const heroBox = await page.locator('.hero').boundingBox();
+  assert.ok(menuBox && heroBox && heroBox.y >= menuBox.y + menuBox.height, 'Expanded mobile menu pushes hero down instead of covering it');
   const interactionDirectory = path.resolve('artifacts/test-02-interaction');
   await mkdir(interactionDirectory, { recursive: true });
   await page.screenshot({ path: path.join(interactionDirectory, 'mobile-menu-open-390.png'), fullPage: false, animations: 'disabled' });
