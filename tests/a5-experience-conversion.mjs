@@ -47,7 +47,7 @@ try {
   // Fractional piece counts and zero quantities must not produce a price.
   await page.locator('#estimate-quantity').fill('1.5');
   assert.match(await readText(page.locator('.estimate-validation')), /bilangan bulat/i);
-  assert.match(await readText(page.locator('#estimate-total')), /Isi jumlah/i);
+  assert.match(await readText(page.locator('#estimate-total')), /Masukkan jumlah/i);
   await page.locator('#estimate-quantity').fill('0');
   assert.match(await readText(page.locator('.estimate-validation')), /lebih besar dari nol/i);
 
@@ -56,7 +56,7 @@ try {
   assert.equal(await page.locator('#estimate-quantity').inputValue(), '');
   assert.equal(await page.locator('#estimate-pickup').isChecked(), false);
   assert.equal(await page.locator('#estimate-service').inputValue(), 'Cuci lipat');
-  assert.match(await readText(page.locator('#estimate-total')), /Isi jumlah/i);
+  assert.match(await readText(page.locator('#estimate-total')), /Masukkan jumlah/i);
 
   // Reduced-motion mode must stop the animated illustration and scroll reveal effect.
   await page.emulateMedia({ reducedMotion: 'reduce' });
