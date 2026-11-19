@@ -3,7 +3,6 @@ import { hours, processSteps, services } from './data';
 
 const navItems = [
   ['Harga', 'services-pricing'],
-  ['Pengerjaan', 'turnaround'],
   ['Proses', 'how-it-works'],
   ['Antar-jemput', 'pickup-delivery'],
   ['Jam & lokasi', 'hours-location'],
