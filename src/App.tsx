@@ -101,7 +101,7 @@ function HeroIllustration() {
           <span className="ticket-mark">LC</span>
         </div>
         <div className="ticket-rule" />
-        <span className="ticket-intro">SET RIKA SAJA</span>
+        <span className="ticket-intro">SETRIKA SAJA</span>
         <div className="ticket-price"><strong>7.000</strong><span>Rp / kg</span></div>
         <div className="ticket-bottom">
           <span>DATA DEMO</span>
@@ -291,10 +291,14 @@ function HowItWorks() {
             </li>
           ))}
         </ol>
-        <div className="process-note" data-qa-role="disclosure">
-          <span className="package-symbol" aria-hidden="true">▱</span>
-          <p>Setiap pesanan dibungkus plastik gratis setelah selesai.</p>
-          <span className="note-label" data-qa-role="metadata">INFO TAMBAHAN</span>
+        <div className="process-note">
+          <div className="process-note-main" data-qa-role="disclosure">
+            <span className="package-symbol" aria-hidden="true">▱</span>
+            <p>Setiap pesanan dibungkus plastik gratis setelah selesai.</p>
+          </div>
+          <p className="process-note-secondary" data-qa-role="disclosure">
+            Pemberitahuan melalui WhatsApp merupakan deskripsi alur pada fixture; nomor kontak belum dikonfigurasi.
+          </p>
         </div>
       </div>
     </section>
