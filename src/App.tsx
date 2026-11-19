@@ -106,7 +106,7 @@ function Hero() {
           <p className="eyebrow"><span>LAUNDRY KILOAN</span><i /> <span>LAYANAN SATUAN</span></p>
           <h1>Lihat dulu.<br /><em>Baru laundry.</em></h1>
           <p className="hero-description">
-            Pilihan layanan, daftar harga, dan waktu pengerjaan dalam satu tempat. Kenali informasinya sebelum menyerahkan pakaian.
+            Untuk penghuni kos dan keluarga muda di sekitar ruko, pilihan layanan, tarif, dan waktu pengerjaan tersedia sebelum pakaian diserahkan.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#services-pricing">Lihat daftar harga <span aria-hidden="true">↓</span></a>
