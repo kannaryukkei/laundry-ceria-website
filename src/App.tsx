@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { hours, processSteps, services } from './data';
 
 const navItems = [['Layanan', 'services-pricing'], ['Proses', 'how-it-works'], ['Antar-jemput', 'pickup-delivery'], ['Info', 'hours-location']] as const;
@@ -47,7 +47,7 @@ function Hero() {
   </section>;
 }
 
-function SectionHeading({ index, label, title, copy, light=false }: {index:string;label:string;title:string;copy:string;light?:boolean}) {
+function SectionHeading({ index, label, title, copy, light=false }: {index:string;label:string;title:ReactNode;copy:string;light?:boolean}) {
   return <div className={light ? 'section-heading light' : 'section-heading'}><div className="heading-index">{index}<span /></div><div><p className="eyebrow">{label}</p><h2>{title}</h2><p className="section-copy">{copy}</p></div></div>;
 }
 
