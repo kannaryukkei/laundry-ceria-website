@@ -17,7 +17,7 @@ try {
     assert.ok(bodyText.includes(expected), 'Required source-backed content is present: ' + expected);
   }
   assert.ok(!bodyText.includes('Waktu reguler'), 'Regular turnaround is not generalized to all services');
-  assert.equal(await page.locator('a[href*="wa.me", a[href*="whatsapp.com"], a[href*="api.whatsapp"]').count(), 0, 'No WhatsApp destination is fabricated');
+  assert.equal(await page.locator('a[href*="wa.me"], a[href*="whatsapp.com"], a[href*="api.whatsapp"]').count(), 0, 'No WhatsApp destination is fabricated');
   assert.equal(await page.locator('iframe, [data-map], a[href*="maps.google"], a[href*="google.com/maps"]').count(), 0, 'No real map or directions are created');
   assert.equal(await page.locator('.contact-disabled a, .contact-disabled button').count(), 0, 'Unconfigured WhatsApp remains non-interactive');
   assert.equal(await page.locator('a[href^="http"]').count(), 0, 'No external business action is exposed');
