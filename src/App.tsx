@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 
 const navigation = [
   { label: 'Layanan & harga', href: '#services-pricing' },
-  { label: 'Waktu pengerjaan', href: '#turnaround' },
   { label: 'Proses', href: '#how-it-works' },
   { label: 'Antar-jemput', href: '#pickup-delivery' },
   { label: 'Jam & lokasi', href: '#hours-location' },
