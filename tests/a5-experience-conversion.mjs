@@ -67,13 +67,39 @@ try {
 
   // The new interactive section must still reflow on the narrowest supported viewport.
   await page.setViewportSize({ width: 320, height: 900 });
-  const widths = await page.evaluate(() => ({
-    viewport: document.documentElement.clientWidth,
-    document: document.documentElement.scrollWidth,
-    body: document.body.scrollWidth,
-  }));
-  assert.equal(widths.document, widths.viewport, 'No horizontal document overflow at 320px');
-  assert.ok(widths.body <= widths.viewport, 'Body fits the 320px viewport');
+  const viewportAudit = await page.evaluate(() => {
+    const viewport = document.documentElement.clientWidth;
+    const offenders = Array.from(document.body.querySelectorAll('*')).map((element) => {
+      const rect = element.getBoundingClientRect();
+      const style = getComputedStyle(element);
+      return {
+        tag: element.tagName.toLowerCase(),
+        id: element.id,
+        className: typeof element.className === 'string' ? element.className : '',
+        text: (element.textContent || '').replace(/\\s+/g, ' ').trim().slice(0, 70),
+        left: Math.round(rect.left),
+        right: Math.round(rect.right),
+        width: Math.round(rect.width),
+        scrollWidth: element.scrollWidth,
+        whiteSpace: style.whiteSpace,
+        position: style.position,
+      };
+    }).filter((item) => item.right > viewport + 1 || item.left < -1)
+      .sort((a, b) => b.right - a.right)
+      .slice(0, 18);
+    return {
+      viewport,
+      document: document.documentElement.scrollWidth,
+      body: document.body.scrollWidth,
+      offenders,
+    };
+  });
+  assert.equal(
+    viewportAudit.document,
+    viewportAudit.viewport,
+    `No horizontal document overflow at 320px: ${JSON.stringify(viewportAudit)}`,
+  );
+  assert.ok(viewportAudit.body <= viewportAudit.viewport, 'Body fits the 320px viewport');
 
   console.log('A5 EXPERIENCE PASS: hero interaction path, arithmetic estimates, pickup threshold, piece pricing, reset, no fake conversion, reduced motion, and 320px reflow.');
 } finally {
