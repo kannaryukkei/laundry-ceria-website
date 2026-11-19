@@ -108,7 +108,7 @@ function HeroIllustration() {
           <span>PER KILOGRAM</span>
         </div>
       </div>
-      <span className="art-caption" data-qa-role="disclosure">ILUSTRASI DEKORATIF · BUKAN FOTO TOKO</span>
+      <span className="art-caption" data-qa-role="disclosure">ILUSTRASI · BUKAN FOTO TOKO</span>
     </div>
   );
 }
@@ -227,6 +227,10 @@ function Turnaround() {
   return (
     <section className="section turnaround-section" id="turnaround">
       <div className="container turnaround-layout">
+        <div className="section-topline section-topline-dark" data-qa-role="metadata">
+          <span>02 / WAKTU PENGERJAAN</span>
+          <span>REGULER & EXPRESS</span>
+        </div>
         <div className="turnaround-copy">
           <p className="eyebrow eyebrow-light" data-qa-role="metadata">WAKTU PENGERJAAN</p>
           <h2>Kapan cucian<br /><em>siap diambil?</em></h2>
@@ -309,6 +313,10 @@ function PickupDelivery() {
   return (
     <section className="section pickup-section" id="pickup-delivery">
       <div className="container pickup-layout">
+        <div className="section-topline" data-qa-role="metadata">
+          <span>04 / ANTAR-JEMPUT</span>
+          <span>RADIUS & BIAYA</span>
+        </div>
         <div className="pickup-copy">
           <p className="eyebrow" data-qa-role="metadata">ANTAR-JEMPUT SEKITAR TOKO</p>
           <h2>Masih dalam<br /><em>jangkauan.</em></h2>
