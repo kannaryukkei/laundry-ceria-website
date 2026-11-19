@@ -40,8 +40,9 @@ try {
         const file = concept.id + '-' + viewport.id + '.png';
         await page.screenshot({ path: path.join(out, file), fullPage: true, animations: 'disabled' });
         let mobileMenu = 'NOT_APPLICABLE';
-        if (viewport.width <= 820) {
-          const button = page.locator('button.menu');
+        const menuButton = page.locator('button.menu');
+        if (viewport.width <= 820 && await menuButton.isVisible()) {
+          const button = menuButton;
           await button.click();
           mobileMenu = await button.getAttribute('aria-expanded');
           await page.screenshot({ path: path.join(out, concept.id + '-' + viewport.id + '-menu-open.png'), fullPage: false, animations: 'disabled' });
