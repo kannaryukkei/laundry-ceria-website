@@ -97,6 +97,27 @@ jobs:
             "purpose": "Exact-head responsive visual review plus dependency reproducibility and advisory evidence; manual inspection required"
           }
           EOF
+      - name: Capture ADES candidate websites
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4175 > /tmp/laundry-ceria-ades.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4175/ades/ >/dev/null; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ready" -ne 1 ]; then
+            cat /tmp/laundry-ceria-ades.log
+            echo "ADES preview did not become ready"
+            exit 1
+          fi
+          node scripts/capture-ades.mjs
       - name: Upload breakpoint evidence
         if: always()
         uses: actions/upload-artifact@v4
