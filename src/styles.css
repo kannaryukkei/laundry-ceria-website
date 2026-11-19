@@ -75,7 +75,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange); outlin
 .hero-side-row { display: flex; justify-content: space-between; gap: 12px; padding: 13px 0; border-bottom: 1px dashed var(--line); font-size: 13px; }
 .hero-side-row span { color: var(--muted); }
 .hero-side-row b { font-weight: 700; text-align: right; }
-.hero-side-stamp { position: absolute; right: 22px; bottom: 65px; width: 58px; height: 58px; display: grid; place-content: center; border: 1px solid var(--orange); border-radius: 50%; color: #A94F28; font: 500 10px/1.35 var(--mono); text-align: center; transform: rotate(12deg); }
 .hero-side-caption { margin: 18px 0 0; color: #797B87; font: 500 9px var(--mono); letter-spacing: .055em; }
 .hero-bottom { position: relative; z-index: 1; min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255,255,255,.23); color: #D9DDFF; font: 500 10px var(--mono); letter-spacing: .07em; }
 .hero-bottom b { margin-left: 8px; color: #FFCC9F; font-size: 14px; }
@@ -302,7 +301,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange); outlin
   .hero h1 { font-size: 52px; }
   .hero-side { padding: 20px 17px; }
   .hero-side-row { font-size: 12px; }
-  .hero-side-stamp { right: 16px; bottom: 58px; width: 52px; height: 52px; font-size: 9px; }
   .price-line { grid-template-columns: 20px minmax(0, 1fr) auto; gap: 6px; padding-inline: 12px; }
   .price-line-name { font-size: 13px; }
   .price-line strong { font-size: 17px; }
