@@ -812,3 +812,91 @@ button:focus-visible, a:focus-visible { outline-color: var(--color-primary); }
   .express-timeline > div > strong { font-size: 30px; }
   .pickup-copy h2 { font-size: 47px; }
 }
+
+
+/* Type-led price mark completes the editorial hero composition. */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(280px, .78fr);
+  align-items: center;
+  gap: clamp(30px, 4vw, 56px);
+}
+.hero-copy { max-width: none; }
+.hero h1 { font-size: clamp(52px, 6.1vw, 82px); }
+.hero-rate-stamp {
+  display: flex;
+  min-width: 0;
+  min-height: 274px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px 25px 21px;
+  border: 1px solid #C9BEAE;
+  border-top: 5px solid var(--color-primary);
+  color: var(--color-ink);
+  background: #E8E1D3;
+}
+.stamp-overline {
+  color: var(--color-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+.stamp-service {
+  margin-top: 20px;
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+.stamp-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 3px;
+}
+.stamp-price > span {
+  color: var(--color-muted);
+  font-size: 17px;
+  font-weight: 700;
+}
+.stamp-price strong {
+  color: var(--color-ink);
+  font: 700 clamp(65px, 7vw, 91px)/.98 var(--font-display);
+  letter-spacing: -.075em;
+  font-variant-numeric: tabular-nums;
+}
+.stamp-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 9px 14px;
+  margin-top: 21px;
+  padding-top: 13px;
+  border-top: 1px dashed #B9AE9E;
+}
+.stamp-bottom span {
+  color: var(--color-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+@media (max-width: 1100px) {
+  .hero-grid { grid-template-columns: minmax(0, 1.4fr) minmax(250px, .8fr); gap: 30px; }
+  .hero h1 { font-size: clamp(50px, 6.2vw, 72px); }
+  .stamp-price strong { font-size: clamp(64px, 7vw, 84px); }
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .hero-copy { max-width: 760px; }
+  .hero-rate-stamp { width: min(100%, 520px); min-height: 235px; margin-top: 28px; }
+  .stamp-price strong { font-size: clamp(72px, 12vw, 88px); }
+}
+@media (max-width: 767px) {
+  .hero-rate-stamp { width: 100%; min-height: 215px; margin-top: 25px; padding: 21px; }
+  .stamp-price strong { font-size: clamp(68px, 18vw, 86px); }
+}
+@media (max-width: 380px) {
+  .hero-rate-stamp { min-height: 205px; padding: 18px; }
+  .stamp-price strong { font-size: 68px; }
+}
