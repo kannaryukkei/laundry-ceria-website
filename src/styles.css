@@ -119,9 +119,7 @@ button:focus-visible, a:focus-visible {
 /* Hero */
 .hero {
   position: relative; overflow: hidden; padding: 74px 0 30px;
-  background:
-    radial-gradient(circle at 87% 12%, rgba(234,228,241,.72), transparent 31%),
-    var(--paper);
+  background: var(--paper);
 }
 .hero-grid {
   position: relative; display: grid; grid-template-columns: 1fr .95fr;
@@ -615,4 +613,95 @@ button:focus-visible, a:focus-visible {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+
+
+/* Readability floor: keep labels, body text and notices legible at every size */
+[data-qa-role="metadata"] { font-size: 11px; }
+[data-qa-role="body"] { font-size: 15px; }
+[data-qa-role="disclosure"] { font-size: 13px; }
+
+.price-row strong[data-qa-role="body"] { font-size: 18px; }
+.price-row strong[data-qa-role="body"] small { font-size: 11px; }
+.tag-row strong { font-size: 14px; }
+.tag-row strong small { font-size: 11px; }
+.wash-tag .tag-top, .wash-tag .tag-foot { font-size: 11px; }
+.section-topline { flex-wrap: wrap; align-items: baseline; }
+.quick-fact > span { font-size: 11px; }
+.price-group-heading > span { font-size: 11px; }
+.process-step p { font-size: 15px; }
+.hours-row > span, .hours-row > strong { font-size: 15px; }
+.status-pill { font-size: 13px; }
+.contact-card > p { font-size: 15px; }
+
+/* Make the headline fit the intended two-line composition */
+.hero h1 { font-size: clamp(44px, 4.5vw, 64px); }
+
+/* Remove clipped price-row contents inside the illustrated ticket */
+.wash-tag { width: 56%; }
+.tag-row { gap: 5px; }
+.tag-row > span { min-width: 0; }
+.tag-row strong { flex: 0 0 auto; }
+
+/* Smaller screens */
+@media (max-width: 560px) {
+  .notice-inner {
+    min-height: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px 8px;
+    padding-block: 8px;
+  }
+  .notice-inner strong { font-size: 13px; }
+  .notice-divider { display: none; }
+  .notice-inner > span:last-child {
+    flex: 1 1 100%;
+    text-align: center;
+    font-size: 13px;
+  }
+  .hero h1 { font-size: clamp(38px, 10vw, 48px); }
+  .hero-visual { aspect-ratio: .98; }
+  .wash-tag { width: 64%; right: 5%; padding: 11px; }
+  .tag-top, .tag-foot { font-size: 11px; }
+  .tag-row { min-height: 34px; font-size: 12px; }
+  .tag-row strong { font-size: 13px; }
+  .tag-row strong small { font-size: 11px; }
+  .visual-caption { font-size: 13px; max-width: 84%; }
+  .quick-fact > span { font-size: 11px; letter-spacing: .02em; }
+  .quick-fact strong { font-size: 12px; }
+  .section-topline { font-size: 11px; }
+  .section-description { font-size: 15px; }
+  .price-row > span { font-size: 15px; }
+  .price-row strong[data-qa-role="body"] { font-size: 17px; }
+  .price-group-heading > span { font-size: 11px; }
+  .process-step p { font-size: 15px; }
+  .process-footnote p { font-size: 15px; }
+  .pickup-row small { font-size: 11px; }
+  .hours-row > span, .hours-row > strong { font-size: 15px; }
+  .contact-card > p { font-size: 15px; }
+  .contact-card-bottom .status-pill { font-size: 13px; }
+}
+@media (max-width: 420px) {
+  .express-timeline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .express-timeline > div { width: 100%; }
+  .express-timeline small { max-width: 100%; white-space: normal; line-height: 1.35; }
+  .timeline-arrow { display: none; }
+}
+@media (max-width: 360px) {
+  .hero h1 { font-size: 38px; }
+  .wash-tag { width: 68%; }
+  .quick-facts { grid-template-columns: 1fr; }
+  .quick-fact, .quick-fact:first-child {
+    min-height: 56px; padding: 9px 0;
+    border-right: 0; border-bottom: 1px solid var(--line);
+  }
+  .quick-fact:last-child { border-bottom: 0; }
+  .quick-fact > span { font-size: 11px; }
+  .quick-fact strong { font-size: 15px; }
+  .express-timeline strong { font-size: 36px; }
 }
