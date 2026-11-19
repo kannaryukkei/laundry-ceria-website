@@ -129,7 +129,6 @@ function Hero() {
           <div className="hero-side-row"><span>Jenis layanan</span><b>05 pilihan</b></div>
           <div className="hero-side-row"><span>Waktu reguler</span><b>Biasanya 2 hari</b></div>
           <div className="hero-side-row"><span>Antar-jemput</span><b>Radius 2 km</b></div>
-          <span className="hero-side-stamp">DATA<br />FIKTIF</span>
           <p className="hero-side-caption">RINGKASAN INFORMASI · BUKAN PENAWARAN NYATA</p>
         </div>
       </div>
