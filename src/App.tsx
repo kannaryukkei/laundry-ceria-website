@@ -128,7 +128,7 @@ function Hero() {
           <div className="hero-side-row"><span>Jenis layanan</span><b>05 pilihan</b></div>
           <div className="hero-side-row"><span>Waktu reguler</span><b>Biasanya 2 hari</b></div>
           <div className="hero-side-row"><span>Antar-jemput</span><b>Radius 2 km</b></div>
-          <p className="hero-side-caption">RINGKASAN INFORMASI · BUKAN PENAWARAN NYATA</p>
+          <span className="hero-side-caption">RINGKASAN INFORMASI · BUKAN PENAWARAN NYATA</span>
         </div>
       </div>
       <div className="hero-bottom page-shell">
@@ -305,7 +305,7 @@ function HoursLocation() {
           </div>
           <div className="address-sheet">
             <span className="address-warning">ALAMAT FIKTIF · DATA DEMO</span>
-            <p className="address-label">ALAMAT DALAM MATERI LATIHAN</p>
+            <span className="address-label">ALAMAT DALAM MATERI LATIHAN</span>
             <h3>Jl. Melati No. 12,<br />Jakarta</h3>
             <p>Alamat ini bukan lokasi usaha nyata. Tidak tersedia petunjuk arah, peta, atau navigasi.</p>
             <span className="address-reference">LC / LOCATION REFERENCE 001</span>
@@ -321,7 +321,7 @@ function Contact() {
     <section className="section contact-section" id="contact">
       <div className="page-shell contact-layout">
         <div className="contact-intro">
-          <p className="contact-overline">06 / LANGKAH BERIKUTNYA</p>
+          <span className="contact-overline">06 / LANGKAH BERIKUTNYA</span>
           <h2>Informasi sudah tersedia.<br /><em>Kontak belum.</em></h2>
           <p>Materi bisnis menyebut kunjungan langsung dan WhatsApp sebagai jalur konversi. Keduanya belum dapat digunakan pada preview fiktif ini.</p>
         </div>
