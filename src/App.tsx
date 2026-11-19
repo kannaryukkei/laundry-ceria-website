@@ -126,7 +126,7 @@ function Hero() {
           </div>
           <div className="hero-side-rule" />
           <div className="hero-side-row"><span>Jenis layanan</span><b>05 pilihan</b></div>
-          <div className="hero-side-row"><span>Waktu reguler</span><b>Biasanya 2 hari</b></div>
+          <div className="hero-side-row"><span>Kiloan reguler</span><b>Biasanya 2 hari</b></div>
           <div className="hero-side-row"><span>Antar-jemput</span><b>Radius 2 km</b></div>
           <span className="hero-side-caption">RINGKASAN INFORMASI · BUKAN PENAWARAN NYATA</span>
         </div>
