@@ -31,6 +31,17 @@ jobs:
         run: npm run build
       - name: Install Playwright and Chromium for breakpoint evidence
         run: npx playwright install --with-deps chromium
+      - name: Capture public design references (A2 only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'experiment/design-a2-reference-study'
+        run: node scripts/capture-reference-sites.mjs
+      - name: Upload public design references (A2 only)
+        if: always() && github.event_name == 'pull_request' && github.head_ref == 'experiment/design-a2-reference-study'
+        uses: actions/upload-artifact@v4
+        with:
+          name: laundry-ceria-public-reference-captures-${{ github.run_id }}
+          path: artifacts/reference-sites/
+          if-no-files-found: warn
+          retention-days: 14
       - name: Collect dependency reproducibility and advisory evidence
         shell: bash
         run: |
