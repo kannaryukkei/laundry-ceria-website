@@ -72,7 +72,6 @@ function Header() {
     <header className="masthead">
       <div className="page-shell masthead-inner">
         <a className="wordmark" href="#hero" aria-label="Laundry Ceria, kembali ke awal">
-          <span className="wordmark-symbol" aria-hidden="true">LC</span>
           <span>Laundry Ceria</span>
           <small>STUDIO PREVIEW</small>
         </a>
@@ -88,7 +87,7 @@ function Header() {
           <span />
           <span />
         </button>
-        <nav id="primary-nav" className={open ? 'main-nav is-open' : 'main-nav'} aria-label="Navigasi utama">
+        <nav id="primary-nav" className={open ? 'main-nav primary-nav is-open' : 'main-nav primary-nav'} aria-label="Navigasi utama">
           {navigation.map(item => (
             <a key={item.href} href={item.href} onClick={closeMenu}>{item.label}</a>
           ))}
@@ -299,7 +298,7 @@ function HoursLocation() {
         />
         <div className="location-grid">
           <div className="hours-sheet">
-            <div className="sheet-top"><h3>Jam operasional</h3><span>SETIAP MINGGU</span></div>
+            <div className="sheet-top"><h3>Jam operasional</h3><span>7 HARI OPERASIONAL</span></div>
             {hours.map(([day, time]) => (
               <div className="hours-line" key={day}><span>{day}</span><strong>{time}</strong></div>
             ))}
@@ -349,7 +348,7 @@ function Footer() {
   return (
     <footer className="site-footer">
       <div className="page-shell footer-main">
-        <a className="footer-wordmark" href="#hero">Laundry Ceria<span>®</span></a>
+        <a className="footer-wordmark" href="#hero">Laundry Ceria</a>
         <p>Website latihan untuk bisnis sintetis. Bukan representasi usaha nyata.</p>
         <a className="footer-top" href="#hero">Kembali ke atas ↑</a>
       </div>
