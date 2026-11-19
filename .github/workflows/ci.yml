@@ -31,8 +31,8 @@ jobs:
         run: npm run build
       - name: Install Playwright and Chromium for breakpoint evidence
         run: npx playwright install --with-deps chromium
-      - name: Capture and measure live design references for A3
-        run: node scripts/capture-reference-study.mjs
+      - name: Capture and measure independent Test 02 design references
+        run: node scripts/test-02-reference-study.mjs
       - name: Collect dependency reproducibility and advisory evidence
         shell: bash
         run: |
