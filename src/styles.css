@@ -735,10 +735,10 @@ button:focus-visible, a:focus-visible { outline-color: var(--color-primary); }
   .process-aside { max-width: none; margin: 0 0 23px; }
   .process-item > div { grid-template-columns: 1fr; gap: 7px; }
   .pickup-copy { grid-template-columns: 1fr 1fr; gap: 0 24px; }
-  .contact-card { grid-template-columns: minmax(140px, .8fr) minmax(0, 1.2fr); }
-  .status-code { grid-column: 2; grid-row: 1; justify-self: end; }
+  .contact-card { grid-template-columns: minmax(140px, .8fr) minmax(0, 1.2fr) max-content; }
+  .status-code { grid-column: 3; grid-row: 1; justify-self: start; }
   .contact-card > p { grid-column: 2; grid-row: 1 / span 2; }
-  .contact-card > a, .disabled-label { grid-column: 1; grid-row: 3; justify-self: start; }
+  .contact-card > a, .disabled-label { grid-column: 3; grid-row: 2; justify-self: start; }
 }
 @media (max-width: 767px) {
   .hero { padding-top: 54px; }
