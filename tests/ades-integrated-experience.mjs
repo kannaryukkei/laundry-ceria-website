@@ -70,6 +70,18 @@ try {
   assert.ok(menuBox && heroBox && heroBox.y >= menuBox.y + menuBox.height, 'Mobile menu pushes hero down, not over it');
   await page.keyboard.press('Escape');
   assert.equal(await menuButton.getAttribute('aria-expanded'), 'false', 'Escape closes the menu');
+
+  await page.setViewportSize({ width: 768, height: 1024 });
+  await page.goto(baseURL, { waitUntil: 'networkidle' });
+  const tabletMenu = page.locator('button.menu-toggle');
+  assert.equal(await tabletMenu.isVisible(), true, 'Tablet portrait uses compact navigation');
+  await tabletMenu.click();
+  await page.waitForFunction(() => document.querySelector('#primary-nav')?.classList.contains('is-open'));
+  const tabletNavBox = await page.locator('#primary-nav').boundingBox();
+  const tabletHeroBox = await page.locator('.hero').boundingBox();
+  assert.ok(tabletNavBox && tabletHeroBox && tabletHeroBox.y >= tabletNavBox.y + tabletNavBox.height, 'Tablet navigation pushes hero down');
+  await page.keyboard.press('Escape');
+  assert.equal(await tabletMenu.getAttribute('aria-expanded'), 'false', 'Escape closes tablet navigation');
   assert.deepEqual(pageErrors, [], 'No uncaught browser errors');
 
   await page.emulateMedia({ reducedMotion: 'reduce' });
