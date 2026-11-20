@@ -1,171 +1,172 @@
-import { useEffect, useRef, useState } from 'react';
-import { hours, processSteps, services } from './data';
+import { useEffect, useMemo, useState } from 'react';
+import { hours, services } from './data';
 
 const navItems = [
-  ['Harga', 'services-pricing'],
-  ['Proses', 'how-it-works'],
-  ['Antar-jemput', 'pickup-delivery'],
-  ['Jam & lokasi', 'hours-location'],
+  ['Harga', 'layanan'],
+  ['Waktu', 'waktu'],
+  ['Proses', 'proses'],
+  ['Antar-jemput', 'antar-jemput'],
+  ['Jam & lokasi', 'jam'],
 ] as const;
 
-type PriceItem = { name: string; price: string; unit: string };
+type ServiceKey = 'cuci-lipat' | 'cuci-setrika' | 'setrika-saja' | 'bed-cover' | 'selimut';
 
-function PreviewNotice() {
+const calculatorServices: { key: ServiceKey; label: string; price: number; unit: 'kg' | 'potong' }[] = [
+  { key: 'cuci-lipat', label: 'Cuci lipat', price: 8000, unit: 'kg' },
+  { key: 'cuci-setrika', label: 'Cuci setrika', price: 12000, unit: 'kg' },
+  { key: 'setrika-saja', label: 'Setrika saja', price: 7000, unit: 'kg' },
+  { key: 'bed-cover', label: 'Bed cover', price: 25000, unit: 'potong' },
+  { key: 'selimut', label: 'Selimut', price: 20000, unit: 'potong' },
+];
+
+const rupiah = (amount: number) => new Intl.NumberFormat('id-ID', {
+  style: 'currency', currency: 'IDR', maximumFractionDigits: 0,
+}).format(amount);
+
+function PreviewBar() {
+  return <div className="preview-bar" role="note">ADES PREVIEW — NOT FOR RELEASE <span>• DATA FIKTIF • DEMO-ONLY • NOT_APPROVED</span></div>;
+}
+
+function ClotheslineArt() {
   return (
-    <div className="preview-notice" id="preview-notice" role="note" aria-label="Pemberitahuan website demo">
-      <div className="container notice-inner">
-        <span className="notice-indicator" aria-hidden="true" />
-        <strong>PREVIEW ONLY</strong>
-        <span className="notice-separator" aria-hidden="true" />
-        <span>Data fiktif untuk latihan</span>
-        <b>DEMO-ONLY</b>
-        <b>NOT_APPROVED</b>
-      </div>
+    <div className="hero-art">
+      <svg viewBox="0 0 520 300" role="img" aria-labelledby="clothesline-title">
+        <title id="clothesline-title">Ilustrasi pakaian yang dijemur pada tali jemuran</title>
+        <path d="M28 72 Q260 35 492 72" fill="none" stroke="#16262B" strokeWidth="4" strokeLinecap="round" />
+        <path d="M28 72 L28 255 M492 72 L492 255" stroke="#0F6B63" strokeWidth="8" strokeLinecap="round" />
+        <g stroke="#16262B" strokeWidth="3" strokeLinejoin="round">
+          <path d="M90 73 L90 101 M82 96 L98 96" stroke="#D9543B" strokeWidth="5" />
+          <path d="M78 103 L101 103 L98 145 L93 150 L86 150 L81 145 Z" fill="#D3EAE0" />
+          <path d="M184 65 L184 94 M176 89 L192 89" stroke="#F2A93B" strokeWidth="5" />
+          <path d="M168 96 L200 96 L197 153 L171 153 Z" fill="#F2A93B" />
+          <path d="M280 59 L280 90 M272 85 L288 85" stroke="#0F6B63" strokeWidth="5" />
+          <path d="M264 92 L296 92 L293 155 L267 155 Z" fill="#0F6B63" />
+          <path d="M375 65 L375 95 M367 90 L383 90" stroke="#D9543B" strokeWidth="5" />
+          <path d="M361 97 L389 97 L386 145 L364 145 Z" fill="#D9543B" />
+        </g>
+        <path d="M50 210 Q260 184 470 210" stroke="#0F6B63" strokeWidth="2" strokeDasharray="5 9" fill="none" opacity=".45"/>
+        <circle cx="260" cy="213" r="8" fill="#F2A93B"/>
+      </svg>
+      <p>ILUSTRASI DEKORATIF · BUKAN FOTO TOKO</p>
     </div>
   );
 }
 
 function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuButton = useRef<HTMLButtonElement>(null);
-
+  const [open, setOpen] = useState(false);
   useEffect(() => {
-    if (!menuOpen) return;
-
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key !== 'Escape') return;
-      setMenuOpen(false);
-      menuButton.current?.focus();
-    };
-
-    document.addEventListener('keydown', closeOnEscape);
-    return () => document.removeEventListener('keydown', closeOnEscape);
-  }, [menuOpen]);
-
+    if (!open) return;
+    const close = (event: KeyboardEvent) => { if (event.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [open]);
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a className="wordmark" href="#hero" aria-label="Laundry Ceria, kembali ke awal">
-          <span className="wordmark-name">Laundry <b>Ceria</b></span>
-          <span className="wordmark-demo">DEMO</span>
+        <a className="brand" href="#top" aria-label="Laundry Ceria, kembali ke awal">
+          <span className="brand-mark" aria-hidden="true">LC</span>
+          <span><strong>Laundry Ceria</strong><small>LAUNDRY KILOAN TETANGGA</small></span>
         </a>
-        <button
-          ref={menuButton}
-          className="menu-toggle"
-          type="button"
-          aria-expanded={menuOpen}
-          aria-controls="primary-nav"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span className="sr-only">{menuOpen ? 'Tutup navigasi' : 'Buka navigasi'}</span>
-          <span />
-          <span />
+        <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>
+          <span className="sr-only">{open ? 'Tutup menu' : 'Buka menu'}</span><i/><i/>
         </button>
-        <nav className={'primary-nav' + (menuOpen ? ' is-open' : '')} id="primary-nav" aria-label="Navigasi utama">
-          {navItems.map(([label, id]) => (
-            <a key={id} href={'#' + id} onClick={() => setMenuOpen(false)}>{label}</a>
-          ))}
-          <a className="nav-contact nav-cta" href="#contact" onClick={() => setMenuOpen(false)}>Info kontak <span aria-hidden="true">↗</span></a>
+        <nav id="main-nav" className={open ? 'nav is-open' : 'nav'} aria-label="Navigasi utama">
+          {navItems.map(([label, id]) => <a key={id} href={'#' + id} onClick={() => setOpen(false)}>{label}</a>)}
         </nav>
       </div>
     </header>
   );
 }
 
-function HeroIllustration() {
-  return (
-    <div className="hero-art" role="img" aria-label="Ilustrasi dekoratif kain terlipat dan daftar layanan laundry">
-      <div className="art-grid" aria-hidden="true" />
-      <div className="fabric-stack" aria-hidden="true">
-        <div className="fabric fabric-back" />
-        <div className="fabric fabric-middle" />
-        <div className="fabric fabric-front" />
-      </div>
-      <div className="service-ticket" aria-hidden="true">
-        <div className="ticket-top">
-          <span>DAFTAR LAYANAN</span>
-          <span className="ticket-mark">LC</span>
-        </div>
-        <div className="ticket-row"><span>Cuci lipat</span><strong>Rp8.000<small>/kg</small></strong></div>
-        <div className="ticket-row"><span>Cuci setrika</span><strong>Rp12.000<small>/kg</small></strong></div>
-        <div className="ticket-row"><span>Setrika saja</span><strong>Rp7.000<small>/kg</small></strong></div>
-        <div className="ticket-bottom"><span>KILOAN</span><span>DATA DEMO</span></div>
-      </div>
-      <span className="art-caption">ILUSTRASI DEKORATIF · BUKAN FOTO TOKO</span>
-    </div>
-  );
-}
-
 function Hero() {
   return (
-    <section className="hero" id="hero">
+    <section className="hero" id="top">
       <div className="container hero-layout">
         <div className="hero-copy">
-          <p className="hero-kicker">Laundry kiloan & satuan</p>
-          <h1>Laundry yang jelas. <span>Mulai dari harga.</span></h1>
-          <p className="hero-lead">
-            Kenali pilihan layanan, waktu pengerjaan, dan aturan antar-jemput sebelum menentukan kebutuhan laundry.
-          </p>
-          <div className="hero-actions">
-            <a className="button button-primary" href="#services-pricing">Lihat daftar harga <span aria-hidden="true">↘</span></a>
-            <a className="text-link" href="#hours-location">Jam operasional <span aria-hidden="true">↓</span></a>
-          </div>
-          <p className="hero-disclaimer">Contoh website untuk latihan. Bukan penawaran usaha nyata.</p>
+          <p className="eyebrow">LAUNDRY KILOAN LINGKUNGAN</p>
+          <h1>Laundry yang jelas, <em>mulai dari harga.</em></h1>
+          <p className="hero-lead">Lihat pilihan layanan, waktu pengerjaan, dan ketentuan antar-jemput sebelum membawa pakaian.</p>
+          <div className="hero-pills"><span>Reguler biasanya 2 hari</span><span>Express hari yang sama</span><span>Antar-jemput radius 2 km</span></div>
+          <div className="hero-actions"><a className="button button-primary" href="#layanan">Lihat daftar harga <span>↘</span></a><a className="button button-outline" href="#antar-jemput">Cek antar-jemput</a></div>
+          <p className="demo-copy">Simulasi informasi bisnis. Bukan penawaran usaha nyata.</p>
         </div>
-        <HeroIllustration />
+        <ClotheslineArt />
       </div>
-      <div className="container fact-strip" aria-label="Ringkasan informasi latihan">
-        <div className="fact-item"><span>Harga kiloan terendah</span><strong>Rp7.000<small>/kg</small></strong></div>
-        <div className="fact-item"><span>Waktu reguler</span><strong>Biasanya 2 hari</strong></div>
-        <div className="fact-item"><span>Jangkauan antar-jemput</span><strong>Radius 2 km</strong></div>
-      </div>
-    </section>
-  );
-}
-
-function SectionIntro({ label, title, description }: { label: string; title: string; description: string }) {
-  return (
-    <div className="section-intro">
-      <p className="section-label">{label}</p>
-      <h2>{title}</h2>
-      <p>{description}</p>
-    </div>
-  );
-}
-
-function PriceGroup({ title, unitLabel, items }: { title: string; unitLabel: string; items: readonly PriceItem[] }) {
-  return (
-    <section className="price-group" aria-label={title}>
-      <div className="price-group-heading">
-        <h3>{title}</h3>
-        <span>{unitLabel}</span>
-      </div>
-      <div className="price-rows">
-        {items.map((item) => (
-          <div className="price-row" key={item.name}>
-            <span className="price-name">{item.name}</span>
-            <strong className="price-value">{item.price}<small>{item.unit}</small></strong>
-          </div>
-        ))}
+      <div className="container quick-facts">
+        <div><span>HARGA MULAI DARI</span><strong>Rp7.000<small>/kg</small></strong></div>
+        <div><span>REGULER KILOAN</span><strong>Biasanya 2 hari</strong></div>
+        <div><span>AREA ANTAR-JEMPUT</span><strong>Radius 2 km</strong></div>
       </div>
     </section>
   );
 }
 
-function ServicesPricing() {
+function PricingCalculator() {
+  const [serviceKey, setServiceKey] = useState<ServiceKey>('cuci-lipat');
+  const [quantity, setQuantity] = useState('5');
+  const [pickup, setPickup] = useState(false);
+  const [express, setExpress] = useState(false);
+  const selected = calculatorServices.find((item) => item.key === serviceKey)!;
+  const amount = Number(quantity);
+  const valid = Number.isFinite(amount) && amount > 0;
+  const serviceTotal = valid ? Math.round(amount * selected.price) : 0;
+  const expressAllowed = selected.unit === 'kg';
+  const pickupAllowed = selected.unit === 'kg';
+  const expressFee = express && expressAllowed ? Math.round(serviceTotal * 0.5) : 0;
+  const pickupFee = pickup && pickupAllowed && amount <= 5 ? 5000 : 0;
+  const total = serviceTotal + expressFee + pickupFee;
+  const quantityLabel = selected.unit === 'kg' ? 'Berat cucian (kg)' : 'Jumlah potong';
+  const step = selected.unit === 'kg' ? '0.1' : '1';
+  const updateService = (value: ServiceKey) => {
+    setServiceKey(value);
+    if (!calculatorServices.find((item) => item.key === value)?.unit || calculatorServices.find((item) => item.key === value)?.unit === 'potong') {
+      setPickup(false);
+      setExpress(false);
+    }
+  };
   return (
-    <section className="section pricing-section" id="services-pricing">
+    <section className="calculator-card" aria-labelledby="calculator-title">
+      <div className="calculator-heading"><div><p className="eyebrow">ALAT BANTU HITUNG · BUKAN PEMESANAN</p><h3 id="calculator-title">Hitung perkiraan biaya</h3></div><span className="calc-stamp">DATA DEMO</span></div>
+      <p className="calculator-intro">Pilih layanan dan masukkan jumlahnya untuk melihat estimasi awal.</p>
+      <div className="calculator-fields">
+        <label htmlFor="service-select">Layanan</label>
+        <select id="service-select" value={serviceKey} onChange={(e) => updateService(e.target.value as ServiceKey)}>
+          {calculatorServices.map((item) => <option key={item.key} value={item.key}>{item.label} — {rupiah(item.price)}/{item.unit}</option>)}
+        </select>
+        <label htmlFor="quantity-input">{quantityLabel}</label>
+        <input id="quantity-input" type="number" min="0.1" step={step} inputMode="decimal" value={quantity} onChange={(e) => setQuantity(e.target.value)} aria-describedby="quantity-help"/>
+        <small id="quantity-help">{selected.unit === 'kg' ? 'Masukkan berat dalam kilogram.' : 'Masukkan jumlah potong (bilangan bulat).'}</small>
+        {expressAllowed && <label className="check-option"><input type="checkbox" checked={express} onChange={(e) => setExpress(e.target.checked)}/><span>Express (+50% biaya layanan)</span></label>}
+        {pickupAllowed && <label className="check-option"><input type="checkbox" checked={pickup} onChange={(e) => setPickup(e.target.checked)}/><span>Antar-jemput dalam radius 2 km</span></label>}
+      </div>
+      <div className="estimate" aria-live="polite" aria-atomic="true">
+        <div className="estimate-top"><span>PERKIRAAN BIAYA</span><strong>{valid ? rupiah(total) : '—'}</strong></div>
+        {valid ? <div className="estimate-lines">
+          <p><span>{selected.label} · {amount} {selected.unit}</span><b>{rupiah(serviceTotal)}</b></p>
+          {expressFee > 0 && <p><span>Tambahan express 50%</span><b>{rupiah(expressFee)}</b></p>}
+          {pickup && <p><span>Antar-jemput {amount <= 5 ? '(5 kg atau kurang)' : '(lebih dari 5 kg)'}</span><b>{pickupFee ? rupiah(pickupFee) : 'Gratis'}</b></p>}
+        </div> : <p className="estimate-error">Masukkan jumlah lebih dari nol untuk menghitung estimasi.</p>}
+        <p className="estimate-note">Estimasi bukan tagihan. Berat akhir ditimbang di depan pelanggan dan dicatat sebelum dicuci.</p>
+      </div>
+    </section>
+  );
+}
+
+function Services() {
+  return (
+    <section className="section pricing-section" id="layanan">
       <div className="container">
-        <SectionIntro
-          label="Layanan & harga"
-          title="Pilih sesuai kebutuhan."
-          description="Harga dibedakan menurut berat pakaian atau jumlah potong."
-        />
+        <div className="section-heading"><p className="eyebrow">01 · LAYANAN & HARGA</p><h2>Harga yang bisa dibaca sebelum datang</h2><p>Tarif kiloan untuk cucian harian dan tarif per potong untuk bed cover serta selimut.</p></div>
         <div className="pricing-layout">
-          <PriceGroup title="Laundry kiloan" unitLabel="HARGA PER KG" items={services.kiloan} />
-          <PriceGroup title="Laundry satuan" unitLabel="HARGA PER POTONG" items={services.satuan} />
+          <div className="price-board">
+            <div className="price-head"><strong>LAYANAN</strong><strong>HARGA</strong></div>
+            {services.kiloan.map((item) => <div className="price-row" key={item.name}><strong>{item.name}</strong><span>{item.price}<small>{item.unit}</small></span></div>)}
+            <div className="price-divider">SATUAN · PER POTONG</div>
+            {services.satuan.map((item) => <div className="price-row" key={item.name}><strong>{item.name}</strong><span>{item.price}<small>{item.unit}</small></span></div>)}
+          </div>
+          <PricingCalculator />
         </div>
-        <p className="pricing-disclaimer">Harga di atas berasal dari data fiktif untuk latihan. Tidak ada biaya atau ketentuan lain yang ditambahkan.</p>
+        <p className="fine-print">Seluruh harga pada halaman ini merupakan data fiktif untuk latihan.</p>
       </div>
     </section>
   );
@@ -173,87 +174,42 @@ function ServicesPricing() {
 
 function Turnaround() {
   return (
-    <section className="section turnaround-section" id="turnaround">
-      <div className="container turnaround-layout">
-        <div className="turnaround-copy">
-          <p className="section-label section-label-light">Waktu pengerjaan</p>
-          <h2>Berapa lama<br />pengerjaannya?</h2>
-          <p>Waktu reguler dan express memiliki ketentuan yang berbeda.</p>
-        </div>
-        <div className="turnaround-details">
-          <div className="regular-time">
-            <span className="detail-label">LAYANAN REGULER</span>
-            <div className="regular-number"><strong>2</strong><span>hari</span></div>
-            <p>Biasanya 2 hari untuk layanan kiloan.</p>
-          </div>
-          <div className="express-time">
-            <div className="express-heading"><span className="detail-label">LAYANAN EXPRESS</span><strong>+50%</strong></div>
-            <div className="express-flow">
-              <div><span>DITERIMA SEBELUM</span><strong>10.00</strong></div>
-              <span className="flow-arrow" aria-hidden="true">→</span>
-              <div><span>SELESAI HARI YANG SAMA</span><strong>20.00</strong></div>
-            </div>
-            <p>Biaya tambahan 50% dari harga normal.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function HowItWorks() {
-  return (
-    <section className="section process-section" id="how-it-works">
+    <section className="section turnaround-section" id="waktu">
       <div className="container">
-        <SectionIntro
-          label="Proses pengerjaan"
-          title="Dari diterima sampai selesai."
-          description="Berikut urutan proses berdasarkan materi latihan."
-        />
-        <ol className="process-list">
-          {processSteps.map((step) => (
-            <li className="process-item" key={step.number}>
-              <span className="process-number">{step.number}</span>
-              <div className="process-copy">
-                <h3>{step.title}</h3>
-                <p>{step.detail}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-        <div className="process-note">
-          <span aria-hidden="true">＋</span>
-          <p>Setiap pesanan dibungkus plastik gratis setelah selesai.</p>
+        <div className="section-heading"><p className="eyebrow">02 · WAKTU PENGERJAAN</p><h2>Reguler dua hari, express selesai hari yang sama</h2><p>Waktu pengerjaan dihitung sejak cucian diterima.</p></div>
+        <div className="turn-grid">
+          <article className="turn-card"><span className="tag">REGULER</span><h3>Biasanya 2 hari</h3><p>Laundry kiloan reguler biasanya selesai dalam dua hari.</p></article>
+          <article className="turn-card turn-express"><span className="tag tag-sun">EXPRESS · TAMBAHAN 50%</span><h3>Selesai pukul 20.00</h3><p>Cucian yang diterima <strong>sebelum pukul 10.00</strong> dapat selesai pada pukul 20.00 di hari yang sama.</p><div className="timeline"><span>Masuk sebelum 10.00</span><b>→</b><span>Selesai 20.00</span></div></article>
         </div>
+        <p className="fine-print">Ketentuan express untuk layanan per potong belum dinyatakan dalam materi simulasi, sehingga tidak dihitung oleh kalkulator.</p>
       </div>
     </section>
   );
 }
 
-function PickupDelivery() {
+function Process() {
   return (
-    <section className="section pickup-section" id="pickup-delivery">
+    <section className="section process-section" id="proses">
+      <div className="container">
+        <div className="section-heading"><p className="eyebrow">03 · PROSES</p><h2>Ditimbang di depan Anda, dicatat sebelum dicuci</h2><p>Dua hal ini dinyatakan dalam materi simulasi.</p></div>
+        <ol className="steps">
+          <li><span>01</span><div><h3>Ditimbang di depan pelanggan</h3><p>Berat cucian ditimbang di depan Anda.</p></div></li>
+          <li><span>02</span><div><h3>Dicatat sebelum dicuci</h3><p>Berat cucian dicatat terlebih dahulu sebelum proses pencucian dimulai.</p></div></li>
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+function Pickup() {
+  return (
+    <section className="section pickup-section" id="antar-jemput">
       <div className="container pickup-layout">
-        <div className="pickup-copy">
-          <p className="section-label">Antar-jemput</p>
-          <h2>Masih dalam<br />jangkauan.</h2>
-          <p>Area layanan antar-jemput memiliki radius 2 km dari ruko.</p>
-          <div className="radius-mark" aria-label="Radius layanan 2 kilometer">
-            <span className="radius-number">2</span>
-            <span className="radius-unit">km</span>
-            <span className="radius-caption">RADIUS LAYANAN</span>
-          </div>
-        </div>
+        <div><p className="eyebrow">04 · ANTAR-JEMPUT</p><h2>Antar-jemput dalam radius 2 km</h2><p className="pickup-lead">Ketentuan biaya mengikuti berat pesanan.</p><div className="radius-art"><span>2</span><b>km</b><small>RADIUS LAYANAN</small></div></div>
         <div className="pickup-rules">
-          <div className="pickup-rule pickup-free">
-            <div><span>BERAT PESANAN</span><strong>Lebih dari 5 kg</strong></div>
-            <b>GRATIS</b>
-          </div>
-          <div className="pickup-rule pickup-paid">
-            <div><span>BERAT PESANAN</span><strong>5 kg atau kurang</strong></div>
-            <b>Rp5.000</b>
-          </div>
-          <p className="pickup-note">Ketentuan radius dan biaya di atas merupakan data fiktif untuk latihan.</p>
+          <article className="pickup-rule pickup-free"><span>GRATIS</span><div><h3>Pesanan di atas 5 kg</h3><p>Biaya jemput gratis untuk pesanan dengan berat lebih dari 5 kg.</p></div></article>
+          <article className="pickup-rule"><span>Rp5.000</span><div><h3>Pesanan 5 kg atau kurang</h3><p>Biaya antar-jemput untuk pesanan dengan berat maksimal 5 kg.</p></div></article>
+          <p className="fine-print">Ketentuan ini berlaku dalam radius 2 km dari lokasi simulasi.</p>
         </div>
       </div>
     </section>
@@ -262,61 +218,12 @@ function PickupDelivery() {
 
 function HoursLocation() {
   return (
-    <section className="section location-section" id="hours-location">
+    <section className="section location-section" id="jam">
       <div className="container">
-        <SectionIntro
-          label="Jam & lokasi"
-          title="Catat sebelum berkunjung."
-          description="Jadwal dan alamat berikut ditampilkan sesuai materi latihan fiktif."
-        />
-        <div className="location-layout">
-          <section className="hours-panel" aria-labelledby="hours-title">
-            <div className="panel-heading">
-              <h3 id="hours-title">Jam operasional</h3>
-              <span>SETIAP MINGGU</span>
-            </div>
-            <div className="hours-list">
-              {hours.map((item) => (
-                <div className="hours-row" key={item.day}>
-                  <span>{item.day}</span>
-                  <strong>{item.time}</strong>
-                </div>
-              ))}
-            </div>
-          </section>
-          <section className="address-panel" aria-labelledby="address-title">
-            <div className="address-topline"><span>ALAMAT</span><b>ALAMAT FIKTIF — DATA DEMO</b></div>
-            <h3 id="address-title">Jl. Melati No. 12,<br />Jakarta</h3>
-            <p>Alamat ini hanya digunakan sebagai contoh latihan dan bukan lokasi usaha sungguhan.</p>
-          </section>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Contact() {
-  return (
-    <section className="section contact-section" id="contact">
-      <div className="container">
-        <SectionIntro
-          label="Informasi kontak"
-          title="Sebelum menentukan langkah."
-          description="Kontak dan alamat pada halaman ini belum dapat digunakan untuk kunjungan atau komunikasi nyata."
-        />
-        <div className="contact-layout">
-          <div className="contact-option walkin-card">
-            <span className="contact-index">01 / KUNJUNGAN</span>
-            <h3>Datang langsung</h3>
-            <p>Alamat pada materi latihan bersifat fiktif dan tidak dapat digunakan untuk kunjungan nyata.</p>
-            <a href="#hours-location">Lihat detail alamat <span aria-hidden="true">↗</span></a>
-          </div>
-          <div className="contact-option contact-disabled">
-            <div className="contact-index-row"><span className="contact-index">02 / PESAN</span><b>NOT_CONFIGURED</b></div>
-            <h3>WhatsApp belum tersedia</h3>
-            <p>Nomor WhatsApp usaha belum diberikan dalam materi, sehingga jalur kontak ini belum dapat diaktifkan.</p>
-            <span className="disabled-label" aria-disabled="true">Belum tersedia</span>
-          </div>
+        <div className="section-heading"><p className="eyebrow">05 · JAM BUKA & LOKASI</p><h2>Kapan bisa datang</h2><p>Jam operasional mingguan dan keterangan alamat demo.</p></div>
+        <div className="info-grid">
+          <section className="info-card" aria-labelledby="hours-title"><h3 id="hours-title">Jam operasional</h3><ul>{hours.map((item) => <li key={item.day}><span>{item.day}</span><strong>{item.time}</strong></li>)}</ul></section>
+          <section className="info-card address-card" aria-labelledby="address-title"><span className="demo-badge">ALAMAT FIKTIF · DEMO</span><h3 id="address-title">Jl. Melati No. 12, Jakarta</h3><p>Alamat ini sepenuhnya fiktif untuk keperluan pratinjau desain dan bukan alamat usaha yang sebenarnya. Tidak ada peta atau petunjuk arah.</p></section>
         </div>
       </div>
     </section>
@@ -324,42 +231,9 @@ function Contact() {
 }
 
 function Footer() {
-  return (
-    <footer className="site-footer">
-      <div className="container footer-main">
-        <div className="footer-brand">
-          <a className="footer-wordmark" href="#hero">Laundry <b>Ceria</b></a>
-          <p>Contoh website untuk latihan AI-Operated Web Studio.</p>
-        </div>
-        <nav className="footer-nav" aria-label="Navigasi footer">
-          {navItems.map(([label, id]) => <a key={id} href={'#' + id}>{label}</a>)}
-        </nav>
-        <a className="back-to-top back-top" href="#preview-notice">Kembali ke atas <span aria-hidden="true">↑</span></a>
-      </div>
-      <div className="container footer-bottom">
-        <span>PREVIEW ONLY · DEMO-ONLY · NOT_APPROVED</span>
-        <span>BUKAN WEBSITE BISNIS NYATA</span>
-      </div>
-    </footer>
-  );
+  return <footer className="footer"><div className="container footer-inner"><div><strong>Laundry Ceria</strong><p>Pratinjau desain untuk laundry kiloan lingkungan.</p><span className="contact-status">STATUS KONTAK: BELUM TERSEDIA<br/>Nomor WhatsApp dan telepon belum diberikan.</span></div><nav aria-label="Navigasi footer">{navItems.map(([label,id]) => <a key={id} href={'#'+id}>{label}</a>)}</nav></div><div className="container footer-bottom"><span>ADES PREVIEW — NOT FOR RELEASE · DEMO-ONLY · NOT_APPROVED</span><span>Konsep desain: “Jemuran Ceria”</span></div></footer>;
 }
 
 export default function App() {
-  return (
-    <>
-      <a className="skip-link" href="#main-content">Lewati ke konten utama</a>
-      <PreviewNotice />
-      <Header />
-      <main id="main-content" tabIndex={-1}>
-        <Hero />
-        <ServicesPricing />
-        <Turnaround />
-        <HowItWorks />
-        <PickupDelivery />
-        <HoursLocation />
-        <Contact />
-      </main>
-      <Footer />
-    </>
-  );
+  return <><a className="skip-link" href="#main-content">Lewati ke konten utama</a><PreviewBar/><Header/><main id="main-content" tabIndex={-1}><Hero/><Services/><Turnaround/><Process/><Pickup/><HoursLocation/></main><Footer/></>;
 }
