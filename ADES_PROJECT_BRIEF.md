@@ -262,6 +262,6 @@ Adapt selectively:
   - Express menggunakan cutoff **sebelum pukul 10.00**, selesai pukul 20.00 hari yang sama, +50%.
   - Alamat tetap ditandai fiktif/demo; tanpa peta, petunjuk arah, kontak aktif, foto, atau social proof.
 - **Formula kalkulator:** subtotal = harga layanan × berat/jumlah; express kiloan = 50% subtotal bila dipilih; pickup kiloan = Rp5.000 bila dipilih dan berat <= 5 kg, selain itu gratis bila > 5 kg. Pickup/express tidak muncul untuk item per potong.
-- **Validasi:** TypeScript/build/CI belum dinyatakan lulus sampai hasil workflow PR exact-head tersedia. Pemeriksaan visual desktop manual, interaksi keyboard, zoom 200%, screen reader, dan mobile QA belum dilakukan pada implementasi.
-- **Branch dan PR:** branch terpisah; PR draft akan digunakan untuk review. Tidak ada merge, deployment, DNS, publikasi, biaya atau outreach yang diotorisasi.
+- **Validasi:** workflow PR #16 belum mengembalikan run yang dapat diperiksa pada saat pembaruan Brief; TypeScript/build/CI belum dinyatakan lulus. Pemeriksaan visual desktop manual, interaksi keyboard, zoom 200%, screen reader, dan mobile QA belum dilakukan pada implementasi.
+- **Branch dan PR:** implementasi pada branch `ades/deepseek-direction-implementation`; draft PR #16 https://github.com/kannaryukkei/laundry-ceria-website/pull/16. Tidak ada merge, deployment, DNS, publikasi, biaya atau outreach yang diotorisasi.
 - **Catatan scope:** operator meminta fokus visual desktop untuk keputusan arah. CSS tetap memiliki breakpoints untuk layout lain, tetapi itu bukan klaim bahwa responsivitas sudah diuji.
