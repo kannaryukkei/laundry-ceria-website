@@ -28,8 +28,8 @@ const hours = [
   ['Kamis', '08.00–20.00'], ['Jumat', '08.00–20.00'], ['Sabtu', '08.00–20.00'],
   ['Minggu', '09.00–15.00'],
 ];
-const currency = (value: number) => new Intl.NumberFormat('id-ID', {
-  style: 'currency', currency: 'IDR', maximumFractionDigits: 0,
+const currency = (value: number) => 'Rp' + new Intl.NumberFormat('id-ID', {
+  maximumFractionDigits: 0,
 }).format(value);
 
 function PreviewNotice() {
