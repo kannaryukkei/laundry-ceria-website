@@ -389,3 +389,102 @@ a:focus, button:focus, input:focus, select:focus {
   .process-step:nth-child(odd) { padding-right: 18px; border-right: 1px solid var(--line); }
   .process-step:nth-child(even) { padding-right: 0; padding-left: 18px; }
 }
+
+
+/* Readability and contrast refinements from the shared rendered-site audit. */
+:root { --coral: #b3472e; }
+
+.preview-bar { font-size: 11px; }
+.wordmark-copy small,
+.hero-kicker,
+.hero-image-wrap figcaption,
+.hero-price-note > span,
+.hero-price-note > small,
+.hero-bottom,
+.section-intro-meta,
+.price-table-heading > span,
+.price-line > span,
+.price-line small,
+.pricing-footer small,
+.estimator-copy > span,
+.estimator-copy > small,
+.estimator-disclaimer,
+.turnaround-card > span,
+.express-head > span,
+.express-time > div > span,
+.turnaround-card > small,
+.pickup-fee > span,
+.address-tag,
+.address-overline,
+.address-ref,
+.contact-status-item > span,
+.contact-status-item > b,
+.footer-status > div {
+  font-size: 11px;
+  letter-spacing: .045em;
+}
+
+.hero-image-wrap figcaption {
+  max-width: calc(100% - 20px);
+  white-space: normal;
+  line-height: 1.35;
+  text-align: right;
+}
+.hero-proofline { font-size: 12px; }
+.hero-bottom { color: #4f5670; }
+.price-line > span,
+.pricing-footer small,
+.turnaround-card > span,
+.express-head > span,
+.turnaround-card > small { color: #4f5670; }
+.button-primary span,
+.express-time > i { color: #fff; }
+
+.estimator-copy p,
+.estimator-result p,
+.estimator-disclaimer,
+.estimator-panel > label:not(.check-row),
+.check-row,
+.turnaround-card > p,
+.section-intro > div > p,
+.process-step p,
+.pickup-layout > div:first-child > p,
+.pickup-fees > p,
+.hours-line,
+.hours-line strong,
+.hours-note,
+.address-sheet p,
+.contact-copy p,
+.contact-status-item p,
+.footer-main p,
+.pricing-footer p {
+  font-size: 15px;
+}
+
+.estimator-panel select,
+.estimator-panel input[type="number"] { font-size: 15px; }
+.check-row small { font-size: 11px; }
+.main-nav a { font-size: 13px; }
+
+.pickup-layout .section-intro-meta { color: #fff; }
+.pickup-layout .section-intro-meta b { color: var(--ink); }
+.pickup-fee > span,
+.pickup-fees > p,
+.express-card .card-kicker,
+.express-time > div > span,
+.express-card > small { color: #fff; }
+
+.address-overline,
+.address-ref { color: #34453b; }
+
+@media (max-width: 767px) {
+  .main-nav a { font-size: 14px; }
+  .section-intro-content p { font-size: 15px; }
+  .price-line > b { font-size: 15px; }
+  .contact-status-item p { font-size: 15px; }
+  .footer-main p { font-size: 15px; }
+}
+
+@media (min-width: 768px) and (max-width: 1050px) {
+  .main-nav a { font-size: 13px; }
+}
