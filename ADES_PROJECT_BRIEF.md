@@ -9,7 +9,7 @@
 - **Nama proyek:** ADES Pilot — Laundry Ceria Website
 - **PIC/kontak non-sensitif:** Ratna (nama pemilik simulasi; tidak ada kontak yang diberikan)
 - **Operating mode:** `studio_development`
-- **Status:** Discovery awal / repository audit selesai; menunggu pemilihan model eksplorasi independen
+- **Status:** Discovery awal dan repository audit selesai; prompt eksplorasi independen disiapkan; menunggu tiga HTML preview
 - **Repository:** https://github.com/kannaryukkei/laundry-ceria-website
 - **Baseline audit:** `main` pada `71dbcf27e6d77310cd7fa1a098dc8a7935711be2` (2026-11-20)
 - **Tanggal diperbarui:** 2026-11-20
@@ -94,12 +94,12 @@ Semua pernyataan di bawah berasal dari intake simulasi operator dan bukan fakta 
 
 - **Identitas visual/aset brand:** belum ada identitas resmi atau aset foto yang dapat digunakan.
 - **Creative brief:** eksplorasi independen untuk satu halaman website laundry lingkungan; prioritaskan kejelasan harga, keterbacaan ponsel, hirarki layanan dan ketentuan; arah visual bebas selama akurat dan aksesibel.
-- **Status eksplorasi:** belum dimulai pada percakapan Lead ini.
-- **Operator memilih model eksternal:** belum ditentukan. Wajib sedikitnya dua model eksternal independen selain Lead.
+- **Status eksplorasi:** prompt awal disiapkan untuk Gemini, Muse, dan DeepSeek pada 2026-11-20; output HTML independen belum diterima.
+- **Model eksternal pilihan operator:** Gemini, Muse, dan DeepSeek. Ketiganya akan dijalankan operator pada sesi terpisah, tanpa berbagi output antarmodel. Jumlah ini memenuhi syarat minimal dua model eksternal independen selain Lead.
 - **Protokol isolasi:** setiap model menerima brief/fakta/batasan dan pertanyaan desain yang sama; tidak boleh melihat output model lain. Jangan lampirkan desain, screenshot, spesifikasi visual, atau arahan dari dokumen Stage 1–3 maupun implementasi lama pada prompt putaran independen pertama.
 - **Kontrak output tiap model:** satu file HTML mandiri; CSS/JS inline; responsif; dapat dibuka langsung; tanpa framework/build/API/asset eksternal; tanpa interaksi palsu; label `ADES PREVIEW — NOT FOR RELEASE`; komentar metadata konsep.
 - **Kriteria evaluasi:** relevansi bisnis, kualitas visual, UX, responsivitas, aksesibilitas, kelayakan implementasi, dan akurasi informasi.
-- **Riwayat model / hasil:** belum ada hasil yang diterima dalam sesi Lead ini.
+- **Riwayat model / hasil:** prompt setara disiapkan dan disampaikan di percakapan Lead pada 2026-11-20; hasil dari ketiga model masih menunggu.
 - **Sintesis:** pending sampai semua output awal terkumpul; jangan voting atau membuat kolase.
 
 ## 7. Functional and technical plan
@@ -160,7 +160,7 @@ Semua pernyataan di bawah berasal dari intake simulasi operator dan bukan fakta 
 
 | Pertanyaan / risiko / tindakan | Mengapa penting | Penanggung jawab | Dibutuhkan sebelum |
 |---|---|---|---|
-| Model AI eksternal apa yang dipilih operator (minimal dua model independen)? | Wajib untuk eksplorasi yang valid; Lead menyiapkan prompt siap salin | Operator | Eksplorasi |
+| Mengembalikan satu HTML preview dari masing-masing Gemini, Muse, dan DeepSeek | Dibutuhkan untuk membandingkan hasil independen; jangan berbagi hasil antarmodel sebelum ketiganya terkumpul | Operator | Seleksi dan sintesis |
 | Rincian operasional ekstra yang ada di implementasi lama tetapi tidak ada di intake | Mencegah fakta sintetis lama dianggap sumber yang disetujui | Lead / Operator | Konten final |
 | Nomor WhatsApp tidak tersedia | CTA kontak aktif tidak dapat dibuat | Operator (jika ingin menambahkan dalam skenario) | Sebelum kontak aktif; tidak memblokir demo |
 | Foto dan izin tertulis belum ada | Hak penggunaan tidak jelas | Operator | Sebelum foto dipakai; tidak memblokir demo |
@@ -169,12 +169,23 @@ Semua pernyataan di bawah berasal dari intake simulasi operator dan bukan fakta 
 
 ## 12. Lead status and next step
 
-- **Tahap saat ini:** Discovery awal selesai; repository audit awal selesai; siap menyiapkan eksplorasi independen.
+- **Tahap saat ini:** Discovery awal dan repository audit selesai; prompt eksplorasi independen untuk tiga model telah disiapkan.
 - **Ringkasan kemajuan:** Guide dibaca; intake diproses; baseline repository dan struktur teknis diperiksa; tidak ada perubahan kode; hasil eksperimen terdahulu dipertahankan.
-- **Hambatan:** model eksternal belum dipilih operator.
-- **Menunggu operator:** sebutkan minimal dua model AI eksternal yang akan digunakan secara independen.
-- **Langkah berikutnya:** Lead menyiapkan prompt siap salin yang setara untuk masing-masing model setelah operator menyebutkan pilihannya.
+- **Hambatan:** output HTML dari Gemini, Muse, dan DeepSeek belum dikembalikan.
+- **Menunggu operator:** jalankan prompt yang disediakan secara terpisah di Gemini, Muse, dan DeepSeek; jangan bagikan hasil salah satu model kepada model lainnya.
+- **Langkah berikutnya:** operator mengembalikan tiga file HTML hasil eksplorasi independen ke percakapan Lead yang sama.
 
 ---
 
 **Aturan kerja:** satu ADES_PROJECT_BRIEF aktif; percakapan Lead adalah pusat keputusan; perubahan repository melalui branch dan PR; tidak ada rilis tanpa otorisasi eksplisit.
+
+
+## 13. Independent exploration handoff — 2026-11-20
+
+- **Operator-selected models:** Gemini, Muse, DeepSeek.
+- **Execution:** operator manually runs each prompt in a separate fresh session. No model receives another model's output, screenshot, critique, or concept before all initial outputs are collected.
+- **Prompt parity:** all three prompts use the same business facts, constraints, task, output contract, and evaluation criteria. Only the target model label changes.
+- **Prompt source:** ADES Lead conversation dated 2026-11-20. The three prompts are delivered in that conversation for direct copy/paste.
+- **Forbidden context for this first round:** do not attach or reveal prior Stage 1–3 strategy/planning/design documents, existing website source, prior branch/PR descriptions, screenshots, or previous candidate directions. The prompts are intentionally self-contained and independent.
+- **Expected handoff:** exactly one standalone HTML preview file from each model, returned to this Lead conversation. Do not ask models to compare, rank, or synthesize one another.
+- **Current state:** prompts prepared; model execution and outputs pending. Exploration is not complete until outputs are received and reviewed.
