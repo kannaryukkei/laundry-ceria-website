@@ -9,7 +9,7 @@
 - **Nama proyek:** ADES Pilot — Laundry Ceria Website
 - **PIC/kontak non-sensitif:** Ratna (nama pemilik simulasi; tidak ada kontak yang diberikan)
 - **Operating mode:** `studio_development`
-- **Status:** Arah desain DeepSeek dipilih operator; implementasi awal tersedia pada branch terpisah dan menunggu CI serta review
+- **Status:** Arah desain DeepSeek dipilih operator; implementasi pada PR #16 lulus exact-head CI; menunggu review visual operator
 - **Repository:** https://github.com/kannaryukkei/laundry-ceria-website
 - **Baseline audit:** `main` pada `71dbcf27e6d77310cd7fa1a098dc8a7935711be2` (2026-11-20)
 - **Tanggal diperbarui:** 2026-11-20
@@ -168,11 +168,11 @@ Semua pernyataan di bawah berasal dari intake simulasi operator dan bukan fakta 
 
 ## 12. Lead status and next step
 
-- **Tahap saat ini:** Build — implementasi awal arah DeepSeek dan kalkulator tersedia pada branch PR terpisah; TypeScript dan production build lulus; menunggu browser capture, canonical quality gate, dan review desktop.
+- **Tahap saat ini:** Review — implementasi arah DeepSeek dan kalkulator tersedia pada PR #16; full CI exact-head lulus; menunggu review visual operator.
 - **Ringkasan kemajuan:** Guide dan intake ditinjau; baseline repository dipertahankan; tiga output independen diaudit; operator memilih DeepSeek; implementasi awal dilakukan pada branch `ades/deepseek-direction-implementation`.
-- **Hambatan:** inspeksi render desktop/mobile melalui Chromium headless tidak berhasil (proses timeout); visual akhir, zoom 200%, screen reader dan interaksi manual belum tervalidasi.
-- **Menunggu operator:** buka ketiga HTML preview secara lokal pada desktop dan lebar mobile; kirim screenshot bila tersedia. Tidak perlu menjalankan ulang model.
-- **Langkah berikutnya:** periksa hasil CI dan preview desktop dari PR implementasi; koreksi bila ditemukan regresi.
+- **Hambatan:** belum ada review visual manual dari operator atas implementasi pada PR #16. Zoom browser 200%, screen reader, dan usability manual belum tervalidasi. CI sudah menghasilkan screenshot otomatis pada beberapa viewport, tetapi bukan pengganti inspeksi visual manusia.
+- **Menunggu operator:** review preview implementasi PR #16; fokus desktop cukup untuk keputusan visual tahap ini. Mobile QA tetap dicatat sebagai belum selesai.
+- **Langkah berikutnya:** operator review preview PR #16 dan kirim screenshot/catatan jika ada masalah; Lead kemudian melakukan audit visual/UX lanjutan dan memperbarui status QA.
 
 ---
 
@@ -261,7 +261,7 @@ Adapt selectively:
   - Express menggunakan cutoff **sebelum pukul 10.00**, selesai pukul 20.00 hari yang sama, +50%.
   - Alamat tetap ditandai fiktif/demo; tanpa peta, petunjuk arah, kontak aktif, foto, atau social proof.
 - **Formula kalkulator:** subtotal = harga layanan × berat/jumlah; express kiloan = 50% subtotal bila dipilih; pickup kiloan = Rp5.000 bila dipilih dan berat <= 5 kg, selain itu gratis bila > 5 kg. Pickup/express tidak muncul untuk item per potong.
-- **Validasi:** workflow PR #16 run `44713268009` sedang berjalan; langkah TypeScript dan production build sudah sukses. Sisa browser capture, dependency evidence, dan canonical quality gate masih berjalan. Pemeriksaan visual desktop manual, interaksi keyboard, zoom 200%, screen reader, dan mobile QA belum dilakukan pada implementasi.
+- **Validasi:** Website CI #284, run ID `44737656148`, selesai dengan conclusion `success` pada exact head `88eb825d827e727112a88a0ed868a60a3c8b965c`. Typecheck, production build, Playwright/browser capture, A11Y-001, A11Y-002, dan canonical shared quality gate seluruhnya sukses. Pemeriksaan visual desktop manual, interaksi keyboard, zoom 200%, screen reader, dan mobile QA belum dilakukan pada implementasi.
 - **Branch dan PR:** implementasi pada branch `ades/deepseek-direction-implementation`; draft PR #16 https://github.com/kannaryukkei/laundry-ceria-website/pull/16. Tidak ada merge, deployment, DNS, publikasi, biaya atau outreach yang diotorisasi.
 - **Catatan scope:** operator meminta fokus visual desktop untuk keputusan arah. CSS tetap memiliki breakpoints untuk layout lain, tetapi itu bukan klaim bahwa responsivitas sudah diuji.
 
@@ -391,7 +391,21 @@ Adapt selectively:
 
 - **Run:** Website CI #284, run ID `44737656148`, completed with conclusion **success** on the exact PR #16 head `88eb825d827e727112a88a0ed868a60a3c8b965c`.
 - **Interpretation:** the targeted 11 px calculator metadata correction cleared the final reported typography failure. The exact-head workflow is now green; this is the first confirmed full CI success for the current implementation head.
-- **PR status:** PR #16 remains open and draft. Its description still requires a separate update to reflect the successful CI result and the remaining manual review.
+- **PR status:** PR #16 remains open and draft; deskripsi PR sudah mencantumkan CI exact-head success dan review manual yang masih pending.
 - **Remaining QA:** automated CI success does not replace manual desktop/mobile visual review, browser zoom 200%, screen-reader review, or operator usability review. Do not claim those checks complete without evidence.
 - **Next action:** operator reviews the preview on desktop and mobile and reports any visual or interaction defect. After that, Lead can update the validation record and recommend whether to request formal review.
 - **Release boundary:** CI success is not approval to merge or publish. No merge, deployment, DNS change, spending, outreach, or public release is authorized.
+
+
+## 27. Audit tipis setelah CI pulih — 2026-11-20
+
+- **Exact-head status diverifikasi ulang:** PR #16 head `88eb825d827e727112a88a0ed868a60a3c8b965c`; Website CI #284 run `44737656148` berstatus completed / success.
+- **Langkah job:** Typecheck, Production build, Install Playwright/Chromium, Capture and measure live design references, dependency evidence, responsive screenshot capture, Upload breakpoint evidence, dan Canonical shared website quality gate semuanya completed / success.
+- **A11Y test coverage:** A11Y-001 dan A11Y-002 dijalankan di dalam step browser capture; step tersebut sukses. Ini bukti automated keyboard regression, bukan audit screen-reader atau 200% zoom.
+- **Artifacts:** dua artifact masih tersedia: `laundry-ceria-hero-breakpoint-evidence-44737656148` dan `shared-website-quality-gate`. Screenshot otomatis tersedia untuk viewport yang ditentukan workflow; daftar ukuran dan laporan rinci berada di artifact, belum diperiksa satu per satu pada audit tipis ini.
+- **Riwayat perbaikan:** kegagalan private action access, typography floor 15/13/11 px, overflow menu label, contrast `DATA DEMO`, dan metadata calculator 9 px telah dicatat pada bagian CI sebelumnya; perubahan terakhir mengoreksi selector spesifik calculator menjadi 11 px dan menghasilkan CI hijau.
+- **PR #16:** tetap open + draft; tidak merged. PR description sudah menyatakan exact-head CI passed dan manual review pending.
+- **PR #15:** tetap open menurut GitHub API pada saat audit; `merged=false`. Karena itu dokumen kerja aktif masih berada pada branch `ades/active-project-brief` dan belum menjadi bagian `main`. Jangan menganggap brief sudah merged.
+- **Scope/risiko:** CI hijau tidak membuktikan kualitas visual subjektif, kalkulator pada seluruh kombinasi input lewat usability manual, zoom 200%, screen reader, atau mobile QA operator. Tidak ada dasar untuk merge/release dari hasil CI saja.
+- **Next action:** review visual operator terhadap preview PR #16; gunakan artifact screenshot CI sebagai bahan bantu bila diperlukan. Jangan mengulang debugging CI kecuali ada kegagalan baru atau regresi.
+- **Boundary:** tidak ada merge, deployment, DNS, pengeluaran biaya, outreach, atau publikasi yang diotorisasi.
