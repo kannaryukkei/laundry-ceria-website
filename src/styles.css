@@ -488,3 +488,7 @@ a:focus, button:focus, input:focus, select:focus {
 @media (min-width: 768px) and (max-width: 1050px) {
   .main-nav a { font-size: 13px; }
 }
+
+.estimate-result p { font-size: 15px; }
+.express-card .express-head > span { color: #fff; }
+.nav-cta span { color: #fff; }
