@@ -6,21 +6,19 @@ const browser = await chromium.launch({ headless: true });
 
 const desktopOrder = [
   'a.skip-link',
-  'a.wordmark',
-  '#primary-nav a[href="#services-pricing"]',
-  '#primary-nav a[href="#how-it-works"]',
-  '#primary-nav a[href="#pickup-delivery"]',
-  '#primary-nav a[href="#hours-location"]',
-  '#primary-nav a.nav-cta',
-  '.hero-actions a[href="#services-pricing"]',
-  '.hero-actions a[href="#hours-location"]',
-  '.walkin-card a[href="#hours-location"]',
-  'a.footer-wordmark',
-  '.footer-nav a[href="#services-pricing"]',
-  '.footer-nav a[href="#how-it-works"]',
-  '.footer-nav a[href="#pickup-delivery"]',
-  '.footer-nav a[href="#hours-location"]',
-  'a.back-top',
+  'a.brand',
+  '#main-nav a[href="#layanan"]',
+  '#main-nav a[href="#waktu"]',
+  '#main-nav a[href="#proses"]',
+  '#main-nav a[href="#antar-jemput"]',
+  '#main-nav a[href="#jam"]',
+  '.hero-actions a[href="#layanan"]',
+  '.hero-actions a[href="#antar-jemput"]',
+  '.footer nav a[href="#layanan"]',
+  '.footer nav a[href="#waktu"]',
+  '.footer nav a[href="#proses"]',
+  '.footer nav a[href="#antar-jemput"]',
+  '.footer nav a[href="#jam"]',
 ];
 
 try {
@@ -30,7 +28,7 @@ try {
   const renderedLinks = await page.locator('a[href]:visible').evaluateAll((links) =>
     links.map((link) => ({
       href: link.getAttribute('href'),
-      label: (link.getAttribute('aria-label') || link.innerText || '').replace(/\s+/g, ' ').trim(),
+      label: (link.getAttribute('aria-label') || link.innerText || '').replace(/\\s+/g, ' ').trim(),
     })),
   );
   assert.equal(renderedLinks.length, desktopOrder.length, 'Every visible desktop link is included in the reviewed keyboard sequence');
@@ -40,8 +38,6 @@ try {
     assert.ok(await page.locator(link.href).count(), `Every in-page link target exists: ${link.href}`);
   }
 
-  // Walk the complete desktop tab sequence, checking focus visibility and
-  // that no interactive link is skipped, duplicated, or unexpectedly hidden.
   for (let index = 0; index < desktopOrder.length; index += 1) {
     await page.keyboard.press('Tab');
     const selector = desktopOrder[index];
@@ -60,13 +56,9 @@ try {
       };
     });
     assert.equal(focusState.visible, true, `Tab stop is visibly rendered: ${selector}`);
-    assert.ok(
-      focusState.outlineWidth >= 2 && focusState.outlineStyle !== 'none',
-      `Tab stop has a visible keyboard focus indicator: ${selector}`,
-    );
+    assert.ok(focusState.outlineWidth >= 2 && focusState.outlineStyle !== 'none', `Tab stop has a visible keyboard focus indicator: ${selector}`);
   }
 
-  // Reverse traversal must return to the immediately previous link.
   await page.keyboard.press('Shift+Tab');
   assert.equal(
     await page.locator(desktopOrder[desktopOrder.length - 2]).evaluate((element) => document.activeElement === element),
@@ -74,13 +66,12 @@ try {
     'Shift+Tab reverses the sequence without skipping the prior link',
   );
 
-  // At mobile width, collapsed navigation must not interrupt the page tab path.
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(baseURL, { waitUntil: 'networkidle' });
   await page.keyboard.press('Tab');
   assert.equal(await page.locator('a.skip-link').evaluate((el) => document.activeElement === el), true);
   await page.keyboard.press('Tab');
-  assert.equal(await page.locator('a.wordmark').evaluate((el) => document.activeElement === el), true);
+  assert.equal(await page.locator('a.brand').evaluate((el) => document.activeElement === el), true);
   await page.keyboard.press('Tab');
   const toggle = page.locator('button.menu-toggle');
   assert.equal(await toggle.evaluate((el) => document.activeElement === el), true);
