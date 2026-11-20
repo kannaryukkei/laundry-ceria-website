@@ -70,7 +70,7 @@ function Hero() {
         <div className="hero-proofline"><b aria-hidden="true">✓</b><span>Harga terlihat di awal</span><i /><span>Pesanan dicatat per pelanggan</span></div>
       </div>
       <div className="hero-visual">
-        <figure className="hero-image-wrap"><img src="/assets/laundry-ceria-hero.webp" alt="Ilustrasi konseptual tumpukan pakaian bersih dan keranjang laundry biru" width="896" height="597" fetchPriority="high" /><figcaption>ILUSTRASI KONSEPTUAL · BUKAN FOTO TEMPAT USAHA</figcaption></figure>
+        <figure className="hero-image-wrap"><img src="/assets/laundry-ceria-hero.svg" alt="Ilustrasi konseptual tumpukan pakaian bersih dan keranjang laundry biru" width="896" height="597" fetchPriority="high" /><figcaption>ILUSTRASI KONSEPTUAL · BUKAN FOTO TEMPAT USAHA</figcaption></figure>
         <div className="hero-price-note"><span>TARIF KILOAN MULAI</span><strong>Rp7.000</strong><small>PER KG</small><b aria-hidden="true">↗</b></div>
         <div className="hero-sticker"><strong>5</strong><span>pilihan<br />layanan</span></div>
       </div>
