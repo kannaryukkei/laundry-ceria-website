@@ -328,3 +328,16 @@ Adapt selectively:
 - **Latest implementation head:** `050db2eb2e94481532223a9f8766d8acb279fcda`. GitHub workflow lookup returned no run for this exact SHA at the time of this note; therefore this correction is **not yet CI-validated**. Check the exact-head run before making any further code change.
 - **PR #16:** remains open and draft: https://github.com/kannaryukkei/laundry-ceria-website/pull/16. No merge, deployment, DNS change, spending, outreach, publication or release is authorized.
 - **Next action:** inspect whether GitHub Actions has started for exact head `050db2eb2e94481532223a9f8766d8acb279fcda`; if it runs, inspect the A11Y-002 result and canonical gate. Do not make another speculative keyboard-order edit.
+
+
+## 22. CI #276 — canonical shared gate action resolution — 2026-11-20
+
+- **Exact-head run:** Website CI #276, run ID `44729137076`, job ID `136264069718`, implementation head `050db2eb2e94481532223a9f8766d8acb279fcda`; conclusion **failure**.
+- **Passed:** dependency installation, typecheck, production build, Playwright/Chromium installation, reference capture, dependency evidence, responsive screenshot capture, A11Y-001, A11Y-002, and upload of breakpoint artifact. The job then failed at step 12, “Canonical shared website quality gate”.
+- **Reported error:** runner could not find `action.yml`, `action.yaml` or `Dockerfile` under workspace path `.github/actions/website-quality-gate`. Warning about Node.js 20 deprecation for checkout/setup-node/upload-artifact is non-fatal and unrelated.
+- **Workflow inspection at exact head:** `.github/workflows/ci.yml` declares `uses: kannaryukkei/ai-operated-web-studio/.github/actions/shared-website-quality-gate@44d52586a2179a5f91d46049b139c823eaf1afa2`; it does not declare a local action at `.github/actions/website-quality-gate`.
+- **External source verification:** repository `kannaryukkei/ai-operated-web-studio`, exact pinned commit `44d52586a2179a5f91d46049b139c823eaf1afa2`, contains `.github/actions/shared-website-quality-gate/action.yml` (confirmed by contents API and recursive Git tree). Thus the pinned external action file exists at the referenced path.
+- **Interpretation:** this runner message conflicts with the workflow declaration and the verified external action tree. Evidence does not yet establish why GitHub attempted to resolve the local path. Do not claim the external action is missing or that changing the caller path alone is a confirmed fix. It may be stale runner/workflow metadata or an action-resolution discrepancy; this remains a hypothesis.
+- **Current PR head:** `050db2eb2e94481532223a9f8766d8acb279fcda`; source workflow file blob `8e9fb7d5aaad6627313255b34ef48ae82fb401b3`. PR #16 remains draft and open.
+- **Next diagnostic:** inspect the exact run event/check payload and job logs/annotations for the resolved action reference; compare the current source workflow blob and commit tree with the run's checked-out workflow. Only then change action invocation. Node 20 deprecation warning may be handled separately, not mixed into this failure.
+- **Boundaries:** no test bypass, merge, deployment, DNS, spending, outreach, publication or release authorized.
