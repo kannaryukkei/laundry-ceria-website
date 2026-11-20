@@ -385,3 +385,13 @@ Adapt selectively:
 - **Precise fix committed:** changed the specific calculator-heading eyebrow rule itself to 11 px. Commit `88eb825d827e727112a88a0ed868a60a3c8b965c` on `ades/deepseek-direction-implementation`.
 - **Validation:** new exact-head CI has not yet completed; no pass is claimed. Recheck the report after the new run.
 - **No release:** PR #16 remains draft; no merge, deployment, DNS, spending, outreach, or publication authorized.
+
+
+## 26. CI #284 — exact-head quality gate passed — 2026-11-20
+
+- **Run:** Website CI #284, run ID `44737656148`, completed with conclusion **success** on the exact PR #16 head `88eb825d827e727112a88a0ed868a60a3c8b965c`.
+- **Interpretation:** the targeted 11 px calculator metadata correction cleared the final reported typography failure. The exact-head workflow is now green; this is the first confirmed full CI success for the current implementation head.
+- **PR status:** PR #16 remains open and draft. Its description still requires a separate update to reflect the successful CI result and the remaining manual review.
+- **Remaining QA:** automated CI success does not replace manual desktop/mobile visual review, browser zoom 200%, screen-reader review, or operator usability review. Do not claim those checks complete without evidence.
+- **Next action:** operator reviews the preview on desktop and mobile and reports any visual or interaction defect. After that, Lead can update the validation record and recommend whether to request formal review.
+- **Release boundary:** CI success is not approval to merge or publish. No merge, deployment, DNS change, spending, outreach, or public release is authorized.
