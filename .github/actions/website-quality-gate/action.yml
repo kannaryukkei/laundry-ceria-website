@@ -2,7 +2,7 @@ name: Laundry Ceria Website Quality Gate
 description: Local responsive, typography, contrast, and content-evidence checks for the Laundry Ceria website.
 inputs:
   working-directory:
-    description: Path to the website root being tested. Used as the preview command working directory and shared quality runner website root. Shared runner dependencies are installed separately from the action directory.
+    description: Path to the website root being tested. Used as the preview command working directory and local quality runner website root. Its dependencies are installed separately from the website project.
     required: false
     default: .
   preview-command:
