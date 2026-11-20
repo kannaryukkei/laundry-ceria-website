@@ -9,11 +9,11 @@
 - **Nama proyek:** ADES Pilot — Laundry Ceria Website
 - **PIC/kontak non-sensitif:** Ratna (nama pemilik simulasi; tidak ada kontak yang diberikan)
 - **Operating mode:** `studio_development`
-- **Status:** Discovery awal dan repository audit selesai; prompt eksplorasi independen disiapkan; menunggu tiga HTML preview
+- **Status:** Design exploration selesai dikumpulkan dan diaudit; sintesis Lead direkomendasikan; implementasi belum dimulai
 - **Repository:** https://github.com/kannaryukkei/laundry-ceria-website
 - **Baseline audit:** `main` pada `71dbcf27e6d77310cd7fa1a098dc8a7935711be2` (2026-11-20)
 - **Tanggal diperbarui:** 2026-11-20
-- **Ringkasan:** Intake simulasi diterima. Repository privat yang telah berisi implementasi React/TypeScript/Vite, dokumentasi, workflow CI, tes browser, sejumlah branch eksperimen, dan draft PR ditemukan. Tidak ada kode website yang diubah dalam audit awal. Eksplorasi desain lintas model independen belum dimulai pada percakapan Lead ini.
+- **Ringkasan:** Intake simulasi diterima. Repository privat yang telah berisi implementasi React/TypeScript/Vite, dokumentasi, workflow CI, tes browser, sejumlah branch eksperimen, dan draft PR ditemukan. Tidak ada kode website yang diubah dalam audit awal. Eksplorasi desain lintas model independen telah menghasilkan tiga HTML preview dari Gemini, Muse, dan DeepSeek; seluruh output awal diterima sebelum dilakukan evaluasi.
 
 ## 2. Client input and supplied materials
 
@@ -94,13 +94,13 @@ Semua pernyataan di bawah berasal dari intake simulasi operator dan bukan fakta 
 
 - **Identitas visual/aset brand:** belum ada identitas resmi atau aset foto yang dapat digunakan.
 - **Creative brief:** eksplorasi independen untuk satu halaman website laundry lingkungan; prioritaskan kejelasan harga, keterbacaan ponsel, hirarki layanan dan ketentuan; arah visual bebas selama akurat dan aksesibel.
-- **Status eksplorasi:** prompt awal disiapkan untuk Gemini, Muse, dan DeepSeek pada 2026-11-20; output HTML independen belum diterima.
+- **Status eksplorasi:** tiga output HTML independen diterima pada 2026-11-20 dan dievaluasi oleh Lead.
 - **Model eksternal pilihan operator:** Gemini, Muse, dan DeepSeek. Ketiganya akan dijalankan operator pada sesi terpisah, tanpa berbagi output antarmodel. Jumlah ini memenuhi syarat minimal dua model eksternal independen selain Lead.
 - **Protokol isolasi:** setiap model menerima brief/fakta/batasan dan pertanyaan desain yang sama; tidak boleh melihat output model lain. Jangan lampirkan desain, screenshot, spesifikasi visual, atau arahan dari dokumen Stage 1–3 maupun implementasi lama pada prompt putaran independen pertama.
 - **Kontrak output tiap model:** satu file HTML mandiri; CSS/JS inline; responsif; dapat dibuka langsung; tanpa framework/build/API/asset eksternal; tanpa interaksi palsu; label `ADES PREVIEW — NOT FOR RELEASE`; komentar metadata konsep.
 - **Kriteria evaluasi:** relevansi bisnis, kualitas visual, UX, responsivitas, aksesibilitas, kelayakan implementasi, dan akurasi informasi.
-- **Riwayat model / hasil:** prompt setara disiapkan dan disampaikan di percakapan Lead pada 2026-11-20; hasil dari ketiga model masih menunggu.
-- **Sintesis:** pending sampai semua output awal terkumpul; jangan voting atau membuat kolase.
+- **Riwayat model / hasil:** ketiga output diterima; ringkasan evaluasi dan keputusan KEEP / ADAPT / REJECT tercatat pada Bagian 14.
+- **Sintesis:** arah utama direkomendasikan dari konsep Muse; adaptasi terpilih dari DeepSeek dan Gemini; bukan voting atau kolase. Rincian pada Bagian 14.
 
 ## 7. Functional and technical plan
 
@@ -160,7 +160,7 @@ Semua pernyataan di bawah berasal dari intake simulasi operator dan bukan fakta 
 
 | Pertanyaan / risiko / tindakan | Mengapa penting | Penanggung jawab | Dibutuhkan sebelum |
 |---|---|---|---|
-| Mengembalikan satu HTML preview dari masing-masing Gemini, Muse, dan DeepSeek | Dibutuhkan untuk membandingkan hasil independen; jangan berbagi hasil antarmodel sebelum ketiganya terkumpul | Operator | Seleksi dan sintesis |
+| Validasi visual manual pada browser desktop/mobile | Render headless di lingkungan Lead timeout; perlu pemeriksaan screenshot di browser operator | Operator / reviewer | Sebelum implementasi final |
 | Rincian operasional ekstra yang ada di implementasi lama tetapi tidak ada di intake | Mencegah fakta sintetis lama dianggap sumber yang disetujui | Lead / Operator | Konten final |
 | Nomor WhatsApp tidak tersedia | CTA kontak aktif tidak dapat dibuat | Operator (jika ingin menambahkan dalam skenario) | Sebelum kontak aktif; tidak memblokir demo |
 | Foto dan izin tertulis belum ada | Hak penggunaan tidak jelas | Operator | Sebelum foto dipakai; tidak memblokir demo |
@@ -169,11 +169,11 @@ Semua pernyataan di bawah berasal dari intake simulasi operator dan bukan fakta 
 
 ## 12. Lead status and next step
 
-- **Tahap saat ini:** Discovery awal dan repository audit selesai; prompt eksplorasi independen untuk tiga model telah disiapkan.
-- **Ringkasan kemajuan:** Guide dibaca; intake diproses; baseline repository dan struktur teknis diperiksa; tidak ada perubahan kode; hasil eksperimen terdahulu dipertahankan.
-- **Hambatan:** output HTML dari Gemini, Muse, dan DeepSeek belum dikembalikan.
-- **Menunggu operator:** jalankan prompt yang disediakan secara terpisah di Gemini, Muse, dan DeepSeek; jangan bagikan hasil salah satu model kepada model lainnya.
-- **Langkah berikutnya:** operator mengembalikan tiga file HTML hasil eksplorasi independen ke percakapan Lead yang sama.
+- **Tahap saat ini:** Synthesis — audit tiga HTML preview selesai; menunggu validasi visual manual sebelum implementasi.
+- **Ringkasan kemajuan:** Guide dan intake ditinjau; baseline repository dipertahankan; tiga output independen diaudit dari struktur, konten, CSS/JS, link, landmarks, breakpoints dan batasan aset; belum ada perubahan kode website.
+- **Hambatan:** inspeksi render desktop/mobile melalui Chromium headless tidak berhasil (proses timeout); visual akhir, zoom 200%, screen reader dan interaksi manual belum tervalidasi.
+- **Menunggu operator:** buka ketiga HTML preview secara lokal pada desktop dan lebar mobile; kirim screenshot bila tersedia. Tidak perlu menjalankan ulang model.
+- **Langkah berikutnya:** operator melakukan pemeriksaan visual singkat terhadap ketiga file preview dan mengirim screenshot desktop/mobile untuk mengunci arah sintesis.
 
 ---
 
@@ -189,3 +189,48 @@ Semua pernyataan di bawah berasal dari intake simulasi operator dan bukan fakta 
 - **Forbidden context for this first round:** do not attach or reveal prior Stage 1–3 strategy/planning/design documents, existing website source, prior branch/PR descriptions, screenshots, or previous candidate directions. The prompts are intentionally self-contained and independent.
 - **Expected handoff:** exactly one standalone HTML preview file from each model, returned to this Lead conversation. Do not ask models to compare, rank, or synthesize one another.
 - **Current state:** prompts prepared; model execution and outputs pending. Exploration is not complete until outputs are received and reviewed.
+
+
+## 14. Independent design exploration — results and Lead evaluation (2026-11-20)
+
+### Output received
+| Model | File | Concept | Contract / structural checks |
+|---|---|---|---|
+| Gemini | `gemini-code-1795166439843.html` | Tali Jemuran & Sabun Batang — Warm Neighborhood Tactile Craft | Standalone HTML; inline CSS/JS; no external asset references; persistent preview label; Indonesian; viewport metadata; landmarks and skip link; internal anchors resolve; responsive breakpoints; reduced-motion and focus-visible rules |
+| Muse | `Laundry Ceria Muse.html` | Nota Ceria — The Laundry Tag | Standalone HTML; inline CSS/JS; no external asset references; persistent preview label; Indonesian; viewport metadata; landmarks and skip link; internal anchors resolve; responsive breakpoints; reduced-motion and focus-visible rules |
+| DeepSeek | `deepseek_html_20261120_27ec69.html` | Jemuran Ceria — The Cheerful Clothesline | Standalone HTML; inline CSS/JS; no external asset references; persistent preview label; Indonesian; viewport metadata; landmarks and skip link; internal anchors resolve; responsive breakpoints; reduced-motion and focus-visible rules |
+
+### Evaluation and decisions
+| Model | Decision | Strengths to retain | Issues / adaptation required |
+|---|---|---|---|
+| Muse — Nota Ceria | **KEEP** (primary creative direction) | Strongest coherent information design: receipt/ledger metaphor directly supports transparent pricing; clear split between kiloan and per-piece prices; clear regular/express and pickup conditions; explicit restraint about unconfirmed process; calculator is scoped to kiloan rather than falsely applying pickup fees to per-piece services; strong content hierarchy and useful estimate disclaimer | Remove or rewrite unsupported instruction that customers outside 2 km should come directly to the store; ensure the calculator cannot produce confusing zero-weight/fee states and prevent accidental form submission; review claims like “selalu” and “tidak ada berat kira-kira” against the exact intake wording; verify current-day status behavior and contrast visually |
+| DeepSeek — Jemuran Ceria | **ADAPT** | Calm, compact one-page hierarchy; original CSS/SVG clothesline illustration without third-party assets; concise pricing and operational sections; no unnecessary calculator; no contact or map fabrication | Headline “Bersih, wangi” implies an unsubstantiated outcome; timeline uses “Masuk ≤ 10.00” in one place although intake says **sebelum 10.00** (strictly earlier); process has a third “Baru dicuci” stage beyond the two expressly supplied facts; remove/reframe these before reuse |
+| Gemini — Tali Jemuran & Sabun Batang | **ADAPT** | Strong overview/hero scanability; well-structured price table; audience context; helpful distinction between kiloan and per-piece; vector illustration and multiple responsive breakpoints | Cost estimator applies a Rp5.000 pickup fee to per-piece services through its fallback branch, although pickup thresholds are weight-based; express and pickup controls appear available for per-piece services without intake confirmation; phrase “Setiap pakaian ditimbang” is more absolute than the supplied statement; disable unsupported estimator combinations or simplify to an informational price table |
+
+### Shared checks and limitations
+- All three are standalone HTML documents with inline styles/scripts and no detected external CSS/JS/font/image URL dependencies.
+- All three include `ADES PREVIEW — NOT FOR RELEASE`, Indonesian page content, a viewport meta tag, skip navigation, semantic page landmarks, visible focus styling, reduced-motion handling, and responsive CSS breakpoints.
+- Static parsing found no duplicate IDs or broken in-page anchor targets in the three files.
+- Muse has one `form` wrapper and no submit button; its Enter-key submission behavior still needs a browser check.
+- No fake WhatsApp/contact links, map embeds, or third-party photos were detected.
+- Automated static inspection is not a substitute for visual/accessibility testing. Chromium headless rendering was attempted at desktop and mobile viewport sizes but timed out in this environment. No screenshot-based visual judgment, 200% zoom test, screen-reader test, or manual interaction test is claimed.
+- Accessibility checks are partial: presence of landmarks, skip links, focus-visible styles and reduced-motion rules was checked; contrast, reading order at zoom, screen-reader announcements and keyboard behavior remain unverified.
+
+### Synthesis recommendation
+Use **Muse / Nota Ceria** as the single primary visual and information-architecture direction. Its receipt/ledger metaphor reinforces the primary user task — quickly understanding prices and conditions — and its kiloan-only estimator avoids the most significant calculation error found in the other concepts.
+
+Adapt selectively:
+1. Retain Muse’s receipt-like price presentation, clear kiloan/per-piece grouping, section hierarchy, restrained copy, and explicit estimate disclaimer.
+2. Borrow DeepSeek’s simple clothesline illustration only if it can be integrated as a supporting motif without competing with the price-ledger system; it is not a second visual direction.
+3. Borrow Gemini’s compact service summary/price-table scanability where it improves mobile comprehension, but do not reuse its estimator logic.
+4. Keep all operational statements bounded by intake: regular kiloan usually two days; express only for clothes received **before 10.00**, same day by 20.00, +50%; pickup radius 2 km, free above 5 kg, Rp5.000 at 5 kg or less; weighing in front of customer and recorded before washing.
+5. Do not infer that express applies to per-piece bed covers/blankets unless the intake is clarified. Do not describe washing stages beyond the supplied weighing and recording facts.
+6. Keep address explicitly fictional/demo, no map/directions, no live WhatsApp/contact, no unsupported claims or unlicensed photos.
+7. This is a Lead recommendation, not operator approval to alter the existing website or release anything.
+
+### Status
+- Independent exploration gate: **complete** (three operator-selected external model outputs received independently).
+- Candidate evaluation: **complete at static/source-review level**.
+- Final visual selection: **recommended, pending operator visual review** because browser rendering could not be verified here.
+- Production implementation: **not started**; existing repository baseline and prior experiments remain untouched.
+- Release/publication: **not authorized**.
