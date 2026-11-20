@@ -284,3 +284,13 @@ Adapt selectively:
 - **Correction committed to implementation branch:** `src/App.tsx` now stores the menu toggle in a React ref and, on Escape, closes the menu and calls `toggleRef.current?.focus()`. No test assertion was removed or weakened.
 - **Fix commit:** `eef6547302ec0dc16fb12c2a3f33516c53c2182e` (`fix(a11y): restore focus after Escape closes mobile navigation`). New CI status must be checked on this exact head; no pass is claimed yet.
 - **Scope:** PR #16 remains draft. No merge, deployment, DNS, publication, external contact, or spending is authorized.
+
+## 19. CI #257 runner-level failure and evidence limitation — 2026-11-20
+
+- **Latest exact-head run:** GitHub Actions run `44714157346` / Website CI #257, head `eef6547302ec0dc16fb12c2a3f33516c53c2182e`; conclusion **failure**.
+- **Job metadata:** one job `build-and-preview`, job ID `136213122459`, completed in approximately two seconds. GitHub job payload reports `runner_id: 0`, empty runner name, and `steps: []`; the job-steps endpoint also returned an empty list.
+- **Evidence limitation:** the job-log endpoint returned 404 BlobNotFound. No test assertion, build output, or application error is available for this run. Therefore the failure cannot responsibly be attributed to the focus-restoration code or to another source-code defect.
+- **Interpretation:** the available metadata is consistent with a runner/provisioning or workflow-start failure before any step executed; this is a cautious inference, not a confirmed GitHub root-cause diagnosis.
+- **Code status:** the Escape-focus correction remains committed at `eef6547302ec0dc16fb12c2a3f33516c53c2182e`. It has **not** been validated by CI because the run exposed no steps/logs.
+- **Next diagnostic:** obtain GitHub Actions check-run annotations or a new run with a provisioned runner and inspect its first executed step. Do not make further application-code changes until an actionable failure is visible.
+- **Scope:** PR #16 remains draft; no merge, deployment, DNS, publication, outreach, or spending authorized.
