@@ -63,9 +63,9 @@ try {
   assert.ok(toggleFocus.width >= 2 && toggleFocus.style !== 'none', 'Menu toggle shows a keyboard focus indicator');
 
   await page.keyboard.press('Enter');
-  await page.waitForFunction(() => document.querySelector('#primary-nav')?.classList.contains('is-open'));
+  await page.waitForFunction(() => document.querySelector('#main-nav')?.classList.contains('is-open'));
   assert.equal(await toggle.getAttribute('aria-expanded'), 'true');
-  const navLinks = page.locator('#primary-nav a');
+  const navLinks = page.locator('#main-nav a');
   const count = await navLinks.count();
   assert.equal(count, 5, 'All primary navigation destinations are present');
   await page.keyboard.press('Tab');
@@ -82,7 +82,7 @@ try {
   assert.equal(await page.evaluate(() => document.activeElement === document.querySelector('button.menu-toggle')), true, 'Escape restores focus to the menu toggle');
   await page.keyboard.press('Tab');
   assert.equal(
-    await page.evaluate(() => document.activeElement?.closest('#primary-nav') === null),
+    await page.evaluate(() => document.activeElement?.closest('#main-nav') === null),
     true,
     'Collapsed navigation links are removed from the keyboard tab order',
   );
@@ -93,18 +93,18 @@ try {
   await page.keyboard.press('Tab');
   assert.match(await activeClass(page), /\.skip-link$/);
   await page.keyboard.press('Tab');
-  assert.match(await activeClass(page), /\.wordmark$/);
+  assert.match(await activeClass(page), /\.brand$/);
   await page.keyboard.press('Tab');
-  assert.equal(await page.evaluate(() => document.activeElement?.closest('#primary-nav') !== null), true, 'Desktop navigation links are in the primary nav');
+  assert.equal(await page.evaluate(() => document.activeElement?.closest('#main-nav') !== null), true, 'Desktop navigation links are in the primary nav');
   assert.equal(await page.locator('button.menu-toggle').isVisible(), false, 'Mobile toggle is hidden at desktop width');
-  assert.equal(await page.locator('#primary-nav a:visible').count(), 5, 'All desktop navigation links are visible');
+  assert.equal(await page.locator('#main-nav a:visible').count(), 5, 'All desktop navigation links are visible');
 
   // Reduced-motion preference disables smooth scrolling and meaningful transitions.
   await page.emulateMedia({ reducedMotion: 'reduce' });
   const reducedMotion = await page.evaluate(() => ({
     scrollBehavior: getComputedStyle(document.documentElement).scrollBehavior,
     buttonTransition: getComputedStyle(document.querySelector('.button-primary')).transitionDuration,
-    menuTransition: getComputedStyle(document.querySelector('.primary-nav a')).transitionDuration,
+    menuTransition: getComputedStyle(document.querySelector('.nav a')).transitionDuration,
   }));
   assert.equal(reducedMotion.scrollBehavior, 'auto');
   assert.ok(durationMs(reducedMotion.buttonTransition.split(',')[0].trim()) <= 0.02, 'Button transitions are effectively disabled');

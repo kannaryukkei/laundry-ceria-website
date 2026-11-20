@@ -1,8 +1,8 @@
-name: Laundry Ceria Website Quality Gate
-description: Local responsive, typography, contrast, and content-evidence checks for the Laundry Ceria website.
+name: Laundry Ceria shared website quality gate
+description: Thin local adapter used by the base-branch PR workflow; delegates to the pinned canonical shared website quality gate.
 inputs:
   working-directory:
-    description: Path to the website root being tested. Used as the preview command working directory and local quality runner website root. Its dependencies are installed separately from the website project.
+    description: Path to the website root being tested.
     required: false
     default: .
   preview-command:
@@ -12,47 +12,21 @@ inputs:
     description: Rendered website URL to inspect.
     required: true
   evidence-manifest:
-    description: Evidence manifest path, relative to working-directory.
+    description: Evidence manifest path relative to working-directory.
     required: false
     default: .website-quality/evidence-manifest.json
   artifacts-directory:
-    description: Directory for screenshots, JSON report, and diagnostics.
+    description: Directory for screenshots, reports, and diagnostics.
     required: false
     default: .website-quality-artifacts
 runs:
   using: composite
   steps:
-    - name: Set up Node 22
-      uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+    - name: Run canonical shared website quality gate
+      uses: kannaryukkei/ai-operated-web-studio/.github/actions/shared-website-quality-gate@44d52586a2179a5f91d46049b139c823eaf1afa2
       with:
-        node-version: 22
-    - name: Install pinned local quality-gate dependencies
-      shell: bash
-      run: npm ci --no-audit --no-fund
-      working-directory: ${{ github.action_path }}
-    - name: Run local quality-gate unit tests
-      shell: bash
-      run: npm test
-      working-directory: ${{ github.action_path }}
-    - name: Install Chromium
-      shell: bash
-      run: npx playwright install chromium --with-deps
-      working-directory: ${{ github.action_path }}
-    - name: Run Laundry Ceria website quality gate
-      shell: bash
-      env:
-        SWQG_WORKING_DIRECTORY: ${{ inputs.working-directory }}
-        SWQG_PREVIEW_COMMAND: ${{ inputs.preview-command }}
-        SWQG_URL: ${{ inputs.url }}
-        SWQG_EVIDENCE_MANIFEST: ${{ inputs.evidence-manifest }}
-        SWQG_ARTIFACTS_DIRECTORY: ${{ inputs.artifacts-directory }}
-      run: node "${{ github.action_path }}/runner.mjs"
-      working-directory: ${{ github.workspace }}
-    - name: Upload Laundry Ceria quality evidence
-      if: always()
-      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-      with:
-        name: laundry-ceria-website-quality-gate
-        path: ${{ inputs.working-directory }}/${{ inputs.artifacts-directory }}/
-        include-hidden-files: true
-        if-no-files-found: warn
+        working-directory: ${{ inputs.working-directory }}
+        preview-command: ${{ inputs.preview-command }}
+        url: ${{ inputs.url }}
+        evidence-manifest: ${{ inputs.evidence-manifest }}
+        artifacts-directory: ${{ inputs.artifacts-directory }}
