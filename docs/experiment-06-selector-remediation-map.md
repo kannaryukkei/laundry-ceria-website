@@ -38,7 +38,7 @@ These sizes are visibly subordinate to the main headings and prices, but several
 
 ## 2. Typography role correction — prevent category errors without lowering standards
 
-The current shared gate code in Studio main defines floors:
+The local Laundry Ceria quality gate (vendored from the previously used Studio implementation) defines floors:
 - BODY: 15px
 - CONTROL: 13px
 - METADATA: 11px
@@ -65,7 +65,7 @@ The metadata role must not become a loophole. Important status, price units, ope
 
 ## 3. Bounded typography remediation map
 
-The values below are from the reviewed CSS and/or computed report. The patch should use one consistent role scale, not many one-off values. Stage 3 target is Body 16px, Small 14px and Micro 12px; the shared gate minimums are hard floors, not ideal design targets.
+The values below are from the reviewed CSS and/or computed report. The patch should use one consistent role scale, not many one-off values. Stage 3 target is Body 16px, Small 14px and Micro 12px; the quality-gate minimums are hard floors, not ideal design targets.
 
 | Priority | JSX area / CSS selector | Observed size | Proposed target | Reason / acceptance |
 |---|---|---:|---:|---|
