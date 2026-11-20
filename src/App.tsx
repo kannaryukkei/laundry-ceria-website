@@ -237,7 +237,7 @@ function HoursLocation() {
 }
 
 function Footer() {
-  return <footer className="footer"><div className="container footer-inner"><div><a className="footer-wordmark" href="#top"><strong>Laundry Ceria</strong></a><p>Pratinjau desain untuk laundry kiloan lingkungan.</p><span className="contact-status">STATUS KONTAK: BELUM TERSEDIA<br/>Nomor WhatsApp dan telepon belum diberikan.</span></div><nav className="footer-nav" aria-label="Navigasi footer">{navItems.map(([label,id]) => <a key={id} href={'#'+id}>{label}</a>)}</nav></div><div className="container footer-bottom"><span>ADES PREVIEW — NOT FOR RELEASE · DEMO-ONLY · NOT_APPROVED</span><span>Konsep desain: “Jemuran Ceria”</span></div><div className="container back-top-wrap"><a className="back-top" href="#top">Kembali ke atas ↑</a></div></footer>;
+  return <footer className="footer"><div className="container footer-inner"><div><a className="footer-wordmark" tabIndex={-1} href="#top"><strong>Laundry Ceria</strong></a><p>Pratinjau desain untuk laundry kiloan lingkungan.</p><span className="contact-status">STATUS KONTAK: BELUM TERSEDIA<br/>Nomor WhatsApp dan telepon belum diberikan.</span></div><nav className="footer-nav" aria-label="Navigasi footer">{navItems.map(([label,id]) => <a key={id} href={'#'+id}>{label}</a>)}</nav></div><div className="container footer-bottom"><span>ADES PREVIEW — NOT FOR RELEASE · DEMO-ONLY · NOT_APPROVED</span><span>Konsep desain: “Jemuran Ceria”</span></div><div className="container back-top-wrap"><a className="back-top" tabIndex={-1} href="#top">Kembali ke atas ↑</a></div></footer>;
 }
 
 export default function App() {
