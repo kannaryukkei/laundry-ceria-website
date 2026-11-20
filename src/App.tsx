@@ -46,7 +46,7 @@ function ClotheslineArt() {
         <path d="M50 210 Q260 184 470 210" stroke="#0F6B63" strokeWidth="2" strokeDasharray="5 9" fill="none" opacity=".45"/>
         <circle cx="260" cy="213" r="8" fill="#F2A93B"/>
       </svg>
-      <p>ILUSTRASI DEKORATIF · BUKAN FOTO TOKO</p>
+      <p data-qa-role="metadata">ILUSTRASI DEKORATIF · BUKAN FOTO TOKO</p>
     </div>
   );
 }
@@ -72,8 +72,8 @@ function Header() {
           <span className="brand-mark" aria-hidden="true">LC</span>
           <span><strong>Laundry Ceria</strong><small>LAUNDRY KILOAN TETANGGA</small></span>
         </a>
-        <button ref={toggleRef} className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>
-          <span className="sr-only">{open ? 'Tutup menu' : 'Buka menu'}</span><i/><i/>
+        <button ref={toggleRef} className="menu-toggle" type="button" aria-label={open ? "Tutup menu" : "Buka menu"} aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>
+          <i aria-hidden="true"/><i aria-hidden="true"/>
         </button>
         <nav id="main-nav" className={open ? 'nav primary-nav is-open' : 'nav primary-nav'} aria-label="Navigasi utama">
           {navItems.map(([label, id]) => <a key={id} href={'#' + id} onClick={() => setOpen(false)}>{label}</a>)}<a className="nav-cta" href="#hours-location" onClick={() => setOpen(false)}>Jam buka</a>
@@ -88,7 +88,7 @@ function Hero() {
     <section className="hero" id="top">
       <div className="container hero-layout">
         <div className="hero-copy">
-          <p className="eyebrow">LAUNDRY KILOAN LINGKUNGAN</p>
+          <p className="eyebrow" data-qa-role="metadata">LAUNDRY KILOAN LINGKUNGAN</p>
           <h1>Laundry yang jelas, <em>mulai dari harga.</em></h1>
           <p className="hero-lead">Lihat pilihan layanan, waktu pengerjaan, dan ketentuan antar-jemput sebelum membawa pakaian.</p>
           <div className="hero-pills"><span>Reguler biasanya 2 hari</span><span>Express hari yang sama</span><span>Antar-jemput radius 2 km</span></div>
@@ -132,7 +132,7 @@ function PricingCalculator() {
   };
   return (
     <section className="calculator-card" aria-labelledby="calculator-title">
-      <div className="calculator-heading"><div><p className="eyebrow">ALAT BANTU HITUNG · BUKAN PEMESANAN</p><h3 id="calculator-title">Hitung perkiraan biaya</h3></div><span className="calc-stamp">DATA DEMO</span></div>
+      <div className="calculator-heading"><div><p className="eyebrow" data-qa-role="metadata">ALAT BANTU HITUNG · BUKAN PEMESANAN</p><h3 id="calculator-title">Hitung perkiraan biaya</h3></div><span className="calc-stamp">DATA DEMO</span></div>
       <p className="calculator-intro">Pilih layanan dan masukkan jumlahnya untuk melihat estimasi awal.</p>
       <div className="calculator-fields">
         <label htmlFor="service-select">Layanan</label>
@@ -162,7 +162,7 @@ function Services() {
   return (
     <section className="section pricing-section" id="services-pricing">
       <div className="container">
-        <div className="section-heading"><p className="eyebrow">01 · LAYANAN & HARGA</p><h2>Harga yang bisa dibaca sebelum datang</h2><p>Tarif kiloan untuk cucian harian dan tarif per potong untuk bed cover serta selimut.</p></div>
+        <div className="section-heading"><p className="eyebrow" data-qa-role="metadata">01 · LAYANAN & HARGA</p><h2>Harga yang bisa dibaca sebelum datang</h2><p>Tarif kiloan untuk cucian harian dan tarif per potong untuk bed cover serta selimut.</p></div>
         <div className="pricing-layout">
           <div className="price-board">
             <div className="price-head"><strong>LAYANAN</strong><strong>HARGA</strong></div>
@@ -182,7 +182,7 @@ function Turnaround() {
   return (
     <section className="section turnaround-section" id="how-it-works">
       <div className="container">
-        <div className="section-heading"><p className="eyebrow">02 · WAKTU PENGERJAAN</p><h2>Reguler dua hari, express selesai hari yang sama</h2><p>Waktu pengerjaan dihitung sejak cucian diterima.</p></div>
+        <div className="section-heading"><p className="eyebrow" data-qa-role="metadata">02 · WAKTU PENGERJAAN</p><h2>Reguler dua hari, express selesai hari yang sama</h2><p>Waktu pengerjaan dihitung sejak cucian diterima.</p></div>
         <div className="turn-grid">
           <article className="turn-card"><span className="tag">REGULER</span><h3>Biasanya 2 hari</h3><p>Laundry kiloan reguler biasanya selesai dalam dua hari.</p></article>
           <article className="turn-card turn-express"><span className="tag tag-sun">EXPRESS · TAMBAHAN 50%</span><h3>Selesai pukul 20.00</h3><p>Cucian yang diterima <strong>sebelum pukul 10.00</strong> dapat selesai pada pukul 20.00 di hari yang sama.</p><div className="timeline"><span>Masuk sebelum 10.00</span><b>→</b><span>Selesai 20.00</span></div></article>
@@ -197,7 +197,7 @@ function Process() {
   return (
     <section className="section process-section" id="proses">
       <div className="container">
-        <div className="section-heading"><p className="eyebrow">03 · PROSES</p><h2>Ditimbang di depan Anda, dicatat sebelum dicuci</h2><p>Dua hal ini dinyatakan dalam materi simulasi.</p></div>
+        <div className="section-heading"><p className="eyebrow" data-qa-role="metadata">03 · PROSES</p><h2>Ditimbang di depan Anda, dicatat sebelum dicuci</h2><p>Dua hal ini dinyatakan dalam materi simulasi.</p></div>
         <ol className="steps">
           <li><span>01</span><div><h3>Ditimbang di depan pelanggan</h3><p>Berat cucian ditimbang di depan Anda.</p></div></li>
           <li><span>02</span><div><h3>Dicatat sebelum dicuci</h3><p>Berat cucian dicatat terlebih dahulu sebelum proses pencucian dimulai.</p></div></li>
@@ -211,7 +211,7 @@ function Pickup() {
   return (
     <section className="section pickup-section" id="pickup-delivery">
       <div className="container pickup-layout">
-        <div><p className="eyebrow">04 · ANTAR-JEMPUT</p><h2>Antar-jemput dalam radius 2 km</h2><p className="pickup-lead">Ketentuan biaya mengikuti berat pesanan.</p><div className="radius-art"><span>2</span><b>km</b><small>RADIUS LAYANAN</small></div></div>
+        <div><p className="eyebrow" data-qa-role="metadata">04 · ANTAR-JEMPUT</p><h2>Antar-jemput dalam radius 2 km</h2><p className="pickup-lead">Ketentuan biaya mengikuti berat pesanan.</p><div className="radius-art"><span>2</span><b>km</b><small>RADIUS LAYANAN</small></div></div>
         <div className="pickup-rules">
           <article className="pickup-rule pickup-free"><span>GRATIS</span><div><h3>Pesanan di atas 5 kg</h3><p>Biaya jemput gratis untuk pesanan dengan berat lebih dari 5 kg.</p></div></article>
           <article className="pickup-rule"><span>Rp5.000</span><div><h3>Pesanan 5 kg atau kurang</h3><p>Biaya antar-jemput untuk pesanan dengan berat maksimal 5 kg.</p></div></article>
@@ -226,7 +226,7 @@ function HoursLocation() {
   return (
     <section className="section location-section" id="hours-location">
       <div className="container">
-        <div className="section-heading"><p className="eyebrow">05 · JAM BUKA & LOKASI</p><h2>Kapan bisa datang</h2><p>Jam operasional mingguan dan keterangan alamat demo.</p></div>
+        <div className="section-heading"><p className="eyebrow" data-qa-role="metadata">05 · JAM BUKA & LOKASI</p><h2>Kapan bisa datang</h2><p>Jam operasional mingguan dan keterangan alamat demo.</p></div>
         <div className="info-grid">
           <section className="info-card" aria-labelledby="hours-title"><h3 id="hours-title">Jam operasional</h3><ul>{hours.map((item) => <li key={item.day}><span>{item.day}</span><strong>{item.time}</strong></li>)}</ul></section>
           <section className="info-card address-card" aria-labelledby="address-title"><span className="demo-badge">ALAMAT FIKTIF · DEMO</span><h3 id="address-title">Jl. Melati No. 12, Jakarta</h3><p>Alamat ini sepenuhnya fiktif untuk keperluan pratinjau desain dan bukan alamat usaha yang sebenarnya. Tidak ada peta atau petunjuk arah.</p></section>
