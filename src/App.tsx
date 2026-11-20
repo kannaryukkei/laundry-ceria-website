@@ -108,8 +108,8 @@ function PriceEstimator() {
       <select id="service-choice" value={service} onChange={e => setService(e.target.value)}>{kiloan.map((row, i) => <option key={row.name} value={String(i)}>{row.name} · {currency(row.price)}/kg</option>)}</select>
       <label htmlFor="laundry-weight">Berat pakaian (kg)</label>
       <input id="laundry-weight" type="number" min="0.1" max="1000" step="0.1" inputMode="decimal" placeholder="Contoh: 3" value={weight} onChange={e => setWeight(e.target.value)} />
-      <label className="check-row"><input type="checkbox" checked={express} onChange={e => setExpress(e.target.checked)} /><span>Express <small>+50% · diterima sebelum 10.00, selesai 20.00</small></span></label>
-      <label className="check-row"><input type="checkbox" checked={pickup} onChange={e => setPickup(e.target.checked)} /><span>Hitung biaya antar-jemput <small>Radius 2 km dari ruko</small></span></label>
+      <label className="check-row"><input id="express-estimate" type="checkbox" checked={express} onChange={e => setExpress(e.target.checked)} /><span>Express <small>+50% · diterima sebelum 10.00, selesai 20.00</small></span></label>
+      <label className="check-row"><input id="pickup-estimate" type="checkbox" checked={pickup} onChange={e => setPickup(e.target.checked)} /><span>Hitung biaya antar-jemput <small>Radius 2 km dari ruko</small></span></label>
       <div className="estimate-result" aria-live="polite" aria-atomic="true"><div><span>Perkiraan total</span><strong>{valid ? currency(total) : '—'}</strong></div><p>{summary}</p></div>
       <small className="estimator-disclaimer">Simulasi menggunakan tarif pada halaman ini. Semua data bisnis bersifat fiktif.</small>
     </div>
