@@ -15,6 +15,10 @@ const desktopOrder = [
   '.hero-actions a[href="#services-pricing"]',
   '.hero-actions a[href="#hours-location"]',
   '.walkin-card a[href="#hours-location"]',
+  '#service-select',
+  '#quantity-input',
+  '#express-option',
+  '#pickup-option',
   '.footer nav a[href="#services-pricing"]',
   '.footer nav a[href="#how-it-works"]',
   '.footer nav a[href="#pickup-delivery"]',
@@ -34,7 +38,7 @@ try {
   const tabbableLinkCount = await page.locator('a[href]:visible').evaluateAll((links) =>
     links.filter((link) => link.tabIndex >= 0).length,
   );
-  assert.equal(tabbableLinkCount, desktopOrder.length, 'Every tabbable desktop link is included in the reviewed keyboard sequence');
+  assert.equal(tabbableLinkCount, 14, 'All 14 tabbable desktop links are present; form controls are checked separately in the full keyboard sequence');
   for (const link of renderedLinks) {
     assert.ok(link.label, `Link has a discernible accessible name: ${link.href}`);
     assert.ok(link.href?.startsWith('#'), `Demo links stay within the local page: ${link.href}`);
