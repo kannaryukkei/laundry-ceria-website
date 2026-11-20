@@ -304,3 +304,15 @@ Adapt selectively:
 - **Tindakan yang diperlukan di luar repository:** pemilik akun GitHub perlu meninjau Settings → Billing & plans dan menyelesaikan masalah pembayaran atau menyesuaikan spending limit sesuai kebijakan/otorisasi akun. ADES Lead tidak mengubah billing, menambah spending limit, atau menyetujui biaya.
 - **Tindakan Lead:** tidak ada perubahan kode aplikasi yang diperlukan dari pesan ini. Setelah operator mengonfirmasi billing/limit sudah ditangani, jalankan ulang workflow pada head PR #16 yang sama dan evaluasi hasil CI aktual.
 - **Batasan:** PR #16 tetap draft; tidak ada merge, deployment, DNS, publikasi, outreach, atau pengeluaran biaya yang diotorisasi.
+
+
+## 17. CI failure diagnosis and remediation — 2026-11-20
+
+- **Failed run:** Website CI run `44713268009` (run #252), commit `56a12be0c394f9717542556d2e03446d51e313f8`.
+- **Passed steps:** dependency install, TypeScript typecheck, production build, Playwright/Chromium install, A3 reference capture and dependency evidence collection.
+- **Failure point:** step “Capture Hero at 640px and 720px”, specifically `tests/a11y-001-keyboard.mjs` timed out at line 66 while waiting for `#primary-nav` to receive class `is-open`.
+- **Root cause confirmed from test source:** the implementation used nav id `main-nav`, while the repository's existing keyboard regression expects `#primary-nav`; it also expects the existing navigation and page-link selectors, wordmark, walk-in card, footer navigation and back-to-top link. The test is an existing contract, not a new build/type error.
+- **Remediation committed on implementation branch:** align the nav id/aria-controls/class and expected semantic link structure; restore the expected tested page anchors; preserve Escape-to-close and focus return; add corresponding affordance styles. This is intended to satisfy the existing keyboard test rather than disable or bypass it.
+- **New exact-head CI:** run `44724885865` (run #266), head `9f7d9cb9f99b66ecbd2250c9b6ca03106216c5e7`, is in progress. TypeScript and production build passed again; Playwright install and browser checks remain pending/running at the time of this note.
+- **Latest code commits after that head:** `34f0d5cecab1560be6154ae03c22496e896bdf59` and `9f7d9cb9f99b66ecbd2250c9b6ca03106216c5e7`; verify the newest PR head CI, not only the earlier attempt, before treating the remediation as passed.
+- **No bypass:** no test was deleted, weakened, or skipped intentionally. No merge, deployment, publication or release authorized.
