@@ -142,8 +142,8 @@ function PricingCalculator() {
         <label htmlFor="quantity-input">{quantityLabel}</label>
         <input id="quantity-input" type="number" min="0.1" step={step} inputMode="decimal" value={quantity} onChange={(e) => setQuantity(e.target.value)} aria-describedby="quantity-help"/>
         <small id="quantity-help">{selected.unit === 'kg' ? 'Masukkan berat dalam kilogram.' : 'Masukkan jumlah potong berupa bilangan bulat.'}</small>
-        {expressAllowed && <label className="check-option"><input type="checkbox" checked={express} onChange={(e) => setExpress(e.target.checked)}/><span>Express (+50% biaya layanan)</span></label>}
-        {pickupAllowed && <label className="check-option"><input type="checkbox" checked={pickup} onChange={(e) => setPickup(e.target.checked)}/><span>Antar-jemput dalam radius 2 km</span></label>}
+        {expressAllowed && <label className="check-option"><input id="express-option" type="checkbox" checked={express} onChange={(e) => setExpress(e.target.checked)}/><span>Express (+50% biaya layanan)</span></label>}
+        {pickupAllowed && <label className="check-option"><input id="pickup-option" type="checkbox" checked={pickup} onChange={(e) => setPickup(e.target.checked)}/><span>Antar-jemput dalam radius 2 km</span></label>}
       </div>
       <div className="estimate" aria-live="polite" aria-atomic="true">
         <div className="estimate-top"><span>PERKIRAAN BIAYA</span><strong>{valid ? rupiah(total) : '—'}</strong></div>
