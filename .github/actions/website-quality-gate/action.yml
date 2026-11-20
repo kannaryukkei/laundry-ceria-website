@@ -30,6 +30,10 @@ runs:
       shell: bash
       run: npm ci --no-audit --no-fund
       working-directory: ${{ github.action_path }}
+    - name: Run local quality-gate unit tests
+      shell: bash
+      run: npm test
+      working-directory: ${{ github.action_path }}
     - name: Install Chromium
       shell: bash
       run: npx playwright install chromium --with-deps
