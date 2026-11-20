@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { hours, services } from './data';
 
 const navItems = [
@@ -54,9 +54,15 @@ function ClotheslineArt() {
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     if (!open) return;
-    const close = (event: KeyboardEvent) => { if (event.key === 'Escape') setOpen(false); };
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
   }, [open]);
@@ -67,7 +73,7 @@ function Header() {
           <span className="brand-mark" aria-hidden="true">LC</span>
           <span><strong>Laundry Ceria</strong><small>LAUNDRY KILOAN TETANGGA</small></span>
         </a>
-        <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>
+        <button ref={toggleRef} className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>
           <span className="sr-only">{open ? 'Tutup menu' : 'Buka menu'}</span><i/><i/>
         </button>
         <nav id="main-nav" className={open ? 'nav is-open' : 'nav'} aria-label="Navigasi utama">
