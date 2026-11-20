@@ -294,3 +294,13 @@ Adapt selectively:
 - **Code status:** the Escape-focus correction remains committed at `eef6547302ec0dc16fb12c2a3f33516c53c2182e`. It has **not** been validated by CI because the run exposed no steps/logs.
 - **Next diagnostic:** obtain GitHub Actions check-run annotations or a new run with a provisioned runner and inspect its first executed step. Do not make further application-code changes until an actionable failure is visible.
 - **Scope:** PR #16 remains draft; no merge, deployment, DNS, publication, outreach, or spending authorized.
+
+
+## 20. CI #257 billing / spending-limit blocker — 2026-11-20
+
+- **Pesan anotasi GitHub Actions yang diterima operator:** “The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings”.
+- **Diagnosis:** penyebab job #257 tidak dimulai adalah kendala billing atau spending limit pada akun GitHub, bukan kegagalan tes, build, atau kode aplikasi. Ini menjelaskan metadata sebelumnya: job tidak memiliki runner dan tidak menjalankan langkah apa pun.
+- **Status validasi:** commit perbaikan fokus keyboard `eef6547302ec0dc16fb12c2a3f33516c53c2182e` masih belum tervalidasi CI. Tidak boleh menyatakan CI lulus atau gagal karena bug aplikasi berdasarkan run #257.
+- **Tindakan yang diperlukan di luar repository:** pemilik akun GitHub perlu meninjau Settings → Billing & plans dan menyelesaikan masalah pembayaran atau menyesuaikan spending limit sesuai kebijakan/otorisasi akun. ADES Lead tidak mengubah billing, menambah spending limit, atau menyetujui biaya.
+- **Tindakan Lead:** tidak ada perubahan kode aplikasi yang diperlukan dari pesan ini. Setelah operator mengonfirmasi billing/limit sudah ditangani, jalankan ulang workflow pada head PR #16 yang sama dan evaluasi hasil CI aktual.
+- **Batasan:** PR #16 tetap draft; tidak ada merge, deployment, DNS, publikasi, outreach, atau pengeluaran biaya yang diotorisasi.
