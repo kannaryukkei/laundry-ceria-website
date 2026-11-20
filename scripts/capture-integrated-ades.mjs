@@ -32,7 +32,7 @@ try {
       const name = 'integrated-' + viewport.id + '.png';
       await page.screenshot({ path: path.join(out, name), fullPage: true, animations: 'disabled' });
       let menuState = 'not-applicable';
-      if (viewport.width <= 767) {
+      if (viewport.width <= 900) {
         const menu = page.locator('.menu-toggle');
         await menu.click();
         menuState = await menu.getAttribute('aria-expanded');
