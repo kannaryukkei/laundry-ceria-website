@@ -2,11 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { hours, services } from './data';
 
 const navItems = [
-  ['Harga', 'layanan'],
-  ['Waktu', 'waktu'],
-  ['Proses', 'proses'],
-  ['Antar-jemput', 'antar-jemput'],
-  ['Jam & lokasi', 'jam'],
+  ['Harga', 'services-pricing'],
+  ['Waktu', 'how-it-works'],
+  ['Antar-jemput', 'pickup-delivery'],
+  ['Jam & lokasi', 'hours-location'],
 ] as const;
 
 type ServiceKey = 'cuci-lipat' | 'cuci-setrika' | 'setrika-saja' | 'bed-cover' | 'selimut';
@@ -69,15 +68,15 @@ function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a className="brand" href="#top" aria-label="Laundry Ceria, kembali ke awal">
+        <a className="brand wordmark" href="#top" aria-label="Laundry Ceria, kembali ke awal">
           <span className="brand-mark" aria-hidden="true">LC</span>
           <span><strong>Laundry Ceria</strong><small>LAUNDRY KILOAN TETANGGA</small></span>
         </a>
         <button ref={toggleRef} className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>
           <span className="sr-only">{open ? 'Tutup menu' : 'Buka menu'}</span><i/><i/>
         </button>
-        <nav id="main-nav" className={open ? 'nav is-open' : 'nav'} aria-label="Navigasi utama">
-          {navItems.map(([label, id]) => <a key={id} href={'#' + id} onClick={() => setOpen(false)}>{label}</a>)}
+        <nav id="primary-nav" className={open ? 'nav is-open' : 'nav'} aria-label="Navigasi utama">
+          {navItems.map(([label, id]) => <a key={id} href={'#' + id} onClick={() => setOpen(false)}>{label}</a>)}<a className="nav-cta" href="#hours-location" onClick={() => setOpen(false)}>Jam buka</a>
         </nav>
       </div>
     </header>
@@ -93,7 +92,7 @@ function Hero() {
           <h1>Laundry yang jelas, <em>mulai dari harga.</em></h1>
           <p className="hero-lead">Lihat pilihan layanan, waktu pengerjaan, dan ketentuan antar-jemput sebelum membawa pakaian.</p>
           <div className="hero-pills"><span>Reguler biasanya 2 hari</span><span>Express hari yang sama</span><span>Antar-jemput radius 2 km</span></div>
-          <div className="hero-actions"><a className="button button-primary" href="#layanan">Lihat daftar harga <span>↘</span></a><a className="button button-outline" href="#antar-jemput">Cek antar-jemput</a></div>
+          <div className="hero-actions"><a className="button button-primary" href="#services-pricing">Lihat daftar harga <span>↘</span></a><a className="button button-outline" href="#hours-location">Jam & lokasi</a></div>
           <p className="demo-copy">Simulasi informasi bisnis. Bukan penawaran usaha nyata.</p>
         </div>
         <ClotheslineArt />
@@ -160,7 +159,7 @@ function PricingCalculator() {
 
 function Services() {
   return (
-    <section className="section pricing-section" id="layanan">
+    <section className="section pricing-section" id="services-pricing">
       <div className="container">
         <div className="section-heading"><p className="eyebrow">01 · LAYANAN & HARGA</p><h2>Harga yang bisa dibaca sebelum datang</h2><p>Tarif kiloan untuk cucian harian dan tarif per potong untuk bed cover serta selimut.</p></div>
         <div className="pricing-layout">
@@ -180,7 +179,7 @@ function Services() {
 
 function Turnaround() {
   return (
-    <section className="section turnaround-section" id="waktu">
+    <section className="section turnaround-section" id="how-it-works">
       <div className="container">
         <div className="section-heading"><p className="eyebrow">02 · WAKTU PENGERJAAN</p><h2>Reguler dua hari, express selesai hari yang sama</h2><p>Waktu pengerjaan dihitung sejak cucian diterima.</p></div>
         <div className="turn-grid">
@@ -209,7 +208,7 @@ function Process() {
 
 function Pickup() {
   return (
-    <section className="section pickup-section" id="antar-jemput">
+    <section className="section pickup-section" id="pickup-delivery">
       <div className="container pickup-layout">
         <div><p className="eyebrow">04 · ANTAR-JEMPUT</p><h2>Antar-jemput dalam radius 2 km</h2><p className="pickup-lead">Ketentuan biaya mengikuti berat pesanan.</p><div className="radius-art"><span>2</span><b>km</b><small>RADIUS LAYANAN</small></div></div>
         <div className="pickup-rules">
@@ -224,7 +223,7 @@ function Pickup() {
 
 function HoursLocation() {
   return (
-    <section className="section location-section" id="jam">
+    <section className="section location-section" id="hours-location">
       <div className="container">
         <div className="section-heading"><p className="eyebrow">05 · JAM BUKA & LOKASI</p><h2>Kapan bisa datang</h2><p>Jam operasional mingguan dan keterangan alamat demo.</p></div>
         <div className="info-grid">
@@ -237,7 +236,7 @@ function HoursLocation() {
 }
 
 function Footer() {
-  return <footer className="footer"><div className="container footer-inner"><div><strong>Laundry Ceria</strong><p>Pratinjau desain untuk laundry kiloan lingkungan.</p><span className="contact-status">STATUS KONTAK: BELUM TERSEDIA<br/>Nomor WhatsApp dan telepon belum diberikan.</span></div><nav aria-label="Navigasi footer">{navItems.map(([label,id]) => <a key={id} href={'#'+id}>{label}</a>)}</nav></div><div className="container footer-bottom"><span>ADES PREVIEW — NOT FOR RELEASE · DEMO-ONLY · NOT_APPROVED</span><span>Konsep desain: “Jemuran Ceria”</span></div></footer>;
+  return <footer className="footer"><div className="container footer-inner"><div><a className="footer-wordmark" href="#top"><strong>Laundry Ceria</strong></a><p>Pratinjau desain untuk laundry kiloan lingkungan.</p><span className="contact-status">STATUS KONTAK: BELUM TERSEDIA<br/>Nomor WhatsApp dan telepon belum diberikan.</span></div><nav className="footer-nav" aria-label="Navigasi footer">{navItems.map(([label,id]) => <a key={id} href={'#'+id}>{label}</a>)}</nav></div><div className="container footer-bottom"><span>ADES PREVIEW — NOT FOR RELEASE · DEMO-ONLY · NOT_APPROVED</span><span>Konsep desain: “Jemuran Ceria”</span></div><div className="container back-top-wrap"><a className="back-top" href="#top">Kembali ke atas ↑</a></div></footer>;
 }
 
 export default function App() {
