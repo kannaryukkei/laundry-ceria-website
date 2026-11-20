@@ -217,7 +217,7 @@ Semua pernyataan di bawah berasal dari intake simulasi operator dan bukan fakta 
 - Accessibility checks are partial: presence of landmarks, skip links, focus-visible styles and reduced-motion rules was checked; contrast, reading order at zoom, screen-reader announcements and keyboard behavior remain unverified.
 
 ### Synthesis recommendation
-Use **Muse / Nota Ceria** as the single primary visual and information-architecture direction. Its receipt/ledger metaphor reinforces the primary user task — quickly understanding prices and conditions — and its kiloan-only estimator avoids the most significant calculation error found in the other concepts.
+Use **DeepSeek / Jemuran Ceria** as the single primary visual direction, per operator decision. Muse remains an evaluated alternative, not the selected direction. Its receipt/ledger metaphor reinforces the primary user task — quickly understanding prices and conditions — and its kiloan-only estimator avoids the most significant calculation error found in the other concepts.
 
 Adapt selectively:
 1. Retain Muse’s receipt-like price presentation, clear kiloan/per-piece grouping, section hierarchy, restrained copy, and explicit estimate disclaimer.
@@ -234,3 +234,15 @@ Adapt selectively:
 - Final visual selection: **recommended, pending operator visual review** because browser rendering could not be verified here.
 - Production implementation: **not started**; existing repository baseline and prior experiments remain untouched.
 - Release/publication: **not authorized**.
+
+
+## 15. Operator visual review and design decision — 2026-11-20
+
+- **Evidence received:** operator supplied one long-page visual capture for each of Muse, Gemini, and DeepSeek.
+- **Review scope:** operator stated that desktop review is sufficient for the current decision; no additional mobile review is requested at this stage. The supplied captures are long-page portrait images, so exact desktop viewport fidelity was not independently measured from the images.
+- **Operator assessment:** DeepSeek has the strongest overall interaction and responsive behavior, although those qualities are not fully represented by a static screenshot. Its main weakness is the absence of a cost calculator.
+- **Decision:** **DeepSeek / Jemuran Ceria selected as the primary design direction**, overriding the Lead's initial Muse recommendation. This is the operator's explicit design selection.
+- **Implementation response:** retain DeepSeek's interaction model, clothesline motif, section rhythm and restrained layout as the design basis. Add a calculator as a purposeful decision-support feature, with verified pricing and pickup arithmetic; do not copy Gemini's per-piece pickup-fee bug or Muse's assumptions.
+- **Content corrections remain mandatory:** remove/rewrite unsupported “Bersih, wangi” outcome claim; express cutoff must read **sebelum 10.00** (not ≤ 10.00); remove the third process stage “Baru dicuci” because intake only confirms weighing in front of customer and recording before washing; no unsupported express eligibility for per-piece items.
+- **Current validation status:** operator visual preference recorded. Desktop visual preference accepted as design direction; exact browser rendering, calculator behavior, keyboard, accessibility, responsive breakpoints and manual QA remain to be validated on the implementation branch.
+- **Scope boundary:** no deployment, DNS, cost, outreach, publication or release authorized. Prior experiments and main baseline remain untouched.
