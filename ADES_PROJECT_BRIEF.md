@@ -375,3 +375,13 @@ Adapt selectively:
 - **Remediation committed on PR #16 branch:** `src/App.tsx` now gives the menu button a dynamic accessible `aria-label` and removes the overflow-prone hidden text node; decorative bars are `aria-hidden`. Eyebrow/caption paragraphs are marked `data-qa-role="metadata"`. `src/styles.css` raises body/control text and metadata to the shared floors, and darkens only the calculator stamp text/border to `#B83D2C` (contrast above 4.5); the wider brand coral remains unchanged.
 - **New exact head:** `6772600d8d71eb9bce3027e97cea4abc8d2ea1db`. Website CI #282, run ID `44736752254`, job `136289962696`, is running on this exact head. Typecheck and production build passed; Playwright installation and remaining browser/quality checks were still in progress at update time. No quality-gate pass is claimed yet.
 - **PR:** #16 remains open/draft: https://github.com/kannaryukkei/laundry-ceria-website/pull/16. No merge, deployment, DNS change, spending, outreach, publication, or release authorized.
+
+
+## 25. CI #282 — remaining typography failure and precise correction — 2026-11-20
+
+- **Run:** Website CI #282, run ID `44736752254`, exact head `6772600d8d71eb9bce3027e97cea4abc8d2ea1db`; canonical shared action now resolves and runs. Typecheck/build, responsive overflow, contrast, and evidence-manifest checks passed.
+- **Only reported failures:** METADATA typography floor (11 px) at every tested viewport 320–1440 px. The failing text is `ALAT BANTU HITUNG · BUKAN PEMESANAN`, measured at 9 px.
+- **Root cause:** existing selector `.calculator-heading .eyebrow{font-size:9px}` had higher specificity than the previous generic `.eyebrow{font-size:11px}` adjustment, so the generic rule did not override it. This is why the previous remediation did not clear the same failure.
+- **Precise fix committed:** changed the specific calculator-heading eyebrow rule itself to 11 px. Commit `88eb825d827e727112a88a0ed868a60a3c8b965c` on `ades/deepseek-direction-implementation`.
+- **Validation:** new exact-head CI has not yet completed; no pass is claimed. Recheck the report after the new run.
+- **No release:** PR #16 remains draft; no merge, deployment, DNS, spending, outreach, or publication authorized.
