@@ -68,7 +68,7 @@ function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a className="brand wordmark" href="#top" aria-label="Laundry Ceria, kembali ke awal">
+        <a className="brand" href="#top" aria-label="Laundry Ceria, kembali ke awal">
           <span className="brand-mark" aria-hidden="true">LC</span>
           <span><strong>Laundry Ceria</strong><small>LAUNDRY KILOAN TETANGGA</small></span>
         </a>
