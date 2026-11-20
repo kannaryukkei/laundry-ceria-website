@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { hours, services } from './data';
 
 const navItems = [
@@ -108,7 +108,7 @@ function PricingCalculator() {
   const [express, setExpress] = useState(false);
   const selected = calculatorServices.find((item) => item.key === serviceKey)!;
   const amount = Number(quantity);
-  const valid = Number.isFinite(amount) && amount > 0;
+  const valid = Number.isFinite(amount) && amount > 0 && (selected.unit !== 'potong' || Number.isInteger(amount));
   const serviceTotal = valid ? Math.round(amount * selected.price) : 0;
   const expressAllowed = selected.unit === 'kg';
   const pickupAllowed = selected.unit === 'kg';
@@ -135,7 +135,7 @@ function PricingCalculator() {
         </select>
         <label htmlFor="quantity-input">{quantityLabel}</label>
         <input id="quantity-input" type="number" min="0.1" step={step} inputMode="decimal" value={quantity} onChange={(e) => setQuantity(e.target.value)} aria-describedby="quantity-help"/>
-        <small id="quantity-help">{selected.unit === 'kg' ? 'Masukkan berat dalam kilogram.' : 'Masukkan jumlah potong (bilangan bulat).'}</small>
+        <small id="quantity-help">{selected.unit === 'kg' ? 'Masukkan berat dalam kilogram.' : 'Masukkan jumlah potong berupa bilangan bulat.'}</small>
         {expressAllowed && <label className="check-option"><input type="checkbox" checked={express} onChange={(e) => setExpress(e.target.checked)}/><span>Express (+50% biaya layanan)</span></label>}
         {pickupAllowed && <label className="check-option"><input type="checkbox" checked={pickup} onChange={(e) => setPickup(e.target.checked)}/><span>Antar-jemput dalam radius 2 km</span></label>}
       </div>
@@ -145,7 +145,7 @@ function PricingCalculator() {
           <p><span>{selected.label} · {amount} {selected.unit}</span><b>{rupiah(serviceTotal)}</b></p>
           {expressFee > 0 && <p><span>Tambahan express 50%</span><b>{rupiah(expressFee)}</b></p>}
           {pickup && <p><span>Antar-jemput {amount <= 5 ? '(5 kg atau kurang)' : '(lebih dari 5 kg)'}</span><b>{pickupFee ? rupiah(pickupFee) : 'Gratis'}</b></p>}
-        </div> : <p className="estimate-error">Masukkan jumlah lebih dari nol untuk menghitung estimasi.</p>}
+        </div> : <p className="estimate-error">Masukkan berat lebih dari nol atau jumlah potong berupa bilangan bulat.</p>}
         <p className="estimate-note">Estimasi bukan tagihan. Berat akhir ditimbang di depan pelanggan dan dicatat sebelum dicuci.</p>
       </div>
     </section>
