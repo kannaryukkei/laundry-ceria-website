@@ -1,0 +1,32 @@
+name: Laundry Ceria shared website quality gate
+description: Thin local adapter that delegates to the pinned canonical shared website quality gate.
+inputs:
+  working-directory:
+    description: Path to the website root being tested.
+    required: false
+    default: .
+  preview-command:
+    description: Command that starts the already-built preview server.
+    required: true
+  url:
+    description: Rendered website URL to inspect.
+    required: true
+  evidence-manifest:
+    description: Evidence manifest path relative to working-directory.
+    required: false
+    default: .website-quality/evidence-manifest.json
+  artifacts-directory:
+    description: Directory for screenshots, reports, and diagnostics.
+    required: false
+    default: .website-quality-artifacts
+runs:
+  using: composite
+  steps:
+    - name: Run canonical shared website quality gate
+      uses: kannaryukkei/ai-operated-web-studio/.github/actions/shared-website-quality-gate@44d52586a2179a5f91d46049b139c823eaf1afa2
+      with:
+        working-directory: ${{ inputs.working-directory }}
+        preview-command: ${{ inputs.preview-command }}
+        url: ${{ inputs.url }}
+        evidence-manifest: ${{ inputs.evidence-manifest }}
+        artifacts-directory: ${{ inputs.artifacts-directory }}
