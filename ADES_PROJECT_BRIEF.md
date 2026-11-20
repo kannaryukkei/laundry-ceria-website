@@ -169,7 +169,7 @@ Semua pernyataan di bawah berasal dari intake simulasi operator dan bukan fakta 
 
 ## 12. Lead status and next step
 
-- **Tahap saat ini:** Build — implementasi awal arah DeepSeek dan kalkulator tersedia pada branch PR terpisah; menunggu CI dan review.
+- **Tahap saat ini:** Build — implementasi awal arah DeepSeek dan kalkulator tersedia pada branch PR terpisah; TypeScript dan production build lulus; menunggu browser capture, canonical quality gate, dan review desktop.
 - **Ringkasan kemajuan:** Guide dan intake ditinjau; baseline repository dipertahankan; tiga output independen diaudit; operator memilih DeepSeek; implementasi awal dilakukan pada branch `ades/deepseek-direction-implementation`.
 - **Hambatan:** inspeksi render desktop/mobile melalui Chromium headless tidak berhasil (proses timeout); visual akhir, zoom 200%, screen reader dan interaksi manual belum tervalidasi.
 - **Menunggu operator:** buka ketiga HTML preview secara lokal pada desktop dan lebar mobile; kirim screenshot bila tersedia. Tidak perlu menjalankan ulang model.
@@ -262,6 +262,6 @@ Adapt selectively:
   - Express menggunakan cutoff **sebelum pukul 10.00**, selesai pukul 20.00 hari yang sama, +50%.
   - Alamat tetap ditandai fiktif/demo; tanpa peta, petunjuk arah, kontak aktif, foto, atau social proof.
 - **Formula kalkulator:** subtotal = harga layanan × berat/jumlah; express kiloan = 50% subtotal bila dipilih; pickup kiloan = Rp5.000 bila dipilih dan berat <= 5 kg, selain itu gratis bila > 5 kg. Pickup/express tidak muncul untuk item per potong.
-- **Validasi:** workflow PR #16 belum mengembalikan run yang dapat diperiksa pada saat pembaruan Brief; TypeScript/build/CI belum dinyatakan lulus. Pemeriksaan visual desktop manual, interaksi keyboard, zoom 200%, screen reader, dan mobile QA belum dilakukan pada implementasi.
+- **Validasi:** workflow PR #16 run `44713268009` sedang berjalan; langkah TypeScript dan production build sudah sukses. Sisa browser capture, dependency evidence, dan canonical quality gate masih berjalan. Pemeriksaan visual desktop manual, interaksi keyboard, zoom 200%, screen reader, dan mobile QA belum dilakukan pada implementasi.
 - **Branch dan PR:** implementasi pada branch `ades/deepseek-direction-implementation`; draft PR #16 https://github.com/kannaryukkei/laundry-ceria-website/pull/16. Tidak ada merge, deployment, DNS, publikasi, biaya atau outreach yang diotorisasi.
 - **Catatan scope:** operator meminta fokus visual desktop untuk keputusan arah. CSS tetap memiliki breakpoints untuk layout lain, tetapi itu bukan klaim bahwa responsivitas sudah diuji.
