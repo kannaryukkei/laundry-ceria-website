@@ -14,6 +14,10 @@ const desktopOrder = [
   '#primary-nav a.nav-cta',
   '.hero-actions a[href="#services-pricing"]',
   '.hero-actions a[href="#how-it-works"]',
+  '#service-choice',
+  '#laundry-weight',
+  '#express-estimate',
+  '#pickup-estimate',
   '.contact-option a[href="#hours-location"]',
   'a.footer-wordmark',
   'a.footer-top',
@@ -29,14 +33,14 @@ try {
       label: (link.getAttribute('aria-label') || link.innerText || '').replace(/\s+/g, ' ').trim(),
     })),
   );
-  assert.equal(renderedLinks.length, desktopOrder.length, 'Every visible desktop link is included in the reviewed keyboard sequence');
+  assert.equal(renderedLinks.length, 12, 'All visible desktop links are accounted for separately from form controls');
   for (const link of renderedLinks) {
     assert.ok(link.label, `Link has a discernible accessible name: ${link.href}`);
     assert.ok(link.href?.startsWith('#'), `Demo links stay within the local page: ${link.href}`);
     assert.ok(await page.locator(link.href).count(), `Every in-page link target exists: ${link.href}`);
   }
 
-  // Walk the complete desktop tab sequence, checking focus visibility and
+  // Walk the complete desktop tab sequence, including the four new estimator controls, checking focus visibility and
   // that no interactive link is skipped, duplicated, or unexpectedly hidden.
   for (let index = 0; index < desktopOrder.length; index += 1) {
     await page.keyboard.press('Tab');

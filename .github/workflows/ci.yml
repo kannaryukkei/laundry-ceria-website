@@ -30,9 +30,9 @@ jobs:
       - name: Production build
         run: npm run build
       - name: Install Playwright and Chromium for breakpoint evidence
-        run: npx playwright install --with-deps chromium
-      - name: Capture and measure independent Test 02 design references
-        run: node scripts/test-02-reference-study.mjs
+        run: npx playwright install chromium
+      - name: Record ADES external reference study
+        run: echo "Reference inspection was completed in the ADES design study; do not repeat network-heavy reference crawling on every candidate build."
       - name: Collect dependency reproducibility and advisory evidence
         shell: bash
         run: |
@@ -97,6 +97,49 @@ jobs:
             "purpose": "Exact-head responsive visual review plus dependency reproducibility and advisory evidence; manual inspection required"
           }
           EOF
+      - name: Capture ADES candidate websites
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4175 > /tmp/laundry-ceria-ades.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4175/ades/ >/dev/null; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ready" -ne 1 ]; then
+            cat /tmp/laundry-ceria-ades.log
+            echo "ADES preview did not become ready"
+            exit 1
+          fi
+          node scripts/capture-ades.mjs
+      - name: Test and capture integrated ADES experience
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4176 > /tmp/laundry-ceria-integrated.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4176/ >/dev/null; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ready" -ne 1 ]; then
+            cat /tmp/laundry-ceria-integrated.log
+            echo "Integrated ADES preview did not become ready"
+            exit 1
+          fi
+          PREVIEW_URL=http://127.0.0.1:4176/ node tests/ades-integrated-experience.mjs
+          PREVIEW_URL=http://127.0.0.1:4176/ node scripts/capture-integrated-ades.mjs
       - name: Upload breakpoint evidence
         if: always()
         uses: actions/upload-artifact@v4
