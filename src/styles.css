@@ -21,3 +21,13 @@
 .walkin-card a{text-decoration:none}.walkin-card a:hover{text-decoration:underline}
 .footer-wordmark{display:inline-block;color:#fff;text-decoration:none}.back-top-wrap{padding:0 0 15px;text-align:right}.back-top{color:#fff;font-size:11px;text-decoration:underline}
 @media(max-width:700px){.nav-cta{margin-top:8px;text-align:center}}
+
+/* Shared quality-gate readability and contrast fixes */
+.brand small,.price-row small,.radius-art small{font-size:11px}
+.eyebrow{font-size:11px}
+.hero-art p[data-qa-role="metadata"]{font-size:11px}
+.demo-copy,.calculator-intro,.estimate-note,.fine-print,.turn-card p,.steps p,.pickup-lead,.pickup-rule p,.info-card p,.footer-inner p{font-size:15px}
+.calculator-fields>label:not(.check-option),.check-option{font-size:15px}
+.check-option input{font-size:15px}
+.nav a,.footer nav a{font-size:13px}
+.calc-stamp{border-color:#B83D2C;color:#B83D2C}
