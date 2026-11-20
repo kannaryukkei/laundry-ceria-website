@@ -316,3 +316,15 @@ Adapt selectively:
 - **New exact-head CI:** run `44724885865` (run #266), head `9f7d9cb9f99b66ecbd2250c9b6ca03106216c5e7`, is in progress. TypeScript and production build passed again; Playwright install and browser checks remain pending/running at the time of this note.
 - **Latest code commits after that head:** `34f0d5cecab1560be6154ae03c22496e896bdf59` and `9f7d9cb9f99b66ecbd2250c9b6ca03106216c5e7`; verify the newest PR head CI, not only the earlier attempt, before treating the remediation as passed.
 - **No bypass:** no test was deleted, weakened, or skipped intentionally. No merge, deployment, publication or release authorized.
+
+
+## 21. CI #274 — keyboard sequence diagnosis and correction — 2026-11-20
+
+- **Exact-head run:** Website CI #274, run ID `44728504825`, job ID `136261926860`, implementation head `74efb4ee10f7e62ae05fcf71bd3d189314238d99`; conclusion **failure**.
+- **Passed:** TypeScript typecheck, production build, A11Y-001, browser installation, design-reference capture, dependency evidence and responsive screenshot capture. The shared canonical website quality gate was skipped because the preceding browser-capture step failed.
+- **Failure:** A11Y-002 at tab stop 11 expected `.footer nav a[href="#services-pricing"]`, but that element was not focused.
+- **Root cause confirmed by reviewing the test and rendered component source:** the expected desktop keyboard sequence enumerated links only. It omitted the four keyboard-focusable calculator controls between the Hero/walk-in links and footer links: `#service-select`, `#quantity-input`, the Express checkbox and the pickup checkbox. Thus the test's expected focus order was incomplete; no evidence indicated a footer navigation defect.
+- **Correction committed to implementation branch:** added stable IDs `express-option` and `pickup-option` to the two checkbox inputs, and amended A11Y-002's full keyboard order to include the service select, quantity input and both checkboxes before the footer navigation. The independent count assertion remains scoped to the 14 tabbable links; the full sequence checks 18 stops (14 links + 4 calculator controls). No checks were deleted or skipped.
+- **Latest implementation head:** `050db2eb2e94481532223a9f8766d8acb279fcda`. GitHub workflow lookup returned no run for this exact SHA at the time of this note; therefore this correction is **not yet CI-validated**. Check the exact-head run before making any further code change.
+- **PR #16:** remains open and draft: https://github.com/kannaryukkei/laundry-ceria-website/pull/16. No merge, deployment, DNS change, spending, outreach, publication or release is authorized.
+- **Next action:** inspect whether GitHub Actions has started for exact head `050db2eb2e94481532223a9f8766d8acb279fcda`; if it runs, inspect the A11Y-002 result and canonical gate. Do not make another speculative keyboard-order edit.
