@@ -352,3 +352,16 @@ Adapt selectively:
 - **Validation state:** exact-head workflow lookup had not yet returned a run at the time of this update. This adapter is not CI-validated until the new exact-head run reaches and completes step 12.
 - **Warning:** Node.js 20 deprecation warning for checkout/setup-node/upload-artifact is independent and non-fatal; not mixed into this fix.
 - **Boundaries:** PR #16 remains draft. No merge, deployment, DNS, spending, outreach, publication or release authorized.
+
+
+## 22. CI #280 — private canonical action access blocker — 2026-11-20
+
+- **Run:** Website CI #280, run ID `44734824547`, job `136283459656`, PR #16. Typecheck, production build, reference capture, dependency evidence, responsive captures, A11Y-001 and A11Y-002 all completed successfully; step 12, Canonical shared website quality gate, failed before executing its runner.
+- **Exact error:** `Unable to resolve action kannaryukkei/ai-operated-web-studio, not found`.
+- **Source trace:** Laundry's local adapter `.github/actions/website-quality-gate/action.yml` delegates to `kannaryukkei/ai-operated-web-studio/.github/actions/shared-website-quality-gate@44d52586a2179a5f91d46049b139c823eaf1afa2`.
+- **Repository/action verification:** canonical repository exists and is private. The referenced commit exists; its `.github/actions/shared-website-quality-gate/action.yml` was retrievable at that commit and current `main`. Therefore the source repository/file/commit are not absent. The likely blocker is GitHub Actions private-repository access policy for the canonical repository, not the website's test suite.
+- **Preservation rule:** do not copy/vendor the canonical shared quality gate into Laundry Ceria or weaken/remove the quality gate. That would duplicate or bypass the canonical operating procedure. Do not make the canonical repository public.
+- **Tooling limitation:** available GitHub integration supports repository/file writes and read-only repository metadata, but does not expose the repository Actions access-policy administration endpoint. It cannot safely change the canonical repository's private-action access setting.
+- **Warning:** Node.js 20 deprecation annotation for `actions/checkout@v4`, `actions/setup-node@v4`, and `actions/upload-artifact@v4` is separate and did not cause the action-resolution failure. Defer version upgrades until the canonical action access issue is resolved; do not conflate warning with the blocking error.
+- **Next action required from repository owner:** in `kannaryukkei/ai-operated-web-studio`, open **Settings → Actions → General → Access** and allow the private repository/action to be used by the intended repository `kannaryukkei/laundry-ceria-website` (or select the narrowest owner-scoped option that includes it). Keep the canonical repository private. Then rerun PR #16 CI at its latest head. This setting change was not performed by the Lead.
+- **No merge/deployment/publication:** PR #16 remains draft. No production action authorized.
