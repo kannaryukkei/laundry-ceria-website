@@ -7,11 +7,20 @@ const browser = await chromium.launch({ headless: true });
 const desktopOrder = [
   'a.skip-link',
   'a.brand',
-  ...Array.from({ length: 5 }, (_, index) => `#main-nav a[href="${['#services-pricing', '#how-it-works', '#pickup-delivery', '#hours-location'][index] || '#hours-location'}"]`),
+  '#main-nav a[href="#services-pricing"]',
+  '#main-nav a[href="#how-it-works"]',
+  '#main-nav a[href="#pickup-delivery"]',
+  '#main-nav a[href="#hours-location"]',
+  '#main-nav a.nav-cta[href="#hours-location"]',
   '.hero-actions a[href="#services-pricing"]',
   '.hero-actions a[href="#hours-location"]',
   '.walkin-card a[href="#hours-location"]',
-  ...['#services-pricing', '#how-it-works', '#pickup-delivery', '#hours-location'].map((href) => `.footer nav a[href="${href}"]`),
+  '.footer-wordmark[href="#top"]',
+  '.footer nav a[href="#services-pricing"]',
+  '.footer nav a[href="#how-it-works"]',
+  '.footer nav a[href="#pickup-delivery"]',
+  '.footer nav a[href="#hours-location"]',
+  '.back-top[href="#top"]',
 ];
 
 try {
