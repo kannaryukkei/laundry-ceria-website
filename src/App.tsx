@@ -72,10 +72,10 @@ function Header() {
           <span className="brand-mark" aria-hidden="true">LC</span>
           <span><strong>Laundry Ceria</strong><small>LAUNDRY KILOAN TETANGGA</small></span>
         </a>
-        <button ref={toggleRef} className="menu-toggle" type="button" aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>
+        <button ref={toggleRef} className="menu-toggle" type="button" aria-expanded={open} aria-controls="primary-nav" onClick={() => setOpen(!open)}>
           <span className="sr-only">{open ? 'Tutup menu' : 'Buka menu'}</span><i/><i/>
         </button>
-        <nav id="primary-nav" className={open ? 'nav is-open' : 'nav'} aria-label="Navigasi utama">
+        <nav id="primary-nav" className={open ? 'nav primary-nav is-open' : 'nav primary-nav'} aria-label="Navigasi utama">
           {navItems.map(([label, id]) => <a key={id} href={'#' + id} onClick={() => setOpen(false)}>{label}</a>)}<a className="nav-cta" href="#hours-location" onClick={() => setOpen(false)}>Jam buka</a>
         </nav>
       </div>
@@ -102,6 +102,7 @@ function Hero() {
         <div><span>REGULER KILOAN</span><strong>Biasanya 2 hari</strong></div>
         <div><span>AREA ANTAR-JEMPUT</span><strong>Radius 2 km</strong></div>
       </div>
+      <div className="container walkin-card"><a href="#hours-location">Lihat jam operasional dan informasi lokasi demo →</a></div>
     </section>
   );
 }
