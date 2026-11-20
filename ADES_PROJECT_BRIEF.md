@@ -265,3 +265,13 @@ Adapt selectively:
 - **Validasi:** workflow PR #16 run `44713268009` sedang berjalan; langkah TypeScript dan production build sudah sukses. Sisa browser capture, dependency evidence, dan canonical quality gate masih berjalan. Pemeriksaan visual desktop manual, interaksi keyboard, zoom 200%, screen reader, dan mobile QA belum dilakukan pada implementasi.
 - **Branch dan PR:** implementasi pada branch `ades/deepseek-direction-implementation`; draft PR #16 https://github.com/kannaryukkei/laundry-ceria-website/pull/16. Tidak ada merge, deployment, DNS, publikasi, biaya atau outreach yang diotorisasi.
 - **Catatan scope:** operator meminta fokus visual desktop untuk keputusan arah. CSS tetap memiliki breakpoints untuk layout lain, tetapi itu bukan klaim bahwa responsivitas sudah diuji.
+
+
+## 17. CI failure diagnosis and test alignment — 2026-11-20
+
+- **Failed run:** GitHub Actions run `44713268009` / Website CI run #252 on PR #16, head `56a12be0c394f971754255d6e03446d51e313f8`.
+- **Successful steps:** dependency installation, TypeScript typecheck, production build, Playwright/Chromium install, A3 reference study, dependency evidence collection, and all seven responsive screenshot captures (640, 720, 320, 360, 900, 1024, 1280).
+- **Failure:** `tests/a11y-001-keyboard.mjs` timed out at its wait for `#primary-nav`. Current implementation uses `#main-nav`; test selectors also referenced the previous `.wordmark` and `.primary-nav` naming. This is a stale-test/markup contract mismatch, not a compile or build failure.
+- **Correction committed on the same implementation branch:** updated A11Y-001 selectors to the current navigation and brand classes; rewrote A11Y-002 keyboard traversal expectations to match the actual current anchor destinations and visible navigation order. Checks remain enabled; assertions were not removed.
+- **New head:** `cdc98e18c8527792a8b3c8af6a1412a6ac3ec7bf`. New CI run #255 / run ID `44713744535` has started. Result pending at time of this update.
+- **No merge/deployment/publication:** PR #16 remains a draft review path; all existing baseline and prior experiment branches are preserved.
