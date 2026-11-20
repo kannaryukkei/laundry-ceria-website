@@ -364,3 +364,28 @@ a:focus, button:focus, input:focus, select:focus {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+@media (min-width: 768px) and (max-width: 900px) {
+  :root { --gutter: 30px; }
+  .masthead-inner { min-height: 72px; flex-wrap: wrap; gap: 0; }
+  .menu-toggle { width: 43px; height: 43px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); cursor: pointer; }
+  .menu-toggle span { width: 18px; height: 2px; background: var(--ink); }
+  .main-nav { position: static; width: 100%; flex: 0 0 100%; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 7px 0 17px; border-top: 1px solid var(--line); background: var(--cream); }
+  .main-nav.is-open { display: flex; }
+  .main-nav a { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .main-nav .nav-cta { justify-content: space-between; margin-top: 11px; padding: 13px 15px; border: 0; }
+  .hero { padding-top: 34px; }
+  .hero-layout { min-height: 0; grid-template-columns: 1fr; gap: 27px; }
+  .hero-copy { padding: 16px 0 0; }
+  .hero h1 { font-size: clamp(66px, 8.2vw, 78px); }
+  .hero-description { max-width: 640px; }
+  .hero-visual { width: 100%; max-width: 680px; margin-inline: auto; }
+  .hero-image-wrap, .hero-image-wrap img { min-height: 390px; }
+  .section-intro { grid-template-columns: 1fr; gap: 17px; margin-bottom: 36px; }
+  .section-intro-content h2 { max-width: 720px; }
+  .process-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .process-step:not(:nth-child(3n)) { border-right: 0; }
+  .process-step:nth-child(3n + 2), .process-step:nth-child(3n + 3) { padding-left: 0; }
+  .process-step:nth-child(odd) { padding-right: 18px; border-right: 1px solid var(--line); }
+  .process-step:nth-child(even) { padding-right: 0; padding-left: 18px; }
+}
