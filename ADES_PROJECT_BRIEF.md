@@ -147,7 +147,6 @@ Semua pernyataan di bawah berasal dari intake simulasi operator dan bukan fakta 
 - [ ] Perubahan disampaikan melalui branch dan PR; tidak merge/deploy tanpa persetujuan.
 
 ## 10. Decisions and approvals
-
 | Tanggal | Keputusan | Dasar / dampak | Disetujui oleh | Status |
 |---|---|---|---|---|
 | 2026-11-20 | Mode `studio_development`; semua data synthetic/demo-only | Operator Context | Operator | Approved |
@@ -275,3 +274,13 @@ Adapt selectively:
 - **Correction committed on the same implementation branch:** updated A11Y-001 selectors to the current navigation and brand classes; rewrote A11Y-002 keyboard traversal expectations to match the actual current anchor destinations and visible navigation order. Checks remain enabled; assertions were not removed.
 - **New head:** `cdc98e18c8527792a8b3c8af6a1412a6ac3ec7bf`. New CI run #255 / run ID `44713744535` has started. Result pending at time of this update.
 - **No merge/deployment/publication:** PR #16 remains a draft review path; all existing baseline and prior experiment branches are preserved.
+
+## 18. CI #255 diagnosis and keyboard focus correction — 2026-11-20
+
+- **Run #255:** GitHub Actions run `44713744535`, PR #16, head `cdc98e18c8527792a8b3c8af6a1412a6ac3ec7bf`; conclusion **failure**.
+- **Successful checks:** dependency installation, TypeScript typecheck, production build, Playwright/Chromium installation, A3 reference study (12/12 captures; 4/4 measured pages), dependency evidence collection, and responsive screenshot captures at 640, 720, 320, 360, 900, 1024, and 1280 px.
+- **Failure:** `tests/a11y-001-keyboard.mjs` assertion at line 82: `Escape restores focus to the menu toggle`. After Escape, the menu state closed but focus was not programmatically returned to the toggle. A11Y-002 was not reached in this run.
+- **Root cause from source review:** Header Escape handler only called `setOpen(false)`; the menu toggle had no retained ref and no explicit focus restoration.
+- **Correction committed to implementation branch:** `src/App.tsx` now stores the menu toggle in a React ref and, on Escape, closes the menu and calls `toggleRef.current?.focus()`. No test assertion was removed or weakened.
+- **Fix commit:** `eef6547302ec0dc16fb12c2a3f33516c53c2182e` (`fix(a11y): restore focus after Escape closes mobile navigation`). New CI status must be checked on this exact head; no pass is claimed yet.
+- **Scope:** PR #16 remains draft. No merge, deployment, DNS, publication, external contact, or spending is authorized.
