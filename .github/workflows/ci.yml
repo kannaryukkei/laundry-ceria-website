@@ -30,7 +30,7 @@ jobs:
       - name: Production build
         run: npm run build
       - name: Install Playwright and Chromium for breakpoint evidence
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install chromium
       - name: Record ADES external reference study
         run: echo "Reference inspection was completed in the ADES design study; do not repeat network-heavy reference crawling on every candidate build."
       - name: Collect dependency reproducibility and advisory evidence
