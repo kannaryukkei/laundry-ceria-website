@@ -65,7 +65,7 @@ function Hero() {
       <div className="hero-copy">
         <div className="hero-kicker"><span /> LAUNDRY KILOAN & SATUAN</div>
         <h1>Cucian beres.<br /><em>Hari lanjut.</em></h1>
-        <p className="hero-description">Pilih layanan, cek tarif, dan pahami prosesnya sebelum pakaian diserahkan. Semua informasi penting ada di satu tempat.</p>
+        <p className="hero-description">Untuk penghuni kos dan keluarga muda, pilih layanan, cek tarif, dan pahami prosesnya sebelum pakaian diserahkan. Semua informasi penting ada di satu tempat.</p>
         <div className="hero-actions"><a className="button button-primary" href="#services-pricing">Lihat daftar harga <span aria-hidden="true">↓</span></a><a className="text-link" href="#how-it-works">Kenali prosesnya ↗</a></div>
         <div className="hero-proofline"><b aria-hidden="true">✓</b><span>Harga terlihat di awal</span><i /><span>Pesanan dicatat per pelanggan</span></div>
       </div>
