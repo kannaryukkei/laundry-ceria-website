@@ -122,7 +122,7 @@ a:focus, button:focus, input:focus, select:focus {
 .estimator-panel { padding: 25px; background: var(--paper); border: 1px solid rgba(32,38,74,.12); }
 .estimator-panel > label:not(.check-row) { display: block; margin: 0 0 8px; font-size: 12px; font-weight: 800; }
 .estimator-panel select, .estimator-panel input[type="number"] { width: 100%; min-height: 47px; padding: 0 13px; color: var(--ink); background: white; border: 1px solid rgba(32,38,74,.22); border-radius: 3px; outline: none; }
-.estimator-panel select:focus, .estimator-panel input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(67,88,219,.13); }
+.estimator-panel select:focus, .estimator-panel input:focus { border-color: var(--blue); outline: 3px solid var(--coral); outline-offset: 3px; box-shadow: 0 0 0 3px rgba(67,88,219,.13); }
 .estimator-panel select { margin-bottom: 19px; }
 .estimator-panel input[type="number"] { margin-bottom: 19px; }
 .check-row { display: flex; align-items: flex-start; gap: 11px; margin: 12px 0; cursor: pointer; font-size: 13px; font-weight: 800; }
