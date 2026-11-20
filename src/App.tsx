@@ -51,7 +51,7 @@ function Header() {
     <div className="page-shell masthead-inner">
       <a className="wordmark" href="#hero" aria-label="Laundry Ceria, kembali ke awal"><span className="wordmark-mark" aria-hidden="true">✳</span><span className="wordmark-copy">Laundry Ceria<small>CUCIAN HARIAN, LEBIH RINGKAS</small></span></a>
       <button ref={buttonRef} className="menu-toggle" type="button" aria-label={open ? 'Tutup navigasi' : 'Buka navigasi'} aria-expanded={open} aria-controls="primary-nav" onClick={() => setOpen(v => !v)}><span /><span /></button>
-      <nav id="primary-nav" className={open ? 'main-nav is-open' : 'main-nav'} aria-label="Navigasi utama">
+      <nav id="primary-nav" className={open ? 'main-nav primary-nav is-open' : 'main-nav primary-nav'} aria-label="Navigasi utama">
         {navigation.map(item => <a key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</a>)}
         <a className="nav-cta" href="#contact" onClick={() => setOpen(false)}>Info demo <span aria-hidden="true">↗</span></a>
       </nav>
@@ -75,7 +75,7 @@ function Hero() {
         <div className="hero-sticker"><strong>5</strong><span>pilihan<br />layanan</span></div>
       </div>
     </div>
-    <div className="hero-bottom"><span>UNTUK PENGHUNI KOS & KELUARGA MUDA</span><a href="#services-pricing">JELAJAHI LAYANAN ↓</a></div>
+    <div className="hero-bottom"><span>UNTUK PENGHUNI KOS & KELUARGA MUDA</span><span>JELAJAHI LAYANAN ↓</span></div>
   </div></section>;
 }
 
@@ -162,7 +162,7 @@ function HoursLocation() {
 function Contact() {
   return <section className="contact-section" id="contact"><div className="page-shell contact-layout">
     <div className="contact-copy"><span>06 / KONTAK</span><h2>Semua info ada.<br /><em>Kontak belum aktif.</em></h2><p>Materi sumber menyebut kunjungan langsung dan WhatsApp sebagai jalur konversi. Keduanya belum dapat digunakan pada preview fiktif ini.</p></div>
-    <div className="contact-status"><div className="contact-status-item"><span>01 / KUNJUNGAN</span><strong>Alamat demo</strong><p>Alamat yang tercantum merupakan data fiktif. Jangan gunakan sebagai tujuan perjalanan.</p><a href="#hours-location">Lihat informasi lokasi demo ↗</a></div><div className="contact-status-item contact-disabled" aria-disabled="true"><span>02 / WHATSAPP</span><strong>Belum dikonfigurasi</strong><p>Nomor WhatsApp usaha belum diberikan dalam materi sumber.</p><b>NOT CONFIGURED · NONAKTIF</b></div></div>
+    <div className="contact-status"><div className="contact-status-item contact-option"><span>01 / KUNJUNGAN</span><strong>Alamat demo</strong><p>Alamat yang tercantum merupakan data fiktif. Jangan gunakan sebagai tujuan perjalanan.</p><a href="#hours-location">Lihat informasi lokasi demo ↗</a></div><div className="contact-status-item contact-disabled" aria-disabled="true"><span>02 / WHATSAPP</span><strong>Belum dikonfigurasi</strong><p>Nomor WhatsApp usaha belum diberikan dalam materi sumber.</p><b>NOT CONFIGURED · NONAKTIF</b></div></div>
   </div></section>;
 }
 
