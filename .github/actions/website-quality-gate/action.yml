@@ -1,5 +1,5 @@
 name: Laundry Ceria shared website quality gate
-description: Thin local adapter that delegates to the pinned canonical shared website quality gate.
+description: Thin local adapter used by the base-branch PR workflow; delegates to the pinned canonical shared website quality gate.
 inputs:
   working-directory:
     description: Path to the website root being tested.
