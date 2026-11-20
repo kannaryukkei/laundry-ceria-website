@@ -118,6 +118,28 @@ jobs:
             exit 1
           fi
           node scripts/capture-ades.mjs
+      - name: Test and capture integrated ADES experience
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4176 > /tmp/laundry-ceria-integrated.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4176/ >/dev/null; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ready" -ne 1 ]; then
+            cat /tmp/laundry-ceria-integrated.log
+            echo "Integrated ADES preview did not become ready"
+            exit 1
+          fi
+          PREVIEW_URL=http://127.0.0.1:4176/ node tests/ades-integrated-experience.mjs
+          PREVIEW_URL=http://127.0.0.1:4176/ node scripts/capture-integrated-ades.mjs
       - name: Upload breakpoint evidence
         if: always()
         uses: actions/upload-artifact@v4
