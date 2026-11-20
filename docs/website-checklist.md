@@ -14,11 +14,11 @@ This is a human-readable manual checklist. It is not an automated test suite, ap
 
 ## Visual and responsive review
 
-- [x] Review full-page captures at 320, 360, 390, 768, 900, 1024, 1280, and 1440 px; review the exact-head Hero captures at 640 and 720 px. The shared gate independently measures all nine standard widths, including 640 px.
-- [x] Canonical shared gate reports zero page-level horizontal-overflow failures at nine diagnostic widths (320–1440 px); nested/intentional clipping is still subject to visual review.
+- [x] Review full-page captures at 320, 360, 390, 768, 900, 1024, 1280, and 1440 px; review the exact-head Hero captures at 640 and 720 px. The local website quality gate independently measures all nine standard widths, including 640 px.
+- [x] The local quality gate reports zero page-level horizontal-overflow failures at nine diagnostic widths (320–1440 px); nested/intentional clipping is still subject to visual review.
 - [x] Confirm the Hero illustration does not overlap disclosure text at 640 px and 720 px on exact-head captures; see [run #44374760430](https://github.com/kannaryukkei/laundry-ceria-website/actions/runs/44374760430).
 - [x] Confirm service prices, turnaround terms, pickup conditions, fictional-address label, disabled contact state, and footer disclosures remain readable across the inspected full-page captures.
-- [x] Review spacing, hierarchy, contrast, and visual consistency in rendered screenshots at the inspected widths. Generated Hero surfaces excluded from numeric contrast remain subject to the shared gate's manual-review requirement.
+- [x] Review spacing, hierarchy, contrast, and visual consistency in rendered screenshots at the inspected widths. Generated Hero surfaces excluded from numeric contrast remain subject to the local quality gate's manual-review requirement.
 
 ## Keyboard and accessibility review
 

@@ -106,7 +106,7 @@ jobs:
           retention-days: 14
 
       - name: Canonical shared website quality gate
-        uses: kannaryukkei/ai-operated-web-studio/.github/actions/shared-website-quality-gate@44d52586a2179a5f91d46049b139c823eaf1afa2
+        uses: ./.github/actions/website-quality-gate
         with:
           working-directory: .
           preview-command: npm run preview -- --host 127.0.0.1 --port 4174
